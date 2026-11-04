@@ -1,0 +1,5 @@
+# Build products and scratch space; evidence/ keeps the small logs and hashes.
+/.work/
+/lean/.lake/
+/rust/*/target/
+/toolchain/bin/

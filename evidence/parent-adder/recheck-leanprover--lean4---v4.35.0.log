@@ -1,0 +1,13 @@
+date: 2026-11-04T16:02:34Z
+project: .work/parent-adder/parent/rnn/lean, toolchain Lean (version 4.35.0-rc2, x86_64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+leanexport: /home/thomas/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport
+nanoda: /home/thomas/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin, nanoda_bin 0.4.19
+objects on LEAN_PATH: 7637 files, manifest sha256 30cb255eedc7f2c225783d65e19b1c6b72daf288b803204a093160d3d6a1b04c
+allowlist: propext Classical.choice Quot.sound 
+RnnAdder.Trained.sums_correct (RnnAdder.Trained): export 1435983 bytes, sha256 f3da89afd0a9153568c2ed42b8b74c251ab3a3db22d520e01932875ac9688ca4, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 0s: Checked 641 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+RnnAdder.Trained.carry_correct (RnnAdder.Trained): export 1435703 bytes, sha256 e83777ac9e9033b974a6f129c4ff008cf879f00e5e653d0d97c010264c64d533, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 0s: Checked 641 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+RnnAdder.Trained.adds (RnnAdder.Trained): export 4959371 bytes, sha256 9a452fe968180b98ceee12e1146e44e8509021df13c1c87adb95b2481bc8f777, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 0s: Checked 1650 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+recheck: ok

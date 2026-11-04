@@ -1,0 +1,15 @@
+{
+  "export_file_path": "/home/thomas/lean-checked-network-exec/.work/recheck/nanoda-from-leanprover--lean4---v4.35.0/RnnAdder.Trained.sums_correct.ndjson",
+  "use_stdin": false,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unpermitted_axiom_hard_error": true,
+  "nat_extension": true,
+  "string_extension": true,
+  "pp_declars": [],
+  "pp_to_stdout": false,
+  "print_success_message": true
+}

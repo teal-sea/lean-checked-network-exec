@@ -1,0 +1,4 @@
+[submodule "toolchain/aeneas"]
+	path = toolchain/aeneas
+	url = https://github.com/AeneasVerif/aeneas
+	ignore = untracked

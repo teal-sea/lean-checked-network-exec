@@ -1,0 +1,5 @@
+# Axioms a theorem may depend on. Anything else fails scripts/axioms.sh and scripts/recheck.sh.
+# An axiom introduced by a translation is a failure, never an addition here.
+propext
+Classical.choice
+Quot.sound

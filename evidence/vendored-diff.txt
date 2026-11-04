@@ -1,0 +1,6 @@
+# Vendored from https://github.com/teal-sea/lean-checked-network @ 0214aa3bcee37c9c1f7f6db220c3223375e0c459 (rnn/lean), by scripts/vendor.sh on 2026-11-04T15:03:26Z.
+# Pinned Lean versions differ: parent leanprover/lean4:v4.35.0-rc2, this repo leanprover/lean4:v4.35.0.
+# Dependency route in a scratch project: exit 0 (evidence/vendor/dependency-route.log).
+# RnnAdder/Network.lean sha256 original e9329dc1aa181478021d6ec04b022a9a73efb396a4a4822f8a2d85dfdc5c5009 vendored e9329dc1aa181478021d6ec04b022a9a73efb396a4a4822f8a2d85dfdc5c5009
+# RnnAdder/Trained.lean sha256 original 8b9591e75be069d922cb417ce0358a2f1b6c8646cdafcd76a2ab88ad5c549a0f vendored 8b9591e75be069d922cb417ce0358a2f1b6c8646cdafcd76a2ab88ad5c549a0f
+# Textual diff, original -> vendored (empty means byte-identical):

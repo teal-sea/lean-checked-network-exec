@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    name: build, axioms, nanoda recheck, compile-and-diff
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true # toolchain/aeneas at the pinned commit
+      - name: Free disk space (the Lean dependencies need about 10 GB)
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+      - name: Install elan 4.2.4 (checksum-pinned); lean/lean-toolchain selects Lean
+        run: |
+          curl -fsSL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz -o elan.tar.gz
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz" | sha256sum -c -
+          tar -xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          rm elan-init elan.tar.gz
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Install the production Rust toolchain (rust/rust-toolchain.toml)
+        run: rustup toolchain install 1.99.1 --profile minimal
+      - name: Gates (gates/ci.sh)
+        run: gates/ci.sh
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: evidence
+          path: evidence/
+          if-no-files-found: error

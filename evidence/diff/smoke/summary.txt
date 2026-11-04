@@ -1,0 +1,6 @@
+date: 2026-11-04T16:01:22Z
+seed: 20261104; inputs: 1300 lines, sha256 19eb4dd57907c885df34d498bd8685b9bbea0f1c7ea93be08911a0939d814fb7
+rust: rustc 1.99.1 (58cf8f9c3 2026-10-13), binary sha256 acf6c5870e7c4c9df84a94148121aaf860cd5d2aa94ae38c6f6b58295968d1a9
+lean: Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release), binary sha256 6fc056f7b19654cbb890c3c240c86e921acf70250aa82331a6de29f60e560ae9
+outputs (rust): 642 fail overflow,658 ok
+mismatches: 0 of 1300
