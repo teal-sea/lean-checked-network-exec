@@ -1,0 +1,4 @@
+# Toolchain for the production binaries (toolchain/PINS.md). Charon uses its own pinned nightly.
+[toolchain]
+channel = "1.99.1"
+profile = "minimal"

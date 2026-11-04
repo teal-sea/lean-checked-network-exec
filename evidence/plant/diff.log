@@ -1,0 +1,12 @@
+date: 2026-11-04T16:04:12Z
+seed: 20261104; inputs: 1300 lines, sha256 19eb4dd57907c885df34d498bd8685b9bbea0f1c7ea93be08911a0939d814fb7
+rust: rustc 1.99.1 (58cf8f9c3 2026-10-13), binary sha256 acf6c5870e7c4c9df84a94148121aaf860cd5d2aa94ae38c6f6b58295968d1a9
+lean: Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release), binary sha256 15a2ee5373e58e062b9cdf08b67eea46995c02228fd291924d4cc0270e0b1594
+outputs (rust): 642 fail overflow,658 ok
+mismatches: 658 of 1300
+1: input [] rust [ok 0] lean [ok 1]
+2: input [] rust [ok 0] lean [ok 1]
+3: input [] rust [ok 0] lean [ok 1]
+4: input [] rust [ok 0] lean [ok 1]
+5: input [] rust [ok 0] lean [ok 1]
+FAIL (diff.sh): Rust and Lean binaries disagree on 658 of 1300 inputs

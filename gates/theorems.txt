@@ -1,0 +1,7 @@
+# Theorems the gates check (scripts/axioms.sh, scripts/recheck.sh): "<module> <constant>".
+# Step 0 smoke test: Aeneas's translation of rust/smoke returns ok 0 on every slice of zeros.
+LcnExec.Smoke.Proofs LcnExec.Smoke.sum_zeros
+# The recurrent adder theorems, vendored from lean-checked-network and rebuilt on this toolchain.
+RnnAdder.Trained RnnAdder.Trained.sums_correct
+RnnAdder.Trained RnnAdder.Trained.carry_correct
+RnnAdder.Trained RnnAdder.Trained.adds

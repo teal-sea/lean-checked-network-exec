@@ -1,0 +1,5 @@
+✔ [2/6] Built RnnAdder.Network (1.9s)
+✔ [3/6] Built RnnAdder.Trained (868ms)
+✔ [4/6] Built RnnAdder.Trained16 (2.9s)
+✔ [5/6] Built RnnAdder (558ms)
+Build completed successfully (6 jobs).

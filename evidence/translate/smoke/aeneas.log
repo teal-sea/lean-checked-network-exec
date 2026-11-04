@@ -1,0 +1,11 @@
+[Info ] Imported: /home/thomas/lean-checked-network-exec/.work/translate/smoke.llbc
+Applied prepasses:  [--------------------------------------------------]  0/24 ⠋Applied prepasses:  [##------------------------------------------------]  1/24 ⠙Applied prepasses:  [#########################################---------] 20/24 ⠹Applied prepasses:  [##################################################] 24/24 ✔️
+Translated globals:  [---------------------------------------------------] 0/0 ⠋Translated globals:  [---------------------------------------------------] 0/0 ✔️
+Translated opaque functions:  [------------------------------------------] 0/2 ⠋Translated opaque functions:  [#####################---------------------] 1/2 ⠋Translated opaque functions:  [##########################################] 2/2 ✔️
+Translated transparent functions:  [-------------------------------------] 0/1 ⠋Translated transparent functions:  [#####################################] 1/1 ⠙Translated transparent functions:  [#####################################] 1/1 ✔️
+Translated trait declarations:  [----------------------------------------] 0/5 ⠋Translated trait declarations:  [----------------------------------------] 0/5 ✔️
+Translated trait impls:  [---------------------------------------------]  0/10 ⠋Translated trait impls:  [---------------------------------------------]  0/10 ✔️
+Post-processed translated opaque functions:  [---------------------------] 0/2 ⠋Post-processed translated opaque functions:  [#############--------------] 1/2 ⠙Post-processed translated opaque functions:  [###########################] 2/2 ✔️
+Post-processed translated transparent functions:  [----------------------] 0/1 ⠋Post-processed translated transparent functions:  [######################] 1/1 ⠙Post-processed translated transparent functions:  [######################] 1/1 ✔️
+[Info ] Generated: /home/thomas/lean-checked-network-exec/lean/LcnExec/Translated/Smoke.lean
+[Info ] Total execution time: 2.259230 seconds

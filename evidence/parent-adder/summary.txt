@@ -1,0 +1,4 @@
+date: 2026-11-04T16:01:51Z
+parent: https://github.com/teal-sea/lean-checked-network @ 0214aa3bcee37c9c1f7f6db220c3223375e0c459, rnn/lean, toolchain leanprover/lean4:v4.35.0-rc2
+nanoda from leanprover--lean4---v4.35.0-rc2 (nanoda_bin 0.4.17): 3 of 3 theorems, no typechecker errors
+nanoda from leanprover--lean4---v4.35.0 (nanoda_bin 0.4.19): 3 of 3 theorems, no typechecker errors

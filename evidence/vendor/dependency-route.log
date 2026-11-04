@@ -1,0 +1,9 @@
+info: depcheck: no previous manifest, creating one from scratch
+info: rnn-adder: materializing new dependency
+info: rnn-adder: fetching revision '0214aa3bcee37c9c1f7f6db220c3223375e0c459' from https://github.com/teal-sea/lean-checked-network
+info: rnn-adder: checking out revision '0214aa3bcee37c9c1f7f6db220c3223375e0c459'
+info: toolchain not updated; already up-to-date
+✔ [3/6] Built RnnAdder.Network (1.9s)
+✔ [4/6] Built RnnAdder.Trained (1.2s)
+✔ [5/6] Built DepCheck (699ms)
+Build completed successfully (6 jobs).

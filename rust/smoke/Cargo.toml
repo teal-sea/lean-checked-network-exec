@@ -1,0 +1,20 @@
+[package]
+name = "smoke"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "smoke_eval"
+path = "src/bin/smoke_eval.rs"
+
+# Overflow is an error in every profile, matching Aeneas, which models `+` on u32 as failing on
+# overflow. Without this a release build would wrap.
+[profile.dev]
+overflow-checks = true
+
+[profile.release]
+overflow-checks = true

@@ -1,0 +1,9 @@
+date: 2026-11-04T15:41:13Z
+crate: rust/smoke
+charon: 0.1.308 (a58d159210b3a36fedeaba4437bda896a8b12f0d), toolchain nightly-2026-09-17
+aeneas: aeneas nightly-2026.11.04-d1e177b
+charon command (in rust/smoke): toolchain/aeneas/charon/bin/charon cargo --preset=aeneas --dest-file .work/translate/smoke.llbc --abort-on-error --error-on-warnings -- --lib
+aeneas command: toolchain/bin/aeneas -backend lean -abort-on-error -warnings-as-errors -dest lean/LcnExec/Translated .work/translate/smoke.llbc
+llbc sha256: 7f39276b624fd8ce88758868d70dcb6c3e1fa2a7b56bc5c82e57c9f0c7ff21fd
+generated: lean/LcnExec/Translated/Smoke.lean, sha256 a5d4d3f5885bbc25eae5ac9745ebe87d117e8c6c48927fabeb4e990fa4d248b4
+source sha256: 15120a80a64019606d54470650cc2b6f3a4568dd96ba2aee455ad67118769104 (src/lib.rs)

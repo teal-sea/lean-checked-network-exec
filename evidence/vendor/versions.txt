@@ -1,0 +1,4 @@
+date: 2026-11-04T15:02:52Z
+parent: https://github.com/teal-sea/lean-checked-network @ 0214aa3bcee37c9c1f7f6db220c3223375e0c459, rnn/lean/lean-toolchain = leanprover/lean4:v4.35.0-rc2
+this repo: lean/lean-toolchain (Aeneas's) = leanprover/lean4:v4.35.0
+dependency route (scratch, leanprover/lean4:v4.35.0): lake update && lake build DepCheck exit 0
