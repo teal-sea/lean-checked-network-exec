@@ -210,8 +210,11 @@ Errors on the way, with exact text:
   - `gates/theorems.txt` lists the theorems the gates check;
   - `gates/ci.sh` is the sequence CI runs.
 - `STATUS.md` fills in the gate 0 rows from this evidence. Every other row is "not started".
-- `.github/CODEOWNERS` does not bind yet. That needs @TeaLynx (`tealynx`) to have write access and
-  a branch protection rule on `main` requiring code-owner review. Neither is set.
+- `.github/CODEOWNERS` was edited after the first commit, at Thomas's instruction. The first
+  commit named @TeaLynx, taken literally from the brief; that resolves to an unrelated GitHub
+  account, `tealynx`, which never had access. It now names @teal-sea.
+- CODEOWNERS does not bind yet: that needs a branch protection rule on `main` requiring
+  code-owner review, which is not set.
 - CI checks the committed `lean/LcnExec/Translated/Smoke.lean` but does not rerun the
   translation. The translation reproduces byte for byte locally (command 4), but in CI, drift
   between `rust/` and the translation would show only through `diff.sh`'s sampled inputs.
@@ -228,8 +231,8 @@ Errors on the way, with exact text:
    the copy, so the proof itself rejects it. The copy then needs Charon.
 3. A translation-drift job in CI: install the pins, run `translate.sh`, and fail on any
    difference. The Charon build is about 11 GB and took 5 minutes here. This changes `gates/`
-   and `.github/`, so it needs @TeaLynx's review.
-4. Give @TeaLynx write access and protect `main`, so CODEOWNERS binds.
+   and `.github/`, so it needs @teal-sea's review.
+4. Protect `main` with required code-owner review, if CODEOWNERS should bind.
 5. For gate 5: lean-checked-network's `transformer/mathlib` project is on Lean v4.35.0 with
    Mathlib `56a005855ea1`, the same pins as Aeneas. The transformer theorem may therefore come in
    as a lake dependency rather than vendored. Not tried.

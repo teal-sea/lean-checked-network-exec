@@ -20,7 +20,7 @@ The sentence this repository is meant to support:
 The method is copied from lean-checked-network:
 
 - Lean's kernel is the referee.
-- Agents do not edit the gate scripts: `gates/` and `.github/` need @TeaLynx's review.
+- Agents do not edit the gate scripts: `gates/` and `.github/` need @teal-sea's review.
 - Every named theorem's axioms are audited against `gates/allowlist`.
 - nanoda rechecks the theorems independently.
 - A planted wrong weight must be caught.
