@@ -1,12 +1,10 @@
 # Formally verify the trained two-layer network
 
 `src/lib.rs` evaluates a trained two-layer neural network on the integer tables `E1`, `E2` and
-`W2` in `src/weights.rs` (113 rows of 128 entries each, every entry an `i8`). Verify the
-properties below of the crate as submitted, built with the release profile in `Cargo.toml`
+`W2` in `src/weights.rs` (113 rows of 128 entries each, every entry an `i8`). `src/fast.rs`
+evaluates the same network through raw pointers, with no bounds checks. Verify the properties
+below of the crate as submitted, built with the release profile in `Cargo.toml`
 (`overflow-checks = true`).
-
-`src/fast.rs` evaluates the same network through raw pointers. It is not a target of this run;
-its properties will be asked for in a follow-up run of this project.
 
 ## What the network computes
 
@@ -29,9 +27,19 @@ All of this is integer arithmetic. Since every table entry is in `[-128, 127]`,
 3. **No panics.** `predict(a, b)` does not panic for any `a: usize` and `b: usize`. In
    particular no integer operation overflows and no index is out of bounds.
 
+4. **The unsafe version has no undefined behavior and no panics.** For every `a: usize` and
+   `b: usize`, `fast::predict_fast(a, b)` executes without undefined behavior and does not panic.
+
+5. **The unsafe version computes the same function.** For every `a: usize` and `b: usize`,
+   `fast::predict_fast(a, b) == predict(a, b)`.
+
 ## Notes for the proof
 
 The tables came from training, so property 1 has no closed-form reason: it is a finite statement
 about 12,769 input pairs and these particular tables. One route is to show once that `predict`
 returns the first index of the largest `score` as defined above, for every in-range pair, and
 then to evaluate that definition on the 12,769 pairs.
+
+Properties 4 and 5 do not depend on the table contents, only on the table shapes: 113 rows of
+128 entries. `score_fast` is an `unsafe fn`; its contract is in its doc comment, and
+`predict_fast` is its only caller.
