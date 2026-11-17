@@ -9,4 +9,6 @@ axioms:
   'TransformerInt.Gen.tables_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
   TransformerInt.Gen.adds_mod_113 : ∀ (a : Nat),
     a < 113 → ∀ (b : Nat), b < 113 → TransformerInt.predict TransformerInt.Gen.weights a b = some ((a + b) % 113)
-replay: not run yet (scripts/gate4.sh replay)
+replay: date 2026-11-17T21:32:26Z
+replay: leanchecker replayed 135 of 136 modules, 2262 wall seconds, 2 at once
+replay: FAIL TransformerInt.Gen.Base

@@ -1,4 +1,4 @@
-date: 2026-11-17T19:41:16Z
+date: 2026-11-17T21:27:01Z
 planted: lean/LcnExec/Translated/Adder.lean: 'def weights.WOA : Std.I32 := 125#i32' -> 'def weights.WOA : Std.I32 := 124#i32'
 build: exit 1, caught: FAIL (build.sh): lake build failed (evidence/build/build.log) 
 axioms: exit 1, caught: FAIL (axioms.sh): lean failed on the axiom probe (evidence/axioms/print-axioms.out) 

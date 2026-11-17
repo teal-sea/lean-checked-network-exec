@@ -7,9 +7,10 @@
 #    a. scripts/translate.sh mlp, unchanged command: Aeneas stops at the unsafe module
 #       src/fast.rs. Its error is kept.
 #    b. The same with EXTRA_CHARON_ARGS="--exclude crate::fast": Aeneas generates Mlp.lean. Lean
-#       runs on the file as generated until its first error, which is kept with the time.
-#    c. The first table of that file cut to 16 and to 32 of its 113 rows, with the heartbeat
-#       limit lifted: time and peak memory of Lean on each.
+#       runs on the file as generated; its errors are kept with the time.
+#    c. The first table of that file cut to its first rows, with the heartbeat limit lifted:
+#       time and peak memory of Lean on each. MLP_PILOT_PROBE_ROWS lists the row counts
+#       (default "16 32"); Lean is stopped at MLP_PILOT_RSS_CAP megabytes (default 6000).
 # 2. The variant (variant/): scripts/mlp_row_consts.py writes the same tables with one `const`
 #    per row. src/lib.rs, src/fast.rs and the tests are copied unchanged. Then: cargo test,
 #    translate.sh, the nine function definitions compared with those of 1b, the build of the
@@ -37,20 +38,20 @@ mkdir -p "$out/as-is" "$out/variant" "$work"
 [ -d "$LEAN_DIR/.lake/packages" ] || die "run scripts/build.sh first: no lean/.lake/packages to share"
 [ -d "$parent_project/.lake/build" ] || die "run scripts/mlp_parent_theorem.sh first: no $parent_project"
 
-# timed_lean <log> <rss cap, MB> <time limit, s> <stop at first error: yes|no> <lean file>
+# timed_lean <log> <rss cap, MB> <time limit, s> <lean file>
 # Runs Lean on a file in the environment of lean/ and prints "<seconds> s, peak RSS <MB> MB, <how
-# it ended>". Lean is stopped at the cap, at the limit, or at the first error when asked to.
+# it ended>". Lean is stopped at the memory cap or at the time limit.
 timed_lean() {
-  local log="$1" cap="$2" limit="$3" first_error="$4" file="$5" start pid rss peak=0 how=""
+  local log="$1" cap="$2" limit="$3" file="$4" start pid rss peak=0 how=""
   start=$(date +%s)
   (cd "$LEAN_DIR" && exec lake env lean "$file") > "$log" 2>&1 &
   pid=$!
   while kill -0 "$pid" 2>/dev/null; do
-    rss=$(ps -eo rss=,args= | awk -v f="$file" 'index($0, f) && /bin\/lean / {s += $1} END {print int(s / 1024)}')
+    # The `lean` process itself (Lake starts it as `lean <file>`), not `lake env lean <file>`.
+    rss=$(ps -eo rss=,args= | awk -v f="$file" 'index($0, f) && $2 ~ /(^|\/)lean$/ {s += $1} END {print int(s / 1024)}')
     if [ "${rss:-0}" -gt "$peak" ]; then peak=$rss; fi
     if [ "${rss:-0}" -gt "$cap" ]; then how="stopped at the memory cap of $cap MB"
     elif [ $(( $(date +%s) - start )) -gt "$limit" ]; then how="stopped at the time limit of $limit s"
-    elif [ "$first_error" = yes ] && grep -q 'error' "$log"; then how="stopped at its first error"
     fi
     if [ -n "$how" ]; then pkill -f "lean $file" || true; break; fi
     sleep 1
@@ -98,11 +99,13 @@ tr '\r' '\n' < "$asis/evidence/translate/mlp/aeneas.log" | grep -A2 -m1 '\[Error
 translate "$asis" "$exclude" > "$out/as-is/translate.log" 2>&1 \
   || die "translate.sh mlp failed with $exclude (evidence/mlp/pilot/as-is/translate.log)"
 cp "$asis/$generated" "$work/MlpAsIs.lean"
-first_error="$(timed_lean "$out/as-is/lean-as-generated.log" 6000 900 yes "$work/MlpAsIs.lean")"
+cap="${MLP_PILOT_RSS_CAP:-6000}"
+as_generated="$(timed_lean "$out/as-is/lean-as-generated.log" "$cap" 1800 "$work/MlpAsIs.lean")"
 grep -m1 -A3 'error' "$out/as-is/lean-as-generated.log" > "$out/as-is/lean-first-error.txt" \
   || die "Lean reported no error on the translation of rust/mlp as generated: the probe's premise no longer holds"
 # The first table, cut to its first rows, with no heartbeat limit.
-python3 - "$asis/$generated" "$work" <<'PY'
+read -r -a probe_rows <<< "${MLP_PILOT_PROBE_ROWS:-16 32}"
+python3 - "$asis/$generated" "$work" "${probe_rows[@]}" <<'PY'
 import re
 import sys
 
@@ -112,25 +115,26 @@ header = text[: text.index("namespace mlp")].replace("set_option maxHeartbeats 1
 table = re.search(r"def weights\.(\w+) : Array \(Array Std\.I8 128#usize\) 113#usize :=\n  Array\.make 113#usize \[\n(.*?)\n    \]\n", text, re.S)
 rows = re.findall(r"    Array\.make 128#usize \[\n.*?\n      \]", table.group(2), re.S)
 assert len(rows) == 113, len(rows)
-for n in (16, 32):
+for n in map(int, sys.argv[3:]):
     body = ",\n".join(rows[:n])
     open(f"{dest}/Rows{n}.lean", "w").write(
         f"{header}namespace mlp\ndef rows{n} : Array (Array Std.I8 128#usize) {n}#usize :=\n"
         f"  Array.make {n}#usize [\n{body}\n    ]\nend mlp\n"
     )
 PY
-rows16="$(timed_lean "$out/as-is/lean-16-rows.log" 6000 900 no "$work/Rows16.lean")"
-rows32="$(timed_lean "$out/as-is/lean-32-rows.log" 6000 900 no "$work/Rows32.lean")"
+: > "$work/rows.txt"
+for n in "${probe_rows[@]}"; do
+  echo "Lean on its first table cut to $n of 113 rows, no heartbeat limit: $(timed_lean "$out/as-is/lean-$n-rows.log" "$cap" 1800 "$work/Rows$n.lean")" >> "$work/rows.txt"
+done
 {
   echo
   echo "1. rust/mlp as it is"
   echo "translate.sh mlp, unchanged command: fails in Aeneas (as-is/aeneas-error.txt):"
   sed 's/^/  /' "$out/as-is/aeneas-error.txt"
   echo "translate.sh mlp with EXTRA_CHARON_ARGS=\"$exclude\": $(grep '^generated:' "$out/as-is/translate.log"), $(wc -l < "$asis/$generated") lines, $(grep -c '#i8' "$asis/$generated") lines of i8 literals"
-  echo "Lean on that file as generated: $first_error (as-is/lean-first-error.txt):"
+  echo "Lean on that file as generated: $as_generated; $(grep -c 'error: (deterministic) timeout' "$out/as-is/lean-as-generated.log") timeouts, $(grep -c 'error' "$out/as-is/lean-as-generated.log") error lines (as-is/lean-as-generated.log). The first:"
   sed 's/^/  /' "$out/as-is/lean-first-error.txt" | cut -c1-300
-  echo "Lean on its first table cut to 16 of 113 rows, no heartbeat limit: $rows16"
-  echo "Lean on its first table cut to 32 of 113 rows, no heartbeat limit: $rows32"
+  cat "$work/rows.txt"
 } >> "$summary"
 
 # 2. The variant: one const per row.

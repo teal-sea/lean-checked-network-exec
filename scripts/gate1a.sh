@@ -50,7 +50,7 @@ EOF
 } > "$THEOREMS"
 
 timings="$EVIDENCE/timings.txt"
-echo "date: $(stamp); machine: $(nproc) cores, $(awk '/MemTotal/ {printf "%.0f GiB RAM", $2 / 1048576}' /proc/meminfo)" > "$timings"
+echo "date: $(stamp); machine: $(nproc) cores, $(awk '/MemTotal/ {printf "%.0f GiB RAM", $2 / 1048576}' /proc/meminfo); load average at the start (1, 5, 15 min): $(cut -d' ' -f1-3 /proc/loadavg)" > "$timings"
 # step <name> <command...>: run one step and record its wall-clock time. A failing step stops
 # the run (set -e), and the exit trap names it.
 current=""

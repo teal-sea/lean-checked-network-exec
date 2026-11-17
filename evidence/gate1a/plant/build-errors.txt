@@ -1,10 +1,10 @@
-✖ [1771/1773] Building LcnExec.Smoke.Proofs (4.7s)
+✖ [1771/1773] Building LcnExec.Smoke.Proofs (4.0s)
 error: LcnExec/Smoke/Proofs.lean:35:2: unsolved goals
 case hInv
 xs : Slice U32
 hzero : ∀ x ∈ ↑xs, x = 0#u32
 ⊢ False
-✔ [1772/1773] Built LcnExec.Adder.Proofs (7.9s)
+✔ [1772/1773] Built LcnExec.Adder.Proofs (9.9s)
 Some required targets logged failures:
 - LcnExec.Smoke.Proofs
 error: build failed
