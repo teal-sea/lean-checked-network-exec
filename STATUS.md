@@ -12,6 +12,7 @@ done and no evidence exists.
 | 1A | Adder in safe Rust proved equal to RnnAdder for every input: standard axioms only, nanoda recheck, planted wrong weight rejected, compile-and-diff agrees | 5 agent-days | Not started | |
 | 1B | Adder in C to Aristotle, memory safety only, credits capped at $100 | 1 agent-day | Not started | |
 | 1R | Adder in Rust to Aristotle's Rust prover (released 2026-11-16): no panics, the length check, the ripple-carry adder for every input length, its arithmetic reading, and `add_u64` equal to `overflowing_add` | The 500 free credits, shared with the other Aristotle runs | Passed. 5 of 5 properties PROVED in one run: 71 minutes, 167.4 credits. The returned sources are byte-identical to the upload. Aristotle returns its summary and its public Lean statements, not the proof source, so nanoda cannot recheck this result; gate 1A stays the replayable route | `evidence/aristotle/adder/result.txt`, `summary.md`, `result/Spec/Adder.lean`, `upload.sha256` |
+| MLP-R | The trained two-layer MLP of lean-checked-network in Rust (`rust/mlp`, not one of the original gates) to Aristotle: adds mod 113 on all 12,769 pairs, out-of-range inputs rejected, no panics, and the `unsafe` raw-pointer `predict_fast` free of undefined behavior and equal to the safe `predict` | The 500 free credits, shared | Passed. 5 of 5 properties PROVED in one run: 63 minutes, 120.1 credits. The returned sources are byte-identical to the upload. Proof source not returned, as for 1R. Aristotle's summary corrects a wrong bound in `SPEC.md`'s notes (see the erratum there); the proofs do not use it | `evidence/aristotle/mlp/result.txt`, `summary.md`, `result/Spec/Mlp.lean`, `upload.sha256` |
 | 2 | Thomas's go on the transformer | | Not started | |
 | 3 | Requantize the transformer with per-layer rescaling; Python check on all 12,769 inputs; record the maximum intermediate width | | Not started | |
 | 4 | Regenerate the transformer theorem for the rescaled model | | Not started | |
@@ -25,3 +26,11 @@ Gate 0 ran locally on 2026-11-04. Commands, versions and failures are in
 Gate 1R ran on 2026-11-17 at Harmonic, submitted by `scripts/aristotle.sh`, which also writes
 its evidence. The credit figure is the account balance at submission (`balance-before.json`,
 500.0) minus the balance logged one minute after the run ended (332.55).
+
+MLP-R ran the same day, 18:54 to 19:57 UTC. Its credit figure is the balance at submission
+(`evidence/aristotle/mlp/balance-before.json`, 327.70) minus the balance at the fetch that
+followed the run (`balance-after.json`, 207.58).
+
+One Aristotle run is not in the table: a SystemVerilog version of the adder was submitted at
+18:48 UTC and cancelled 6 minutes later, about 4.5 credits, nothing proved. It was off the ask.
+Its record is `evidence/aristotle/v-adder/`.

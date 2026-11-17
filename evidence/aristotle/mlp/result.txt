@@ -1,0 +1,10 @@
+task 193ebe1e-ffb9-4eaf-b102-b8517f2a4af0 status COMPLETE
+created 2026-11-17T18:54:42.842389+00:00 updated 2026-11-17T19:57:40.233400+00:00
+properties {'PROVED': 5}
+  Spec.predict_adds_mod_spec: PROVED
+  Spec.predict_fast_eq_predict_spec: PROVED
+  Spec.predict_fast_spec: PROVED
+  Spec.predict_out_of_range_spec: PROVED
+  Spec.predict_spec: PROVED
+returned sources: identical to the upload
+credits at submit 327.6965, at this fetch 207.575 (later runs in the same account are included)

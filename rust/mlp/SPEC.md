@@ -43,3 +43,12 @@ then to evaluate that definition on the 12,769 pairs.
 Properties 4 and 5 do not depend on the table contents, only on the table shapes: 113 rows of
 128 entries. `score_fast` is an `unsafe fn`; its contract is in its doc comment, and
 `predict_fast` is its only caller.
+
+## Erratum, added after the run
+
+The text above is what was submitted (sha256 `ea92c0faba381daa...`, in
+`evidence/aristotle/mlp/upload.sha256`). Its bounds are wrong for arbitrary `i8` tables:
+an entry can be `-128`, so `hidden[k]` can reach `(-128 - 128)^2 = 65536`, not `65025`, and
+`|score[c]|` can reach `128 * 128 * 65536 = 1073741824`. Aristotle's summary points this out.
+The stated bounds do hold for the shipped tables, whose entries are in `[-127, 127]`, and the
+proved properties do not depend on them.

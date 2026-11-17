@@ -1,0 +1,33 @@
+{
+  "project": {
+    "project_id": "0e818f51-96b7-4f6f-a25b-3c0cc9edd493",
+    "created_at": "2026-11-17T19:57:35.816915+00:00",
+    "last_updated": "2026-11-17T19:57:36.117098+00:00",
+    "name": "lcn-exec-transformer",
+    "status": 1,
+    "latest_run_status": "QUEUED",
+    "has_input": true,
+    "has_files": false,
+    "status_name": "RUNNING"
+  },
+  "task": {
+    "project_id": "0e818f51-96b7-4f6f-a25b-3c0cc9edd493",
+    "agent_task_id": "2bb7c477-d170-489a-871e-64298cc46a13",
+    "status": "QUEUED",
+    "budget_failure_reason": null,
+    "created_at": "2026-11-17T19:57:35.848657+00:00",
+    "last_updated_at": "2026-11-17T19:57:36.643422+00:00",
+    "started_at": null,
+    "percent_complete": null,
+    "file_name": "transformer.tar.gz",
+    "description": "Perform the formal verification of this crate a...",
+    "output_summary": null,
+    "read_only": false,
+    "budget_failure_reason_name": null
+  },
+  "web_url": "https://aristotle.harmonic.fun/projects/0e818f51-96b7-4f6f-a25b-3c0cc9edd493",
+  "result_path": null,
+  "property_counts": null,
+  "requested_counts": null,
+  "properties": []
+}
