@@ -6,12 +6,17 @@
 #                                                      stage, record the balance, submit, record the project id
 #   scripts/aristotle.sh status  <target>             task state, property counts, open questions
 #   scripts/aristotle.sh answer  <target> <qid>=<answer> [...]
-#   scripts/aristotle.sh continue <target> <prompt-file>   another run in the same project (spends credits)
+#   scripts/aristotle.sh continue <target> <prompt-file> [<dir> <file>...]
+#                                                      another run in the same project (spends credits);
+#                                                      with <dir> and files, uploads those files, at their
+#                                                      paths relative to <dir>, with the prompt
 #   scripts/aristotle.sh fetch   <target>             save summary, properties, events and the result archive
 #   scripts/aristotle.sh balance                      print the credit balance
 #
-# <target> is a crate under rust/ (adder, mlp, transformer) or c/ (c-adder is c/adder).
-# The upload is the crate's Cargo.toml, Cargo.lock, src/ and SPEC.md, and nothing else.
+# <target> is a crate under rust/ (adder, mlp, transformer), a C folder (c-adder is c/adder) or a
+# circuit (v-adder is verilog/adder). The upload is the crate's Cargo.toml, Cargo.lock, src/ and
+# SPEC.md, or the folder's C or SystemVerilog sources and SPEC.md, and nothing else. Testbenches
+# (tb_*) and test programs (test_*) stay out.
 # Every run spends credits. Evidence goes to evidence/aristotle/<target>/.
 #
 # The key comes from ARISTOTLE_API_KEY or from `aristotle login`. In a claude.ai cloud session the
@@ -29,6 +34,7 @@ now() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 src_dir() {
   case "$1" in
     c-*) echo "$ROOT/c/${1#c-}" ;;
+    v-*) echo "$ROOT/verilog/${1#v-}" ;;
     *)   echo "$ROOT/rust/$1" ;;
   esac
 }
@@ -64,8 +70,10 @@ stage() {
     [ -f "$src/$f" ] && cp "$src/$f" "$stage/$f"
   done
   [ -d "$src/src" ] && cp -R "$src/src" "$stage/src"
-  # C targets keep their sources beside SPEC.md
-  find "$src" -maxdepth 1 -type f \( -name '*.c' -o -name '*.h' \) -exec cp {} "$stage/" \;
+  # C and SystemVerilog targets keep their sources beside SPEC.md
+  [ -f "$src/aristotle.f" ] && cp "$src/aristotle.f" "$stage/aristotle.f"
+  find "$src" -maxdepth 1 -type f \( -name '*.c' -o -name '*.h' -o -name '*.sv' -o -name '*.v' \) \
+      ! -name 'tb_*' ! -name 'test_*' -exec cp {} "$stage/" \;
   (cd "$stage" && find . -type f | LC_ALL=C sort | while read -r p; do
      printf '%s  %s\n' "$(sha256sum "$p" | cut -d' ' -f1)" "${p#./}"; done)
 }
@@ -154,12 +162,21 @@ EOF
     "$ARISTOTLE" questions "$pid" "${args[@]}" --json
     ;;
   continue)
-    [ $# -ge 2 ] || die "usage: continue <target> <prompt-file>"
-    ev="$ROOT/evidence/aristotle/$1"; pid="$(cat "$ev/project_id")"
-    n="$(ls "$ev" | grep -c '^continue-.*\.txt$' || true)"; n=$((n + 1))
-    cp "$2" "$ev/continue-$n.txt"
+    [ $# -ge 2 ] || die "usage: continue <target> <prompt-file> [<dir> <file>...]"
+    ev="$ROOT/evidence/aristotle/$1"; pid="$(cat "$ev/project_id")"; prompt_file="$2"; shift 2
+    n="$(ls "$ev" | grep -c '^continue-[0-9]*\.txt$' || true)"; n=$((n + 1))
+    cp "$prompt_file" "$ev/continue-$n.txt"
+    extra=()
+    if [ $# -ge 2 ]; then
+      dir="$1"; shift
+      (cd "$dir" && for f in "$@"; do printf '%s  %s\n' "$(sha256sum "$f" | cut -d' ' -f1)" "$f"; done) \
+          > "$ev/continue-$n-upload.sha256"
+      files=(); for f in "$@"; do files+=("$dir/$f"); done
+      extra=(--project-dir "$dir" --files "${files[@]}")
+    fi
     balance_json > "$ev/balance-before-continue-$n.json"
-    "$ARISTOTLE" continue "$pid" --prompt-file "$2" --json > "$ev/continue-$n.json"
+    "$ARISTOTLE" continue "$pid" --prompt-file "$prompt_file" "${extra[@]}" --json > "$ev/continue-$n.json" \
+        2> "$ev/continue-$n.err" || { cat "$ev/continue-$n.err" >&2; die "continue failed; see $ev/continue-$n.err"; }
     echo "continued $pid (run $n) at $(now)" | tee -a "$ev/submit.txt"
     ;;
   fetch)
