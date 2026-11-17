@@ -1,0 +1,68 @@
+date: 2026-11-17T17:40:09Z
+python: 3.13.18; rustc: rustc 1.99.1 (58cf8f9c3 2026-10-13)
+run: rows 113 of 113; dot-product partial sums on; rust comparison on; parent cross-check on
+checkpoint: best.npz sha256 7cea95ed6771691dfe8a29bedfdae72d9a62c8947c25b1bca2c56919c0ff0f9e
+weights.rs: sha256 3fe1e1f1572019722f3734689033c7673c44786b08cbbfef608ee1ae88f549d1, 1091369 bytes, identical to the generator's output
+lib.rs: sha256 c40db98f55fdd44d653c24b66bb8e1b31555e2ba595a99dec2dae5d61b6d23fd
+weights tok: 14592 entries in [-68, 68]
+weights pos: 384 entries in [-59, 56]
+weights WQ: 16384 entries in [-5, 5]
+weights WK: 16384 entries in [-22, 22]
+weights WV: 16384 entries in [-103, 106]
+weights WO: 16384 entries in [-93, 91]
+weights Win: 65536 entries in [-82, 70]
+weights bin: 512 entries in [-103934744, 520813984]
+weights Wout: 65536 entries in [-74, 70]
+weights bout: 128 entries in [-68434214912, 71585923072]
+weights U: 14464 entries in [-37, 36]
+exp tables: 800 entries; every entry in [0, 2^30], entry 0 of each table 2^30, no table increases: yes
+Cargo.toml: overflow-checks = true in profile.dev and profile.release: yes
+
+static bounds (from the weights alone; each covers every product and partial sum of its stage)
+  embed            <=                    117   7 bits  fits i64
+  project          <=                 252131  18 bits  fits i64
+  head_scores      <=            38072233599  36 bits  fits i64
+  exp_fix          <=    1152921504606846976  61 bits  fits i64
+  softmax_weights  <=      18014398509481984  55 bits  fits i64
+  head_output.z    <=          4230056247296  42 bits  fits i64
+  head_output.w    <=            68590555392  36 bits  fits i64
+  attention        <=           219396556032  38 bits  fits i64
+  residual         <=           219950204160  38 bits  fits i64
+  mlp_hidden       <=        570593785990656  50 bits  fits i64
+  mlp_output       <=      11627504833770005  54 bits  fits i64
+  final_stream     <=      11668949407347221  54 bits  fits i64
+  unembed          <=        311355550586446  49 bits  fits i64
+  largest static bound: 61 bits; i64 holds 63
+
+pairs evaluated: 12769 (113 rows of 113) in 348 s
+wrong: 0; ties with the right answer: 0
+smallest margin: 62944808481 at scale 2^32 (14.655480 logit units) at pair (21, 56)
+softmax denominators: between 1093215888 and 2184755844 (2^30 = 1073741824)
+logits FNV-1a 64 (pair order a then b, each logit as 8 little-endian bytes): 6cb24f7670e8562e
+
+measured largest absolute values over the evaluated pairs
+  stage                      stage values bits    products and partial sums bits   scale  contents
+  embed                               117    7                            0    0   2^8    x = TOK[tok] + POS[pos]
+  project                           74947   17                        74947   17   2^16   query, key and value vectors
+  head_scores                 22529086455   35                  22529086455   35   2^32   s = q . k
+  exp_fix                      1073741824   31          1152921504606846976   61   2^30   d = max(s) - s, table products, e
+  softmax_weights                16478354   24            18014398509481984   55   2^24   e * 2^24, e0 + e1 + e2, alpha
+  head_output.z                  19145022   25                1254813289484   41   2^24   alpha * v, their sum, z after >> 16
+  head_output.w                8460818117   33                   8460818117   33   2^32   z * WO
+  attention                   27383082197   35                            0    0   2^32   running sum of the four heads
+  residual                    28507155669   35                            0    0   2^32   x2 * 2^24, r
+  mlp_hidden                  78830761557   37               20635109175676   45   2^32   r * WIN, BIN * 2^8, pre, m after >> 8
+  mlp_output               43356059527749   46               43430413302197   46   2^40   m * WOUT, o
+  final_stream                  642244404   30               42090129282046   46   2^24   r * 2^8, r * 2^8 + o, fin after >> 16
+  unembed                    368435585492   39                 368435585492   39   2^32   fin * U, logits
+  widest measured value: 61 bits; i64 holds 63
+
+fixture: wrote rust/transformer/tests/fixtures/python_reference.txt
+rust comparison: 12769 pairs, 1442897 logits compared, 0 differ, 0 pairs missing from the Rust output
+parent cross-check, quantised weights vs int_transformer.quantise(W, 8): 226688 entries, 0 differ
+parent cross-check, attention scores vs int_transformer.build_tables sc: 908 scores, 0 differ
+parent cross-check, logits / 2^32 vs float64 forward of the quantised real-softmax model: max |difference| 1.08097e-05 over 12769 pairs
+parent cross-check, float64 quantised model: smallest margin 14.655483, wrong 0
+
+total time: 356 s
+result: PASS

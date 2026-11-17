@@ -1,0 +1,16 @@
+[package]
+name = "transformer"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+# Overflow is an error in every profile. The evaluator is fixed-width, and a wrapped sum would be
+# a wrong answer with no signal. With this setting it is a panic instead.
+[profile.dev]
+overflow-checks = true
+
+[profile.release]
+overflow-checks = true
