@@ -1,3 +1,62 @@
 date: 2026-11-17T21:30:04Z
 machine: 4 cores, 16 GiB RAM
 lean: Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+
+1. rust/mlp as it is
+translate.sh mlp, unchanged command: fails in Aeneas (as-is/aeneas-error.txt):
+  [Error] Aeneas does not yet support dereferencing raw pointers.
+  Source: 'src/fast.rs', lines 21:25-21:38
+  Compiler source: interp/InterpPaths.ml, line 197
+translate.sh mlp with EXTRA_CHARON_ARGS="--exclude crate::fast": generated: lean/LcnExec/Translated/Mlp.lean, sha256 172b038ec13a56264517e83a412684ad3ff2d0bb2ec7440958ceb250af12a8cf, 6229 lines, 5364 lines of i8 literals
+Lean on that file as generated: 472 s, peak RSS 1961 MB, exit 1; 3 timeouts, 6 error lines (as-is/lean-as-generated.log). The first:
+  /home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:1266:63: error: (deterministic) timeout at `«synthesize pending MVars»`, maximum number of heartbeats (1000000) has been reached
+  
+  Note: Use `set_option maxHeartbeats <num>` to set the limit.
+  
+Lean on its first table cut to 16 of 113 rows, no heartbeat limit: 16 s, peak RSS 1630 MB, exit 0
+Lean on its first table cut to 32 of 113 rows, no heartbeat limit: 49 s, peak RSS 1821 MB, exit 0
+Lean on its first table cut to 64 of 113 rows, no heartbeat limit: 425 s, peak RSS 7066 MB, stopped at the memory cap of 7000 MB
+
+2. The variant: one const per table row (scripts/mlp_row_consts.py)
+  rust/mlp/src/weights.rs: sha256 3abf2e409a29b36a908ab5d83464992d5790131cb59fae9af03e1b929f4a713f, 356 lines
+  the variant's src/weights.rs: sha256 df94570892125f208afe88bc2d447cc93c1486cbc4deb7700b3313cc1733cff5, 695 lines
+  E1: 14464 entries, the variant's are the same, entry for entry
+  E2: 14464 entries, the variant's are the same, entry for entry
+  W2: 14464 entries, the variant's are the same, entry for entry
+src/lib.rs, src/fast.rs, Cargo.toml, Cargo.lock, tests/all_pairs.rs: copied unchanged
+cargo test --release --locked: test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+translate.sh mlp with EXTRA_CHARON_ARGS="--exclude crate::fast": generated: lean/LcnExec/Translated/Mlp.lean, sha256 05ee91c8de18cedd891c908f348fe614efb7fd524d3fd9f0dced20d1113bd276, 7845 lines
+  definitions other than the constants of weights.rs: hidden_loop.body hidden_loop hidden score_loop.body score_loop score predict_loop.body predict_loop predict
+  identical in the translation of the variant: yes
+lake build LcnExec.Translated.Mlp: 160 s
+lake build of the proofs (pilot/mlp-row-consts/LcnExec/Mlp/Proofs.lean, AddsMod113.lean): 38 s
+statements (variant/statements.txt):
+  LcnExec.Mlp.E1_eq : LcnExec.Mlp.tableInts mlp.weights.E1 = LeanCheckedNetwork.Trained.E1
+  LcnExec.Mlp.E2_eq : LcnExec.Mlp.tableInts mlp.weights.E2 = LeanCheckedNetwork.Trained.E2
+  LcnExec.Mlp.W2_eq : LcnExec.Mlp.tableInts mlp.weights.W2 = LeanCheckedNetwork.Trained.W2
+  LcnExec.Mlp.predict_eq : ∀ (a b : Usize),
+    ↑a < 113 → ↑b < 113 → ∃ c, mlp.predict a b = ok (some c) ∧ ↑c = LeanCheckedNetwork.Trained.answer ↑a ↑b
+  LcnExec.Mlp.predict_out_of_range : ∀ (a b : Usize), ¬(↑a < 113 ∧ ↑b < 113) → mlp.predict a b = ok none
+  LcnExec.Mlp.predict_adds_mod_113 : ∀ (a b : Usize),
+    ↑a < 113 → ↑b < 113 → ∃ c, mlp.predict a b = ok (some c) ∧ ↑c = (↑a + ↑b) % 113
+axioms (scripts/axioms.sh, variant/axioms.txt):
+  LcnExec.Mlp.E1_eq: [propext, Classical.choice, Quot.sound]
+  LcnExec.Mlp.E2_eq: [propext, Classical.choice, Quot.sound]
+  LcnExec.Mlp.W2_eq: [propext, Classical.choice, Quot.sound]
+  LcnExec.Mlp.predict_eq: [propext, Classical.choice, Quot.sound]
+  LcnExec.Mlp.predict_out_of_range: [propext, Classical.choice, Quot.sound]
+  LcnExec.Mlp.predict_adds_mod_113: [propext, Classical.choice, Quot.sound]
+  axioms: ok (6 theorems, allowlist ['Classical.choice', 'Quot.sound', 'propext'])
+nanoda recheck of the five refinement theorems: 93 s (recheck/summary.txt)
+  LcnExec.Mlp.E1_eq (LcnExec.Mlp.Proofs)
+    nanoda 3s: Checked 3366 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+  LcnExec.Mlp.E2_eq (LcnExec.Mlp.Proofs)
+    nanoda 3s: Checked 3370 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+  LcnExec.Mlp.W2_eq (LcnExec.Mlp.Proofs)
+    nanoda 3s: Checked 3362 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+  LcnExec.Mlp.predict_eq (LcnExec.Mlp.Proofs)
+    nanoda 14s: Checked 7934 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+  LcnExec.Mlp.predict_out_of_range (LcnExec.Mlp.Proofs)
+    nanoda 6s: Checked 5242 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+nanoda recheck of predict_adds_mod_113: not run (set MLP_PILOT_RECHECK_COMPOSED=1)
+pilot: ok

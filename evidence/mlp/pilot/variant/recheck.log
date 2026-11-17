@@ -1,0 +1,17 @@
+date: 2026-11-17T21:50:42Z
+project: lean, toolchain Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+leanexport: /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanexport
+nanoda: /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin, nanoda_bin 0.4.19
+objects on LEAN_PATH: 63574 files, manifest sha256 cf75ce6b9c37996e8a634ae2719a3c9a5e6cb517b9fdfd835f4698081d82ad55
+allowlist: propext Classical.choice Quot.sound 
+LcnExec.Mlp.E1_eq (LcnExec.Mlp.Proofs): export 27139134 bytes, sha256 35b8eb55dd50f3e95599fc29cb896a70273cb60b11333e29ad248db3e53b8c99, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 3s: Checked 3366 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Mlp.E2_eq (LcnExec.Mlp.Proofs): export 27143523 bytes, sha256 14f302ddcdec61c6f314277023df2c7978f89590df0fcef81712f93c1ff50074, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 3s: Checked 3370 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Mlp.W2_eq (LcnExec.Mlp.Proofs): export 27164658 bytes, sha256 0afcf3bd22e93a72c75161078291756df44666ab10565d0bf962ca2e3563e135, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 3s: Checked 3362 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Mlp.predict_eq (LcnExec.Mlp.Proofs): export 89644125 bytes, sha256 4994c6ad4b13acc850347772524b529003d5631fde4b40e9dfe12dafc4f99747, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 14s: Checked 7934 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Mlp.predict_out_of_range (LcnExec.Mlp.Proofs): export 41854436 bytes, sha256 51f5901c0c7d4285a3ba19a58c7cb5663b79b3cde3642e129caeb1376d2593dc, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 6s: Checked 5242 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+recheck: ok

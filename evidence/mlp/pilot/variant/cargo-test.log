@@ -1,0 +1,24 @@
+   Compiling mlp v0.1.0 (/home/user/lean-checked-network-exec/.work/mlp/pilot/tree/rust/mlp)
+    Finished `release` profile [optimized] target(s) in 0.92s
+     Running unittests src/lib.rs (target/release/deps/mlp-d41e9901e4c0b28a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/all_pairs.rs (target/release/deps/all_pairs-8dcbcf073f2f7f88)
+
+running 4 tests
+test few_pairs ... ok
+test out_of_range_is_none ... ok
+test adds_mod_113_on_all_12769_pairs ... ok
+test fast_agrees_with_safe_on_all_pairs_and_outside ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+   Doc-tests mlp
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,8 @@
+LcnExec.Mlp.E1_eq : LcnExec.Mlp.tableInts mlp.weights.E1 = LeanCheckedNetwork.Trained.E1
+LcnExec.Mlp.E2_eq : LcnExec.Mlp.tableInts mlp.weights.E2 = LeanCheckedNetwork.Trained.E2
+LcnExec.Mlp.W2_eq : LcnExec.Mlp.tableInts mlp.weights.W2 = LeanCheckedNetwork.Trained.W2
+LcnExec.Mlp.predict_eq : ∀ (a b : Usize),
+  ↑a < 113 → ↑b < 113 → ∃ c, mlp.predict a b = ok (some c) ∧ ↑c = LeanCheckedNetwork.Trained.answer ↑a ↑b
+LcnExec.Mlp.predict_out_of_range : ∀ (a b : Usize), ¬(↑a < 113 ∧ ↑b < 113) → mlp.predict a b = ok none
+LcnExec.Mlp.predict_adds_mod_113 : ∀ (a b : Usize),
+  ↑a < 113 → ↑b < 113 → ∃ c, mlp.predict a b = ok (some c) ∧ ↑c = (↑a + ↑b) % 113

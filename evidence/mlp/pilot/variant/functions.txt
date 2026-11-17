@@ -1,0 +1,2 @@
+definitions other than the constants of weights.rs: hidden_loop.body hidden_loop hidden score_loop.body score_loop score predict_loop.body predict_loop predict
+identical in the translation of the variant: yes
