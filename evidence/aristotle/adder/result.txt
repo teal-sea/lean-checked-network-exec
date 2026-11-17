@@ -1,0 +1,10 @@
+task 8c9b7aea-f9a9-47a8-ac2e-3073a347acb2 status COMPLETE
+created 2026-11-17T17:36:14.749113+00:00 updated 2026-11-17T18:47:42.082855+00:00
+properties {'PROVED': 5}
+  Spec.add_bits_adds_spec: PROVED
+  Spec.add_bits_length_mismatch_spec: PROVED
+  Spec.add_bits_ripple_spec: PROVED
+  Spec.add_u64_spec: PROVED
+  Spec.no_panics_spec: PROVED
+returned sources: identical to the upload
+credits at submit 500.0, at this fetch 332.5534 (later runs in the same account are included)

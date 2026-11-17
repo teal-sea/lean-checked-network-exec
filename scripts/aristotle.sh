@@ -182,26 +182,48 @@ EOF
   fetch)
     [ $# -ge 1 ] || die "usage: fetch <target>"
     ev="$ROOT/evidence/aristotle/$1"; pid="$(cat "$ev/project_id")"
-    "$ARISTOTLE" show "$pid" --json --limit 200 > "$ev/task.json"
+    "$ARISTOTLE" show "$pid" --json --limit 100 > "$ev/task.json"
     "$ARISTOTLE" tasks "$pid" --json > "$ev/tasks.json"
     "$ARISTOTLE" properties "$pid" --json > "$ev/properties.json"
     "$ARISTOTLE" properties "$pid" --kind definition --json > "$ev/definitions.json" || true
     "$ARISTOTLE" questions "$pid" --json > "$ev/questions.json" || true
     balance_json > "$ev/balance-after.json"
     mkdir -p "$ROOT/.work/aristotle-results/$1"
-    "$ARISTOTLE" download "$pid" --destination "$ROOT/.work/aristotle-results/$1/" --json > "$ev/download.json" || true
-    "$PYTHON" - "$ev" <<'EOF'
+    res="$ROOT/.work/aristotle-results/$1"
+    rm -rf "$res"; mkdir -p "$res/x"
+    "$ARISTOTLE" download "$pid" --destination "$res/" --json > "$ev/download.json" 2> "$ev/download.err" || true
+    archive="$(find "$res" -maxdepth 1 -name '*.tar.gz' | head -1)"
+    returned="no result archive"
+    if [ -n "$archive" ]; then
+      sha256sum "$archive" | sed "s#$res/##" > "$ev/archive.sha256"
+      tar -xzf "$archive" -C "$res/x"
+      # What Aristotle published: its summary and the public Lean statements. Proof source is not returned.
+      rm -rf "$ev/result"; mkdir -p "$ev/result"
+      for f in ARISTOTLE_SUMMARY.md Spec SepLogic sim; do
+        [ -e "$res/x/$f" ] && cp -R "$res/x/$f" "$ev/result/$f"
+      done
+      # Aristotle says it verifies the sources as submitted. Compare what came back with what went up.
+      returned="identical to the upload"
+      while read -r sum path; do
+        if [ ! -f "$res/x/$path" ] || [ "$(sha256sum "$res/x/$path" | cut -d' ' -f1)" != "$sum" ]; then
+          returned="DIFFERENT from the upload at $path"; break
+        fi
+      done < "$ev/upload.sha256"
+    fi
+    "$PYTHON" - "$ev" "$returned" <<'EOF'
 import json, sys, collections, pathlib
 ev = pathlib.Path(sys.argv[1])
 d = json.load(open(ev / "task.json")); t = d.get("task", d)
 (ev / "summary.md").write_text((t.get("output_summary") or "(no summary yet)") + "\n")
 props = json.load(open(ev / "properties.json")).get("declarations", [])
-c = collections.Counter((p.get("status") or "?") for p in props)
+c = collections.Counter((p.get("status_name") or str(p.get("status")) or "?") for p in props)
 b0 = json.load(open(ev / "balance-before.json")); b1 = json.load(open(ev / "balance-after.json"))
 lines = [f"task {t.get('agent_task_id')} status {t.get('status')}",
          f"created {t.get('created_at')} updated {t.get('last_updated_at')}",
-         f"properties {dict(c)}",
-         f"credits before {b0['credits_display']} after {b1['credits_display']} (other runs between the two readings are included)"]
+         f"properties {dict(c)}"]
+lines += [f"  {p.get('name')}: {p.get('status_name')}" for p in sorted(props, key=lambda p: p.get('name') or '')]
+lines += [f"returned sources: {sys.argv[2]}",
+          f"credits at submit {b0['credits_display']}, at this fetch {b1['credits_display']} (later runs in the same account are included)"]
 (ev / "result.txt").write_text("\n".join(lines) + "\n")
 print("\n".join(lines))
 EOF
