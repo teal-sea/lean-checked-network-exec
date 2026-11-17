@@ -1,0 +1,6 @@
+✖ [1772/1773] Building LcnExec.Adder.Proofs (7.4s)
+error: LcnExec/Adder/Proofs.lean:58:38: unsolved goals
+⊢ False
+Some required targets logged failures:
+- LcnExec.Adder.Proofs
+error: build failed

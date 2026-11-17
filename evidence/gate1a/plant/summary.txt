@@ -1,0 +1,6 @@
+date: 2026-11-17T19:39:39Z
+planted: lean/LcnExec/Translated/Smoke.lean: 'sum_loop xs 0#u32 0#usize' -> 'sum_loop xs 1#u32 0#usize'
+build: exit 1, caught: FAIL (build.sh): lake build failed (evidence/build/build.log) 
+axioms: exit 1, caught: FAIL (axioms.sh): lean failed on the axiom probe (evidence/axioms/print-axioms.out) 
+diff: exit 1, caught: FAIL (diff.sh): Rust and Lean binaries disagree on 658 of 1300 inputs 
+plant: ok, caught by: build axioms diff

@@ -13,10 +13,9 @@
 #   scripts/aristotle.sh fetch   <target>             save summary, properties, events and the result archive
 #   scripts/aristotle.sh balance                      print the credit balance
 #
-# <target> is a crate under rust/ (adder, mlp, transformer), a C folder (c-adder is c/adder) or a
-# circuit (v-adder is verilog/adder). The upload is the crate's Cargo.toml, Cargo.lock, src/ and
-# SPEC.md, or the folder's C or SystemVerilog sources and SPEC.md, and nothing else. Testbenches
-# (tb_*) and test programs (test_*) stay out.
+# <target> is a crate under rust/ (adder, mlp, transformer) or a C folder (c-adder is c/adder).
+# The upload is the crate's Cargo.toml, Cargo.lock, src/ and SPEC.md, or the folder's C sources
+# and SPEC.md, and nothing else. Test programs (test_*) stay out.
 # Every run spends credits. Evidence goes to evidence/aristotle/<target>/.
 #
 # The key comes from ARISTOTLE_API_KEY or from `aristotle login`. In a claude.ai cloud session the
@@ -34,7 +33,6 @@ now() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 src_dir() {
   case "$1" in
     c-*) echo "$ROOT/c/${1#c-}" ;;
-    v-*) echo "$ROOT/verilog/${1#v-}" ;;
     *)   echo "$ROOT/rust/$1" ;;
   esac
 }
@@ -70,10 +68,8 @@ stage() {
     [ -f "$src/$f" ] && cp "$src/$f" "$stage/$f"
   done
   [ -d "$src/src" ] && cp -R "$src/src" "$stage/src"
-  # C and SystemVerilog targets keep their sources beside SPEC.md
-  [ -f "$src/aristotle.f" ] && cp "$src/aristotle.f" "$stage/aristotle.f"
-  find "$src" -maxdepth 1 -type f \( -name '*.c' -o -name '*.h' -o -name '*.sv' -o -name '*.v' \) \
-      ! -name 'tb_*' ! -name 'test_*' -exec cp {} "$stage/" \;
+  # C targets keep their sources beside SPEC.md
+  find "$src" -maxdepth 1 -type f \( -name '*.c' -o -name '*.h' \) ! -name 'test_*' -exec cp {} "$stage/" \;
   (cd "$stage" && find . -type f | LC_ALL=C sort | while read -r p; do
      printf '%s  %s\n' "$(sha256sum "$p" | cut -d' ' -f1)" "${p#./}"; done)
 }

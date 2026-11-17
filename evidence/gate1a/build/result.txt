@@ -1,0 +1,1 @@
+build: ok (lake build; lake build smoke_eval adder_eval adder_net_eval)

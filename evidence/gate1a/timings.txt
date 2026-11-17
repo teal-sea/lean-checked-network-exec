@@ -1,0 +1,16 @@
+date: 2026-11-17T19:27:20Z; machine: 4 cores, 16 GiB RAM
+translate: 4 s
+translate-lib-only: 4 s
+lean-grep: 0 s
+build: 595 s
+statements: 4 s
+axioms: 3 s
+recheck: 106 s
+diff-adder: 22 s
+plant-smoke: 41 s
+plant-adder: 56 s
+plant-adder-off-by-one: 47 s
+plant-adder-rust: 54 s
+ci: 62 s
+files: 0 s
+gate1a: ok

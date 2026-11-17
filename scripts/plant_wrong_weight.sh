@@ -1,25 +1,34 @@
 #!/usr/bin/env bash
 # Wrong-data control: copy the tree, perturb one weight constant, rerun build, axioms and diff
 # on the copy. The script FAILS if the planted bug is NOT caught by at least one of them.
-# Usage: scripts/plant_wrong_weight.sh [smoke|adder|adder-off-by-one]    (default: smoke)
+# Usage: scripts/plant_wrong_weight.sh [smoke|adder|adder-off-by-one|adder-rust]    (default: smoke)
 #   smoke             The accumulator's initial value in the translated `smoke.sum`,
 #                     0#u32 -> 1#u32.
 #   adder             One weight in the translated `adder`, WOA: 125 -> 25 (a dropped digit).
 #                     The proofs must fail, and the translation's evaluator must disagree with
 #                     the Rust binary: the script fails unless build and diff both catch it.
-#   adder-off-by-one  WOA: 125 -> 124. No output of the network changes (the smallest
-#                     pre-activation on a reachable transition is 27 in absolute value), so
-#                     the diff cannot see it; the proofs must still fail.
+#   adder-off-by-one  WOA: 125 -> 124. A change this small is not expected to flip a threshold
+#                     (lean/RnnAdder/Trained.lean reports 27 as the smallest pre-activation on
+#                     a reachable transition, in absolute value), so the diff may not see it;
+#                     the proofs must still fail: the script fails unless build catches it.
+#   adder-rust        The same weight in the Rust source, rust/adder/src/weights.rs of the copy,
+#                     WOA: 125 -> 25; the copy's crate is then translated again with this
+#                     checkout's pinned tools (toolchain/install.sh). The proofs must fail, and
+#                     the Rust binary must disagree with the Lean network: the script fails
+#                     unless build and diff both catch it.
 # The copy gets its own copy of Aeneas's Lean library (builds there must not write into this
 # checkout) and shares lean/.lake/packages (Mathlib) through a symlink; the script fails if
 # anything under the shared packages is written during the run.
-# Output: evidence/plant/ for smoke, evidence/plant-<target>/ otherwise.
+# Output: evidence/plant/ for smoke, evidence/plant-<target>/ otherwise: the planted change, each
+# stage's log, the Lean errors of the build (build-errors.txt), and summary.txt.
 source "$(dirname "$0")/common.sh"
 need rsync
 
 target="${1:-smoke}"
 # must_catch: the stages that have to catch the planted bug, beyond "at least one".
+# retranslate: the crate to translate again in the copy, when the planted file is Rust source.
 must_catch=()
+retranslate=""
 case "$target" in
   smoke)
     PLANT_FILE="lean/LcnExec/Translated/Smoke.lean"
@@ -44,7 +53,16 @@ case "$target" in
     name=plant-adder-off-by-one
     must_catch=(build)
     ;;
-  *) die "usage: plant_wrong_weight.sh [smoke|adder|adder-off-by-one]" ;;
+  adder-rust)
+    PLANT_FILE="rust/adder/src/weights.rs"
+    PLANT_FROM="pub const WOA: i32 = 125;"
+    PLANT_TO="pub const WOA: i32 = 25;"
+    diff_target=adder
+    name=plant-adder-rust
+    must_catch=(build diff)
+    retranslate=adder
+    ;;
+  *) die "usage: plant_wrong_weight.sh [smoke|adder|adder-off-by-one|adder-rust]" ;;
 esac
 
 out="$EVIDENCE/$name"
@@ -69,8 +87,21 @@ grep -qF "$PLANT_TO" "$planted" || die "the perturbation was not applied"
 diff -u "$ROOT/$PLANT_FILE" "$planted" --label "original/$PLANT_FILE" --label "planted/$PLANT_FILE" \
   > "$out/planted.diff" || true
 
-caught=()
 { echo "date: $(stamp)"; echo "planted: $PLANT_FILE: '$PLANT_FROM' -> '$PLANT_TO'"; } > "$out/summary.txt"
+if [ -n "$retranslate" ]; then
+  generated="lean/LcnExec/Translated/${retranslate^}.lean"
+  mkdir -p "$copy/toolchain/aeneas"
+  ln -s "$ROOT/toolchain/bin" "$copy/toolchain/bin"
+  ln -s "$ROOT/toolchain/aeneas/charon" "$copy/toolchain/aeneas/charon"
+  cp "$ROOT/toolchain/aeneas/charon-pin" "$copy/toolchain/aeneas/charon-pin"
+  ROOT="$copy" EVIDENCE="$copy/evidence" WORK="$copy/.work" bash "$copy/scripts/translate.sh" "$retranslate" \
+    > "$out/translate.log" 2>&1 || die "translate.sh failed on the planted copy (${out#"$ROOT"/}/translate.log)"
+  diff -u "$ROOT/$generated" "$copy/$generated" --label "original/$generated" --label "planted/$generated" \
+    >> "$out/planted.diff" || true
+  echo "translated again: $generated differs from the original in $(diff "$ROOT/$generated" "$copy/$generated" | grep -c '^[<>]') lines" >> "$out/summary.txt"
+fi
+
+caught=()
 for stage in build axioms diff; do
   args=()
   if [ "$stage" = diff ]; then args=("$diff_target"); fi
@@ -79,6 +110,11 @@ for stage in build axioms diff; do
     > "$out/$stage.log" 2>&1
   status=$?
   set -e
+  # build.sh keeps Lake's log in the copy's own evidence: keep the failed jobs and their errors.
+  if [ "$stage" = build ] && [ -f "$copy/evidence/build/build.log" ]; then
+    sed -n '/^✖/,$p' "$copy/evidence/build/build.log" | grep -v '^trace: ' | head -200 \
+      > "$out/build-errors.txt" || true
+  fi
   if [ "$status" -ne 0 ]; then
     caught+=("$stage")
     echo "$stage: exit $status, caught: $(grep -E '^FAIL|error' "$out/$stage.log" | head -2 | tr '\n' ' ')" >> "$out/summary.txt"

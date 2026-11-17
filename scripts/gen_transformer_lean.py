@@ -8,35 +8,48 @@ holds. The score and value tables come from check_transformer_int.py, the exact 
 The output directory becomes a standalone Lake project (core Lean, no Mathlib):
 
   hand-written, copied from pilot/transformer-int/ unless OUT is that directory:
-    lakefile.toml, lean-toolchain, TransformerInt.lean
+    lakefile.toml, lake-manifest.json, lean-toolchain, TransformerInt.lean
     TransformerInt/Model.lean     the model of rust/transformer/src/lib.rs, on Int
-    TransformerInt/Fast.lean      the packed evaluator and the proof that it equals the model
+    TransformerInt/Fast.lean      the packed evaluator and the proof that it gives the model's answer
   generated, everything under TransformerInt/Gen/:
     W/*.lean                      data only, no imports: the weights and the four exponential
                                   tables; TablesData (attention scores and value vectors per head,
-                                  position and token); PackedData (rows of WO, WIN, WOUT, U packed)
+                                  position and token); PackedData (rows of WO, WIN, WOUT, U and the
+                                  bias times 256, packed into numbers)
     Weights.lean, Tables.lean, Packed.lean   the same data as the structures of Model and Fast
-    Static.lean                   shapes, entry bounds and the packed rows (kernel-checked)
+    Static.lean                   shapes, entry bounds and the packed numbers (kernel-checked)
     TabOk{0..3}.lean, TablesOk.lean   every table entry equals its definition (kernel-checked)
     Row{a}.lean                   theorem row_{a} : for every b < 113, predict a b = (a + b) % 113
-    AllRows.lean                  adds_mod_113, only with all 113 rows
+    AllRows.lean                  adds_mod_113, written only with all 113 rows
+    Axioms.lean                   #print axioms of the row theorems
     Eval.lean                     #eval of the model against the Python reference logits (a test)
-    Pair_{a}_{b}.lean, Direct_{a}_{b}.lean   single pairs, for timing (--pairs, --direct)
-    Prefix_{a}_{n}.lean, Base.lean           the first n pairs of row a (--prefix a:n); imports only
+    Pair_{a}_{b}.lean             one pair, end to end (--pairs)
+    for timing only, no statement about the model:
+    Prefix_{a}_{n}.lean, Base.lean   the first n pairs of row a (--prefix a:n); the imports alone
+    TabDirect_{a}_{b}.lean        tables without packing, one pair (--tab-direct a:b)
+    Direct_{a}_{b}.lean           the model itself in the kernel, one pair (--direct a:b)
+
+A file is rewritten only when its text changes, so Lake rebuilds only what changed.
 
 Usage:
-  gen_transformer_lean.py CHECKPOINT.npz OUT [--rows 0,21 | --rows all] [--pairs 0:0,21:56]
-                          [--direct 0:0] [--prefix 0:8] [--eval-rows 0,21] [--chunks N] [--hand-only]
+  gen_transformer_lean.py CHECKPOINT.npz OUT [--rows 0,21 | --rows all] [--chunks N]
+                          [--pairs 21:56] [--prefix 0:8] [--tab-direct 0:0] [--direct 0:0]
+                          [--eval-rows 0,21] [--swap-u 0,1] [--hand-only]
   --rows       the rows to write a module for (default: 0,21)
-  --chunks     split a row's kernel check into N declarations (default 1)
+  --chunks     split a row's kernel check into N declarations (default 8). The kernel frees its
+               memory between declarations: measured 2026-11-17, about 44 MB per pair on top of
+               about 0.6 GB, so one declaration for all 113 pairs would need about 5.5 GB
+  --eval-rows  rows whose 113 pairs go into Eval.lean, besides 25 fixed pairs (default: 0,21)
   --hand-only  copy the hand-written files and stop
+  --swap-u C0,C1   planted fault, for a control: swap the unembedding columns of two answers.
+               Weights, packed rows and tables are all written from the changed network, so
+               Static.lean and TabOk*.lean still pass and only row theorems can fail
   --allow-other-checkpoint   skip the sha256 pin (for experiments only)
 """
 
 import argparse
 import hashlib
 import re
-import shutil
 import sys
 from pathlib import Path
 
@@ -49,6 +62,7 @@ ROOT = gen.ROOT
 HAND = ROOT / "pilot" / "transformer-int"
 HAND_FILES = [
     "lakefile.toml",
+    "lake-manifest.json",
     "lean-toolchain",
     "TransformerInt.lean",
     "TransformerInt/Model.lean",
@@ -208,20 +222,24 @@ def write_packed(gen_dir, t):
     """The entry bounds and the packed rows: data only, proved in Static.lean."""
     base = packing_base()
     b = {k: absmax(t[k]) for k in ("WQ", "WK", "WV", "WO", "Win", "Wout", "U")}
+    bias = [256 * v for v in t["bin"]]  # `scale 256 bin` of Fast.lean: what `mlp_hidden` adds
+    b["bin"] = absmax(bias)
     parts = []
     for h in range(N_HEADS):
         parts.append(f"def pwo_{h} : List Int := {hexvec([pk(r, base) for r in t['WO'][h]])}")
     parts.append(f"def pwin : List Int := {hexvec([pk(r, base) for r in t['Win']])}")
     parts.append(f"def pwout : List Int := {hexvec([pk(r, base) for r in t['Wout']])}")
     parts.append(f"def pu : List Int := {hexvec([pk(r, base) for r in t['U']])}")
+    parts.append(f"def pbin : Int := {hexvec([pk(bias, base)])[1:-1]}")
     emit(gen_dir / "W" / "PackedData.lean", module([], "\n\n".join(parts)))
     body = f"""/-- The largest absolute entry of each matrix that is multiplied in packed form. -/
 def bounds : Bounds := {{
-  wq := {b['WQ']}, wk := {b['WK']}, wv := {b['WV']}, wo := {b['WO']}, win := {b['Win']}, wout := {b['Wout']}, u := {b['U']} }}
+  wq := {b['WQ']}, wk := {b['WK']}, wv := {b['WV']}, wo := {b['WO']}, win := {b['Win']}, wout := {b['Wout']}, u := {b['U']},
+  bin := {b['bin']} }}
 
-/-- `pkRows` of `wo` (per head), `win`, `wout`, `u`, at the base {base} of `Fast.lean`.
-`Static.lean` proves each list equal to `pkRows` of the weights. -/
-def packed : Packed := {{ wo := {names('pwo', N_HEADS)}, win := pwin, wout := pwout, u := pu }}"""
+/-- `pkRows` of `wo` (per head), `win`, `wout`, `u`, and `pkI` of 256 times `bin`, at the base
+{base} of `Fast.lean`. `Static.lean` proves each equal to the packing of the weights. -/
+def packed : Packed := {{ wo := {names('pwo', N_HEADS)}, win := pwin, wout := pwout, u := pu, bin := pbin }}"""
     emit(gen_dir / "Packed.lean", module(["TransformerInt.Fast", "TransformerInt.Gen.W.PackedData"], body, opts=""))
     return b
 
@@ -242,6 +260,8 @@ def write_static(gen_dir, b):
     parts.append(f"theorem win_ok : rowsOk 512 {b['Win']} weights.win = true := by decide +kernel")
     parts.append(f"theorem wout_ok : rowsOk 128 {b['Wout']} weights.wout = true := by decide +kernel")
     parts.append(f"theorem u_ok : rowsOk 113 {b['U']} weights.u = true := by decide +kernel")
+    parts.append(f"theorem bin_ok : biasOk 512 {b['bin']} weights.bin = true := by decide +kernel")
+    parts.append("theorem pbin_ok : packed.bin = pkI (scale (Int.ofNat 256) weights.bin) := by decide +kernel")
     for h in range(N_HEADS):
         parts.append(f"theorem pwo_ok_{h} : nth [] packed.wo {h} = pkRows (nth [] weights.wo {h}) := by decide +kernel")
     parts.append("theorem pwin_ok : packed.win = pkRows weights.win := by decide +kernel")
@@ -260,6 +280,8 @@ theorem static_ok : StaticOk weights bounds packed where
   win := win_ok
   wout := wout_ok
   u := u_ok
+  bin := bin_ok
+  pbin := pbin_ok
   pwo := by
 {by_head('pwo_ok')}
   pwin := pwin_ok
@@ -394,6 +416,36 @@ def write_base(gen_dir):
     emit(gen_dir / "Base.lean", module(FAST_IMPORTS, body, opts="set_option Elab.async false\n"))
 
 
+def write_axioms(gen_dir, rows):
+    """`#print axioms` of the row theorems and of what they rest on."""
+    lines = [f"#print axioms TransformerInt.Gen.row_{a}" for a in rows]
+    lines += ["#print axioms TransformerInt.fastPredict_sound", "#print axioms TransformerInt.Gen.static_ok",
+              "#print axioms TransformerInt.Gen.tables_ok"]
+    emit(gen_dir / "Axioms.lean", HEADER + "".join(f"import TransformerInt.Gen.Row{a}\n" for a in rows)
+         + "\n" + "\n".join(lines) + "\n")
+
+
+def write_tab_direct(gen_dir, a, b):
+    """Tables, but the model's own `lincomb` for the four products: what packing saves. Timing only."""
+    body = f"""def headDirect (h a b : Nat) : List Int :=
+  let alpha := softmaxWeights weights
+    (nth 0 (nth [] tables.s0 h) a, nth 0 (nth [] tables.s1 h) b, nth 0 tables.s2 h)
+  lincomb 128
+    (mix alpha.1 alpha.2.1 alpha.2.2 (nth [] (nth [] tables.v0 h) a) (nth [] (nth [] tables.v1 h) b)
+      (nth [] tables.v2 h))
+    (nth [] weights.wo h)
+
+def forwardDirect (a b : Nat) : List Int :=
+  let r := residual (embed weights EQ 2)
+    (addV (addV (addV (addV (List.replicate 128 (.ofNat 0)) (headDirect 0 a b)) (headDirect 1 a b))
+      (headDirect 2 a b)) (headDirect 3 a b))
+  unembed weights (finalStream r (mlpOutput weights (mlpHidden weights r)))
+
+theorem tab_direct_{a}_{b} : argmax (forwardDirect {a} {b}) = {(a + b) % P} := by
+  decide +kernel"""
+    emit(gen_dir / f"TabDirect_{a}_{b}.lean", module(FAST_IMPORTS, body, opts="set_option Elab.async false\n"))
+
+
 def write_direct(gen_dir, a, b):
     """The model itself in the kernel, no tables and no packing: the baseline."""
     body = f"""theorem direct_{a}_{b} : predict weights {a} {b} = some {(a + b) % P} := by
@@ -443,12 +495,14 @@ def main():
     ap.add_argument("checkpoint", type=Path)
     ap.add_argument("out", type=Path)
     ap.add_argument("--rows", default="0,21")
-    ap.add_argument("--chunks", type=int, default=1)
+    ap.add_argument("--chunks", type=int, default=8)
     ap.add_argument("--pairs", default="")
     ap.add_argument("--direct", default="")
     ap.add_argument("--prefix", default="")
+    ap.add_argument("--tab-direct", default="")
     ap.add_argument("--eval-rows", default="0,21")
     ap.add_argument("--hand-only", action="store_true")
+    ap.add_argument("--swap-u", default="")
     ap.add_argument("--allow-other-checkpoint", action="store_true")
     args = ap.parse_args()
 
@@ -456,7 +510,7 @@ def main():
     if out != HAND.resolve():
         for rel in HAND_FILES:
             (out / rel).parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(HAND / rel, out / rel)
+            emit(out / rel, (HAND / rel).read_text())
         print(f"copied {len(HAND_FILES)} hand-written files from {HAND.relative_to(ROOT)}")
     if args.hand_only:
         return 0
@@ -466,6 +520,11 @@ def main():
         print(f"FAIL: checkpoint sha256 {checkpoint_sha}, pinned {gen.CHECKPOINT_SHA256}", file=sys.stderr)
         return 1
     t = gen.load_quantised(args.checkpoint)
+    if args.swap_u:
+        c0, c1 = (int(x) for x in args.swap_u.split(","))
+        for row in t["U"]:
+            row[c0], row[c1] = row[c1], row[c0]
+        print(f"PLANTED FAULT: unembedding columns {c0} and {c1} swapped; this is not the trained network")
     model = ref.Model(t, ref.Stats(partials=False))
     gen_dir = out / "TransformerInt" / "Gen"
     gen_dir.mkdir(parents=True, exist_ok=True)
@@ -485,7 +544,10 @@ def main():
         write_direct(gen_dir, a, b)
     for a, n in parse_pairs(args.prefix):
         write_prefix(gen_dir, a, n)
+    for a, b in parse_pairs(args.tab_direct):
+        write_tab_direct(gen_dir, a, b)
     write_base(gen_dir)
+    write_axioms(gen_dir, rows)
     eval_rows = [int(x) for x in args.eval_rows.split(",") if x]
     sample = [(a, b) for a in eval_rows for b in range(P)]
     sample += [(a, b) for a in (0, 1, 56, 96, 112) for b in (0, 1, 21, 73, 112) if (a, b) not in sample]

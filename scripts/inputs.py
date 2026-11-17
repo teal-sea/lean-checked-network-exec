@@ -55,8 +55,10 @@ def adder(seed: int) -> None:
         return (rng.getrandbits(n) if n else 0), (rng.getrandbits(n) if n else 0)
 
     # add_bits with a sum buffer of the right length: 20 cases for each length 0..64, then 5
-    # cases for each of a few longer lengths. The buffer starts with random contents.
-    for n in list(range(65)) * 20 + [100, 127, 128, 255, 256, 511, 1000, 2000, 4096] * 5:
+    # cases for each of a few longer lengths. The buffer starts with random contents. The
+    # lengths stop at 1000 because the native evaluator of the translation slows down fast:
+    # 0.26 s for one case of length 511, 1.0 s at 1000, 8.5 s at 2000 (measured 2026-11-17).
+    for n in list(range(65)) * 20 + [100, 127, 128, 255, 256, 511, 1000] * 5:
         a, b = pair(n)
         print("bits", show(n, a), show(n, b), show(n, rng.getrandbits(n) if n else 0))
     # add_bits with a sum buffer of the wrong length: the call returns None and leaves it alone.

@@ -1,0 +1,5 @@
+LcnExec.Smoke.sum_zeros: [propext, Classical.choice, Quot.sound]
+RnnAdder.Trained.sums_correct: [propext, Quot.sound]
+RnnAdder.Trained.carry_correct: [propext, Quot.sound]
+RnnAdder.Trained.adds: [propext, Quot.sound]
+axioms: ok (4 theorems, allowlist ['Classical.choice', 'Quot.sound', 'propext'])

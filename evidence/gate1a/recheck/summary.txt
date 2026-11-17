@@ -1,0 +1,35 @@
+date: 2026-11-17T19:37:50Z
+project: lean, toolchain Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+leanexport: /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/leanexport
+nanoda: /root/.elan/toolchains/leanprover--lean4---v4.35.0/bin/nanoda_bin, nanoda_bin 0.4.19
+objects on LEAN_PATH: 63552 files, manifest sha256 5d08d16643c835c50c10fda1b927410fb5e737c4d5f01206fb35d44bf9282935
+allowlist: propext Classical.choice Quot.sound 
+LcnExec.Smoke.sum_zeros (LcnExec.Smoke.Proofs): export 19589301 bytes, sha256 1dedc387e4ba0e325f16b4429787cdbd29e07bbbd87becf84afd14a89841b65d, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 1s: Checked 4901 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+RnnAdder.Trained.sums_correct (RnnAdder.Trained): export 1435979 bytes, sha256 d649bbf57bd12fb257a55b15a29f9257ab18764c50dde8cad4f99558f10ba995, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 0s: Checked 641 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+RnnAdder.Trained.carry_correct (RnnAdder.Trained): export 1435699 bytes, sha256 042ed9d878310d1a9fbfafe19b945324f6f818a008b13acffb8426d1f90e2431, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 0s: Checked 641 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+RnnAdder.Trained.adds (RnnAdder.Trained): export 4959367 bytes, sha256 dd0cd84ad7b64a11b3aa742c403a073d4a41bd8939c77567e5e64749e9c20020, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 0s: Checked 1650 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.rustNet_eq (LcnExec.Adder.Proofs): export 7811793 bytes, sha256 138ab10020f0e034608a6cd6d1ceef800a9f89fb247bc4199ce8be5a4424d890, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 1s: Checked 2902 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.step_eq (LcnExec.Adder.Proofs): export 26171439 bytes, sha256 fe4dd94ebfad9f97b761cd893d98a2b99d49ae8577731190cce8d2d9428b13b2, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 2s: Checked 6311 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.out_eq (LcnExec.Adder.Proofs): export 26351712 bytes, sha256 944e9ec137f3094b0229723c54a5ba373786fede425dc63c56f5c049b5d11fcf, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 2s: Checked 6331 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.carry_eq (LcnExec.Adder.Proofs): export 24886233 bytes, sha256 62684f91ce9f121f2ca6085c75eefd560c12d8bd0e2788d2e7c0c77d9e4b9687, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 2s: Checked 6186 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.add_bits_eq (LcnExec.Adder.Proofs): export 26979950 bytes, sha256 1adf1c639ade84141b74dc41aa7dffd56a2e6b9085de80ed58bd3b401a5e25b9, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 3s: Checked 6440 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.add_bits_len_ne (LcnExec.Adder.Proofs): export 16520019 bytes, sha256 7ea6390f39496cebff65d147b6d61a618e1136a2d1cb3923af0200800a6b03da, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 1s: Checked 4375 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.add_bits_ripple (LcnExec.Adder.Proofs): export 27170980 bytes, sha256 fab083d7d8d6d4a30b9ab8c80f9ee057904d82d9de8323f741101daaa733279b, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 2s: Checked 6480 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.add_bits_adds (LcnExec.Adder.Proofs): export 27537150 bytes, sha256 d2c576edd9733d6d80164fd130378f71c5b45d754d8b748a419a92234d32946e, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 2s: Checked 6501 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.add_u64_net_eq (LcnExec.Adder.Proofs): export 28187155 bytes, sha256 acec4b2887be8357684a15e287d26e7356b11e9ba765811bc492b27a7cc617c1, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 2s: Checked 6725 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+LcnExec.Adder.add_u64_eq (LcnExec.Adder.Proofs): export 29224147 bytes, sha256 90d63eb91ea961055f45184b2b7202339c4202eff28f5d78f6a526a7e9579eee, format "exporter":{"name":"lean4export","version":"3.1.0"}
+  nanoda 3s: Checked 6857 declarations with no typechecker errors, 1 pretty printer errors: [ "Unable to print axioms", ]
+recheck: ok
