@@ -1,0 +1,6 @@
+✔ [1/6] Built TransformerInt.Model (672ms)
+✔ [2/7] Built TransformerInt.Gen.W.WQ (9.3s)
+✔ [3/7] Built TransformerInt.Fast (1.7s)
+✔ [4/8] Built TransformerInt.Gen.W.Emb (12s)
+✔ [5/9] Built TransformerInt.Gen.W.WK (10s)
+✔ [6/10] Built TransformerInt.Gen.W.WV (12s)
