@@ -5,8 +5,8 @@
 properties below of the crate as submitted, built with the release profile in `Cargo.toml`
 (`overflow-checks = true`).
 
-`src/fast.rs` evaluates the same network through raw pointers. It is not a target of this run:
-its properties are in `SPEC-fast.md` and will be asked for in a follow-up.
+`src/fast.rs` evaluates the same network through raw pointers. It is not a target of this run;
+its properties will be asked for in a follow-up run of this project.
 
 ## What the network computes
 
