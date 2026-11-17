@@ -64,8 +64,9 @@ def nth {α : Type} (d : α) : List α → Nat → α
 
 /-- Entry-by-entry sum, as long as the shorter list. -/
 def addV : List Int → List Int → List Int
+  | [], _ => []
+  | _ :: _, [] => []
   | x :: xs, y :: ys => Int.add x y :: addV xs ys
-  | _, _ => []
 
 /-- `c` times every entry. -/
 def scale (c : Int) : List Int → List Int
@@ -74,13 +75,15 @@ def scale (c : Int) : List Int → List Int
 
 /-- `sum over k of x[k] * w[k]`, a vector of width `n`: entry `i` is `sum over k of x[k] * w[k][i]`. -/
 def lincomb (n : Nat) : List Int → List (List Int) → List Int
+  | [], _ => List.replicate n (.ofNat 0)
+  | _ :: _, [] => List.replicate n (.ofNat 0)
   | x :: xs, r :: rs => addV (scale x r) (lincomb n xs rs)
-  | _, _ => List.replicate n (.ofNat 0)
 
 /-- `sum over k of x[k] * y[k]`. -/
 def dot : List Int → List Int → Int
+  | [], _ => .ofNat 0
+  | _ :: _, [] => .ofNat 0
   | x :: xs, y :: ys => Int.add (Int.mul x y) (dot xs ys)
-  | _, _ => .ofNat 0
 
 /-- `embed`: token plus position embedding, scale 2^8. -/
 def embed (W : Weights) (tok pos : Nat) : List Int :=

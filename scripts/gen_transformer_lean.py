@@ -81,8 +81,10 @@ def matrix(prefix, rows, doc):
 
 
 def module(imports, body, opts=OPTS, ns="TransformerInt.Gen"):
-    imp = "\n".join(f"import {m}" for m in imports)
-    return f"{HEADER}{imp}\n\n{opts}\nnamespace {ns}\n\nopen TransformerInt\n\n{body}\n\nend {ns}\n"
+    """A generated module. Without imports it holds data only and opens nothing."""
+    imp = "".join(f"import {m}\n" for m in imports) + ("\n" if imports else "")
+    opn = "open TransformerInt\n\n" if imports else ""
+    return f"{HEADER}{imp}{opts}\nnamespace {ns}\n\n{opn}{body}\n\nend {ns}\n"
 
 
 def absmax(nested):
@@ -98,7 +100,7 @@ def absmax(nested):
 def write_weights(gen_dir, t, checkpoint_sha):
     w = gen_dir / "W"
     w.mkdir(parents=True, exist_ok=True)
-    base = ["TransformerInt.Model"]
+    base = []  # the data modules import nothing, so a change to the model does not rebuild them
     emb = "\n\n".join([
         matrix("tok", t["tok"], "Token embedding, scale 2^8: 114 rows of 128."),
         matrix("pos", t["pos"], "Position embedding, scale 2^8: 3 rows of 128."),
@@ -136,7 +138,7 @@ def weights : Weights := {{
   win := win, bin := bin, wout := wout, bout := bout, u := u,
   expN := expN, exp2 := exp2, exp1 := exp1, exp0 := exp0 }}"""
     (gen_dir / "Weights.lean").write_text(
-        module(base + [f"TransformerInt.Gen.W.{m}" for m in mods], body, opts=""))
+        module(["TransformerInt.Model"] + [f"TransformerInt.Gen.W.{m}" for m in mods], body, opts=""))
 
 
 # ----------------------------------------------------------------------------------------------
