@@ -1,0 +1,11 @@
+date: 2026-11-17T20:55:40Z
+crate: rust/mlp
+charon: 0.1.308 (a58d159210b3a36fedeaba4437bda896a8b12f0d), toolchain nightly-2026-09-17
+aeneas: aeneas nightly-2026.11.04-d1e177b
+charon command (in rust/mlp): toolchain/aeneas/charon/bin/charon cargo --preset=aeneas --exclude crate::fast --dest-file .work/translate/mlp.llbc --abort-on-error --error-on-warnings -- --lib
+aeneas command: toolchain/bin/aeneas -backend lean -abort-on-error -warnings-as-errors -dest lean/LcnExec/Translated .work/translate/mlp.llbc
+llbc sha256: d1aab358a4ee7e635c8baa73c518d7059e3ed626e266bef56fe20043a4c17a5f
+generated: lean/LcnExec/Translated/Mlp.lean, sha256 172b038ec13a56264517e83a412684ad3ff2d0bb2ec7440958ceb250af12a8cf
+source sha256: d05753ad237d2b8a1654fd1c067806f5a4e8f1e2ed79845afa3f343122a4d7d8 (src/fast.rs)
+source sha256: d4a989af984b42449f8aed55e85f19e00d5f07f1e7171750aedf6e537936b2d7 (src/lib.rs)
+source sha256: 3abf2e409a29b36a908ab5d83464992d5790131cb59fae9af03e1b929f4a713f (src/weights.rs)
