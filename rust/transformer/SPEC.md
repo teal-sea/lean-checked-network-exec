@@ -5,34 +5,26 @@ two numbers modulo 113. It uses integer arithmetic only. `predict(a, b)` runs th
 token sequence `[a, b, =]` and returns the index of the largest of its 113 logits.
 
 The code to verify is `src/lib.rs`. `src/weights.rs` holds the network's weights and four
-exponential tables as `static` arrays of constants. The files under `tests/` and `examples/`
-are test harnesses and are not targets.
+exponential tables as `static` arrays of constants.
 
 The crate is `#![no_std]`, has no dependencies and has no `unsafe`. Verify it as `Cargo.toml`
 builds it: the release profile with `overflow-checks = true`.
 
 ## Properties
 
-Properties 1 to 3 are the result. Properties 4 to 6 are stronger forms of them.
-
 1. **The network adds modulo 113 on every input.** For every `a: usize` and `b: usize` with
    `a < 113` and `b < 113`, `predict(a, b)` returns `Some((a + b) % 113)`.
 2. **Inputs out of range are rejected.** For every `a: usize` and `b: usize` with `a >= 113` or
-   `b >= 113`, `predict(a, b)` returns `None` and `logits(a, b)` returns `None`.
-3. **No panic.** `predict` and `logits` return without panicking for every `a: usize` and
-   `b: usize`. No array index is out of bounds, no division has a zero divisor, and no integer
-   operation overflows.
-4. **No arithmetic overflow, whatever the build flag.** For every `a < 113` and `b < 113`,
-   every `+`, `-` and `*` on `i64` that `predict(a, b)` executes has its exact result in the
-   `i64` range.
-5. **The right answer wins strictly.** For every `a < 113` and `b < 113`, `logits(a, b)`
-   returns `Some(l)`, and `l[(a + b) % 113] > l[c]` for every `c < 113` other than
-   `(a + b) % 113`.
-6. **The margin.** In property 5, `l[(a + b) % 113] - l[c] >= 62944808481` for every such `c`.
-   The bound is attained at `a = 21`, `b = 56`.
+   `b >= 113`, `predict(a, b)` returns `None`.
+3. **No panic.** `predict(a, b)` returns without panicking for every `a: usize` and `b: usize`.
+   No array index is out of bounds, the division has no zero divisor, and no integer operation
+   overflows.
 
-The inputs of properties 1, 4, 5 and 6 are the 12,769 pairs `(a, b)` with `a, b < 113`. A proof
-may enumerate them.
+The inputs of property 1 are the 12,769 pairs `(a, b)` with `a, b < 113`. A proof may enumerate
+them: the weights came from training, so there is no closed-form reason for property 1. One route
+is to show once, for every in-range pair, that `predict` returns the value of a pure function
+that mirrors the stages below, with every intermediate inside the bounds listed under "Facts
+that may serve as invariants", and then to evaluate that pure function on the 12,769 pairs.
 
 ## The program
 
