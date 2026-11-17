@@ -1,0 +1,6 @@
+'TransformerInt.Gen.adds_mod_113' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransformerInt.fastPredict_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransformerInt.Gen.static_ok' depends on axioms: [propext, Quot.sound]
+'TransformerInt.Gen.tables_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+TransformerInt.Gen.adds_mod_113 : ∀ (a : Nat),
+  a < 113 → ∀ (b : Nat), b < 113 → TransformerInt.predict TransformerInt.Gen.weights a b = some ((a + b) % 113)

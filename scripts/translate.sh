@@ -3,6 +3,9 @@
 # Usage: scripts/translate.sh [crate]    (default: smoke; the crate lives in rust/<crate>)
 # Output: lean/LcnExec/Translated/<Crate>.lean, logs and hashes in evidence/translate/<crate>/.
 # Needs the pinned tools from toolchain/install.sh; refuses any other version.
+# EXTRA_CHARON_ARGS adds options to the Charon command, for example "--exclude crate::fast" to
+# leave a module out of the translation. They are recorded in summary.txt with the rest of the
+# command. (Charon itself reads a variable named CHARON_ARGS, so that name is not used here.)
 source "$(dirname "$0")/common.sh"
 
 crate="${1:-smoke}"
@@ -26,7 +29,8 @@ rm -rf "$out"
 mkdir -p "$out" "$(dirname "$llbc")" "$dest"
 rm -f "$llbc"
 
-charon_cmd=("$CHARON" cargo --preset=aeneas --dest-file "$llbc" --abort-on-error --error-on-warnings -- --lib)
+read -r -a charon_extra <<< "${EXTRA_CHARON_ARGS:-}"
+charon_cmd=("$CHARON" cargo --preset=aeneas "${charon_extra[@]}" --dest-file "$llbc" --abort-on-error --error-on-warnings -- --lib)
 (cd "$crate_dir" && "${charon_cmd[@]}") > "$out/charon.log" 2>&1 \
   || die "charon failed on rust/$crate (evidence/translate/$crate/charon.log)"
 [ -s "$llbc" ] || die "charon wrote no LLBC file"

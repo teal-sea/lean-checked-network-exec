@@ -1,0 +1,12 @@
+date 2026-11-17T20:54:27Z
+theorem TransformerInt.Gen.adds_mod_113 built by lake build (Lean kernel), 113 row modules
+generated and hand-written Lean files: 139
+build_wall_seconds 2638
+axioms:
+  'TransformerInt.Gen.adds_mod_113' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'TransformerInt.fastPredict_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'TransformerInt.Gen.static_ok' depends on axioms: [propext, Quot.sound]
+  'TransformerInt.Gen.tables_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+  TransformerInt.Gen.adds_mod_113 : ∀ (a : Nat),
+    a < 113 → ∀ (b : Nat), b < 113 → TransformerInt.predict TransformerInt.Gen.weights a b = some ((a + b) % 113)
+replay: not run yet (scripts/gate4.sh replay)
