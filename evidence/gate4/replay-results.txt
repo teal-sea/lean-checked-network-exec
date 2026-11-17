@@ -1,3 +1,0 @@
-ok TransformerInt.Fast
-ok TransformerInt.Gen.AllRows
-ok TransformerInt.Gen.Packed
