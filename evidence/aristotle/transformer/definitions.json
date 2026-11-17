@@ -1,0 +1,31 @@
+{
+  "project_id": "0e818f51-96b7-4f6f-a25b-3c0cc9edd493",
+  "declarations": [
+    {
+      "project_id": "0e818f51-96b7-4f6f-a25b-3c0cc9edd493",
+      "declaration_id": "weights-stored",
+      "declaration_type": 2,
+      "source": 1,
+      "name": "Spec.weightsStored",
+      "status": 1,
+      "failure_reason": null,
+      "evidence": null,
+      "evidence_message": null,
+      "filename": "Spec/Weights.lean",
+      "source_file": "src/weights.rs",
+      "source_line": 16,
+      "source_anchor": "pub static TOK: [[i8; 128]; 114] = [",
+      "lean_code": "/-- The `static` weight tables of `src/weights.rs`, as compiled, hold the tables of\n`Spec.Weights`: the `i8` tables at alignment 1 and the `i64` tables at alignment 8. -/\ndef weightsStored {PROP : Type} [BI PROP] (S : Vocab PROP) : PROP := iprop(\n  -- `TOK: [[i8; 128]; 114]`, row after row,\n  S.global Mir.Global.\u00abstatic transformer::weights::TOK\u00bb 1 (i8sBytes Weights.TOK.flatten) \u2217\n  -- `POS: [[i8; 128]; 3]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::POS\u00bb 1 (i8sBytes Weights.POS.flatten) \u2217\n  -- `WQ: [[[i8; 32]; 128]; 4]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::WQ\u00bb 1\n    (i8sBytes Weights.WQ.flatten.flatten) \u2217\n  -- `WK: [[[i8; 32]; 128]; 4]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::WK\u00bb 1\n    (i8sBytes Weights.WK.flatten.flatten) \u2217\n  -- `WV: [[[i8; 32]; 128]; 4]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::WV\u00bb 1\n    (i8sBytes Weights.WV.flatten.flatten) \u2217\n  -- `WO: [[[i8; 128]; 32]; 4]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::WO\u00bb 1\n    (i8sBytes Weights.WO.flatten.flatten) \u2217\n  -- `WIN: [[i8; 512]; 128]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::WIN\u00bb 1 (i8sBytes Weights.WIN.flatten) \u2217\n  -- `BIN: [i64; 512]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::BIN\u00bb 8 (i64sBytes Weights.BIN) \u2217\n  -- `WOUT: [[i8; 128]; 512]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::WOUT\u00bb 1 (i8sBytes Weights.WOUT.flatten) \u2217\n  -- `BOUT: [i64; 128]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::BOUT\u00bb 8 (i64sBytes Weights.BOUT) \u2217\n  -- `U: [[i8; 113]; 128]`,\n  S.global Mir.Global.\u00abstatic transformer::weights::U\u00bb 1 (i8sBytes Weights.U.flatten) \u2217\n  -- and the exponential tables `EXP_N: [i64; 32]`, `EXP_2`, `EXP_1`, `EXP_0: [i64; 256]`.\n  S.global Mir.Global.\u00abstatic transformer::weights::EXP_N\u00bb 8 (i64sBytes Weights.EXP_N) \u2217\n  S.global Mir.Global.\u00abstatic transformer::weights::EXP_2\u00bb 8 (i64sBytes Weights.EXP_2) \u2217\n  S.global Mir.Global.\u00abstatic transformer::weights::EXP_1\u00bb 8 (i64sBytes Weights.EXP_1) \u2217\n  S.global Mir.Global.\u00abstatic transformer::weights::EXP_0\u00bb 8 (i64sBytes Weights.EXP_0))",
+      "description": "The premise of the three `predict` properties: the 15 `static` weight tables of `src/weights.rs` (`TOK`, `POS`, `WQ`, `WK`, `WV`, `WO`, `WIN`, `BIN`, `WOUT`, `BOUT`, `U`, `EXP_N`, `EXP_2`, `EXP_1`, `EXP_0`) hold exactly their source entries in row-major order: each `i8` is stored as one byte and each `i64` as eight little-endian bytes.",
+      "artifact_paths": [],
+      "created_at": "2026-11-17T22:14:59.767944+00:00",
+      "last_updated": "2026-11-17T22:14:59.767944+00:00",
+      "unchecked": false,
+      "declaration_type_name": "DEFINITION",
+      "source_name": "AGENT",
+      "status_name": "IN_PROGRESS",
+      "failure_reason_name": null
+    }
+  ],
+  "pagination_key": null
+}
