@@ -1,0 +1,4 @@
+# Written by scripts/gen_transformer_lean.py: the weights, the tables and one module per row.
+/TransformerInt/Gen/
+# Lake build products.
+/.lake/
