@@ -19,3 +19,6 @@ info: toolchain not updated; already up-to-date
 ✔ [18/23] Built LeanCheckedNetwork.Trained.Rows11 (261s)
 ✔ [19/23] Built LeanCheckedNetwork.Trained.Rows07 (266s)
 ✔ [20/23] Built LeanCheckedNetwork.Trained.Rows06 (228s)
+✔ [21/23] Built LeanCheckedNetwork.Trained.Rows09 (117s)
+✔ [22/23] Built LeanCheckedNetwork.Trained.AllInputs (525ms)
+Build completed successfully (23 jobs).

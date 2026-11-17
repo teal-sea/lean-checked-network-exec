@@ -1,0 +1,6 @@
+ok TransformerInt.Gen.AllRows
+ok TransformerInt.Fast
+FAIL TransformerInt.Gen.Base
+ok TransformerInt.Gen.Packed
+ok TransformerInt.Gen.Row0
+ok TransformerInt.Gen.Row1
