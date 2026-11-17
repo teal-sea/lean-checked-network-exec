@@ -11,6 +11,7 @@ done and no evidence exists.
 | 0(d) | Toolchain: nanoda rechecks the existing adder theorem | | Passed. 3 of 3 theorems under nanoda_bin 0.4.17 and 0.4.19, no typechecker errors | `evidence/parent-adder/summary.txt` |
 | 1A | Adder in safe Rust proved equal to RnnAdder for every input: standard axioms only, nanoda recheck, planted wrong weight rejected, compile-and-diff agrees | 5 agent-days | Not started | |
 | 1B | Adder in C to Aristotle, memory safety only, credits capped at $100 | 1 agent-day | Not started | |
+| 1R | Adder in Rust to Aristotle's Rust prover (released 2026-11-16): no panics, the length check, the ripple-carry adder for every input length, its arithmetic reading, and `add_u64` equal to `overflowing_add` | The 500 free credits, shared with the other Aristotle runs | Passed. 5 of 5 properties PROVED in one run: 71 minutes, 167.4 credits. The returned sources are byte-identical to the upload. Aristotle returns its summary and its public Lean statements, not the proof source, so nanoda cannot recheck this result; gate 1A stays the replayable route | `evidence/aristotle/adder/result.txt`, `summary.md`, `result/Spec/Adder.lean`, `upload.sha256` |
 | 2 | Thomas's go on the transformer | | Not started | |
 | 3 | Requantize the transformer with per-layer rescaling; Python check on all 12,769 inputs; record the maximum intermediate width | | Not started | |
 | 4 | Regenerate the transformer theorem for the rescaled model | | Not started | |
@@ -20,3 +21,7 @@ done and no evidence exists.
 
 Gate 0 ran locally on 2026-11-04. Commands, versions and failures are in
 [evidence/step0.md](evidence/step0.md).
+
+Gate 1R ran on 2026-11-17 at Harmonic, submitted by `scripts/aristotle.sh`, which also writes
+its evidence. The credit figure is the account balance at submission (`balance-before.json`,
+500.0) minus the balance logged one minute after the run ended (332.55).
