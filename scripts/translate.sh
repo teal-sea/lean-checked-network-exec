@@ -50,6 +50,9 @@ rm -f "$out/forbidden.txt"
   echo "aeneas command: ${aeneas_cmd[*]/#$ROOT\//}"
   echo "llbc sha256: $(sha256sum < "$llbc" | cut -c1-64)"
   echo "generated: ${generated#"$ROOT"/}, sha256 $(sha256sum < "$generated" | cut -c1-64)"
-  echo "source sha256: $(cat "$crate_dir"/src/lib.rs | sha256sum | cut -c1-64) (src/lib.rs)"
+  # Every file of the library: src/lib.rs and its modules (src/bin/ is not translated).
+  for source in "$crate_dir"/src/*.rs; do
+    echo "source sha256: $(sha256sum < "$source" | cut -c1-64) (src/$(basename "$source"))"
+  done
 } > "$out/summary.txt"
 cat "$out/summary.txt"

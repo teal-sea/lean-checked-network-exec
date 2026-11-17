@@ -13,12 +13,22 @@ states that every entry equals the model's own expression for it; the generated 
 proves that by evaluating the model in the kernel, once.
 
 **Packing.** A matrix product `lincomb n x w` is evaluated as in lean-checked-network's
-`Fast.lean`: each row of `w` is packed into one integer, entry `i` at the digit `B^i` with
-`B = 2^64` (`pkI`). Packing is linear, so `sum over k of x[k] * pkI w[k]` is the packed result:
-one multiplication of a large number per row instead of one per entry. The entries are signed, so
-before the digits are read back `K = 2^62` is added to every digit, and `K` is subtracted from each
-digit read (`unpk`). This is exact when every entry of the result lies in `[-K, K]`, which `flc`
-checks from the size of `x` and a bound on the entries of `w`, and refuses otherwise.
+`Fast.lean`: each row of `w` is packed into one integer, entry `i` at the digit `B^i` (`pkI`).
+Packing is linear, so `sum over k of x[k] * pkI w[k]` is the packed result: one multiplication of
+a large number per row instead of one per entry. The entries are signed, so before the digits are
+read back `K = 2^61` is added to every digit, and `K` is subtracted from each digit read (`unpk`).
+This is exact when every entry of the result lies in `[-K, K]`, which `flc` checks from the size
+of `x` and a bound on the entries of `w`, and refuses otherwise.
+
+**The base is odd on purpose.** The kernel caches every term it reduces in a hash table, and the
+hash of a number literal is its low 32 bits. With a base `2^64` (or any multiple of `2^32`) every
+product `B * n` has the same hash, the cache degenerates into a few long chains, and the time per
+step grows with the number of steps: packing 14,464 entries took 28.5 s at `B = 2^64` and 2.47 s
+at the odd base below (measured 2026-11-17, Lean v4.35.0). `B = 2^63 + 0x9E3779B1`.
+
+**Packed rows are literals.** The generated `Packed.lean` holds `pkRows` of the four large
+matrices as numbers, and `Static.lean` proves them equal to `pkRows` of the weights, once. A row
+module then starts from the packed numbers and does not pack anything.
 
 `fastPredict_sound` proves: if the packed evaluator returns an answer, the model returns the same
 answer. Nothing here is trusted beyond Lean's kernel.
@@ -33,11 +43,11 @@ theorem imul (a b : Int) : Int.mul a b = a * b := rfl
 
 /-! ## Packing -/
 
-/-- The base of the packed representation, 2^64. -/
-def B : Nat := 18446744073709551616
+/-- The base of the packed representation, `2^63 + 0x9E3779B1`: odd, see the note above. -/
+def B : Nat := 9223372039509211569
 
-/-- The shift added to every digit, 2^62. Packed entries must lie in `[-K, K]`. -/
-def K : Nat := 4611686018427387904
+/-- The shift added to every digit, 2^61. Packed entries must lie in `[-K, K]`, and `2 * K < B`. -/
+def K : Nat := 2305843009213693952
 
 /-- Signed digits `[d0, d1, ...]` packed as `d0 + B * (d1 + B * (...))`. -/
 def pkI : List Int → Int
@@ -64,11 +74,12 @@ def sumAbs : List Int → Nat
   | [] => 0
   | x :: xs => Int.natAbs x + sumAbs xs
 
-/-- `lincomb n x w`, computed on packed rows. `m` bounds the absolute entries of `w` (`rowsOk`).
-Returns `none` when `m * sumAbs x` exceeds `K`, in which case a digit could leave its window. -/
-def flc (n m : Nat) (x : List Int) (w : List (List Int)) : Option (List Int) :=
+/-- `lincomb n x w`, computed on the packed rows `p = pkRows w`. `m` bounds the absolute entries
+of `w` (`rowsOk`). Returns `none` when `m * sumAbs x` exceeds `K`, in which case a digit could
+leave its window. -/
+def flc (n m : Nat) (x : List Int) (p : List Int) : Option (List Int) :=
   if m * sumAbs x ≤ K then
-    some (unpk n (Int.toNat (Int.add (dot x (pkRows w)) (.ofNat (K * ones n)))))
+    some (unpk n (Int.toNat (Int.add (dot x p) (.ofNat (K * ones n)))))
   else none
 
 /-- Every entry has absolute value at most `m`. -/
@@ -211,19 +222,20 @@ theorem unpk_pkI : ∀ v : List Int, Bdd K v →
       Int.subNatNat_eq_coe] at ih hM ⊢
     generalize pkI ds = M at ih hM ⊢
     generalize ones ds.length = O at ih hM ⊢
-    simp only [B, K] at ih hM hd ⊢
-    have e1 : (d + ((18446744073709551616 : Nat) : Int) * M +
-        ((4611686018427387904 * (1 + 18446744073709551616 * O) : Nat) : Int)).toNat / 18446744073709551616
-        = (M + ((4611686018427387904 * O : Nat) : Int)).toNat := by omega
-    have e2 : (((d + ((18446744073709551616 : Nat) : Int) * M +
-        ((4611686018427387904 * (1 + 18446744073709551616 * O) : Nat) : Int)).toNat % 18446744073709551616
-          : Nat) : Int) - ((4611686018427387904 : Nat) : Int) = d := by omega
-    rw [e1, e2, ih]
+    have key : ∀ N : Nat, N = (M + ((K * O : Nat) : Int)).toNat → unpk ds.length N = ds :=
+      fun N e => e ▸ ih
+    simp only [B, K] at hM hd key ⊢
+    congr 1
+    · omega
+    · apply key
+      omega
 
 /-- The packed product is the model's product. -/
-theorem flc_eq (n m : Nat) (x : List Int) (w : List (List Int)) (v : List Int)
-    (hw : rowsOk n m w = true) (h : flc n m x w = some v) : lincomb n x w = v := by
+theorem flc_eq (n m : Nat) (x : List Int) (w : List (List Int)) (p v : List Int)
+    (hw : rowsOk n m w = true) (hp : p = pkRows w) (h : flc n m x p = some v) :
+    lincomb n x w = v := by
   obtain ⟨hlen, hbd, hpk⟩ := lincomb_spec n m x w (rowsBdd_of_rowsOk n m w hw)
+  subst hp
   unfold flc at h
   split at h
   · rename_i hle
@@ -258,58 +270,108 @@ structure TablesOk (W : Weights) (T : Tables) : Prop where
   v1 : ∀ h, h < 4 → ∀ t, t < 113 → value W h (embed W t 1) = nth [] (nth [] T.v1 h) t
   v2 : ∀ h, h < 4 → value W h (embed W EQ 2) = nth [] T.v2 h
 
-/-- Bounds on the absolute entries of the four matrices the evaluator multiplies by. -/
+/-- Bounds on the absolute entries of the matrices that are multiplied in packed form. -/
 structure Bounds where
+  wq : Nat
+  wk : Nat
+  wv : Nat
   wo : Nat
   win : Nat
   wout : Nat
   u : Nat
 
-/-- The four matrices have the shapes and the entry bounds `flc` needs. -/
-structure StaticOk (W : Weights) (Bd : Bounds) : Prop where
+/-- The packed rows of the four matrices of the per-pair path: `wo` per head, `win`, `wout`, `u`. -/
+structure Packed where
+  wo : List (List Int)
+  win : List Int
+  wout : List Int
+  u : List Int
+
+/-- The matrices have the shapes and the entry bounds `flc` needs, and `Pk` holds their packed
+rows. -/
+structure StaticOk (W : Weights) (Bd : Bounds) (Pk : Packed) : Prop where
+  wq : ∀ h, h < 4 → rowsOk 32 Bd.wq (nth [] W.wq h) = true
+  wk : ∀ h, h < 4 → rowsOk 32 Bd.wk (nth [] W.wk h) = true
+  wv : ∀ h, h < 4 → rowsOk 32 Bd.wv (nth [] W.wv h) = true
   wo : ∀ h, h < 4 → rowsOk 128 Bd.wo (nth [] W.wo h) = true
   win : rowsOk 512 Bd.win W.win = true
   wout : rowsOk 128 Bd.wout W.wout = true
   u : rowsOk 113 Bd.u W.u = true
+  pwo : ∀ h, h < 4 → nth [] Pk.wo h = pkRows (nth [] W.wo h)
+  pwin : Pk.win = pkRows W.win
+  pwout : Pk.wout = pkRows W.wout
+  pu : Pk.u = pkRows W.u
+
+/-! ### The tables, through packed products -/
+
+/-- `keyScore` with both projections packed. -/
+def fastScore (W : Weights) (Bd : Bounds) (h : Nat) (x2 xj : List Int) : Option Int :=
+  match flc 32 Bd.wq x2 (pkRows (nth [] W.wq h)), flc 32 Bd.wk xj (pkRows (nth [] W.wk h)) with
+  | some q, some k => some (dot q k)
+  | _, _ => none
+
+/-- `value` with the projection packed. -/
+def fastValue (W : Weights) (Bd : Bounds) (h : Nat) (xj : List Int) : Option (List Int) :=
+  flc 32 Bd.wv xj (pkRows (nth [] W.wv h))
+
+theorem fastScore_eq {W : Weights} {Bd : Bounds} {Pk : Packed} (hS : StaticOk W Bd Pk) (h : Nat)
+    (hh : h < 4) (x2 xj : List Int) (s : Int) (e : fastScore W Bd h x2 xj = some s) :
+    keyScore W h x2 xj = s := by
+  unfold fastScore at e
+  split at e
+  · rename_i q k hq hk
+    injection e with e
+    unfold keyScore project
+    rw [flc_eq _ _ _ _ _ _ (hS.wq h hh) rfl hq, flc_eq _ _ _ _ _ _ (hS.wk h hh) rfl hk]
+    exact e
+  · contradiction
+
+theorem fastValue_eq {W : Weights} {Bd : Bounds} {Pk : Packed} (hS : StaticOk W Bd Pk) (h : Nat)
+    (hh : h < 4) (xj v : List Int) (e : fastValue W Bd h xj = some v) : value W h xj = v :=
+  flc_eq _ _ _ _ _ _ (hS.wv h hh) rfl e
+
+/-! ### The per-pair path -/
 
 /-- `headTerm` of the model for the pair `(a, b)`: scores and value vectors from the tables, the
 product with `wo` packed. -/
-def fastHead (W : Weights) (T : Tables) (m h a b : Nat) : Option (List Int) :=
+def fastHead (W : Weights) (T : Tables) (Bd : Bounds) (Pk : Packed) (h a b : Nat) :
+    Option (List Int) :=
   let alpha := softmaxWeights W (nth 0 (nth [] T.s0 h) a, nth 0 (nth [] T.s1 h) b, nth 0 T.s2 h)
-  flc 128 m
+  flc 128 Bd.wo
     (mix alpha.1 alpha.2.1 alpha.2.2 (nth [] (nth [] T.v0 h) a) (nth [] (nth [] T.v1 h) b)
       (nth [] T.v2 h))
-    (nth [] W.wo h)
+    (nth [] Pk.wo h)
 
-/-- `forward` of the model for the pair `(a, b)`, with the four matrix products packed. -/
-def fastForward (W : Weights) (T : Tables) (Bd : Bounds) (a b : Nat) : Option (List Int) :=
-  (fastHead W T Bd.wo 0 a b).bind fun w0 =>
-  (fastHead W T Bd.wo 1 a b).bind fun w1 =>
-  (fastHead W T Bd.wo 2 a b).bind fun w2 =>
-  (fastHead W T Bd.wo 3 a b).bind fun w3 =>
+/-- `forward` of the model for the pair `(a, b)`, with the matrix products packed. -/
+def fastForward (W : Weights) (T : Tables) (Bd : Bounds) (Pk : Packed) (a b : Nat) :
+    Option (List Int) :=
+  (fastHead W T Bd Pk 0 a b).bind fun w0 =>
+  (fastHead W T Bd Pk 1 a b).bind fun w1 =>
+  (fastHead W T Bd Pk 2 a b).bind fun w2 =>
+  (fastHead W T Bd Pk 3 a b).bind fun w3 =>
   let r := residual (embed W EQ 2)
     (addV (addV (addV (addV (List.replicate 128 (.ofNat 0)) w0) w1) w2) w3)
-  (flc 512 Bd.win r W.win).bind fun acc =>
-  (flc 128 Bd.wout (hidden acc W.bin) W.wout).bind fun acc2 =>
-  flc 113 Bd.u (finalStream r (addV acc2 W.bout)) W.u
+  (flc 512 Bd.win r Pk.win).bind fun acc =>
+  (flc 128 Bd.wout (hidden acc W.bin) Pk.wout).bind fun acc2 =>
+  flc 113 Bd.u (finalStream r (addV acc2 W.bout)) Pk.u
 
 /-- `predict` of the model for a pair in range, through `fastForward`. -/
-def fastPredict (W : Weights) (T : Tables) (Bd : Bounds) (a b : Nat) : Option Nat :=
-  match fastForward W T Bd a b with
+def fastPredict (W : Weights) (T : Tables) (Bd : Bounds) (Pk : Packed) (a b : Nat) : Option Nat :=
+  match fastForward W T Bd Pk a b with
   | some l => some (argmax l)
   | none => none
 
-theorem fastHead_sound {W : Weights} {T : Tables} {Bd : Bounds} (hS : StaticOk W Bd)
-    (hT : TablesOk W T) (h a b : Nat) (hh : h < 4) (ha : a < 113) (hb : b < 113) (w : List Int)
-    (e : fastHead W T Bd.wo h a b = some w) :
+theorem fastHead_sound {W : Weights} {T : Tables} {Bd : Bounds} {Pk : Packed}
+    (hS : StaticOk W Bd Pk) (hT : TablesOk W T) (h a b : Nat) (hh : h < 4) (ha : a < 113)
+    (hb : b < 113) (w : List Int) (e : fastHead W T Bd Pk h a b = some w) :
     headTerm W h (embed W a 0) (embed W b 1) (embed W EQ 2) = w := by
   unfold headTerm headOutput headScores
   rw [hT.s0 h hh a ha, hT.s1 h hh b hb, hT.s2 h hh, hT.v0 h hh a ha, hT.v1 h hh b hb, hT.v2 h hh]
-  exact flc_eq _ _ _ _ _ (hS.wo h hh) e
+  exact flc_eq _ _ _ _ _ _ (hS.wo h hh) (hS.pwo h hh) e
 
-theorem fastForward_sound {W : Weights} {T : Tables} {Bd : Bounds} (hS : StaticOk W Bd)
-    (hT : TablesOk W T) (a b : Nat) (ha : a < 113) (hb : b < 113) (l : List Int)
-    (e : fastForward W T Bd a b = some l) : forward W a b = l := by
+theorem fastForward_sound {W : Weights} {T : Tables} {Bd : Bounds} {Pk : Packed}
+    (hS : StaticOk W Bd Pk) (hT : TablesOk W T) (a b : Nat) (ha : a < 113) (hb : b < 113)
+    (l : List Int) (e : fastForward W T Bd Pk a b = some l) : forward W a b = l := by
   unfold fastForward at e
   simp only [Option.bind_eq_some_iff] at e
   obtain ⟨w0, e0, w1, e1, w2, e2, w3, e3, acc, e4, acc2, e5, e6⟩ := e
@@ -317,16 +379,16 @@ theorem fastForward_sound {W : Weights} {T : Tables} {Bd : Bounds} (hS : StaticO
   have h1 := fastHead_sound hS hT 1 a b (by decide) ha hb w1 e1
   have h2 := fastHead_sound hS hT 2 a b (by decide) ha hb w2 e2
   have h3 := fastHead_sound hS hT 3 a b (by decide) ha hb w3 e3
-  have h4 := flc_eq _ _ _ _ _ hS.win e4
-  have h5 := flc_eq _ _ _ _ _ hS.wout e5
-  have h6 := flc_eq _ _ _ _ _ hS.u e6
+  have h4 := flc_eq _ _ _ _ _ _ hS.win hS.pwin e4
+  have h5 := flc_eq _ _ _ _ _ _ hS.wout hS.pwout e5
+  have h6 := flc_eq _ _ _ _ _ _ hS.u hS.pu e6
   unfold forward attention mlpOutput mlpHidden unembed
   simp only [h0, h1, h2, h3, h4, h5, h6]
 
 /-- If the packed evaluator returns an answer for a pair in range, the model returns it too. -/
-theorem fastPredict_sound {W : Weights} {T : Tables} {Bd : Bounds} (hS : StaticOk W Bd)
-    (hT : TablesOk W T) (a b : Nat) (ha : a < 113) (hb : b < 113) (c : Nat)
-    (e : fastPredict W T Bd a b = some c) : predict W a b = some c := by
+theorem fastPredict_sound {W : Weights} {T : Tables} {Bd : Bounds} {Pk : Packed}
+    (hS : StaticOk W Bd Pk) (hT : TablesOk W T) (a b : Nat) (ha : a < 113) (hb : b < 113)
+    (c : Nat) (e : fastPredict W T Bd Pk a b = some c) : predict W a b = some c := by
   unfold fastPredict at e
   split at e
   · rename_i l hl
