@@ -120,9 +120,11 @@ PYEOF
   status)
     [ $# -ge 1 ] || die "usage: status <target>"
     ev="$ROOT/evidence/aristotle/$1"; pid="$(cat "$ev/project_id")"
-    "$ARISTOTLE" show "$pid" --json --limit 5 > "$ev/status.json" 2> "$ev/status.err" || { cat "$ev/status.err" >&2; exit 1; }
-    "$ARISTOTLE" questions "$pid" --json > "$ev/questions.json" 2>> "$ev/status.err" || true
-    "$PYTHON" - "$ev/status.json" "$ev/questions.json" <<'EOF'
+    # A poll is not evidence: its output goes to .work/, which git ignores. `fetch` writes the record.
+    st="$ROOT/.work/aristotle-status/$1"; mkdir -p "$st"
+    "$ARISTOTLE" show "$pid" --json --limit 5 > "$st/status.json" 2> "$st/status.err" || { cat "$st/status.err" >&2; exit 1; }
+    "$ARISTOTLE" questions "$pid" --json > "$st/questions.json" 2>> "$st/status.err" || true
+    "$PYTHON" - "$st/status.json" "$st/questions.json" <<'EOF'
 import json, sys, collections
 d = json.load(open(sys.argv[1]))
 t = d.get("task", d)
