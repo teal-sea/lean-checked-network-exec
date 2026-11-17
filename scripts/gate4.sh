@@ -85,10 +85,28 @@ EOF
   replay)
     [ -d "$OUT/.lake" ] || die "no built project in $OUT; run: scripts/gate4.sh build"
     mkdir -p "$EV/replay"; rm -f "$EV/replay"/*.log
-    # Every module of the theorem's import closure: the model, the packed evaluator, the data, the
-    # table checks, the 113 rows and the final theorem.
-    (cd "$OUT" && find TransformerInt -name '*.lean' | LC_ALL=C sort | sed 's/\.lean$//; s#/#.#g' \
-        | grep -vE '\.Gen\.(Axioms|Eval)$') > "$EV/replay-modules.txt"
+    # Every module the theorem imports, directly or not: the model, the packed evaluator, the data,
+    # the table checks, the 113 rows and the final theorem. Files the generator writes for timing
+    # or testing only (Base, Eval, Axioms) are not imported by it, are never built, and are not here.
+    python3 - "$OUT" "$G.AllRows" > "$EV/replay-modules.txt" <<'PYEOF_INNER'
+import re, sys
+from pathlib import Path
+out, root = Path(sys.argv[1]), sys.argv[2]
+seen, todo = set(), [root]
+while todo:
+    m = todo.pop()
+    if m in seen:
+        continue
+    f = out / (m.replace(".", "/") + ".lean")
+    if not f.exists():
+        sys.exit(f"module {m} has no source file in {out}")
+    seen.add(m)
+    for line in f.read_text().splitlines():
+        g = re.match(r"\s*(?:public\s+)?import\s+(TransformerInt[\w.]*)\s*$", line)
+        if g:
+            todo.append(g.group(1))
+print("\n".join(sorted(seen)))
+PYEOF_INNER
     start=$(date +%s)
     export OUT EV
     xargs -P "$JOBS" -I{} bash -c 'cd "$OUT" && if lake env leanchecker "$1" > "$EV/replay/$1.log" 2>&1; then echo "ok $1"; else echo "FAIL $1"; fi' _ {} \
