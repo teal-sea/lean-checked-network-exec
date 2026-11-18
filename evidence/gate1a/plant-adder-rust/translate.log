@@ -1,0 +1,10 @@
+date: 2026-11-17T21:28:00Z
+crate: rust/adder
+charon: 0.1.308 (a58d159210b3a36fedeaba4437bda896a8b12f0d), toolchain nightly-2026-09-17
+aeneas: aeneas nightly-2026.11.04-d1e177b
+charon command (in rust/adder): toolchain/aeneas/charon/bin/charon cargo --preset=aeneas --dest-file .work/translate/adder.llbc --abort-on-error --error-on-warnings -- --lib
+aeneas command: toolchain/bin/aeneas -backend lean -abort-on-error -warnings-as-errors -dest lean/LcnExec/Translated .work/translate/adder.llbc
+llbc sha256: f8f845bc454e688d87f8ef67096e2972d88cb068b91c65b45811100bb27f466a
+generated: lean/LcnExec/Translated/Adder.lean, sha256 185009b5ef24c40c6b96d611d9a40b8123d5ad411d60549a7f5722b5f7a467be
+source sha256: fd229a3d09726eb90cb9ff89a5ab86cd4f9550eb84a59d2150819e9f75ac202a (src/lib.rs)
+source sha256: 8635553896bcb4b714def3ded4d13c28e224883a56086dbaa8aaf88d027672ed (src/weights.rs)

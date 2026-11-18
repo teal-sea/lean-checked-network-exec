@@ -1,0 +1,14 @@
+date 2026-11-17T20:10:25Z
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)
+Python 3.13.18
+checkpoint sha256 7cea95ed6771691dfe8a29bedfdae72d9a62c8947c25b1bca2c56919c0ff0f9e
+repo commit f382ed00b2a75d813fb77bae5a066e806d0e3290, 2 uncommitted paths
+sha256 11958805f0e6aaa513a95acf2429280b0546f00020afd4e3bb17d7e54260710c scripts/gen_transformer_lean.py
+sha256 635ad1a000c7f133f9eb8821442e3cb9a0c02086f6278ca303ed40964bdec6ce scripts/gen_transformer_weights.py
+sha256 d3d308e11b5509d47da5eeb693c120d7015557792a9e91b416a2c93c5c94f3ca scripts/check_transformer_int.py
+sha256 e72a2db4d1758c2e2b53e3dfc77e3bbe527a5ac875cf0cf4a6e044a184cfce5e pilot/transformer-int/TransformerInt/Model.lean
+sha256 94ce09af44f501e99dc4aa1461839143353632b4d71a2330214b2580d7be0e2e pilot/transformer-int/TransformerInt/Fast.lean
+sha256 c40db98f55fdd44d653c24b66bb8e1b31555e2ba595a99dec2dae5d61b6d23fd rust/transformer/src/lib.rs
+sha256 3fe1e1f1572019722f3734689033c7673c44786b08cbbfef608ee1ae88f549d1 rust/transformer/src/weights.rs
+jobs 2 of 4 cores

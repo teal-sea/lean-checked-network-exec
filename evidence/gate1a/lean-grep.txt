@@ -1,0 +1,1 @@
+grep -rnwE 'sorry|native_decide' over 12 .lean files under lean/: no match

@@ -1,0 +1,16 @@
+date: 2026-11-17T21:10:12Z; machine: 4 cores, 16 GiB RAM; load average at the start (1, 5, 15 min): 2.67 3.24 3.96
+translate: 5 s
+translate-lib-only: 4 s
+lean-grep: 0 s
+build: 790 s
+statements: 4 s
+axioms: 3 s
+recheck: 95 s
+diff-adder: 23 s
+plant-smoke: 35 s
+plant-adder: 49 s
+plant-adder-off-by-one: 51 s
+plant-adder-rust: 57 s
+ci: 48 s
+files: 0 s
+gate1a: ok

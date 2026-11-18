@@ -1,0 +1,20 @@
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:1266:63: error: (deterministic) timeout at `«synthesize pending MVars»`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:3280:8: error: (deterministic) timeout at `«synthesize pending MVars»`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:4110:31: error(lean.unknownIdentifier): Unknown identifier `weights.E1`
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:4113:31: error(lean.unknownIdentifier): Unknown identifier `weights.E2`
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:4101:2: warning: declaration uses `sorry`
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:5333:8: error: (deterministic) timeout at `«synthesize pending MVars»`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:6147:30: error(lean.unknownIdentifier): Unknown identifier `weights.W2`
+/home/user/lean-checked-network-exec/.work/mlp/pilot/MlpAsIs.lean:6139:2: warning: declaration uses `sorry`

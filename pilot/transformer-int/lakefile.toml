@@ -1,0 +1,5 @@
+name = "transformer-int"
+defaultTargets = ["TransformerInt"]
+
+[[lean_lib]]
+name = "TransformerInt"

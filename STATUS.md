@@ -3,20 +3,49 @@
 Every number here comes from a file under `evidence/`. "Not started" means no work has been
 done and no evidence exists.
 
+The plan since 2026-11-18 is [PLAN.md](PLAN.md): gates E0 to E8 at the end of the table. Gates 0
+to 4 and the Aristotle rows belong to the first plan and stay as they were run.
+
 | Gate | What | Cap | Status | Evidence |
 | --- | --- | --- | --- | --- |
 | 0(a) | Toolchain: Lean versions reconciled, or vendored with diff | 2 agent-days for gate 0 | Passed. The versions differ (lean-checked-network `v4.35.0-rc2`, Aeneas `v4.35.0`), so the adder is vendored; the diff is empty | `evidence/vendor/versions.txt`, `evidence/vendored-diff.txt` |
 | 0(b) | Toolchain: nanoda checks that Lean version | | Passed. nanoda_bin 0.4.19 on `v4.35.0` exports: 4 theorems, no typechecker errors | `evidence/recheck/summary.txt` |
 | 0(c) | Toolchain: loop smoke test translated and one fact proved | | Passed. `LcnExec.Smoke.sum_zeros`, axioms `propext`, `Classical.choice`, `Quot.sound`. Compile-and-diff: 0 mismatches in 1,300 inputs. The planted wrong constant is caught | `evidence/translate/smoke/`, `evidence/axioms/result.txt`, `evidence/diff/smoke/summary.txt`, `evidence/plant/summary.txt` |
 | 0(d) | Toolchain: nanoda rechecks the existing adder theorem | | Passed. 3 of 3 theorems under nanoda_bin 0.4.17 and 0.4.19, no typechecker errors | `evidence/parent-adder/summary.txt` |
-| 1A | Adder in safe Rust proved equal to RnnAdder for every input: standard axioms only, nanoda recheck, planted wrong weight rejected, compile-and-diff agrees | 5 agent-days | Not started | |
-| 1B | Adder in C to Aristotle, memory safety only, credits capped at $100 | 1 agent-day | Not started | |
-| 2 | Thomas's go on the transformer | | Not started | |
-| 3 | Requantize the transformer with per-layer rescaling; Python check on all 12,769 inputs; record the maximum intermediate width | | Not started | |
-| 4 | Regenerate the transformer theorem for the rescaled model | | Not started | |
-| 5 | Transformer in Rust, same theorem shape as 1A | | Not started | |
-| 6 | Write-up: audit surface as line counts, trusted tools by name and version, all from `evidence/` | | Not started | |
-| 7 | Publish, on Thomas's separate yes | | Not started | |
+| 1A | Adder in safe Rust proved equal to RnnAdder for every input: standard axioms only, nanoda recheck, planted wrong weight rejected, compile-and-diff agrees | 5 agent-days | Passed on `scripts/gate1a.sh`, 2026-11-17, under one agent-day. Ten theorems in `LcnExec.Adder.Proofs`: the translated constants equal `RnnAdder.Trained.net` (`rustNet_eq`); `step`, `out`, `carry` and `add_bits` return `ok` of what RnnAdder computes, for every input and every length; composed with the vendored theorems (`add_bits_ripple`, `add_bits_adds`); `add_u64_eq`: the sum is `(a + b) % 2^64` and the flag is `a + b ≥ 2^64`. Axioms of all ten: `propext`, `Classical.choice`, `Quot.sound`. nanoda_bin 0.4.19: 14 of 14 theorems with no typechecker errors. Compile-and-diff: 0 mismatches of 3,535 inputs against both evaluators. Planted weight 125 to 25, in the translation and in the Rust source: caught by build, axioms and diff. Planted 125 to 124: caught by build and axioms, not by diff. **Open:** the ten names are in `evidence/gate1a/proposed-theorems.txt`, not yet in `gates/theorems.txt`, which agents do not edit, so `gates/ci.sh` does not check them yet | `evidence/gate1a/statements/statements.txt`, `axioms/result.txt`, `recheck/summary.txt`, `diff/adder/summary.txt`, `plant*/summary.txt`, `timings.txt` |
+| 1B | Adder in C to Aristotle, memory safety only, credits capped at $100 | 1 agent-day | Dropped 2026-11-18 ([PLAN.md](PLAN.md)). `c/adder` is in the tree and was never submitted | |
+| 1R | Adder in Rust to Aristotle's Rust prover (released 2026-11-16): no panics, the length check, the ripple-carry adder for every input length, its arithmetic reading, and `add_u64` equal to `overflowing_add` | The 500 free credits, shared with the other Aristotle runs | Passed. 5 of 5 properties PROVED in one run: 71 minutes, 167.4 credits. The returned sources are byte-identical to the upload. Aristotle returns its summary and its public Lean statements, not the proof source, so nanoda cannot recheck this result; gate 1A stays the replayable route | `evidence/aristotle/adder/result.txt`, `summary.md`, `result/Spec/Adder.lean`, `upload.sha256` |
+| MLP-R | The trained two-layer MLP of lean-checked-network in Rust (`rust/mlp`, not one of the original gates) to Aristotle: adds mod 113 on all 12,769 pairs, out-of-range inputs rejected, no panics, and the `unsafe` raw-pointer `predict_fast` free of undefined behavior and equal to the safe `predict` | The 500 free credits, shared | Passed. 5 of 5 properties PROVED in one run: 63 minutes, 120.1 credits. The returned sources are byte-identical to the upload. Proof source not returned, as for 1R. Aristotle's summary corrects a wrong bound in `SPEC.md`'s notes (see the erratum there); the proofs do not use it | `evidence/aristotle/mlp/result.txt`, `summary.md`, `result/Spec/Mlp.lean`, `upload.sha256` |
+| 5R | The transformer in Rust (`rust/transformer`) to Aristotle: adds mod 113 on all 12,769 pairs, out-of-range inputs rejected, no panics | What was left of the free credits, 207.6 | Not passed: the credits ran out with no property proved. The run started 19:57 UTC. It posted formal statements of the three properties at 22:14 UTC, 2 h 17 min in (`Spec.predict_in_range_spec`, `predict_out_of_range_spec`, `predict_no_panic_spec`). Its last event is at 22:26 UTC. The balance read 39.2 at 22:15 and 0.0 at 22:47. At the fetch, 22:48 UTC, the API still listed the task as in progress. The returned sources are byte-identical to the upload. Harmonic's docs say a run stopped for credits can be continued once credits are added | `evidence/aristotle/transformer/result.txt`, `properties.json`, `task.json`, `result/Spec/` |
+| 2 | Thomas's go on the transformer | | Taken as given on 2026-11-17 from his words in the web session that ran gates 3 and 4 ("this project is yours"). He did not name the transformer; if that reading is wrong, gates 3 and 4 below were run early | |
+| 3 | Requantize the transformer with per-layer rescaling; Python check on all 12,769 inputs; record the maximum intermediate width | | Passed, 2026-11-17. `rust/transformer` is an `i64`-only program with one fixed scale per stage and one division. The Python reference is right on all 12,769 pairs, 0 ties. Widest intermediate: 61 bits measured, 61 bits by the static bound; an `i64` holds 63. Smallest margin 62,944,808,481 at scale 2^32, at pair (21, 56). The Rust agrees with the Python on all 1,442,897 logits. This is a different program from the one in lean-checked-network's transformer theorem: same integer weights, different softmax and rescaling | `evidence/transformer-int/summary.txt` |
+| 4 | Regenerate the transformer theorem for the rescaled model | | Passed, 2026-11-17. `TransformerInt.Gen.adds_mod_113 : ∀ a, a < 113 → ∀ b, b < 113 → predict weights a b = some ((a + b) % 113)` is accepted by Lean's kernel: 136 modules, one per row for the 113 rows, 2,638 s wall at two jobs on 4 cores, Lean v4.35.0, core only. Axioms: `propext`, `Classical.choice`, `Quot.sound`. `leanchecker` replayed 135 of 135 modules of the theorem's import closure in 2,254 s. The lookup tables and packed numbers the fast evaluator uses are themselves kernel-checked against the weights (`static_ok`, `tables_ok`), and `fastPredict_sound` carries each row to `predict`, which contains no table. The pilot's three planted faults were each rejected by the kernel. **Scope:** the theorem is about the Lean model in `pilot/transformer-int`, which mirrors `rust/transformer/src/lib.rs` stage by stage and was tested against the Python reference on 27,798 logits. Nothing yet proves the Rust equal to it; that is gate 5. The project is standalone, not yet part of `lean/` or of `gates/theorems.txt`. A first replay reported one failure, for a timing-only file nothing imports and that is never built; the script now lists the import closure and the replay was run again | `evidence/gate4/summary.txt`, `axioms.txt`, `build.log`, `replay-summary.txt`, `replay-results.txt`, `generated.sha256`, `versions.txt` |
+| 5 | Transformer in Rust, same theorem shape as 1A | | Replaced 2026-11-18 by E0 to E3 ([PLAN.md](PLAN.md)). Not started | |
+| 6 | Write-up: audit surface as line counts, trusted tools by name and version, all from `evidence/` | | Carried as E7. Not started | |
+| 7 | Publish, on Thomas's separate yes | | Carried as E8. Not started | |
+| E0 | The weights become an input: `rust/engine` takes `&Weights`, `rust/transformer` calls it, and Aeneas translates the engine with no weights table | Half an agent-day, proposed | Not started | |
+| E1 | The load check: `Bounds.ok` in Lean, the static bounds of `scripts/check_transformer_int.py`. True on the trained weights by the kernel. A weights file built to overflow is rejected | 1 agent-day, proposed | Not started | |
+| E2 | The engine theorem: for every weights file that passes the check and every input, the Rust returns `ok` of what `TransformerInt` computes. Standard axioms only, nanoda recheck, planted faults in the code rejected, compile-and-diff agrees | 5 agent-days, proposed | Not started | |
+| E3 | The first network end to end: the Rust transformer adds mod 113 on every pair, composed from E2 and gate 4. A second weights file gets its theorem with no change to E2's files | 3 agent-days, proposed | Not started | |
+| E4 | The general engine: layers, context length, causal attention, generation. The load check in Rust, proved | 6 agent-days, proposed | Not started | |
+| E5 | A small language model on the engine, measured against its floating-point original | 3 agent-days, proposed | Not started | |
+| E6 | The browser: the same crate as WebAssembly, and a page that answers | 2 agent-days, proposed | Not started | |
+| E7 | Write-up: audit surface as line counts, trusted tools by name and version, all from `evidence/` | | Not started | |
+| E8 | Publish, on Thomas's separate yes | | Not started | |
 
 Gate 0 ran locally on 2026-11-04. Commands, versions and failures are in
 [evidence/step0.md](evidence/step0.md).
+
+Gate 1R ran on 2026-11-17 at Harmonic, submitted by `scripts/aristotle.sh`, which also writes
+its evidence. The credit figure is the account balance at submission (`balance-before.json`,
+500.0) minus the balance logged one minute after the run ended (332.55).
+
+MLP-R ran the same day, 18:54 to 19:57 UTC. Its credit figure is the balance at submission
+(`evidence/aristotle/mlp/balance-before.json`, 327.70) minus the balance at the fetch that
+followed the run (`balance-after.json`, 207.58).
+
+The 500 free credits are spent: 167.4 on 1R, 120.1 on MLP-R, 207.6 on 5R, and about 4.5 on the run described next. The balance is 0.
+
+One Aristotle run is not in the table: a SystemVerilog version of the adder was submitted at
+18:48 UTC and cancelled 6 minutes later, about 4.5 credits, nothing proved. It was off the ask.
+Its record is `evidence/aristotle/v-adder/`.

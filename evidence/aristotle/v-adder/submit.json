@@ -1,0 +1,33 @@
+{
+  "project": {
+    "project_id": "c35d9258-8f10-47c5-8573-d5e69b11ffb5",
+    "created_at": "2026-11-17T18:48:06.506749+00:00",
+    "last_updated": "2026-11-17T18:48:06.751178+00:00",
+    "name": "lcn-exec-v-adder",
+    "status": 1,
+    "latest_run_status": "QUEUED",
+    "has_input": true,
+    "has_files": false,
+    "status_name": "RUNNING"
+  },
+  "task": {
+    "project_id": "c35d9258-8f10-47c5-8573-d5e69b11ffb5",
+    "agent_task_id": "65c49209-fa49-420d-8d54-f2283a5c8c22",
+    "status": "QUEUED",
+    "budget_failure_reason": null,
+    "created_at": "2026-11-17T18:48:06.528381+00:00",
+    "last_updated_at": "2026-11-17T18:48:06.986710+00:00",
+    "started_at": null,
+    "percent_complete": null,
+    "file_name": "v-adder.tar.gz",
+    "description": "Perform the formal verification of the rnn_adde...",
+    "output_summary": null,
+    "read_only": false,
+    "budget_failure_reason_name": null
+  },
+  "web_url": "https://aristotle.harmonic.fun/projects/c35d9258-8f10-47c5-8573-d5e69b11ffb5",
+  "result_path": null,
+  "property_counts": null,
+  "requested_counts": null,
+  "properties": []
+}

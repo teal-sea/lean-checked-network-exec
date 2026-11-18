@@ -1,0 +1,5 @@
+rust/mlp/src/weights.rs: sha256 3abf2e409a29b36a908ab5d83464992d5790131cb59fae9af03e1b929f4a713f, 356 lines
+the variant's src/weights.rs: sha256 df94570892125f208afe88bc2d447cc93c1486cbc4deb7700b3313cc1733cff5, 695 lines
+E1: 14464 entries, the variant's are the same, entry for entry
+E2: 14464 entries, the variant's are the same, entry for entry
+W2: 14464 entries, the variant's are the same, entry for entry

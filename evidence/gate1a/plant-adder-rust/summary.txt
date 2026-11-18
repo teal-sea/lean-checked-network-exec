@@ -1,0 +1,7 @@
+date: 2026-11-17T21:27:53Z
+planted: rust/adder/src/weights.rs: 'pub const WOA: i32 = 125;' -> 'pub const WOA: i32 = 25;'
+translated again: lean/LcnExec/Translated/Adder.lean differs from the original in 4 lines
+build: exit 1, caught: FAIL (build.sh): lake build failed (evidence/build/build.log) 
+axioms: exit 1, caught: FAIL (axioms.sh): lean failed on the axiom probe (evidence/axioms/print-axioms.out) 
+diff: exit 1, caught: FAIL (diff.sh): Rust and Lean binaries disagree on 2141 of 3535 inputs (adder_net_eval) 
+plant: ok, caught by: build axioms diff

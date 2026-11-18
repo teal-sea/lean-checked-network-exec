@@ -1,0 +1,4 @@
+copied 6 hand-written files from pilot/transformer-int
+checkpoint sha256 7cea95ed6771691dfe8a29bedfdae72d9a62c8947c25b1bca2c56919c0ff0f9e
+wrote 136 generated files under /home/user/lean-checked-network-exec/.work/gate4/TransformerInt/Gen, 7329929 bytes, sha256 over them 63387b479cdcbfc1b6c61c2d86185d64c7504c70599fc7e6a349fa1f113f6d86
+rows: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112]; chunks per row: 8; eval sample: 246 pairs

@@ -1,0 +1,32 @@
+date: 2026-11-17T20:55:01Z
+parent: https://github.com/teal-sea/lean-checked-network @ 0214aa3bcee37c9c1f7f6db220c3223375e0c459, lean/lean-toolchain = leanprover/lean4:v4.35.0-rc2
+built on: Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+machine: 4 cores, 16 GiB RAM
+files: 21 copied byte for byte (684111 bytes); diff in copied-diff.txt
+lake build (the 21 modules): exit 0, 1165 s wall
+modules, as Lake reports them:
+  LeanCheckedNetwork.Network (759ms)
+  LeanCheckedNetwork.Fast (946ms)
+  LeanCheckedNetwork.Trained.Weights (34s)
+  LeanCheckedNetwork.Trained.Table (1.8s)
+  LeanCheckedNetwork.Trained.Rows15 (175s)
+  LeanCheckedNetwork.Trained.Rows14 (175s)
+  LeanCheckedNetwork.Trained.Rows13 (186s)
+  LeanCheckedNetwork.Trained.Rows12 (288s)
+  LeanCheckedNetwork.Trained.Rows10 (292s)
+  LeanCheckedNetwork.Trained.Rows08 (307s)
+  LeanCheckedNetwork.Trained.Rows05 (317s)
+  LeanCheckedNetwork.Trained.Rows04 (295s)
+  LeanCheckedNetwork.Trained.Rows03 (293s)
+  LeanCheckedNetwork.Trained.Rows01 (271s)
+  LeanCheckedNetwork.Trained.Rows00 (317s)
+  LeanCheckedNetwork.Trained.Rows02 (250s)
+  LeanCheckedNetwork.Trained.Rows11 (261s)
+  LeanCheckedNetwork.Trained.Rows07 (266s)
+  LeanCheckedNetwork.Trained.Rows06 (228s)
+  LeanCheckedNetwork.Trained.Rows09 (117s)
+  LeanCheckedNetwork.Trained.AllInputs (525ms)
+statement and axioms (probe.out):
+  LeanCheckedNetwork.Trained.adds_mod_113 : ∀ (a : Nat),
+    a < 113 → ∀ (b : Nat), b < 113 → LeanCheckedNetwork.Trained.answer a b = (a + b) % 113
+  'LeanCheckedNetwork.Trained.adds_mod_113' depends on axioms: [propext, Classical.choice, Quot.sound]

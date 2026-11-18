@@ -1,0 +1,3 @@
+[Error] Aeneas does not yet support dereferencing raw pointers.
+Source: 'src/fast.rs', lines 21:25-21:38
+Compiler source: interp/InterpPaths.ml, line 197

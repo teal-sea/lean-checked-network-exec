@@ -1,0 +1,25 @@
+--- original/rust/adder/src/weights.rs
++++ planted/rust/adder/src/weights.rs
+@@ -14,7 +14,7 @@
+ /// Sum-bit read-out weights, applied to the new state.
+ pub const WO: [i32; H] = [-127, 63, 80, -120];
+ /// Sum-bit weight for the bit `a`.
+-pub const WOA: i32 = 125;
++pub const WOA: i32 = 25;
+ /// Sum-bit weight for the bit `b`.
+ pub const WOB: i32 = 125;
+ /// Sum-bit bias.
+--- original/lean/LcnExec/Translated/Adder.lean
++++ planted/lean/LcnExec/Translated/Adder.lean
+@@ -170,9 +170,9 @@
+ @[global_simps, irreducible] def weights.WOB : Std.I32 := 125#i32
+ 
+ /-- [adder::weights::WOA]
+-    Source: 'src/weights.rs', lines 17:0-17:25
++    Source: 'src/weights.rs', lines 17:0-17:24
+     Visibility: public -/
+-@[global_simps, irreducible] def weights.WOA : Std.I32 := 125#i32
++@[global_simps, irreducible] def weights.WOA : Std.I32 := 25#i32
+ 
+ /-- [adder::weights::WO]
+     Source: 'src/weights.rs', lines 15:0-15:46

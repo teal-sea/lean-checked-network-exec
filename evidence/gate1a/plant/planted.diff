@@ -1,0 +1,10 @@
+--- original/lean/LcnExec/Translated/Smoke.lean
++++ planted/lean/LcnExec/Translated/Smoke.lean
+@@ -52,6 +52,6 @@
+     Visibility: public -/
+ @[reducible]
+ def sum (xs : Slice Std.U32) : Result Std.U32 := do
+-  sum_loop xs 0#u32 0#usize
++  sum_loop xs 1#u32 0#usize
+ 
+ end smoke

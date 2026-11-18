@@ -15,6 +15,13 @@ The sentence this repository is meant to support:
 
 [STATUS.md](STATUS.md) tracks the gates. Every number in it comes from `evidence/`.
 
+## The plan since 2026-11-18
+
+[PLAN.md](PLAN.md). The first plan proved one network at a time. The plan now is to make the
+weights an input and prove the engine once: for every weights file that passes a load check, the
+Rust forward pass returns what the Lean model returns. The mod 113 transformer becomes the first
+network on it. The end is a small language model that answers in a browser on that engine.
+
 ## Method
 
 The method is copied from lean-checked-network:
@@ -31,8 +38,10 @@ The method is copied from lean-checked-network:
 | Path | Contents |
 | --- | --- |
 | `lean/` | Lake project on Aeneas's Lean toolchain: Aeneas translations (`LcnExec/Translated/`), proofs, native Lean evaluators, and the adder vendored from lean-checked-network (`RnnAdder/`) |
-| `rust/` | Safe Rust crates: `smoke` (Step 0), `adder` (gate 1A), `transformer` (gate 5) |
-| `c/adder/` | The Aristotle submission (gate 1B) |
+| `rust/` | Rust crates: `smoke` (Step 0), `adder` (gates 1A and 1R), `mlp` (row MLP-R, with an `unsafe` twin), `transformer` (gate 3, and the first network of the engine plan) |
+| `c/adder/` | The C adder written for gate 1B. The gate was dropped and it was never submitted |
+| `pilot/` | `transformer-int`: the Lean model of `rust/transformer` and gate 4's kernel check. `mlp-row-consts`: the MLP through Aeneas with one constant per row |
+| `notes/` | Notes the agent sessions wrote while working. Not evidence |
 | `scripts/` | `translate.sh`, `build.sh`, `axioms.sh`, `recheck.sh`, `diff.sh`, `plant_wrong_weight.sh`, and helpers |
 | `gates/` | The axiom allowlist, the theorems the gates check, and `ci.sh`, which CI runs |
 | `toolchain/` | The pinned Aeneas submodule (Charon is built inside it), `install.sh`, [`PINS.md`](toolchain/PINS.md) |

@@ -1,0 +1,40 @@
+LcnExec.Smoke.sum_zeros : ∀ (xs : Slice U32), (∀ x ∈ ↑xs, x = 0#u32) → smoke.sum xs = ok 0#u32
+RnnAdder.Trained.sums_correct : ∀ (xs : List RnnAdder.Input),
+  RnnAdder.run RnnAdder.Trained.net RnnAdder.Trained.net.h0 xs = RnnAdder.addBits false xs
+RnnAdder.Trained.carry_correct : ∀ (xs : List RnnAdder.Input),
+  RnnAdder.finalCarry RnnAdder.Trained.net RnnAdder.Trained.net.h0 xs = RnnAdder.carryOut false xs
+RnnAdder.Trained.adds : ∀ (xs : List RnnAdder.Input),
+  (RnnAdder.bitsToNat (RnnAdder.run RnnAdder.Trained.net RnnAdder.Trained.net.h0 xs) +
+      2 ^ xs.length * if RnnAdder.finalCarry RnnAdder.Trained.net RnnAdder.Trained.net.h0 xs = true then 1 else 0) =
+    RnnAdder.bitsToNat (List.map Prod.fst xs) + RnnAdder.bitsToNat (List.map Prod.snd xs)
+LcnExec.Adder.rustNet_eq : LcnExec.Adder.rustNet = RnnAdder.Trained.net
+LcnExec.Adder.step_eq : ∀ (h : Std.Array Bool 4#usize) (a b : Bool),
+  ∃ r, adder.step h a b = ok r ∧ ↑r = RnnAdder.step RnnAdder.Trained.net ↑h (a, b)
+LcnExec.Adder.out_eq : ∀ (h : Std.Array Bool 4#usize) (a b : Bool),
+  adder.out h a b = ok (RnnAdder.out RnnAdder.Trained.net ↑h (a, b))
+LcnExec.Adder.carry_eq : ∀ (h : Std.Array Bool 4#usize), adder.carry h = ok (RnnAdder.carry RnnAdder.Trained.net ↑h)
+LcnExec.Adder.add_bits_eq : ∀ (xs : Slice (Bool × Bool)) (sum : Slice Bool),
+  sum.length = xs.length →
+    ∃ sum',
+      adder.add_bits xs sum = ok (some (RnnAdder.finalCarry RnnAdder.Trained.net RnnAdder.Trained.net.h0 ↑xs), sum') ∧
+        ↑sum' = RnnAdder.run RnnAdder.Trained.net RnnAdder.Trained.net.h0 ↑xs
+LcnExec.Adder.add_bits_len_ne : ∀ (xs : Slice (Bool × Bool)) (sum : Slice Bool),
+  sum.length ≠ xs.length → adder.add_bits xs sum = ok (none, sum)
+LcnExec.Adder.add_bits_ripple : ∀ (xs : Slice (Bool × Bool)) (sum : Slice Bool),
+  sum.length = xs.length →
+    ∃ sum', adder.add_bits xs sum = ok (some (RnnAdder.carryOut false ↑xs), sum') ∧ ↑sum' = RnnAdder.addBits false ↑xs
+LcnExec.Adder.add_bits_adds : ∀ (xs : Slice (Bool × Bool)) (sum : Slice Bool),
+  sum.length = xs.length →
+    ∃ c sum',
+      adder.add_bits xs sum = ok (some c, sum') ∧
+        (RnnAdder.bitsToNat ↑sum' + 2 ^ xs.length * if c = true then 1 else 0) =
+          RnnAdder.bitsToNat (List.map Prod.fst ↑xs) + RnnAdder.bitsToNat (List.map Prod.snd ↑xs)
+LcnExec.Adder.add_u64_net_eq : ∀ (a b : U64),
+  ∃ s c,
+    adder.add_u64 a b = ok (s, c) ∧
+      ↑s =
+          RnnAdder.bitsToNat
+            (RnnAdder.run RnnAdder.Trained.net RnnAdder.Trained.net.h0 (LcnExec.Adder.bitPairs (↑a) (↑b) 64)) ∧
+        c = RnnAdder.finalCarry RnnAdder.Trained.net RnnAdder.Trained.net.h0 (LcnExec.Adder.bitPairs (↑a) (↑b) 64)
+LcnExec.Adder.add_u64_eq : ∀ (a b : U64),
+  ∃ s c, adder.add_u64 a b = ok (s, c) ∧ ↑s = (↑a + ↑b) % 2 ^ 64 ∧ c = decide (↑a + ↑b ≥ 2 ^ 64)

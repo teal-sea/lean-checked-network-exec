@@ -1,0 +1,24 @@
+# Theorems the gates check (scripts/axioms.sh, scripts/recheck.sh): "<module> <constant>".
+# Step 0 smoke test: Aeneas's translation of rust/smoke returns ok 0 on every slice of zeros.
+LcnExec.Smoke.Proofs LcnExec.Smoke.sum_zeros
+# The recurrent adder theorems, vendored from lean-checked-network and rebuilt on this toolchain.
+RnnAdder.Trained RnnAdder.Trained.sums_correct
+RnnAdder.Trained RnnAdder.Trained.carry_correct
+RnnAdder.Trained RnnAdder.Trained.adds
+# Gate 1A (proposed, not yet in gates/theorems.txt): Aeneas's translation of rust/adder returns
+# ok of what RnnAdder computes on RnnAdder.Trained.net, for every input.
+# The translated constants of rust/adder/src/weights.rs are the entries of RnnAdder.Trained.net.
+LcnExec.Adder.Proofs LcnExec.Adder.rustNet_eq
+# step, out, carry.
+LcnExec.Adder.Proofs LcnExec.Adder.step_eq
+LcnExec.Adder.Proofs LcnExec.Adder.out_eq
+LcnExec.Adder.Proofs LcnExec.Adder.carry_eq
+# add_bits: equal lengths (any length), then differing lengths.
+LcnExec.Adder.Proofs LcnExec.Adder.add_bits_eq
+LcnExec.Adder.Proofs LcnExec.Adder.add_bits_len_ne
+# add_bits composed with RnnAdder.Trained.sums_correct, carry_correct and adds.
+LcnExec.Adder.Proofs LcnExec.Adder.add_bits_ripple
+LcnExec.Adder.Proofs LcnExec.Adder.add_bits_adds
+# add_u64: against RnnAdder, then as 64-bit addition with carry out.
+LcnExec.Adder.Proofs LcnExec.Adder.add_u64_net_eq
+LcnExec.Adder.Proofs LcnExec.Adder.add_u64_eq

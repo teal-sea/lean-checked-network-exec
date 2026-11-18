@@ -1,0 +1,14 @@
+date: 2026-11-17T21:28:47Z
+seed: 20261104; inputs: 3535 lines, sha256 cca4db0017b62378632bb31133fbbcf3fa48d8abed66935655eef862d9848f24
+rust: rustc 1.99.1 (58cf8f9c3 2026-10-13), binary sha256 8752e463922399c1bb264f7a4d67a46e660d7d184d3a948a322c38cf254a9637
+lean (adder_eval): Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release), binary sha256 3f10e17c7157ce389e58db3ee475fc3aa947d4e91ac0d9cab41242a73a7f6d30
+lean (adder_net_eval): Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release), binary sha256 25d1ba5aa554b7df4facaa9b8b8538e40544f9066ff216840b088883da5e3a2c
+outputs (rust): 200 none,2000 ok,1335 some
+mismatches (adder_eval): 0 of 3535
+mismatches (adder_net_eval): 2141 of 3535
+9: input [bits 10101110 00000000 00000111] rust [some 0 00000000] lean [some 0 10101110]
+10: input [bits 101001110 010010001 101111011] rust [some 0 010010001] lean [some 0 111011111]
+11: input [bits 1101110101 0010010100 0100111011] rust [some 0 0010001010] lean [some 0 1111101011]
+13: input [bits 101110101011 010001000000 110000001011] rust [some 0 010001000000] lean [some 0 111111101011]
+14: input [bits 0000110111000 0010011100011 0010010010010] rust [some 0 0010000000111] lean [some 0 0010100100111]
+FAIL (diff.sh): Rust and Lean binaries disagree on 2141 of 3535 inputs (adder_net_eval)

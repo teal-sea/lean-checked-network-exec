@@ -1,0 +1,6 @@
+date: 2026-11-17T21:26:13Z
+planted: lean/LcnExec/Translated/Adder.lean: 'def weights.WOA : Std.I32 := 125#i32' -> 'def weights.WOA : Std.I32 := 25#i32'
+build: exit 1, caught: FAIL (build.sh): lake build failed (evidence/build/build.log) 
+axioms: exit 1, caught: FAIL (axioms.sh): lean failed on the axiom probe (evidence/axioms/print-axioms.out) 
+diff: exit 1, caught: FAIL (diff.sh): Rust and Lean binaries disagree on 2141 of 3535 inputs (adder_eval) 
+plant: ok, caught by: build axioms diff

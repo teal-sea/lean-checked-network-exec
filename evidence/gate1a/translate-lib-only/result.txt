@@ -1,0 +1,4 @@
+crate copied without src/bin/: ./Cargo.lock ./Cargo.toml ./src/lib.rs ./src/weights.rs 
+with src/bin/:    lean/LcnExec/Translated/Adder.lean sha256 79cec4b45d5a41373db09c956a0f891e9740fa8bf75d978f2bfd4770c7d6ff4a
+without src/bin/: lean/LcnExec/Translated/Adder.lean sha256 79cec4b45d5a41373db09c956a0f891e9740fa8bf75d978f2bfd4770c7d6ff4a
+translate-lib-only: ok, the two files are identical

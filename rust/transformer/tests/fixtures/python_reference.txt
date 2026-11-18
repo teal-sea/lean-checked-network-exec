@@ -1,0 +1,4 @@
+# Written by scripts/check_transformer_int.py. Read by tests/all_pairs.rs.
+logits_fnv1a64 6cb24f7670e8562e
+min_margin 62944808481
+min_margin_pair 21 56

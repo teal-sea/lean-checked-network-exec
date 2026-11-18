@@ -1,0 +1,11 @@
+--- original/lean/LcnExec/Translated/Adder.lean
++++ planted/lean/LcnExec/Translated/Adder.lean
+@@ -172,7 +172,7 @@
+ /-- [adder::weights::WOA]
+     Source: 'src/weights.rs', lines 17:0-17:25
+     Visibility: public -/
+-@[global_simps, irreducible] def weights.WOA : Std.I32 := 125#i32
++@[global_simps, irreducible] def weights.WOA : Std.I32 := 124#i32
+ 
+ /-- [adder::weights::WO]
+     Source: 'src/weights.rs', lines 15:0-15:46

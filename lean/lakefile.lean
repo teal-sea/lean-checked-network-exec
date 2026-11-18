@@ -21,3 +21,12 @@ lean_lib RnnAdder where
 /-- The smoke test's translated `sum` as a native binary, for scripts/diff.sh. -/
 lean_exe smoke_eval where
   root := `LcnExec.Smoke.Main
+
+/-- The adder's translated `add_bits` and `add_u64` as a native binary, for scripts/diff.sh. -/
+lean_exe adder_eval where
+  root := `LcnExec.Adder.Main
+
+/-- The Lean network `RnnAdder.Trained.net` as a native binary, for scripts/diff.sh. It links
+neither Aeneas nor the translation. -/
+lean_exe adder_net_eval where
+  root := `LcnExec.Adder.NetMain

@@ -3,6 +3,9 @@
 # Usage: scripts/translate.sh [crate]    (default: smoke; the crate lives in rust/<crate>)
 # Output: lean/LcnExec/Translated/<Crate>.lean, logs and hashes in evidence/translate/<crate>/.
 # Needs the pinned tools from toolchain/install.sh; refuses any other version.
+# EXTRA_CHARON_ARGS adds options to the Charon command, for example "--exclude crate::fast" to
+# leave a module out of the translation. They are recorded in summary.txt with the rest of the
+# command. (Charon itself reads a variable named CHARON_ARGS, so that name is not used here.)
 source "$(dirname "$0")/common.sh"
 
 crate="${1:-smoke}"
@@ -26,7 +29,8 @@ rm -rf "$out"
 mkdir -p "$out" "$(dirname "$llbc")" "$dest"
 rm -f "$llbc"
 
-charon_cmd=("$CHARON" cargo --preset=aeneas --dest-file "$llbc" --abort-on-error --error-on-warnings -- --lib)
+read -r -a charon_extra <<< "${EXTRA_CHARON_ARGS:-}"
+charon_cmd=("$CHARON" cargo --preset=aeneas "${charon_extra[@]}" --dest-file "$llbc" --abort-on-error --error-on-warnings -- --lib)
 (cd "$crate_dir" && "${charon_cmd[@]}") > "$out/charon.log" 2>&1 \
   || die "charon failed on rust/$crate (evidence/translate/$crate/charon.log)"
 [ -s "$llbc" ] || die "charon wrote no LLBC file"
@@ -50,6 +54,9 @@ rm -f "$out/forbidden.txt"
   echo "aeneas command: ${aeneas_cmd[*]/#$ROOT\//}"
   echo "llbc sha256: $(sha256sum < "$llbc" | cut -c1-64)"
   echo "generated: ${generated#"$ROOT"/}, sha256 $(sha256sum < "$generated" | cut -c1-64)"
-  echo "source sha256: $(cat "$crate_dir"/src/lib.rs | sha256sum | cut -c1-64) (src/lib.rs)"
+  # Every file of the library: src/lib.rs and its modules (src/bin/ is not translated).
+  for source in "$crate_dir"/src/*.rs; do
+    echo "source sha256: $(sha256sum < "$source" | cut -c1-64) (src/$(basename "$source"))"
+  done
 } > "$out/summary.txt"
 cat "$out/summary.txt"

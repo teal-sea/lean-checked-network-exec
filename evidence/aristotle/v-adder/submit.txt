@@ -1,0 +1,4 @@
+submitted_at 2026-11-17T18:48:05Z
+repo_commit 260b4c076ee1a80b85bdb832c64c8f71b2deb7e1 dirty=12
+cancelled_at 2026-11-17T18:54:28Z by the session: off the ask, the credits are for Rust
+upload source: commit f437c7b, verilog/adder (rnn_adder.sv, SPEC.md); removed from the tree afterwards, the run proved nothing
