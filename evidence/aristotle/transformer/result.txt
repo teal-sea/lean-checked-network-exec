@@ -1,8 +1,8 @@
-task 2bb7c477-d170-489a-871e-64298cc46a13 status IN_PROGRESS
-created 2026-11-17T19:57:35.848657+00:00 updated 2026-11-17T22:48:10.557610+00:00
-properties {'IN_PROGRESS': 3}
-  Spec.predict_in_range_spec: IN_PROGRESS
-  Spec.predict_no_panic_spec: IN_PROGRESS
-  Spec.predict_out_of_range_spec: IN_PROGRESS
+task 2bb7c477-d170-489a-871e-64298cc46a13 status COMPLETE
+created 2026-11-17T19:57:35.848657+00:00 updated 2026-11-17T23:05:59.336431+00:00
+properties {'PROVED': 3}
+  Spec.predict_in_range_spec: PROVED
+  Spec.predict_no_panic_spec: PROVED
+  Spec.predict_out_of_range_spec: PROVED
 returned sources: identical to the upload
 credits at submit 207.6056, at this fetch 0.0 (later runs in the same account are included)

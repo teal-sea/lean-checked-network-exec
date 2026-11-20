@@ -3,15 +3,15 @@
   "task": {
     "project_id": "0e818f51-96b7-4f6f-a25b-3c0cc9edd493",
     "agent_task_id": "2bb7c477-d170-489a-871e-64298cc46a13",
-    "status": "IN_PROGRESS",
+    "status": "COMPLETE",
     "budget_failure_reason": null,
     "created_at": "2026-11-17T19:57:35.848657+00:00",
-    "last_updated_at": "2026-11-17T22:48:10.557610+00:00",
+    "last_updated_at": "2026-11-17T23:05:59.336431+00:00",
     "started_at": "2026-11-17T19:57:36.650262+00:00",
     "percent_complete": null,
     "file_name": "transformer.tar.gz",
     "description": "Perform the formal verification of this crate a...",
-    "output_summary": null,
+    "output_summary": "All three properties in `SPEC.md` are proved for `pub fn predict(a: usize, b: usize) -> Option<usize>` in `src/lib.rs`. The proofs cover the crate's actual code, built in release with `overflow-checks = true`. The public contracts are in `Spec/Transformer.lean`, and each is marked proved in the Properties table:\n\n1. **`predict-in-range`:** if `a < 113` and `b < 113`, `predict(a, b)` returns `Some((a + b) % 113)`. This was checked for each of the 12,769 input pairs.\n2. **`predict-out-of-range`:** if `a >= 113` or `b >= 113`, `predict(a, b)` returns `None`.\n3. **`predict-no-panic`:** for every pair of `usize` values, `predict(a, b)` never panics. No out-of-bounds index, division by zero, arithmetic overflow or other undefined behaviour can occur.\n\nEach contract admits only a normal return, so properties 1 and 2 also rule out panics in their own cases. All three are partial-correctness claims: they say what holds if the call returns, and termination is not claimed.\n\n**Verified:** `predict` and every function it reaches, each proved against its actual code:\n- `forward`\n- `embed`\n- `attention`, `head_scores`, `project`, `softmax_weights`, `exp_fix`, `head_output`\n- `residual`\n- `mlp_hidden`, `mlp_output`\n- `final_stream`\n- `unembed`\n- `argmax`\n\nThe crate has no dependencies, and no external function is assumed.\n\n**Not verified:** functions of `src/lib.rs` that `predict` does not call, such as `logits`. They are outside these claims.\n\n**Assumed:**\n- **Weight tables.** Each contract has the premise `Spec.weightsStored` (`Spec/Weights.lean`, registered as a definition). It says the 15 `static` tables of `src/weights.rs` hold exactly their source entries; `Spec/Weights/*.lean` restates those tables entry for entry. I proved separately that the compiled statics contain exactly these bytes from the program's start. So this is a fact about read-only data, not an extra condition on callers.\n- **Object size.** As standard for these Rust results, every Rust object is assumed to occupy fewer than \\(2^{56}\\) bytes.\n\n**Delivered:** `Spec/Transformer.lean`, `Spec/Weights.lean`, `Spec/Weights/*.lean`, `Spec/Rust.lean`, `lean-toolchain` and `README.md`. The original sources and `Cargo` files are unchanged.",
     "read_only": false,
     "budget_failure_reason_name": null
   },

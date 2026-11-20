@@ -16,6 +16,9 @@ one transformer.
   weights as constants in a 1.1 MB file. Aristotle spent 207.6 credits on that crate, took
   2 h 17 min to state three properties and proved none (STATUS row 5R). Aeneas's translation of
   a table of 14,464 literals does not elaborate in Lean (`evidence/mlp`).
+  *Corrected 2026-11-20: Aristotle did not stall. The run finished 51 minutes after stating the
+  properties, 3 h 8 min in all, with all three proved (STATUS row 5R). It had been read while
+  still in progress on a zero balance. The Aeneas half of this bullet stands.*
 - **The code is small.** `rust/transformer/src/lib.rs` is 339 lines.
 - **One proof per network repeats the whole job for the next network.**
 
@@ -240,6 +243,7 @@ None of these blocks a gate.
 - **Aristotle on `rust/engine`.** After E0 the engine is about 339 lines with no table. The two
   crates Aristotle finished in about an hour each were smaller, and neither carried a 1.1 MB
   table. The account balance is 0. Buying credits is his call.
+  *Corrected 2026-11-20: Aristotle also finished `rust/transformer`, table included, in 3 h 8 min.*
 - **Schematic.** Its founder offered credits. `super link` uploads the repository's committed
   source, so it waits for his word. A repository holding only `rust/engine` would upload nothing
   else.
