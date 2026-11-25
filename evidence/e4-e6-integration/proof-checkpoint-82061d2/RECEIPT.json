@@ -1,0 +1,100 @@
+{
+  "status": "Softmax independently re-elaborated and has only the three standard axioms; Attention still fails; E4 remains open.",
+  "checkpoint": "82061d25c4ae3332c5ec5f420ab2772d2a3dc51a",
+  "worker_handle": "proc_f5a4e9c6cef3",
+  "worker_admission": 2227,
+  "model": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "box_cutoff_utc": "2026-11-21T22:15:07.128Z",
+  "build_commands": [
+    "cmd_jotmo0rrjrzx",
+    "cmd_9jln4lxnil72",
+    "cmd_vl38boytdonp"
+  ],
+  "build_wrapper_note": "First wrapper exited 1 in the final diagnostic formatter after both module builds had written their genuine exit codes. The follow-up readback and preserved remote files establish the per-module exits independently.",
+  "archive_command": "cmd_m6pxtviqk9cl",
+  "lean": "4.35.0, eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "source_sha256": {
+    "Load": "da145a17d255e3734d45a3533c9d6c2c667d445c7a5b10bdab6c242e6add550b",
+    "Softmax": "36a22c87c72df58df47fb43a67469078cccd5a0191943f147d320a834ee0ac9d",
+    "Attention": "9260284a36c5d7507a754ae2689e2b7294b6c5dc8d940f1f2c1202ff542eeabc"
+  },
+  "exit_codes": {
+    "Softmax": 0,
+    "Attention": 1,
+    "Softmax-elaboration": 0,
+    "SoftmaxAxioms": 0
+  },
+  "axioms": "'LcnExec.GeneralEngine.softmax_at_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "attention_diagnostics": {
+    "rows": 12,
+    "distinct_locations": [
+      [
+        62,
+        33
+      ],
+      [
+        93,
+        37
+      ],
+      [
+        113,
+        8
+      ],
+      [
+        119,
+        8
+      ],
+      [
+        157,
+        14
+      ],
+      [
+        163,
+        14
+      ],
+      [
+        169,
+        8
+      ],
+      [
+        172,
+        49
+      ],
+      [
+        173,
+        54
+      ],
+      [
+        173,
+        65
+      ],
+      [
+        183,
+        23
+      ]
+    ]
+  },
+  "archive": {
+    "name": "softmax-proof-and-logs.tar.gz",
+    "sha256": "e879857fe9a5f0ecd2c900b021447da3f6ab9a6f6c1b278226e38cf8082d6b93",
+    "size_bytes": 765124,
+    "member_sha256": {
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.ilean": "674e871bf36201d4a6285c5c532b886e3571059cb097e2e415cbbb78221fde24",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.ilean.hash": "1dc367946fef2fa416eaf872593a806721c6d1b2116aa9077dd69ede6bf2e7ad",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.olean": "a0b3250a6111f4b227f5337a210a3e6f0b0b01a5eea7af96a47966c7012f4f92",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.olean.hash": "856fe3bf550bb525351b03326b249985fecab2f22d6203e65a2511162d211a2a",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.trace": "4f034a05a4f1c324368adca1e03407434a55d1e91b70eed8786e309efa1b4b2f",
+      "Softmax.log": "6f12c6c351e903e140768d6759d1b5c97ad33c54185c27045d8c7ef12e39bd55",
+      "Attention.log": "0516d890f3171764f1ef291b2f0efe83b83fa9b05b3bd8c427c700b9ae25a64c",
+      "Softmax.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Attention.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "Softmax-elaboration.log": "c9bf0fbf422a92626cc84e3464970a35a0f555970d85d5597f1b16fcfdff5036",
+      "Softmax-elaboration.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "SoftmaxAxioms.lean": "574c57fd59d9ce689b244a7eaa3e28f773ef41643ba9a70b4a193f49a9ee574e",
+      "SoftmaxAxioms.log": "15166fd54a35dfe72fc3897b832838c6e7edf1287fa770183ea8c6e4ecd5a297",
+      "SoftmaxAxioms.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "limits": "No assembled correctness theorem, whole-program axiom audit, fresh replay, independent kernel replay, or semantic controls accepted. Archive is a Softmax extension to the earlier prefix; does not include complete dependency/cache closure."
+}

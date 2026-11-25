@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_dly1ixdyw701",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:10:33.785Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-23T02:10:31.373Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "List.getElem_take.{u_1} {\u03b1 : Type u_1} {xs : List \u03b1} {j i : \u2115} {h : i < (List.take j xs).length} :\n  (List.take j xs)[i] = xs[i]\nList.getElem_take'.{u_1} {\u03b1 : Type u_1} {xs : List \u03b1} {i j : \u2115} (hi : i < xs.length) (hj : i < j) :\n  xs[i] = (List.take j xs)[i]\nList.getElem_map.{u_1, u_2} {\u03b1 : Type u_1} {\u03b2 : Type u_2} (f : \u03b1 \u2192 \u03b2) {l : List \u03b1} {i : \u2115}\n  {h : i < (List.map f l).length} : (List.map f l)[i] = f l[i]\nAeneas.Std.Array.length_eq.{u} {\u03b1 : Type u} {n : Aeneas.Std.Usize} (a : Aeneas.Std.Array \u03b1 n) : (\u2191a).length = \u2191n\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

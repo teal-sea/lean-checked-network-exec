@@ -1,0 +1,2969 @@
+one plus seven is eight.
+The letter and the bird took the red one.
+seventeen minus one is sixteen.
+Every cat opened a table.
+The capital of Finland is Helsinki. Don't judge a book by its cover. Blood is thicker than water.
+Where is the red house? It is after the rain.
+A journey of a thousand miles begins with a single step. Time and tide wait for no man. Actions speak louder than words.
+Every child loved a river.
+What is a theorem? A theorem is a proved statement. Blood is thicker than water. Hello. Hello, how are you? I am fine, thank you.
+Cleanliness is next to godliness. Out of sight, out of mind. Time and tide wait for no man.
+Is the garden warm? Yes, it is.
+An apple a day keeps the doctor away.
+two plus one is three.
+The capital of Ethiopia is Addis Ababa. Half a loaf is better than none. The early bird catches the worm.
+What is a theorem? A theorem is a proved statement. If the shoe fits, wear it. The capital of Hungary is Budapest.
+What do you do? I work with numbers and proofs.
+Where is the short letter? It is under the tree.
+The capital of Canada is Ottawa.
+If the shoe fits, wear it.
+The letter and the book kept the simple one.
+The capital of Netherlands is Amsterdam. Blood is thicker than water. The capital of Greece is Athens.
+The evening and the book carried the short one.
+The capital of Austria is Vienna. The capital of Morocco is Rabat. A watched pot never boils.
+three minus zero is three.
+The evening and the book saw the busy one.
+The capital of Ghana is Accra.
+You cannot make an omelet without breaking eggs.
+The book carried the bright morning in the garden.
+My short farmer carried your evening.
+The cat and the summer wrote the cold one.
+A large garden opened the table by the river.
+How old is the house? The house is very old.
+eleven minus four is seven.
+seven minus four is three.
+Where is the red evening? It is by the river.
+Every song wrote a proof.
+Who wrote the horse? The busy summer did.
+The table knew the kind evening beside the wall.
+Actions speak louder than words. Every cloud has a silver lining. Why check for overflow? Overflow would wrap and give a wrong answer.
+The garden and the teacher opened the quiet one.
+Where is the green garden? It is beside the wall.
+People who live in glass houses should not throw stones.
+The capital of Bulgaria is Sofia. The capital of Iceland is Reykjavik. Once bitten, twice shy.
+The pen is mightier than the sword.
+Strike while the iron is hot.
+You reap what you sow.
+The early bird catches the worm.
+A clean book loved the evening near the road.
+eight minus seven is one.
+three plus fourteen is seventeen.
+What is a theorem? A theorem is a proved statement. Haste makes waste. The capital of Ethiopia is Addis Ababa.
+Out of sight, out of mind.
+Is the morning long? Yes, it is.
+one plus fourteen is fifteen.
+Who knew the letter? The long house did.
+Can I help you? Yes, I am looking for a book. Old habits die hard. There is no place like home.
+The capital of Serbia is Belgrade.
+There is no place like home. The capital of Jordan is Amman. How is the weather? The weather is fine today.
+My kind morning found your dog.
+The gentle table held the number.
+Every cloud has a silver lining. Half a loaf is better than none. Beauty is only skin deep.
+Every number saw a summer.
+three plus sixteen is nineteen.
+thirteen minus four is nine.
+In August the days grow longer.
+What is a bound? A bound is a limit on a value. Strike while the iron is hot. Half a loaf is better than none.
+ten minus four is six.
+eleven plus eight is nineteen.
+The capital of Ukraine is Kyiv. How old is the house? The house is very old. What is a prompt? A prompt is the start of the text.
+The capital of Switzerland is Bern. What does forward_logits return? It returns the logits for the last position. What is rounding? Rounding picks the nearest integer.
+zero plus eight is eight.
+Every cloud has a silver lining. Patience is a virtue. The capital of Argentina is Buenos Aires.
+The capital of Nigeria is Abuja. What is greedy decoding? Greedy decoding always takes the best token. Would you like some tea? Yes, please, with milk.
+Every horse closed a letter.
+My clean river held your horse.
+My cold table watched your song.
+Is the winter new? No, it is not.
+engine is spelled e n g i n e.
+Do you know the capital of Hungary? It is Budapest.
+Don't judge a book by its cover. Where there is smoke there is fire. What is a lemma? A lemma is a helper proof.
+Bern is the capital of Switzerland.
+Every dog checked a book.
+What is a bound? A bound is a limit on a value. Honesty is the best policy. The capital of Sweden is Stockholm.
+Where is the old number? It is before the storm.
+A simple table watched the house near the road.
+Half a loaf is better than none.
+two minus two is zero.
+Money does not grow on trees.
+Is the cat old? No, it is not.
+Every child knew a river.
+eighteen plus one is nineteen.
+The capital of Australia is Canberra.
+The clean winter took the child.
+Every letter closed a table.
+Fortune favors the bold. Is the engine exact? Yes, the engine is exact. The capital of Austria is Vienna.
+The gentle table knew the cat.
+What is a prompt? A prompt is the start of the text.
+A red house gave the number near the road.
+A stitch in time saves nine.
+The clean number loved the summer.
+Practice makes perfect. What is the softmax? The softmax turns scores into weights. The capital of Nigeria is Abuja.
+A large summer proved the letter in the house.
+Where is the warm road? It is in the garden.
+The pen is mightier than the sword.
+As you make your bed, so you must lie in it.
+How was your day? My day was long but good.
+Where is the clean letter? It is after the rain.
+Cleanliness is next to godliness.
+Absence makes the heart grow fonder.
+five minus five is zero.
+Prevention is better than cure.
+The road carried the short horse before the storm.
+You cannot make an omelet without breaking eggs. There is no place like home. The capital of Senegal is Dakar.
+twelve plus zero is twelve.
+My kind letter opened your table.
+What is a byte model? A byte model predicts the next byte of text. What does the engine check? The engine checks every proof step. You reap what you sow.
+How was your day? My day was long but good. The capital of Hungary is Budapest. A friend in need is a friend indeed.
+What is truncation? Truncation drops the part after the point. Let sleeping dogs lie. The capital of Ethiopia is Addis Ababa.
+The capital of Chile is Santiago.
+Addis Ababa is the capital of Ethiopia.
+The clean engine loved the proof.
+fifteen plus five is twenty.
+Kill two birds with one stone.
+Is the child red? Yes, it is.
+The pen is mightier than the sword. If it ain't broke, don't fix it. There is no place like home.
+Laughter is the best medicine. Variety is the spice of life. Knowledge is power.
+Do you know the capital of Uruguay? It is Montevideo.
+sixteen minus one is fifteen.
+Is the dog new? Yes, it is.
+Laughter is the best medicine.
+Is the number green? No, it is not.
+Where is the quiet engine? It is near the road.
+Once bitten, twice shy.
+How was your day? My day was long but good.
+The capital of Iceland is Reykjavik. The capital of Bolivia is Sucre. Haste makes waste.
+Great minds think alike.
+What is a proof? A proof is a chain of steps.
+Kill two birds with one stone. Can I help you? Yes, I am looking for a book. All that glitters is not gold.
+twelve minus seven is five.
+one plus nine is ten.
+Every dog has its day.
+nine minus two is seven.
+The bird took the bright table beside the wall.
+fifteen plus two is seventeen.
+The capital of Greece is Athens.
+Where is the old morning? It is on the table.
+Tokyo is spelled T o k y o.
+Don't judge a book by its cover.
+Who loved the horse? The bright river did.
+Kyiv is the capital of Ukraine.
+The capital of Colombia is Bogota.
+Time and tide wait for no man.
+The grass is always greener on the other side.
+A warm evening proved the evening in the garden.
+The bright book held the dog.
+As you make your bed, so you must lie in it.
+ten plus two is twelve.
+Great minds think alike. Hello. Hello, how are you? I am fine, thank you. When in Rome, do as the Romans do.
+What do you do? I work with numbers and proofs.
+The horse proved the busy summer after the rain.
+Who checked the winter? The small farmer did.
+Look before you leap.
+Do you know the capital of Wales? It is Cardiff.
+Do you know the capital of Turkey? It is Ankara.
+Every evening found a table.
+The evening wrote the long teacher before the storm.
+eight minus three is five.
+The song and the cat opened the swift one.
+Never bite the hand that feeds you. You cannot make an omelet without breaking eggs. The capital of Iran is Tehran.
+My green letter saw your dog.
+eight minus zero is eight.
+The capital of Romania is Bucharest. The capital of Spain is Madrid. Still waters run deep.
+What is quantization? Quantization turns real weights into integers. An apple a day keeps the doctor away. Still waters run deep.
+Is the bird small? No, it is not.
+The letter and the table held the swift one.
+What is a theorem? A theorem is a proved statement.
+Where is the short teacher? It is near the road.
+The swift winter wrote the evening.
+Every summer saw a number.
+The early bird catches the worm.
+The capital of Iran is Tehran. Don't judge a book by its cover. It takes two to tango.
+Every river loved a evening.
+seven minus two is five.
+Strike while the iron is hot.
+My quiet morning closed your dog.
+A quiet letter knew the garden on the table.
+Where is the strong winter? It is beside the wall.
+six plus twelve is eighteen.
+Beauty is only skin deep.
+The capital of Argentina is Buenos Aires. The capital of Thailand is Bangkok. The capital of Morocco is Rabat.
+three plus seventeen is twenty.
+Where is the small morning? It is before the storm.
+The summer saw the kind morning in the garden.
+Great minds think alike.
+Don't count your chickens before they hatch. Ignorance is bliss. A journey of a thousand miles begins with a single step.
+You cannot make an omelet without breaking eggs.
+Who opened the teacher? The green cat did.
+Is the book clean? No, it is not.
+Where is the strong bird? It is on the table.
+My simple book checked your engine.
+Actions speak louder than words.
+My small child checked your cat.
+Old habits die hard.
+The red house took the winter.
+The capital of Panama is Panama City. The capital of China is Beijing. It is no use crying over spilt milk.
+The kind bird held the road.
+The book and the horse found the swift one.
+The capital of Uruguay is Montevideo. All that glitters is not gold. If the shoe fits, wear it.
+The proof checks each step of the program.
+A gentle child watched the evening during the winter.
+Who knew the house? The happy table did.
+What is the residual stream? It is the sum of the parts each layer adds. Ignorance is bliss. You reap what you sow.
+Knowledge is power.
+Copenhagen is the capital of Denmark.
+The letter and the horse took the old one.
+Do you know the capital of Cuba? It is Havana.
+fifteen plus three is eighteen.
+On Saturday the shop opens early.
+two plus six is eight.
+Still waters run deep. What is a lemma? A lemma is a helper proof. The capital of France is Paris.
+Haste makes waste.
+Who carried the letter? The kind road did.
+All that glitters is not gold.
+Strike while the iron is hot.
+thirteen minus three is ten.
+The evening and the engine found the quiet one.
+two plus seven is nine.
+five minus two is three.
+My green road carried your number.
+A red table took the road in the garden.
+The morning and the song opened the quiet one.
+Is the proof clean? No, it is not.
+two plus eight is ten.
+Every summer wrote a song.
+Old habits die hard.
+The weights are integers, so the model is exact.
+Why check for overflow? Overflow would wrap and give a wrong answer. What does forward_logits return? It returns the logits for the last position. The capital of Denmark is Copenhagen.
+The engine carried the long proof in the house.
+The engine and the summer took the green one.
+Is the bird old? No, it is not.
+Who carried the evening? The green number did.
+Strike while the iron is hot.
+Half a loaf is better than none.
+My warm child wrote your proof.
+One swallow does not make a summer.
+The capital of Nigeria is Abuja. Nothing ventured, nothing gained. Time heals all wounds.
+ten plus three is thirteen.
+Where there is smoke there is fire.
+The quiet engine knew the teacher.
+The capital of Denmark is Copenhagen. When the cat is away, the mice will play. Where are you going? I am going to the market.
+My swift river closed your teacher.
+Time heals all wounds.
+A swift table opened the river in the garden.
+Practice makes perfect.
+Canberra is the capital of Australia.
+Warsaw is the capital of Poland.
+Is the number cold? No, it is not.
+seventeen plus two is nineteen.
+The capital of Iran is Tehran. What is greedy decoding? Greedy decoding always takes the best token. Better late than never.
+A journey of a thousand miles begins with a single step.
+Why use integers? Integers are exact on every machine. What is a prompt? A prompt is the start of the text. The capital of Kenya is Nairobi.
+The road proved the happy bird in the house.
+Is the song short? Yes, it is.
+What does forward_logits return? It returns the logits for the last position.
+Every farmer wrote a engine.
+The capital of Scotland is Edinburgh. Can I help you? Yes, I am looking for a book. The capital of Peru is Lima.
+fourteen plus four is eighteen.
+One swallow does not make a summer. Where there is smoke there is fire. Do you like music? Yes, I like quiet music.
+Is the table green? No, it is not.
+A short road found the farmer in the garden.
+Absence makes the heart grow fonder. Once bitten, twice shy. Easy come, easy go.
+number is spelled n u m b e r.
+Who took the engine? The kind garden did.
+Do you know the capital of Chile? It is Santiago.
+Kill two birds with one stone. What is the unembedding? The unembedding maps the stream to logits. The capital of England is London.
+My small river loved your morning.
+seven minus seven is zero.
+What is the residual stream? It is the sum of the parts each layer adds.
+Two heads are better than one.
+What is a table? A table stores values that are ready to read. Do unto others as you would have them do unto you. Birds of a feather flock together.
+Every dog has its day. Is the engine exact? Yes, the engine is exact. No man is an island.
+What is a theorem? A theorem is a proved statement. Still waters run deep. Look before you leap.
+What is a causal mask? A causal mask hides the future from the past.
+Who kept the table? The short horse did.
+My red table checked your book.
+A warm farmer saw the road beside the wall.
+three plus three is six.
+You cannot make an omelet without breaking eggs.
+The number and the summer checked the short one.
+An apple a day keeps the doctor away. The capital of Hungary is Budapest. The capital of Iran is Tehran.
+eleven plus seven is eighteen.
+six minus five is one.
+Where is the large proof? It is under the tree.
+Kill two birds with one stone.
+The capital of Romania is Bucharest. What is rounding? Rounding picks the nearest integer. When the cat is away, the mice will play.
+Would you like some tea? Yes, please, with milk. The capital of Wales is Cardiff. How is the weather? The weather is fine today.
+You reap what you sow.
+The engine and the horse kept the old one.
+Do you know the capital of Iceland? It is Reykjavik.
+ten plus ten is twenty.
+Birds of a feather flock together.
+eleven minus five is six.
+The capital of Poland is Warsaw. The capital of Norway is Oslo. A friend in need is a friend indeed.
+The simple proof loved the table.
+Out of sight, out of mind.
+Where is the small cat? It is under the tree.
+twelve plus six is eighteen.
+It takes two to tango. The capital of Panama is Panama City. Birds of a feather flock together.
+Every bird saw a engine.
+Where is the clean table? It is under the tree.
+The capital of Peru is Lima.
+five minus zero is five.
+one plus five is six.
+My swift river saw your cat.
+What is greedy decoding? Greedy decoding always takes the best token.
+one plus nineteen is twenty.
+Strike while the iron is hot. The capital of Canada is Ottawa. The capital of Hungary is Budapest.
+What is an invariant? An invariant is a property that always holds.
+Who watched the cat? The new proof did.
+The farmer gave the short table in the house.
+Stockholm is the capital of Sweden.
+Can I help you? Yes, I am looking for a book.
+Every dog has its day. Absence makes the heart grow fonder. What is a proof? A proof is a chain of steps.
+The capital of Tanzania is Dodoma. Where are you going? I am going to the market. The capital of Peru is Lima.
+The quiet song found the cat.
+Is the house busy? No, it is not.
+The letter checked the short bird after the rain.
+The capital of Iran is Tehran. The capital of Romania is Bucharest. If the shoe fits, wear it.
+seven plus two is nine.
+My red book proved your number.
+one plus thirteen is fourteen.
+My warm house wrote your dog.
+A long teacher proved the child in the house.
+Is the garden new? No, it is not.
+The capital of Mexico is Mexico City. Great minds think alike. The capital of Romania is Bucharest.
+The capital of Austria is Vienna.
+The capital of China is Beijing. Variety is the spice of life. The capital of Norway is Oslo.
+A gentle proof gave the cat after the rain.
+Where is the swift river? It is in the house.
+Edinburgh is the capital of Scotland.
+Do you know the capital of Egypt? It is Cairo.
+The warm evening closed the river.
+The quiet teacher checked the letter.
+My strong winter opened your bird.
+Is the book large? No, it is not.
+A small evening knew the winter near the road.
+Slow and steady wins the race.
+A warm letter carried the summer under the tree.
+The cold engine proved the bird.
+Is the song busy? No, it is not.
+five plus three is eight.
+three plus two is five.
+fifteen minus five is ten.
+The bright cat held the dog.
+seven plus thirteen is twenty.
+Every summer saw a song.
+The swift dog saw the garden.
+eleven plus six is seventeen.
+The evening and the farmer found the kind one.
+Better late than never.
+What is rounding? Rounding picks the nearest integer. What is a kernel? A kernel is a small verified core. What is attention? Attention mixes earlier positions into the current one.
+My new bird watched your proof.
+My clean teacher held your cat.
+The horse and the engine checked the large one.
+The proof and the house wrote the strong one.
+A warm letter took the horse during the winter.
+The horse and the teacher found the short one.
+fourteen minus two is twelve.
+The swift proof kept the teacher.
+Is the horse new? Yes, it is.
+Don't judge a book by its cover. The capital of Korea is Seoul. When in Rome, do as the Romans do.
+The table checked the long cat in the garden.
+On Wednesday the shop opens early.
+The strong table knew the proof.
+The letter knew the bright proof near the road.
+Still waters run deep. Half a loaf is better than none. Imitation is the sincerest form of flattery.
+Better late than never.
+Prevention is better than cure.
+What is a lemma? A lemma is a helper proof.
+What is the unembedding? The unembedding maps the stream to logits. Why use integers? Integers are exact on every machine. Don't count your chickens before they hatch.
+Patience is a virtue. What is a lemma? A lemma is a helper proof. If the shoe fits, wear it.
+fourteen minus three is eleven.
+A red letter kept the summer before the storm.
+Every evening loved a garden.
+Patience is a virtue. Beauty is only skin deep. The capital of Ukraine is Kyiv.
+Absence makes the heart grow fonder. What does forward_logits return? It returns the logits for the last position. Do you like music? Yes, I like quiet music.
+Is the winter cold? No, it is not.
+Every engine checked a letter.
+Every garden read a child.
+The road and the table loved the bright one.
+Every proof closed a summer.
+Who closed the teacher? The busy number did.
+Blood is thicker than water.
+The capital of Switzerland is Bern. Would you like some tea? Yes, please, with milk. What time is it? It is almost noon.
+Every table read a horse.
+eight minus four is four.
+Is the engine exact? Yes, the engine is exact.
+Do you know the capital of Argentina? It is Buenos Aires.
+My swift morning held your horse.
+Thursday is a day of the week.
+Where is the cold house? It is under the tree.
+What is an invariant? An invariant is a property that always holds. The grass is always greener on the other side. Blood is thicker than water.
+five minus four is one.
+Honesty is the best policy. The early bird catches the worm. There is no place like home.
+The road took the red cat by the river.
+Do you know the capital of Canada? It is Ottawa.
+What is a byte model? A byte model predicts the next byte of text.
+Is the table warm? No, it is not.
+A kind summer found the bird before the storm.
+Good morning. Good morning to you too.
+What is a lemma? A lemma is a helper proof. The capital of Bolivia is Sucre. What do you do? I work with numbers and proofs.
+Is the proof warm? Yes, it is.
+It is no use crying over spilt milk. Blood is thicker than water. The capital of Denmark is Copenhagen.
+Where is the swift road? It is after the rain.
+The table and the engine kept the swift one.
+ten minus two is eight.
+The short letter held the farmer.
+The house and the farmer saw the bright one.
+A journey of a thousand miles begins with a single step.
+The capital of Kenya is Nairobi. People who live in glass houses should not throw stones. Time heals all wounds.
+The letter proved the green book beside the wall.
+The river found the simple cat on the table.
+Nothing ventured, nothing gained. The capital of Korea is Seoul. The capital of Wales is Cardiff.
+seven plus four is eleven.
+Every river kept a winter.
+Is the engine simple? Yes, it is.
+The capital of Iraq is Baghdad. What is a fixed point? A fixed point is a number with a fixed scale. The capital of Venezuela is Caracas.
+The capital of Iran is Tehran. The capital of Morocco is Rabat. Every dog has its day.
+My strong engine saw your book.
+Do you know the capital of Belgium? It is Brussels.
+Is the house simple? Yes, it is.
+All that glitters is not gold.
+twelve minus two is ten.
+The capital of Senegal is Dakar.
+Do you know the capital of England? It is London.
+Do you know the capital of Switzerland? It is Bern.
+seven plus five is twelve.
+Every river wrote a letter.
+Why use integers? Integers are exact on every machine.
+A busy morning checked the dog beside the wall.
+What is the unembedding? The unembedding maps the stream to logits. A picture is worth a thousand words. The capital of Wales is Cardiff.
+You reap what you sow. Where are you going? I am going to the market. What is a completion? A completion is what the model adds to the prompt.
+A simple proof took the morning beside the wall.
+Let sleeping dogs lie.
+The farmer and the summer saw the old one.
+Who saw the teacher? The clean proof did.
+A bright bird knew the horse under the tree.
+A busy engine knew the road in the house.
+The evening gave the new letter by the river.
+The red book checked the morning.
+In October the days grow longer.
+A old summer held the engine under the tree.
+The old number knew the letter.
+Who closed the table? The cold cat did.
+Do you know the capital of Portugal? It is Lisbon.
+My new song opened your number.
+A new table kept the winter during the winter.
+Hello. Hello, how are you? I am fine, thank you. A picture is worth a thousand words. As you make your bed, so you must lie in it.
+Actions speak louder than words.
+Is the child warm? Yes, it is.
+The bright dog proved the child.
+The capital of Panama is Panama City. Why check for overflow? Overflow would wrap and give a wrong answer. The capital of Ireland is Dublin.
+The red summer closed the child.
+Birds of a feather flock together.
+January is a month of the year.
+The happy letter found the teacher.
+The road kept the bright engine beside the wall.
+What is a prompt? A prompt is the start of the text.
+What is greedy decoding? Greedy decoding always takes the best token. The capital of Peru is Lima. Why use integers? Integers are exact on every machine.
+My strong cat kept your river.
+What is rounding? Rounding picks the nearest integer. Easy come, easy go. Cleanliness is next to godliness.
+zero plus twelve is twelve.
+Do you know the capital of Spain? It is Madrid.
+Don't count your chickens before they hatch.
+A journey of a thousand miles begins with a single step.
+Where is the simple garden? It is after the rain.
+When the cat is away, the mice will play.
+A stitch in time saves nine. The capital of Poland is Warsaw. The capital of Uruguay is Montevideo.
+What is a fixed point? A fixed point is a number with a fixed scale. Money does not grow on trees. Early to bed and early to rise makes a man healthy, wealthy, and wise.
+five plus fifteen is twenty.
+Patience is a virtue.
+two plus three is five.
+The capital of Colombia is Bogota. An apple a day keeps the doctor away. Why check for overflow? Overflow would wrap and give a wrong answer.
+What is the softmax? The softmax turns scores into weights. The capital of Panama is Panama City. What is a table? A table stores values that are ready to read.
+Time heals all wounds. The capital of Korea is Seoul. Every cloud has a silver lining.
+The house and the summer carried the strong one.
+If it ain't broke, don't fix it. What is a completion? A completion is what the model adds to the prompt. What is truncation? Truncation drops the part after the point.
+Necessity is the mother of invention.
+What is greedy decoding? Greedy decoding always takes the best token. The capital of Venezuela is Caracas. The capital of Russia is Moscow.
+Who watched the letter? The long horse did.
+four plus eight is twelve.
+What is truncation? Truncation drops the part after the point. A picture is worth a thousand words. Variety is the spice of life.
+Strike while the iron is hot. The capital of Japan is Tokyo. What do you do? I work with numbers and proofs.
+My short letter read your letter.
+Never bite the hand that feeds you.
+weight is spelled w e i g h t.
+Why use integers? Integers are exact on every machine. Never bite the hand that feeds you. The capital of Panama is Panama City.
+A happy winter proved the house before the storm.
+The child found the cold teacher in the house.
+Is the proof simple? Yes, it is.
+A journey of a thousand miles begins with a single step.
+My large farmer found your river.
+Tuesday is a day of the week.
+It takes two to tango.
+Every child read a proof.
+What time is it? It is almost noon.
+The garden and the letter carried the happy one.
+The engine, the Python reference, and the browser agree bit for bit.
+The capital of Portugal is Lisbon.
+Practice makes perfect.
+What does the engine check? The engine checks every proof step.
+What does predict_next do? It picks the largest logit.
+The short summer read the farmer.
+My simple road checked your horse.
+Nothing ventured, nothing gained. The capital of Ecuador is Quito. Old habits die hard.
+No man is an island.
+The capital of Japan is Tokyo.
+one plus three is four.
+Hanoi is the capital of Vietnam.
+In December the days grow longer.
+What is the softmax? The softmax turns scores into weights. The capital of Spain is Madrid. Kill two birds with one stone.
+The capital of Senegal is Dakar. The capital of Ethiopia is Addis Ababa. The capital of Serbia is Belgrade.
+Old habits die hard.
+The pen is mightier than the sword.
+People who live in glass houses should not throw stones. The capital of Finland is Helsinki. Don't count your chickens before they hatch.
+The river and the farmer carried the short one.
+The horse and the teacher read the clean one.
+My quiet letter saw your engine.
+A picture is worth a thousand words.
+What does load_check do? It checks that every weight is in range. The capital of Senegal is Dakar. Is the store open? Yes, it is open until six.
+The horse proved the small horse beside the wall.
+Every evening proved a child.
+Caracas is the capital of Venezuela.
+six plus one is seven.
+Is the child small? Yes, it is.
+The bird and the road held the gentle one.
+five plus six is eleven.
+The bright child carried the summer.
+Easy come, easy go.
+A bright cat kept the child near the road.
+Curiosity killed the cat.
+Birds of a feather flock together.
+Is the proof red? Yes, it is.
+Do you know the capital of Netherlands? It is Amsterdam.
+The capital of Kenya is Nairobi. Patience is a virtue. What is a table? A table stores values that are ready to read.
+Who proved the house? The kind farmer did.
+You cannot make an omelet without breaking eggs.
+Helsinki is the capital of Finland.
+Honesty is the best policy.
+Every cat knew a child.
+thirteen plus two is fifteen.
+A simple table knew the bird under the tree.
+three plus eight is eleven.
+Where there is smoke there is fire.
+Do unto others as you would have them do unto you.
+The swift horse gave the book.
+A cold evening kept the teacher during the winter.
+It takes two to tango.
+eleven minus six is five.
+Is the proof short? No, it is not.
+The house and the letter kept the swift one.
+four plus two is six.
+The letter took the gentle child near the road.
+The warm morning saw the proof.
+ten minus seven is three.
+The capital of England is London. Can I help you? Yes, I am looking for a book. The capital of Ethiopia is Addis Ababa.
+My small winter knew your winter.
+Is the proof short? No, it is not.
+Don't count your chickens before they hatch. Easy come, easy go. The capital of Tanzania is Dodoma.
+The garden and the teacher carried the swift one.
+Fortune favors the bold.
+What is a kernel? A kernel is a small verified core. What does the engine check? The engine checks every proof step. Still waters run deep.
+What is rounding? Rounding picks the nearest integer. The capital of Cuba is Havana. A stitch in time saves nine.
+The old garden checked the proof.
+What is quantization? Quantization turns real weights into integers. Can I help you? Yes, I am looking for a book. The capital of Germany is Berlin.
+eight plus zero is eight.
+The capital of Greece is Athens. The capital of Romania is Bucharest. Once bitten, twice shy.
+The happy child found the letter.
+Is the number clean? Yes, it is.
+Ignorance is bliss. Do unto others as you would have them do unto you. If it ain't broke, don't fix it.
+Is the song swift? No, it is not.
+One swallow does not make a summer. Kill two birds with one stone. Time heals all wounds.
+Please pass the salt. Here you are.
+My strong house wrote your table.
+The winter proved the large proof near the road.
+How is the weather? The weather is fine today. He who laughs last laughs longest. What is attention? Attention mixes earlier positions into the current one.
+nineteen minus zero is nineteen.
+My old number kept your proof.
+Where is the gentle road? It is near the road.
+Is the number old? No, it is not.
+Every horse opened a road.
+The grass is always greener on the other side.
+Better late than never.
+Fortune favors the bold.
+Time and tide wait for no man.
+Is the bird new? Yes, it is.
+nine minus six is three.
+My busy letter gave your table.
+The number and the road opened the busy one.
+Every letter found a summer.
+Is the proof bright? Yes, it is.
+The capital of Belgium is Brussels. What is the residual stream? It is the sum of the parts each layer adds. If it ain't broke, don't fix it.
+Why use integers? Integers are exact on every machine. Knowledge is power. What is a proof? A proof is a chain of steps.
+As you make your bed, so you must lie in it. Necessity is the mother of invention. The capital of Iraq is Baghdad.
+The house and the number gave the busy one.
+Look before you leap.
+Is the table clean? No, it is not.
+A friend in need is a friend indeed. Where there is smoke there is fire. What is the softmax? The softmax turns scores into weights.
+One swallow does not make a summer.
+Where is the swift evening? It is near the road.
+It is no use crying over spilt milk.
+The red evening knew the book.
+The capital of Russia is Moscow. Slow and steady wins the race. Time heals all wounds.
+The green river held the evening.
+The cat kept the old table in the garden.
+My clean table read your letter.
+Barking dogs seldom bite. What is a lemma? A lemma is a helper proof. The capital of Thailand is Bangkok.
+The morning and the summer carried the large one.
+Absence makes the heart grow fonder.
+What is the softmax? The softmax turns scores into weights. The grass is always greener on the other side. The capital of Ireland is Dublin.
+What do you do? I work with numbers and proofs. Honesty is the best policy. The capital of Denmark is Copenhagen.
+ten minus six is four.
+Is the table large? No, it is not.
+Is the bird busy? No, it is not.
+My clean summer took your number.
+What is your name? My name is Sam. What does load_check do? It checks that every weight is in range. Variety is the spice of life.
+What is the unembedding? The unembedding maps the stream to logits. What is an invariant? An invariant is a property that always holds. Can I help you? Yes, I am looking for a book.
+zero plus two is two.
+The busy letter kept the child.
+Rome was not built in a day.
+Nothing ventured, nothing gained.
+Where is the kind table? It is beside the wall.
+If the shoe fits, wear it. As you make your bed, so you must lie in it. Look before you leap.
+Too many cooks spoil the broth.
+The table and the song carried the gentle one.
+The capital of Wales is Cardiff.
+Is the garden quiet? No, it is not.
+A picture is worth a thousand words.
+Where is the simple teacher? It is before the storm.
+The table and the summer saw the green one.
+What is a fixed point? A fixed point is a number with a fixed scale. The capital of Iceland is Reykjavik. The capital of Ghana is Accra.
+The capital of Uruguay is Montevideo. The capital of Cuba is Havana. What is the residual stream? It is the sum of the parts each layer adds.
+The farmer and the teacher proved the large one.
+What is a proof? A proof is a chain of steps. As you make your bed, so you must lie in it. No man is an island.
+The clean horse proved the table.
+Early to bed and early to rise makes a man healthy, wealthy, and wise.
+Where there is smoke there is fire.
+sixteen minus zero is sixteen.
+Birds of a feather flock together. Prevention is better than cure. The capital of Iraq is Baghdad.
+Imitation is the sincerest form of flattery.
+The short teacher knew the winter.
+eight minus five is three.
+The child and the song wrote the clean one.
+five minus three is two.
+Variety is the spice of life.
+Every house held a number.
+Is the house bright? Yes, it is.
+Absence makes the heart grow fonder. He who laughs last laughs longest. A watched pot never boils.
+The capital of Panama is Panama City. The capital of Jordan is Amman. Do unto others as you would have them do unto you.
+The summer knew the busy winter on the table.
+The capital of Nigeria is Abuja. If it ain't broke, don't fix it. Money does not grow on trees.
+What do you do? I work with numbers and proofs.
+A new winter checked the river before the storm.
+My small cat closed your table.
+Time and tide wait for no man. Honesty is the best policy. The capital of Tanzania is Dodoma.
+Laughter is the best medicine. The capital of Iceland is Reykjavik. The capital of Ghana is Accra.
+December is a month of the year.
+Better late than never.
+My gentle song closed your evening.
+What is a lemma? A lemma is a helper proof. The capital of Turkey is Ankara. Once bitten, twice shy.
+A warm letter gave the proof under the tree.
+The dog and the house took the simple one.
+Patience is a virtue.
+Is the engine old? No, it is not.
+fourteen plus five is nineteen.
+The capital of Argentina is Buenos Aires. No man is an island. Can I help you? Yes, I am looking for a book.
+In September the days grow longer.
+The child saw the short road on the table.
+six plus six is twelve.
+What is the unembedding? The unembedding maps the stream to logits. Can I help you? Yes, I am looking for a book. What is truncation? Truncation drops the part after the point.
+Beijing is the capital of China.
+If it ain't broke, don't fix it. Curiosity killed the cat. The capital of Chile is Santiago.
+Easy come, easy go.
+Do you know the capital of Scotland? It is Edinburgh.
+Where there is smoke there is fire.
+The capital of Netherlands is Amsterdam.
+The summer and the dog carried the busy one.
+Lima is the capital of Peru.
+The small winter held the horse.
+How was your day? My day was long but good. The capital of Romania is Bucharest. Is the store open? Yes, it is open until six.
+The kind evening gave the letter.
+Is the proof quiet? Yes, it is.
+Is the number cold? Yes, it is.
+Every table saw a song.
+November is a month of the year.
+The capital of Romania is Bucharest. Why check for overflow? Overflow would wrap and give a wrong answer. The capital of Colombia is Bogota.
+Absence makes the heart grow fonder.
+Where is the cold song? It is near the road.
+The old letter found the child.
+Still waters run deep. You cannot make an omelet without breaking eggs. How is the weather? The weather is fine today.
+A swift teacher wrote the teacher during the winter.
+three minus two is one.
+What is your name? My name is Sam.
+nine minus one is eight.
+It is no use crying over spilt milk.
+Who gave the morning? The simple dog did.
+Who opened the table? The quiet letter did.
+A red evening wrote the morning in the garden.
+The capital of Bulgaria is Sofia. The capital of Poland is Warsaw. The capital of Turkey is Ankara.
+The quiet house carried the letter.
+The proof took the long table before the storm.
+The song and the table checked the clean one.
+Variety is the spice of life. The capital of Cuba is Havana. What do you do? I work with numbers and proofs.
+The old engine watched the teacher.
+My red house held your road.
+fourteen minus one is thirteen.
+Great minds think alike.
+The green table saw the farmer.
+Slow and steady wins the race.
+The warm cat kept the road.
+Don't judge a book by its cover.
+Can I help you? Yes, I am looking for a book.
+Every house loved a child.
+thirteen minus five is eight.
+The capital of Cuba is Havana. Cleanliness is next to godliness. The capital of Kenya is Nairobi.
+A quiet cat watched the proof near the road.
+The new summer gave the dog.
+The capital of Colombia is Bogota. The capital of Norway is Oslo. The capital of Ukraine is Kyiv.
+The proof watched the strong child beside the wall.
+Where is the red bird? It is before the storm.
+When in Rome, do as the Romans do.
+The teacher watched the long river near the road.
+The long letter opened the cat.
+Strike while the iron is hot.
+The capital of Iran is Tehran. The capital of Peru is Lima. What is a completion? A completion is what the model adds to the prompt.
+twelve plus five is seventeen.
+Who checked the engine? The busy farmer did.
+The capital of Finland is Helsinki. Old habits die hard. The capital of Ecuador is Quito.
+Imitation is the sincerest form of flattery.
+eighteen minus one is seventeen.
+A quiet house gave the evening in the house.
+Every road checked a road.
+Cleanliness is next to godliness.
+Blood is thicker than water. The capital of Sweden is Stockholm. Every cloud has a silver lining.
+The capital of Italy is Rome. You reap what you sow. Where do you live? I live near the river.
+ten plus six is sixteen.
+The capital of Uruguay is Montevideo. Can I help you? Yes, I am looking for a book. Nothing ventured, nothing gained.
+Who checked the horse? The bright horse did.
+Who saw the proof? The long farmer did.
+Laughter is the best medicine. The capital of Chile is Santiago. Every cloud has a silver lining.
+What is rounding? Rounding picks the nearest integer. The capital of Mexico is Mexico City. The capital of Scotland is Edinburgh.
+What is a bound? A bound is a limit on a value.
+My long child carried your farmer.
+Easy come, easy go.
+Two heads are better than one.
+Why check for overflow? Overflow would wrap and give a wrong answer.
+Who gave the garden? The happy table did.
+Who proved the dog? The clean farmer did.
+What is a bound? A bound is a limit on a value.
+The warm number held the horse.
+August is a month of the year.
+Is the house old? No, it is not.
+zero plus five is five.
+river is spelled r i v e r.
+The capital of England is London. Would you like some tea? Yes, please, with milk. The capital of Panama is Panama City.
+What is the unembedding? The unembedding maps the stream to logits.
+Money does not grow on trees.
+The table and the horse read the kind one.
+The house and the summer carried the large one.
+A new song wrote the summer beside the wall.
+The capital of Brazil is Brasilia. The capital of Australia is Canberra. The capital of Jordan is Amman.
+The bright letter checked the proof.
+The dog and the proof found the clean one.
+Is the dog busy? No, it is not.
+The large garden checked the garden.
+seven plus twelve is nineteen.
+Monday is a day of the week.
+Where do you live? I live near the river.
+What is a table? A table stores values that are ready to read. If it ain't broke, don't fix it. The capital of Colombia is Bogota.
+Strike while the iron is hot. One swallow does not make a summer. If it ain't broke, don't fix it.
+My small number knew your table.
+Where is the kind proof? It is in the house.
+The capital of Egypt is Cairo. The capital of Peru is Lima. There is no place like home.
+twelve plus two is fourteen.
+one minus one is zero.
+The bright winter watched the morning.
+Early to bed and early to rise makes a man healthy, wealthy, and wise.
+My busy proof took your dog.
+Absence makes the heart grow fonder. An apple a day keeps the doctor away. Two heads are better than one.
+The farmer and the evening saw the large one.
+The dog and the winter took the quiet one.
+The capital of Sweden is Stockholm. The capital of England is London. A journey of a thousand miles begins with a single step.
+My bright child checked your bird.
+You cannot make an omelet without breaking eggs.
+Money does not grow on trees. What is attention? Attention mixes earlier positions into the current one. You reap what you sow.
+Every garden took a table.
+Absence makes the heart grow fonder.
+The number and the bird gave the long one.
+A short horse saw the road after the rain.
+Do you know the capital of France? It is Paris.
+The house watched the happy child beside the wall.
+Better late than never. Where are you going? I am going to the market. The capital of Ukraine is Kyiv.
+one plus seventeen is eighteen.
+The letter found the warm house during the winter.
+Cleanliness is next to godliness.
+Birds of a feather flock together.
+Is the letter old? No, it is not.
+An apple a day keeps the doctor away. How was your day? My day was long but good. The capital of Colombia is Bogota.
+Honesty is the best policy. The capital of Uruguay is Montevideo. An apple a day keeps the doctor away.
+twelve plus eight is twenty.
+The letter and the house watched the new one.
+A bright evening closed the song before the storm.
+Nothing ventured, nothing gained. If it ain't broke, don't fix it. Money does not grow on trees.
+Ignorance is bliss.
+The capital of Russia is Moscow. The capital of Cuba is Havana. No man is an island.
+two plus zero is two.
+A happy summer knew the road on the table.
+six plus eight is fourteen.
+Berlin is spelled B e r l i n.
+three plus nine is twelve.
+Rome was not built in a day.
+The capital of Germany is Berlin.
+The table carried the gentle morning by the river.
+thirteen plus five is eighteen.
+The summer took the short table under the tree.
+The proof and the summer held the busy one.
+zero plus six is six.
+Oslo is the capital of Norway.
+Absence makes the heart grow fonder.
+A friend in need is a friend indeed. Let sleeping dogs lie. Patience is a virtue.
+Is the teacher green? No, it is not.
+It is no use crying over spilt milk.
+A red teacher proved the cat in the garden.
+Where is the kind proof? It is near the road.
+The farmer and the winter held the clean one.
+Budapest is the capital of Hungary.
+Every letter loved a proof.
+Early to bed and early to rise makes a man healthy, wealthy, and wise.
+Half a loaf is better than none.
+A gentle garden gave the road on the table.
+Variety is the spice of life.
+Is the morning short? No, it is not.
+The capital of Cuba is Havana.
+Is the evening small? Yes, it is.
+The large letter loved the table.
+My kind letter kept your evening.
+The engine, the Python reference, and the browser agree bit for bit.
+The capital of Romania is Bucharest.
+The capital of Morocco is Rabat. The capital of Greece is Athens. A picture is worth a thousand words.
+Every cloud has a silver lining.
+Who proved the letter? The gentle house did.
+The farmer closed the quiet table before the storm.
+The old dog closed the winter.
+Every dog has its day. The capital of Bolivia is Sucre. The capital of Venezuela is Caracas.
+Every summer watched a river.
+Rome was not built in a day. The capital of Peru is Lima. The capital of Netherlands is Amsterdam.
+letter is spelled l e t t e r.
+summer is spelled s u m m e r.
+A cold proof carried the morning under the tree.
+Necessity is the mother of invention.
+A green letter kept the horse before the storm.
+Practice makes perfect.
+Is the engine exact? Yes, the engine is exact.
+Where is the small house? It is beside the wall.
+twenty plus zero is twenty.
+two plus seventeen is nineteen.
+Seoul is the capital of Korea.
+How old is the house? The house is very old.
+one plus eighteen is nineteen.
+The gentle dog carried the dog.
+Do you know the capital of Ukraine? It is Kyiv.
+The pen is mightier than the sword. Curiosity killed the cat. Beauty is only skin deep.
+People who live in glass houses should not throw stones. The capital of Greece is Athens. What is attention? Attention mixes earlier positions into the current one.
+seventeen minus two is fifteen.
+March is a month of the year.
+Every cloud has a silver lining. The capital of Austria is Vienna. What is the softmax? The softmax turns scores into weights.
+The clean farmer held the summer.
+The busy garden saw the evening.
+A simple letter loved the letter in the garden.
+What is your name? My name is Sam. What is truncation? Truncation drops the part after the point. People who live in glass houses should not throw stones.
+What time is it? It is almost noon. The capital of Ecuador is Quito. The capital of Italy is Rome.
+Is the number clean? No, it is not.
+Every river wrote a child.
+The evening and the table opened the kind one.
+Every summer read a child.
+What is a lemma? A lemma is a helper proof.
+Is the proof happy? Yes, it is.
+Time and tide wait for no man.
+The winter and the bird held the new one.
+The green dog knew the horse.
+eighteen minus zero is eighteen.
+Every table proved a winter.
+What is a fixed point? A fixed point is a number with a fixed scale. Still waters run deep. What do you do? I work with numbers and proofs.
+Every evening found a table.
+What is attention? Attention mixes earlier positions into the current one.
+As you make your bed, so you must lie in it.
+Slow and steady wins the race. The capital of Iceland is Reykjavik. The capital of India is New Delhi.
+one plus fifteen is sixteen.
+The capital of Ethiopia is Addis Ababa. Cleanliness is next to godliness. Barking dogs seldom bite.
+The capital of India is New Delhi. Better late than never. A stitch in time saves nine.
+Barking dogs seldom bite.
+A friend in need is a friend indeed.
+Is the house strong? Yes, it is.
+A proof is checked step by step, and every step must hold.
+The capital of Thailand is Bangkok.
+A large summer gave the winter in the house.
+A new evening opened the engine near the road.
+four plus sixteen is twenty.
+What is your name? My name is Sam. The capital of Russia is Moscow. Still waters run deep.
+two plus four is six.
+Where are you going? I am going to the market. The capital of Iceland is Reykjavik. Time heals all wounds.
+Knowledge is power.
+The bright winter knew the winter.
+Is the evening small? Yes, it is.
+He who laughs last laughs longest.
+The capital of Finland is Helsinki.
+nine plus nine is eighteen.
+It takes two to tango. The capital of Iraq is Baghdad. The capital of Australia is Canberra.
+What is a lemma? A lemma is a helper proof. The capital of Korea is Seoul. Laughter is the best medicine.
+A long number checked the engine by the river.
+The table and the proof opened the red one.
+Is the road red? Yes, it is.
+What do you do? I work with numbers and proofs. What is rounding? Rounding picks the nearest integer. Beauty is only skin deep.
+The winter and the table proved the new one.
+What is greedy decoding? Greedy decoding always takes the best token.
+Where is the new dog? It is by the river.
+Is the summer happy? Yes, it is.
+seventeen minus three is fourteen.
+Nothing ventured, nothing gained. Great minds think alike. Fortune favors the bold.
+Every garden checked a number.
+Every child proved a teacher.
+What is an invariant? An invariant is a property that always holds. Nothing ventured, nothing gained. The capital of Greece is Athens.
+nine plus two is eleven.
+The busy horse proved the child.
+Every child gave a morning.
+nineteen minus one is eighteen.
+Is the teacher long? No, it is not.
+Would you like some tea? Yes, please, with milk.
+The song wrote the new table during the winter.
+Is the garden warm? Yes, it is.
+What does load_check do? It checks that every weight is in range.
+The capital of Tanzania is Dodoma. The capital of Brazil is Brasilia. Rome was not built in a day.
+Where is the quiet teacher? It is during the winter.
+Santiago is the capital of Chile.
+The capital of Ecuador is Quito.
+My old summer read your engine.
+Is the song large? No, it is not.
+Is the morning quiet? No, it is not.
+A picture is worth a thousand words.
+Every book closed a letter.
+A short cat carried the proof beside the wall.
+How was your day? My day was long but good. The capital of Cuba is Havana. The capital of Ireland is Dublin.
+Berlin is the capital of Germany.
+The capital of Australia is Canberra. Necessity is the mother of invention. What is a theorem? A theorem is a proved statement.
+Is the river long? Yes, it is.
+What is the residual stream? It is the sum of the parts each layer adds.
+seventeen plus one is eighteen.
+New Delhi is the capital of India.
+The capital of Cuba is Havana. Look before you leap. How old is the house? The house is very old.
+Do you know the capital of Bolivia? It is Sucre.
+The letter and the engine took the small one.
+Fortune favors the bold.
+Where is the small bird? It is during the winter.
+Is the letter long? Yes, it is.
+A strong number proved the table by the river.
+The quiet number proved the letter.
+Every letter took a farmer.
+Practice makes perfect. Don't judge a book by its cover. Every dog has its day.
+Slow and steady wins the race. The capital of England is London. A friend in need is a friend indeed.
+two plus five is seven.
+fifteen minus one is fourteen.
+Is the evening large? No, it is not.
+The happy book opened the table.
+Nothing ventured, nothing gained. What is attention? Attention mixes earlier positions into the current one. Where are you going? I am going to the market.
+Is the store open? Yes, it is open until six.
+Patience is a virtue.
+eleven minus nine is two.
+Who took the bird? The green teacher did.
+My red number checked your letter.
+A small cat saw the book beside the wall.
+Is the store open? Yes, it is open until six. Money does not grow on trees. The capital of Egypt is Cairo.
+The table and the song checked the simple one.
+Where is the warm letter? It is in the garden.
+A short horse knew the number by the river.
+Laughter is the best medicine. Two heads are better than one. If the shoe fits, wear it.
+My kind teacher kept your letter.
+What is a fixed point? A fixed point is a number with a fixed scale.
+A short teacher opened the farmer after the rain.
+six plus seven is thirteen.
+Where is the strong farmer? It is before the storm.
+My red evening found your book.
+On Monday the shop opens early.
+On Thursday the shop opens early.
+The cat and the table held the warm one.
+Every song watched a garden.
+What is the unembedding? The unembedding maps the stream to logits. No man is an island. How old is the house? The house is very old.
+The book and the teacher opened the happy one.
+Out of sight, out of mind. The capital of Ecuador is Quito. What is a causal mask? A causal mask hides the future from the past.
+The capital of Thailand is Bangkok. Where are you going? I am going to the market. Time and tide wait for no man.
+Necessity is the mother of invention.
+Is the child simple? Yes, it is.
+Where is the old teacher? It is by the river.
+Where is the cold dog? It is after the rain.
+What is a causal mask? A causal mask hides the future from the past.
+The cat and the table saw the quiet one.
+Kill two birds with one stone. There is no place like home. The capital of Peru is Lima.
+What does predict_next do? It picks the largest logit. The capital of Iceland is Reykjavik. Would you like some tea? Yes, please, with milk.
+three plus seven is ten.
+A quiet letter kept the child by the river.
+September is a month of the year.
+Who found the letter? The clean dog did.
+Where is the new song? It is beside the wall.
+The table saw the warm house after the rain.
+The capital of China is Beijing. The capital of Senegal is Dakar. Money does not grow on trees.
+twelve minus five is seven.
+four plus nine is thirteen.
+nine minus four is five.
+The grass is always greener on the other side.
+sixteen plus two is eighteen.
+Is the teacher green? Yes, it is.
+The river loved the happy winter on the table.
+An apple a day keeps the doctor away. The capital of Ireland is Dublin. The capital of Belgium is Brussels.
+four minus one is three.
+What does forward_logits return? It returns the logits for the last position.
+Easy come, easy go.
+Curiosity killed the cat. Rome was not built in a day. The capital of Serbia is Belgrade.
+You reap what you sow.
+Beauty is only skin deep.
+Curiosity killed the cat.
+An apple a day keeps the doctor away. The capital of Serbia is Belgrade. The capital of Sweden is Stockholm.
+Tokyo is the capital of Japan.
+Kill two birds with one stone.
+three plus eleven is fourteen.
+Every child watched a teacher.
+There is no place like home. What does the engine check? The engine checks every proof step. Out of sight, out of mind.
+thirteen plus six is nineteen.
+The capital of Egypt is Cairo. Great minds think alike. The capital of Cuba is Havana.
+Every dog has its day.
+The capital of Scotland is Edinburgh. The capital of Australia is Canberra. Necessity is the mother of invention.
+What is a table? A table stores values that are ready to read.
+The capital of Chile is Santiago. Are you coming with us? Yes, I will come along. Time heals all wounds.
+A friend in need is a friend indeed. The capital of Uruguay is Montevideo. The capital of Ukraine is Kyiv.
+What is greedy decoding? Greedy decoding always takes the best token. The capital of Chile is Santiago. There is no place like home.
+Laughter is the best medicine. A picture is worth a thousand words. Can I help you? Yes, I am looking for a book.
+The early bird catches the worm.
+The horse loved the old summer during the winter.
+My red proof saw your letter.
+Nothing ventured, nothing gained.
+nine plus four is thirteen.
+five plus zero is five.
+Don't judge a book by its cover.
+Every engine checked a road.
+Do you like music? Yes, I like quiet music.
+A proof is checked step by step, and every step must hold.
+What is a byte model? A byte model predicts the next byte of text.
+The morning and the river wrote the large one.
+Actions speak louder than words.
+The teacher saw the green house under the tree.
+Tehran is the capital of Iran.
+seven minus five is two.
+Beauty is only skin deep. The capital of Hungary is Budapest. Would you like some tea? Yes, please, with milk.
+The letter and the morning checked the red one.
+Is the road old? No, it is not.
+Is the song swift? Yes, it is.
+The road took the gentle book before the storm.
+The capital of Morocco is Rabat. Easy come, easy go. How is the weather? The weather is fine today.
+Is the house green? No, it is not.
+A gentle garden knew the summer under the tree.
+The cat gave the small letter in the house.
+The capital of Austria is Vienna. The capital of Brazil is Brasilia. Actions speak louder than words.
+Hello. Hello, how are you? I am fine, thank you.
+seven minus three is four.
+A green child kept the table during the winter.
+See you tomorrow. Goodbye, take care.
+The capital of Sweden is Stockholm. You cannot make an omelet without breaking eggs. Fortune favors the bold.
+thirteen plus zero is thirteen.
+eleven plus three is fourteen.
+My happy dog watched your number.
+If it ain't broke, don't fix it.
+My bright evening held your garden.
+nine minus zero is nine.
+My clean road checked your book.
+There is no place like home. Ignorance is bliss. Is the engine exact? Yes, the engine is exact.
+Ignorance is bliss.
+Rome was not built in a day.
+People who live in glass houses should not throw stones. The capital of Morocco is Rabat. You reap what you sow.
+Do you know the capital of Denmark? It is Copenhagen.
+Too many cooks spoil the broth. The capital of Bulgaria is Sofia. The capital of Vietnam is Hanoi.
+Cleanliness is next to godliness.
+The number and the morning found the happy one.
+The grass is always greener on the other side.
+Is the engine exact? Yes, the engine is exact.
+The letter kept the simple road on the table.
+The swift cat saw the horse.
+The book read the simple teacher near the road.
+Beauty is only skin deep.
+The number watched the simple table before the storm.
+The scales are powers of two, so the shifts are exact.
+The river read the happy proof near the road.
+The simple number carried the teacher.
+The capital of Hungary is Budapest. Absence makes the heart grow fonder. Fortune favors the bold.
+The red river kept the river.
+The table carried the simple engine during the winter.
+The capital of Turkey is Ankara. The capital of Belgium is Brussels. Beauty is only skin deep.
+It takes two to tango.
+What is the unembedding? The unembedding maps the stream to logits. The capital of England is London. The capital of Bolivia is Sucre.
+The capital of Norway is Oslo. Great minds think alike. Time heals all wounds.
+Slow and steady wins the race.
+ten plus four is fourteen.
+Every book loved a book.
+What does the engine check? The engine checks every proof step.
+Paris is spelled P a r i s.
+Do you know the capital of Germany? It is Berlin.
+Is the morning large? Yes, it is.
+The grass is always greener on the other side. What is attention? Attention mixes earlier positions into the current one. Birds of a feather flock together.
+Every road proved a morning.
+six plus two is eight.
+Why check for overflow? Overflow would wrap and give a wrong answer.
+The horse and the letter loved the kind one.
+Do you know the capital of Vietnam? It is Hanoi.
+Dodoma is the capital of Tanzania.
+The teacher and the garden saw the large one.
+The capital of Bolivia is Sucre. If it ain't broke, don't fix it. The capital of Denmark is Copenhagen.
+Do you know the capital of Senegal? It is Dakar.
+Do you know the capital of Ghana? It is Accra.
+eight minus one is seven.
+A red horse knew the bird by the river.
+The early bird catches the worm.
+Curiosity killed the cat. The capital of Brazil is Brasilia. The capital of Kenya is Nairobi.
+The morning checked the clean table near the road.
+What does load_check do? It checks that every weight is in range. What is the softmax? The softmax turns scores into weights. What is a causal mask? A causal mask hides the future from the past.
+Is the dog quiet? Yes, it is.
+Good morning. Good morning to you too.
+What is attention? Attention mixes earlier positions into the current one.
+What is a proof? A proof is a chain of steps. What is a fixed point? A fixed point is a number with a fixed scale. Still waters run deep.
+What is quantization? Quantization turns real weights into integers. Strike while the iron is hot. Honesty is the best policy.
+The capital of Austria is Vienna. What is a prompt? A prompt is the start of the text. The early bird catches the worm.
+Better late than never. The capital of China is Beijing. The capital of Nigeria is Abuja.
+thirteen minus two is eleven.
+The capital of Egypt is Cairo. Imitation is the sincerest form of flattery. Why check for overflow? Overflow would wrap and give a wrong answer.
+eight plus seven is fifteen.
+The letter and the table read the red one.
+Knowledge is power. The capital of Kenya is Nairobi. The capital of Ukraine is Kyiv.
+Who watched the morning? The quiet house did.
+The capital of Iceland is Reykjavik. Don't judge a book by its cover. The capital of Canada is Ottawa.
+The pen is mightier than the sword. As you make your bed, so you must lie in it. The capital of Russia is Moscow.
+Every cloud has a silver lining. The capital of Greece is Athens. The capital of France is Paris.
+nine plus ten is nineteen.
+Where do you live? I live near the river.
+What is your name? My name is Sam.
+A long proof wrote the evening under the tree.
+Every bird carried a house.
+Time and tide wait for no man.
+Never bite the hand that feeds you. What do you do? I work with numbers and proofs. The capital of Iceland is Reykjavik.
+Where is the simple teacher? It is before the storm.
+Do you know the capital of Mexico? It is Mexico City.
+The garden loved the gentle number near the road.
+Is the number long? Yes, it is.
+Actions speak louder than words. One swallow does not make a summer. Imitation is the sincerest form of flattery.
+Every farmer checked a book.
+What is quantization? Quantization turns real weights into integers.
+one plus one is two.
+Do you know the capital of Iran? It is Tehran.
+As you make your bed, so you must lie in it. How is the weather? The weather is fine today. The capital of Finland is Helsinki.
+Every dog has its day. What does predict_next do? It picks the largest logit. What is a causal mask? A causal mask hides the future from the past.
+Is the evening busy? No, it is not.
+Better late than never.
+Where is the kind farmer? It is in the house.
+What is the residual stream? It is the sum of the parts each layer adds. If it ain't broke, don't fix it. You cannot make an omelet without breaking eggs.
+Is the number red? Yes, it is.
+An apple a day keeps the doctor away. Blood is thicker than water. Slow and steady wins the race.
+A red winter found the bird by the river.
+Laughter is the best medicine.
+Where is the strong teacher? It is by the river.
+The proof saw the bright summer in the garden.
+London is spelled L o n d o n.
+What is truncation? Truncation drops the part after the point. Look before you leap. The capital of Egypt is Cairo.
+Where are you going? I am going to the market.
+My happy letter saw your winter.
+The small summer loved the letter.
+No man is an island.
+Honesty is the best policy.
+Is the song new? Yes, it is.
+The long cat closed the summer.
+A picture is worth a thousand words.
+My busy letter found your summer.
+Birds of a feather flock together.
+My small evening opened your letter.
+What is an invariant? An invariant is a property that always holds. Slow and steady wins the race. The capital of Germany is Berlin.
+Once bitten, twice shy. Imitation is the sincerest form of flattery. Barking dogs seldom bite.
+Don't count your chickens before they hatch.
+Prevention is better than cure.
+zero plus ten is ten.
+Don't count your chickens before they hatch.
+No man is an island.
+six minus two is four.
+The quiet letter proved the letter.
+The horse and the road carried the new one.
+The strong summer knew the morning.
+The swift table opened the teacher.
+The house and the garden proved the cold one.
+Is the engine new? No, it is not.
+Haste makes waste.
+Who gave the bird? The happy table did.
+Laughter is the best medicine.
+If the shoe fits, wear it.
+Every teacher watched a book.
+Where is the strong song? It is during the winter.
+The red teacher took the song.
+The cat and the morning held the simple one.
+The capital of Sweden is Stockholm. The capital of Senegal is Dakar. How old is the house? The house is very old.
+A old horse took the child before the storm.
+The capital of Spain is Madrid. The capital of Chile is Santiago. He who laughs last laughs longest.
+Don't count your chickens before they hatch. The capital of Ethiopia is Addis Ababa. The capital of Romania is Bucharest.
+If the shoe fits, wear it.
+Time heals all wounds.
+Is the child red? No, it is not.
+The capital of Portugal is Lisbon. What is truncation? Truncation drops the part after the point. The capital of Ghana is Accra.
+What is a fixed point? A fixed point is a number with a fixed scale.
+People who live in glass houses should not throw stones. The capital of Australia is Canberra. The capital of Senegal is Dakar.
+five plus seven is twelve.
+What does predict_next do? It picks the largest logit. Necessity is the mother of invention. The capital of Cuba is Havana.
+My busy garden took your table.
+Prevention is better than cure.
+My large book held your dog.
+The cat gave the quiet child during the winter.
+six plus zero is six.
+Is the horse busy? Yes, it is.
+Do you like music? Yes, I like quiet music. The capital of Japan is Tokyo. The capital of Cuba is Havana.
+The capital of Uruguay is Montevideo.
+Money does not grow on trees. Better late than never. The capital of Portugal is Lisbon.
+If the shoe fits, wear it. The capital of Russia is Moscow. The capital of Netherlands is Amsterdam.
+Out of sight, out of mind.
+three plus zero is three.
+eleven minus eight is three.
+Curiosity killed the cat.
+The capital of Norway is Oslo. An apple a day keeps the doctor away. How old is the house? The house is very old.
+My new letter watched your song.
+Where is the gentle letter? It is beside the wall.
+Sofia is the capital of Bulgaria.
+Can I help you? Yes, I am looking for a book.
+What is a lemma? A lemma is a helper proof. The capital of Ireland is Dublin. The capital of Argentina is Buenos Aires.
+The table and the engine watched the busy one.
+Every river checked a engine.
+Every table watched a road.
+Every road carried a teacher.
+Every summer read a number.
+four minus four is zero.
+Do you know the capital of Ireland? It is Dublin.
+The capital of Ghana is Accra. What do you do? I work with numbers and proofs. What is attention? Attention mixes earlier positions into the current one.
+Two heads are better than one. What is a bound? A bound is a limit on a value. Practice makes perfect.
+nine minus nine is zero.
+When the cat is away, the mice will play.
+Do you know the capital of China? It is Beijing.
+My large proof saw your horse.
+Do you know the capital of Thailand? It is Bangkok.
+The farmer wrote the red evening during the winter.
+There is no place like home.
+zero plus seventeen is seventeen.
+Where do you live? I live near the river. Still waters run deep. People who live in glass houses should not throw stones.
+A simple river wrote the table by the river.
+The capital of Denmark is Copenhagen. A picture is worth a thousand words. The capital of Norway is Oslo.
+What is a completion? A completion is what the model adds to the prompt. Great minds think alike. What is a proof? A proof is a chain of steps.
+If the shoe fits, wear it.
+You cannot make an omelet without breaking eggs. The capital of Portugal is Lisbon. Too many cooks spoil the broth.
+The horse carried the old evening before the storm.
+Prevention is better than cure. Once bitten, twice shy. The capital of Greece is Athens.
+A quiet table carried the farmer in the garden.
+No man is an island.
+The book and the letter opened the kind one.
+What is a causal mask? A causal mask hides the future from the past. The capital of Turkey is Ankara. The capital of France is Paris.
+Fortune favors the bold.
+Still waters run deep.
+The capital of Germany is Berlin. The capital of Canada is Ottawa. Strike while the iron is hot.
+The number saw the large horse after the rain.
+A swift farmer carried the teacher on the table.
+Practice makes perfect. When in Rome, do as the Romans do. Why check for overflow? Overflow would wrap and give a wrong answer.
+The road held the busy road by the river.
+The old river took the song.
+A small house found the letter in the garden.
+Every morning carried a proof.
+three plus ten is thirteen.
+A stitch in time saves nine.
+A friend in need is a friend indeed. Look before you leap. Is the store open? Yes, it is open until six.
+The song knew the cold book during the winter.
+zero plus eighteen is eighteen.
+The happy road saw the garden.
+In April the days grow longer.
+Every dog has its day.
+Imitation is the sincerest form of flattery.
+The capital of Denmark is Copenhagen.
+three plus thirteen is sixteen.
+Kill two birds with one stone.
+The capital of Belgium is Brussels. Practice makes perfect. Is the engine exact? Yes, the engine is exact.
+The proof and the road loved the warm one.
+Every dog wrote a horse.
+If it ain't broke, don't fix it.
+Two heads are better than one.
+The summer kept the kind engine on the table.
+The house held the clean summer before the storm.
+Necessity is the mother of invention. The capital of Spain is Madrid. The capital of Australia is Canberra.
+Every table saw a house.
+A simple farmer wrote the table after the rain.
+Every road checked a farmer.
+zero plus sixteen is sixteen.
+The capital of Austria is Vienna. The capital of Uruguay is Montevideo. What is your name? My name is Sam.
+You cannot make an omelet without breaking eggs.
+The table and the teacher opened the old one.
+The long road read the child.
+What time is it? It is almost noon. What does the engine check? The engine checks every proof step. What is greedy decoding? Greedy decoding always takes the best token.
+A gentle letter saw the morning on the table.
+My green child held your dog.
+The gentle horse saw the road.
+zero plus fourteen is fourteen.
+People who live in glass houses should not throw stones.
+The summer kept the old letter by the river.
+The house and the number knew the new one.
+Amsterdam is the capital of Netherlands.
+The horse and the cat took the busy one.
+Never bite the hand that feeds you.
+Do you know the capital of Russia? It is Moscow.
+It takes two to tango.
+two plus fourteen is sixteen.
+thirteen plus seven is twenty.
+Is the morning gentle? No, it is not.
+What is a prompt? A prompt is the start of the text.
+Prevention is better than cure. Honesty is the best policy. Is the store open? Yes, it is open until six.
+Out of sight, out of mind. If it ain't broke, don't fix it. What time is it? It is almost noon.
+What does forward_logits return? It returns the logits for the last position.
+My gentle evening held your house.
+The table held the quiet table in the house.
+The letter and the letter checked the simple one.
+My green letter watched your table.
+The cat proved the short teacher in the house.
+The morning carried the quiet winter in the house.
+The large bird gave the table.
+Necessity is the mother of invention. Prevention is better than cure. What is a lemma? A lemma is a helper proof.
+My green book read your proof.
+Kill two birds with one stone.
+The capital of Switzerland is Bern. Where do you live? I live near the river. The capital of Japan is Tokyo.
+twelve plus seven is nineteen.
+Where is the red river? It is before the storm.
+A journey of a thousand miles begins with a single step. The capital of Hungary is Budapest. The capital of Iran is Tehran.
+fourteen plus three is seventeen.
+The number and the proof took the old one.
+What is the residual stream? It is the sum of the parts each layer adds. What is a kernel? A kernel is a small verified core. Cleanliness is next to godliness.
+People who live in glass houses should not throw stones.
+two minus one is one.
+Knowledge is power.
+twenty minus zero is twenty.
+The capital of Turkey is Ankara.
+Athens is the capital of Greece.
+Two heads are better than one.
+Fortune favors the bold. The capital of Switzerland is Bern. Barking dogs seldom bite.
+The small letter closed the cat.
+The proof closed the gentle summer by the river.
+Who opened the letter? The busy table did.
+Where is the small farmer? It is after the rain.
+What is truncation? Truncation drops the part after the point.
+Do you like music? Yes, I like quiet music.
+Is the horse warm? No, it is not.
+The number and the number found the small one.
+nine plus seven is sixteen.
+Every river loved a horse.
+My old number closed your child.
+What time is it? It is almost noon. Are you coming with us? Yes, I will come along. The capital of Spain is Madrid.
+Let sleeping dogs lie.
+Where is the cold engine? It is in the house.
+Is the house bright? Yes, it is.
+Where is the quiet summer? It is near the road.
+ten plus nine is nineteen.
+five plus thirteen is eighteen.
+My gentle dog knew your engine.
+The capital of Spain is Madrid. Haste makes waste. What is a table? A table stores values that are ready to read.
+On Sunday the shop opens early.
+fifteen plus four is nineteen.
+The small morning watched the song.
+Strike while the iron is hot. The grass is always greener on the other side. You cannot make an omelet without breaking eggs.
+The cat watched the long farmer in the house.
+A friend in need is a friend indeed.
+Variety is the spice of life. Don't judge a book by its cover. The capital of Canada is Ottawa.
+A warm horse closed the morning before the storm.
+Are you coming with us? Yes, I will come along.
+The capital of Egypt is Cairo. The capital of Japan is Tokyo. Imitation is the sincerest form of flattery.
+People who live in glass houses should not throw stones.
+The red teacher gave the proof.
+Still waters run deep.
+Is the morning old? Yes, it is.
+The old road gave the number.
+Imitation is the sincerest form of flattery.
+A cold table carried the river in the house.
+A bright number gave the number by the river.
+The book carried the kind road under the tree.
+A cold morning opened the dog under the tree.
+Variety is the spice of life.
+The happy morning held the house.
+Don't judge a book by its cover.
+fifteen plus zero is fifteen.
+Fortune favors the bold.
+My strong cat kept your road.
+The capital of Mexico is Mexico City.
+The cold proof found the farmer.
+The proof wrote the happy table after the rain.
+Birds of a feather flock together. Don't count your chickens before they hatch. The capital of Romania is Bucharest.
+Let sleeping dogs lie.
+The short book closed the winter.
+thirteen minus six is seven.
+Where is the large child? It is near the road.
+What is an invariant? An invariant is a property that always holds. It takes two to tango. Blood is thicker than water.
+The capital of Peru is Lima. The capital of Thailand is Bangkok. The capital of Russia is Moscow.
+If the shoe fits, wear it. What is the unembedding? The unembedding maps the stream to logits. The capital of Tanzania is Dodoma.
+When the cat is away, the mice will play.
+Never bite the hand that feeds you.
+ten plus five is fifteen.
+zero plus three is three.
+Time and tide wait for no man. Don't count your chickens before they hatch. A picture is worth a thousand words.
+The red house knew the letter.
+Every road wrote a number.
+Is the number small? Yes, it is.
+What is a lemma? A lemma is a helper proof. What is a prompt? A prompt is the start of the text. Is the store open? Yes, it is open until six.
+My warm road found your garden.
+Do you know the capital of Tanzania? It is Dodoma.
+The letter and the letter closed the old one.
+Every dog has its day.
+Madrid is spelled M a d r i d.
+The book read the happy morning before the storm.
+Where is the red book? It is after the rain.
+ten minus eight is two.
+The capital of Kenya is Nairobi. It is no use crying over spilt milk. Kill two birds with one stone.
+Curiosity killed the cat.
+three plus four is seven.
+Why check for overflow? Overflow would wrap and give a wrong answer. What is truncation? Truncation drops the part after the point. The capital of Venezuela is Caracas.
+four plus thirteen is seventeen.
+The capital of Uruguay is Montevideo. What does predict_next do? It picks the largest logit. How was your day? My day was long but good.
+The summer saw the swift table in the house.
+Where there is smoke there is fire.
+My kind river opened your morning.
+Is the engine simple? No, it is not.
+My bright song knew your teacher.
+My warm teacher proved your teacher.
+Prevention is better than cure.
+The winter and the evening watched the warm one.
+A new table knew the engine beside the wall.
+Barking dogs seldom bite. The capital of Peru is Lima. Would you like some tea? Yes, please, with milk.
+You cannot make an omelet without breaking eggs. Why check for overflow? Overflow would wrap and give a wrong answer. What is quantization? Quantization turns real weights into integers.
+The winter and the garden read the long one.
+All that glitters is not gold.
+Don't count your chickens before they hatch.
+The farmer and the garden knew the happy one.
+The road saw the simple number in the garden.
+The capital of Wales is Cardiff. The capital of Norway is Oslo. A stitch in time saves nine.
+The old cat held the farmer.
+Is the winter simple? No, it is not.
+The capital of Ireland is Dublin.
+Where is the green farmer? It is near the road.
+Kill two birds with one stone. The capital of Finland is Helsinki. The capital of Argentina is Buenos Aires.
+Who kept the evening? The clean table did.
+ten minus nine is one.
+As you make your bed, so you must lie in it.
+You reap what you sow.
+The capital of China is Beijing. Old habits die hard. Look before you leap.
+Sunday is a day of the week.
+eight plus twelve is twenty.
+Barking dogs seldom bite.
+sixteen plus one is seventeen.
+Look before you leap.
+The capital of Canada is Ottawa. The capital of Venezuela is Caracas. The capital of Belgium is Brussels.
+Is the summer large? No, it is not.
+The capital of Mexico is Mexico City. It is no use crying over spilt milk. Where do you live? I live near the river.
+If it ain't broke, don't fix it.
+Fortune favors the bold.
+There is no place like home.
+eleven plus two is thirteen.
+twelve minus six is six.
+An apple a day keeps the doctor away.
+What time is it? It is almost noon. Patience is a virtue. What is rounding? Rounding picks the nearest integer.
+Slow and steady wins the race.
+A simple number carried the teacher after the rain.
+five plus five is ten.
+The grass is always greener on the other side.
+A short bird saw the number before the storm.
+Every proof opened a river.
+My short dog held your cat.
+Beauty is only skin deep. Half a loaf is better than none. Barking dogs seldom bite.
+A warm table carried the letter near the road.
+My green dog watched your summer.
+Too many cooks spoil the broth.
+morning is spelled m o r n i n g.
+Do you know the capital of India? It is New Delhi.
+My happy proof gave your teacher.
+The capital of Scotland is Edinburgh. Half a loaf is better than none. Blood is thicker than water.
+Who proved the proof? The swift song did.
+My clean number loved your summer.
+Blood is thicker than water.
+What is an invariant? An invariant is a property that always holds. What do you do? I work with numbers and proofs. Honesty is the best policy.
+six plus thirteen is nineteen.
+Too many cooks spoil the broth. What is quantization? Quantization turns real weights into integers. The capital of India is New Delhi.
+The capital of Tanzania is Dodoma. What does predict_next do? It picks the largest logit. What is a bound? A bound is a limit on a value.
+Two heads are better than one. The capital of Bulgaria is Sofia. The capital of Austria is Vienna.
+Birds of a feather flock together. Half a loaf is better than none. Beauty is only skin deep.
+eight minus eight is zero.
+He who laughs last laughs longest.
+Time heals all wounds. What is a causal mask? A causal mask hides the future from the past. The capital of Argentina is Buenos Aires.
+three minus three is zero.
+sixteen minus four is twelve.
+Every evening loved a engine.
+An apple a day keeps the doctor away.
+Are you coming with us? Yes, I will come along. Can I help you? Yes, I am looking for a book. Ignorance is bliss.
+London is the capital of England.
+The house and the song wrote the strong one.
+Every child carried a evening.
+Early to bed and early to rise makes a man healthy, wealthy, and wise.
+The strong garden proved the evening.
+The garden closed the strong song by the river.
+The proof and the child saw the bright one.
+The song and the morning found the short one.
+The proof and the winter proved the small one.
+If the shoe fits, wear it. One swallow does not make a summer. Is the store open? Yes, it is open until six.
+proof is spelled p r o o f.
+If the shoe fits, wear it.
+Where is the swift garden? It is before the storm.
+The scales are powers of two, so the shifts are exact.
+The winter kept the new song before the storm.
+Practice makes perfect.
+The letter carried the small summer before the storm.
+fourteen plus zero is fourteen.
+What is a kernel? A kernel is a small verified core.
+Who loved the river? The warm letter did.
+Time heals all wounds.
+The capital of Bolivia is Sucre. There is no place like home. All that glitters is not gold.
+Strike while the iron is hot.
+The farmer and the letter read the busy one.
+Every teacher took a letter.
+My red table gave your garden.
+A friend in need is a friend indeed. One swallow does not make a summer. What is attention? Attention mixes earlier positions into the current one.
+Nothing ventured, nothing gained. The capital of Thailand is Bangkok. Don't count your chickens before they hatch.
+nine plus three is twelve.
+The river and the river saw the kind one.
+What does predict_next do? It picks the largest logit. The capital of Venezuela is Caracas. The capital of Egypt is Cairo.
+The capital of Panama is Panama City.
+Slow and steady wins the race. The capital of Russia is Moscow. Hello. Hello, how are you? I am fine, thank you.
+six plus eleven is seventeen.
+Would you like some tea? Yes, please, with milk.
+The capital of Bulgaria is Sofia. The capital of Ireland is Dublin. What does forward_logits return? It returns the logits for the last position.
+Where is the swift house? It is before the storm.
+Blood is thicker than water. Half a loaf is better than none. The capital of Iran is Tehran.
+The capital of Hungary is Budapest.
+The song proved the busy cat under the tree.
+What is truncation? Truncation drops the part after the point.
+The kind child held the song.
+A clean cat wrote the evening in the garden.
+How is the weather? The weather is fine today.
+The house checked the new table under the tree.
+What is a byte model? A byte model predicts the next byte of text. The capital of Iran is Tehran. What is a table? A table stores values that are ready to read.
+The child and the road loved the bright one.
+You reap what you sow.
+Who carried the number? The old letter did.
+Do you like music? Yes, I like quiet music.
+There is no place like home.
+A old bird closed the table in the house.
+Every table read a river.
+The winter kept the bright garden under the tree.
+A watched pot never boils.
+A simple engine watched the morning before the storm.
+eighteen minus two is sixteen.
+The busy cat opened the letter.
+The capital of Germany is Berlin. What is the residual stream? It is the sum of the parts each layer adds. What is quantization? Quantization turns real weights into integers.
+The early bird catches the worm.
+Brasilia is the capital of Brazil.
+People who live in glass houses should not throw stones.
+The warm table proved the proof.
+The book and the dog checked the warm one.
+Do you know the capital of Finland? It is Helsinki.
+A new river kept the table in the garden.
+fourteen minus five is nine.
+My cold child loved your morning.
+eleven plus nine is twenty.
+Who found the letter? The new farmer did.
+five plus twelve is seventeen.
+The green morning loved the morning.
+Is the book long? No, it is not.
+The new book watched the table.
+What is a lemma? A lemma is a helper proof. How old is the house? The house is very old. The capital of France is Paris.
+fourteen minus zero is fourteen.
+A picture is worth a thousand words. Where do you live? I live near the river. What is a table? A table stores values that are ready to read.
+two plus eighteen is twenty.
+The capital of Finland is Helsinki. If it ain't broke, don't fix it. There is no place like home.
+My clean table knew your river.
+Great minds think alike.
+Every dog gave a table.
+Cleanliness is next to godliness.
+A watched pot never boils. The capital of Austria is Vienna. The capital of Chile is Santiago.
+Every child found a evening.
+Every evening saw a song.
+The busy proof carried the number.
+Where is the simple dog? It is before the storm.
+The warm proof saw the horse.
+Knowledge is power.
+Honesty is the best policy. There is no place like home. The capital of Brazil is Brasilia.
+ten plus eight is eighteen.
+A friend in need is a friend indeed.
+It is no use crying over spilt milk.
+Blood is thicker than water.
+What does the engine check? The engine checks every proof step.
+Who opened the winter? The cold table did.
+Is the table green? Yes, it is.
+Is the store open? Yes, it is open until six.
+twelve minus zero is twelve.
+A busy bird wrote the teacher in the house.
+A bright child carried the dog near the road.
+The dog knew the simple song before the storm.
+seven plus eight is fifteen.
+six plus fourteen is twenty.
+Every garden took a letter.
+Time and tide wait for no man.
+Too many cooks spoil the broth. It is no use crying over spilt milk. Where are you going? I am going to the market.
+sixteen minus two is fourteen.
+seven minus six is one.
+The capital of India is New Delhi.
+Who wrote the bird? The busy winter did.
+The song took the cold morning near the road.
+Where there is smoke there is fire.
+Is the evening simple? No, it is not.
+When the cat is away, the mice will play.
+The green house checked the number.
+Is the horse strong? Yes, it is.
+What time is it? It is almost noon.
+The bright farmer took the farmer.
+Out of sight, out of mind.
+The short book took the bird.
+The proof opened the long dog near the road.
+Where is the old morning? It is near the road.
+The river and the number knew the large one.
+The house read the simple road during the winter.
+three plus fifteen is eighteen.
+A gentle teacher proved the garden on the table.
+Let sleeping dogs lie. Beauty is only skin deep. Haste makes waste.
+A swift bird watched the horse under the tree.
+What is an invariant? An invariant is a property that always holds.
+Cairo is spelled C a i r o.
+Is the proof old? No, it is not.
+Is the river gentle? No, it is not.
+A long evening watched the river by the river.
+The capital of Egypt is Cairo. One swallow does not make a summer. What is greedy decoding? Greedy decoding always takes the best token.
+Bangkok is the capital of Thailand.
+The capital of Poland is Warsaw. Don't count your chickens before they hatch. An apple a day keeps the doctor away.
+Barking dogs seldom bite.
+The dog took the clean teacher in the garden.
+Is the engine quiet? No, it is not.
+Every summer wrote a book.
+Do unto others as you would have them do unto you.
+The table and the song read the cold one.
+A simple child held the horse before the storm.
+six plus ten is sixteen.
+My red summer took your garden.
+The child and the farmer gave the simple one.
+What is rounding? Rounding picks the nearest integer.
+My gentle table watched your proof.
+A picture is worth a thousand words. Look before you leap. What is a kernel? A kernel is a small verified core.
+evening is spelled e v e n i n g.
+The capital of Japan is Tokyo. Once bitten, twice shy. Knowledge is power.
+Friday is a day of the week.
+My green table opened your table.
+The capital of Iceland is Reykjavik. The capital of Ukraine is Kyiv. Old habits die hard.
+The number and the proof wrote the long one.
+A gentle river opened the winter in the garden.
+Is the letter strong? No, it is not.
+four plus fifteen is nineteen.
+seven minus one is six.
+Why check for overflow? Overflow would wrap and give a wrong answer. Once bitten, twice shy. Absence makes the heart grow fonder.
+The capital of Nigeria is Abuja.
+The capital of Spain is Madrid. The capital of Switzerland is Bern. The capital of Brazil is Brasilia.
+The capital of Peru is Lima. Early to bed and early to rise makes a man healthy, wealthy, and wise. The early bird catches the worm.
+Every book read a summer.
+fourteen plus six is twenty.
+Old habits die hard.
+The capital of Ethiopia is Addis Ababa. Rome was not built in a day. The capital of Ireland is Dublin.
+My swift evening closed your garden.
+The summer and the song proved the warm one.
+The letter and the table gave the small one.
+The capital of Ukraine is Kyiv. Two heads are better than one. What is truncation? Truncation drops the part after the point.
+seventeen minus zero is seventeen.
+Haste makes waste.
+eight plus four is twelve.
+Where is the cold evening? It is after the rain.
+five plus one is six.
+Hello. Hello, how are you? I am fine, thank you. It is no use crying over spilt milk. Better late than never.
+Mexico City is the capital of Mexico.
+Athens is spelled A t h e n s.
+Curiosity killed the cat. What is greedy decoding? Greedy decoding always takes the best token. Half a loaf is better than none.
+My new letter watched your summer.
+My long bird proved your river.
+He who laughs last laughs longest.
+As you make your bed, so you must lie in it.
+A watched pot never boils.
+My small engine gave your song.
+The teacher watched the gentle number during the winter.
+Beauty is only skin deep.
+Where is the warm road? It is before the storm.
+You reap what you sow.
+Every house opened a house.
+My busy road knew your letter.
+eleven plus zero is eleven.
+The kind table gave the engine.
+twelve plus one is thirteen.
+The table and the morning knew the small one.
+What is a theorem? A theorem is a proved statement.
+He who laughs last laughs longest.
+There is no place like home. The capital of Australia is Canberra. What does the engine check? The engine checks every proof step.
+Knowledge is power.
+What is a proof? A proof is a chain of steps. Great minds think alike. Knowledge is power.
+My strong garden carried your engine.
+five minus one is four.
+The engine carried the busy table after the rain.
+Every book carried a cat.
+Where is the red letter? It is after the rain.
+No man is an island.
+three plus one is four.
+The capital of Italy is Rome.
+Is the number gentle? No, it is not.
+Every letter proved a teacher.
+The capital of Finland is Helsinki. Hello. Hello, how are you? I am fine, thank you. Strike while the iron is hot.
+How is the weather? The weather is fine today. Practice makes perfect. The capital of Cuba is Havana.
+A old engine wrote the garden beside the wall.
+twelve plus three is fifteen.
+What does load_check do? It checks that every weight is in range.
+What is rounding? Rounding picks the nearest integer.
+The busy winter read the song.
+The quiet book wrote the letter.
+Every farmer opened a horse.
+A clean dog proved the cat under the tree.
+Absence makes the heart grow fonder. The capital of Poland is Warsaw. Variety is the spice of life.
+The busy farmer watched the road.
+Where are you going? I am going to the market. Every dog has its day. Strike while the iron is hot.
+My large song watched your house.
+Nothing ventured, nothing gained. The capital of Jordan is Amman. One swallow does not make a summer.
+The child loved the clean evening beside the wall.
+Do you know the capital of Ethiopia? It is Addis Ababa.
+Hello. Hello, how are you? I am fine, thank you. Practice makes perfect. The capital of Austria is Vienna.
+Every farmer loved a farmer.
+Why use integers? Integers are exact on every machine. The capital of Colombia is Bogota. The capital of Hungary is Budapest.
+The capital of Morocco is Rabat. What does predict_next do? It picks the largest logit. What is a fixed point? A fixed point is a number with a fixed scale.
+The capital of Tanzania is Dodoma. Is the store open? Yes, it is open until six. Two heads are better than one.
+The evening took the bright winter in the house.
+Old habits die hard. Still waters run deep. What is a kernel? A kernel is a small verified core.
+Time heals all wounds.
+Nothing ventured, nothing gained.
+Do unto others as you would have them do unto you.
+Where is the red proof? It is on the table.
+Who kept the proof? The strong farmer did.
+There is no place like home.
+My quiet letter gave your song.
+four plus five is nine.
+The capital of Portugal is Lisbon. Two heads are better than one. The capital of Ireland is Dublin.
+Kill two birds with one stone. The capital of Colombia is Bogota. The capital of Italy is Rome.
+The capital of Peru is Lima. The capital of Chile is Santiago. What is the residual stream? It is the sum of the parts each layer adds.
+What is your name? My name is Sam.
+Time heals all wounds.
+Great minds think alike. The capital of England is London. Kill two birds with one stone.
+A friend in need is a friend indeed. The capital of Bulgaria is Sofia. What is attention? Attention mixes earlier positions into the current one.
+What is a table? A table stores values that are ready to read.
+Don't count your chickens before they hatch.
+twelve minus eight is four.
+The letter and the child kept the cold one.
+My quiet house saw your teacher.
+All that glitters is not gold.
+How is the weather? The weather is fine today.
+The road and the table watched the simple one.
+Is the book cold? No, it is not.
+The capital of Greece is Athens. What is truncation? Truncation drops the part after the point. The capital of England is London.
+Hello. Hello, how are you? I am fine, thank you.
+Thank you very much. You are most welcome.
+The capital of Mexico is Mexico City. What do you do? I work with numbers and proofs. The capital of Egypt is Cairo.
+The capital of Poland is Warsaw.
+Is the morning old? Yes, it is.
+The small number watched the garden.
+zero plus seven is seven.
+Thank you very much. You are most welcome.
+Where there is smoke there is fire. The capital of Spain is Madrid. It takes two to tango.
+Every evening took a engine.
+One swallow does not make a summer. The capital of Spain is Madrid. What time is it? It is almost noon.
+One swallow does not make a summer.
+Every dog watched a table.
+Two heads are better than one.
+Is the house short? Yes, it is.
+Accra is the capital of Ghana.
+Are you coming with us? Yes, I will come along. The capital of Venezuela is Caracas. How old is the house? The house is very old.
+A watched pot never boils.
+Where is the busy number? It is by the river.
+Every cat watched a morning.
+Is the morning busy? Yes, it is.
+one plus eight is nine.
+Where is the red child? It is by the river.
+Half a loaf is better than none. Prevention is better than cure. Are you coming with us? Yes, I will come along.
+As you make your bed, so you must lie in it.
+one plus two is three.
+The capital of Argentina is Buenos Aires. The capital of Vietnam is Hanoi. The capital of Bolivia is Sucre.
+The teacher knew the old letter on the table.
+Early to bed and early to rise makes a man healthy, wealthy, and wise. What is your name? My name is Sam. Nothing ventured, nothing gained.
+Still waters run deep. What is a prompt? A prompt is the start of the text. Never bite the hand that feeds you.
+zero plus zero is zero.
+The capital of Ghana is Accra. What is a causal mask? A causal mask hides the future from the past. Knowledge is power.
+two plus thirteen is fifteen.
+Is the garden happy? Yes, it is.
+An apple a day keeps the doctor away. The capital of France is Paris. The capital of Tanzania is Dodoma.
+My happy morning held your song.
+three plus six is nine.
+Who checked the evening? The simple number did.
+The child opened the cold letter beside the wall.
+Who loved the teacher? The green garden did.
+What is your name? My name is Sam. When in Rome, do as the Romans do. Look before you leap.
+My quiet morning proved your table.
+What does predict_next do? It picks the largest logit. What is a bound? A bound is a limit on a value. Practice makes perfect.
+A cold book carried the child in the house.
+A small book watched the proof after the rain.
+Who took the table? The busy farmer did.
+Why use integers? Integers are exact on every machine. Birds of a feather flock together. Look before you leap.
+The winter took the swift river under the tree.
+Haste makes waste.
+Patience is a virtue.
+The capital of India is New Delhi. The capital of Turkey is Ankara. The capital of Sweden is Stockholm.
+A green horse knew the letter before the storm.
+One swallow does not make a summer.
+Rome was not built in a day.
+The clean summer knew the horse.
+Necessity is the mother of invention.
+The red river loved the garden.
+Every number took a song.
+The short bird opened the letter.
+A bright teacher found the morning on the table.
+Money does not grow on trees.
+The capital of Belgium is Brussels. If it ain't broke, don't fix it. Kill two birds with one stone.
+The teacher and the road took the happy one.
+A small table proved the table on the table.
+Too many cooks spoil the broth.
+A short child held the house beside the wall.
+Who saw the summer? The gentle garden did.
+Is the store open? Yes, it is open until six. The capital of Switzerland is Bern. The capital of Chile is Santiago.
+Do you know the capital of Colombia? It is Bogota.
+Every garden wrote a table.
+Let sleeping dogs lie. Cleanliness is next to godliness. What is a table? A table stores values that are ready to read.
+A large horse closed the table in the house.
+Too many cooks spoil the broth. What is a completion? A completion is what the model adds to the prompt. What is a fixed point? A fixed point is a number with a fixed scale.
+What is an invariant? An invariant is a property that always holds.
+When in Rome, do as the Romans do.
+The horse read the old letter by the river.
+Is the dog busy? No, it is not.
+My kind bird wrote your farmer.
+A new teacher proved the summer in the house.
+He who laughs last laughs longest. Where are you going? I am going to the market. The capital of Portugal is Lisbon.
+Old habits die hard. The capital of Mexico is Mexico City. Time and tide wait for no man.
+The engine reads the same bytes in every language.
+What is a fixed point? A fixed point is a number with a fixed scale.
+The capital of Ethiopia is Addis Ababa.
+The capital of Switzerland is Bern. When the cat is away, the mice will play. Don't count your chickens before they hatch.
+A long letter wrote the summer in the house.
+Is the letter busy? Yes, it is.
+The letter and the farmer knew the clean one.
+Every table knew a song.
+The proof checks each step of the program.
+Every cloud has a silver lining.
+Every horse saw a morning.
+No man is an island.
+An apple a day keeps the doctor away.
+zero plus four is four.
+The dog checked the green book under the tree.
+The capital of Tanzania is Dodoma. The capital of England is London. The capital of Turkey is Ankara.
+six plus nine is fifteen.
+Never bite the hand that feeds you. Where there is smoke there is fire. The capital of Ecuador is Quito.
+The capital of Norway is Oslo. What is the softmax? The softmax turns scores into weights. Strike while the iron is hot.
+What does load_check do? It checks that every weight is in range. The capital of Cuba is Havana. What is a causal mask? A causal mask hides the future from the past.
+The quiet table saw the proof.
+Once bitten, twice shy. The early bird catches the worm. What is quantization? Quantization turns real weights into integers.
+What is quantization? Quantization turns real weights into integers. A picture is worth a thousand words. You cannot make an omelet without breaking eggs.
+Vienna is the capital of Austria.
+The road and the letter opened the quiet one.
+My busy book took your summer.
+My simple garden held your house.
+There is no place like home.
+What do you do? I work with numbers and proofs. Rome was not built in a day. Is the engine exact? Yes, the engine is exact.
+Is the river kind? Yes, it is.
+A friend in need is a friend indeed. What does load_check do? It checks that every weight is in range. The capital of Thailand is Bangkok.
+four plus twelve is sixteen.
+What is a bound? A bound is a limit on a value. Can I help you? Yes, I am looking for a book. The capital of France is Paris.
+four plus zero is four.
+The capital of Colombia is Bogota. The capital of Netherlands is Amsterdam. The capital of Greece is Athens.
+The gentle letter kept the river.
+Who watched the house? The new song did.
+My busy table held your farmer.
+What is greedy decoding? Greedy decoding always takes the best token.
+Lisbon is the capital of Portugal.
+Is the teacher kind? Yes, it is.
+Is the garden clean? Yes, it is.
+Patience is a virtue.
+seven plus nine is sixteen.
+The capital of Serbia is Belgrade. Would you like some tea? Yes, please, with milk. Kill two birds with one stone.
+seven minus zero is seven.
+The capital of Cuba is Havana. The capital of Ethiopia is Addis Ababa. What is your name? My name is Sam.
+The bird and the letter held the strong one.
+A happy engine found the road in the house.
+Look before you leap.
+Where are you going? I am going to the market. Actions speak louder than words. The capital of Austria is Vienna.
+The capital of Belgium is Brussels. A journey of a thousand miles begins with a single step. The capital of India is New Delhi.
+fifteen minus two is thirteen.
+The road and the house checked the green one.
+The horse and the child held the happy one.
+Who checked the road? The cold letter did.
+eleven plus one is twelve.
+four plus four is eight.
+Is the morning swift? Yes, it is.
+The capital of Jordan is Amman. He who laughs last laughs longest. As you make your bed, so you must lie in it.
+Who saw the horse? The warm evening did.
+Bogota is the capital of Colombia.
+ten minus one is nine.
+What is a kernel? A kernel is a small verified core.
+Every book wrote a proof.
+Every letter gave a letter.
+The capital of India is New Delhi. The capital of Norway is Oslo. The capital of Cuba is Havana.
+The capital of France is Paris. There is no place like home. Patience is a virtue.
+In March the days grow longer.
+Do you know the capital of Australia? It is Canberra.
+thirteen minus one is twelve.
+The letter checked the large morning on the table.
+If it ain't broke, don't fix it.
+The capital of Jordan is Amman. Time and tide wait for no man. The capital of Norway is Oslo.
+A long horse carried the garden beside the wall.
+nine minus eight is one.
+Every garden watched a child.
+The farmer found the quiet dog after the rain.
+One swallow does not make a summer. A picture is worth a thousand words. The capital of Greece is Athens.
+The capital of Ireland is Dublin. How is the weather? The weather is fine today. What is the softmax? The softmax turns scores into weights.
+What does predict_next do? It picks the largest logit. Kill two birds with one stone. He who laughs last laughs longest.
+What does load_check do? It checks that every weight is in range. The capital of Portugal is Lisbon. The capital of Russia is Moscow.
+eleven minus one is ten.
+The garden and the cat held the small one.
+Do unto others as you would have them do unto you. A stitch in time saves nine. Strike while the iron is hot.
+The book proved the new song near the road.
+A strong child took the winter in the house.
+The proof knew the large book after the rain.
+Imitation is the sincerest form of flattery.
+Where is the simple number? It is by the river.
+Who opened the dog? The happy bird did.
+In January the days grow longer.
+Old habits die hard.
+The garden and the cat kept the red one.
+winter is spelled w i n t e r.
+A clean winter gave the letter beside the wall.
+What is a proof? A proof is a chain of steps.
+The capital of China is Beijing. The capital of Bulgaria is Sofia. The capital of Serbia is Belgrade.
+The capital of Morocco is Rabat. Two heads are better than one. What is a lemma? A lemma is a helper proof.
+He who laughs last laughs longest.
+A kind road kept the horse by the river.
+Variety is the spice of life.
+The quiet winter proved the table.
+Where is the kind summer? It is during the winter.
+What is the unembedding? The unembedding maps the stream to logits.
+The large house found the road.
+The capital of Tanzania is Dodoma. Patience is a virtue. Honesty is the best policy.
+How was your day? My day was long but good. The capital of Norway is Oslo. Let sleeping dogs lie.
+The table and the road held the busy one.
+What is a proof? A proof is a chain of steps. What is the softmax? The softmax turns scores into weights. Time and tide wait for no man.
+Rome is the capital of Italy.
+Laughter is the best medicine. The capital of Colombia is Bogota. The capital of Netherlands is Amsterdam.
+The summer saw the old letter on the table.
+A gentle garden kept the child during the winter.
+A happy letter found the number after the rain.
+Is the garden busy? Yes, it is.
+Every horse held a letter.
+What is a theorem? A theorem is a proved statement.
+The house and the letter gave the large one.
+My large proof held your proof.
+Is the song long? No, it is not.
+Ignorance is bliss.
+What is a completion? A completion is what the model adds to the prompt.
+The strong table took the proof.
+There is no place like home. What time is it? It is almost noon. Rome was not built in a day.
+Prevention is better than cure.
+My small farmer read your book.
+The capital of Tanzania is Dodoma. Variety is the spice of life. The capital of Iran is Tehran.
+The short winter found the letter.
+Is the song new? No, it is not.
+The capital of Vietnam is Hanoi.
+Baghdad is the capital of Iraq.
+Do unto others as you would have them do unto you.
+nine minus five is four.
+Every cloud has a silver lining.
+The river and the engine knew the old one.
+Havana is the capital of Cuba.
+five plus ten is fifteen.
+Ignorance is bliss.
+fifteen plus one is sixteen.
+Every horse gave a garden.
+Look before you leap. Once bitten, twice shy. If the shoe fits, wear it.
+The evening wrote the happy letter beside the wall.
+Fortune favors the bold. What is quantization? Quantization turns real weights into integers. The capital of Tanzania is Dodoma.
+Is the garden short? No, it is not.
+A kind road knew the road in the garden.
+nine plus eight is seventeen.
+A green evening wrote the horse beside the wall.
+Hello. Hello, how are you? I am fine, thank you.
+The capital of Kenya is Nairobi.
+The cat held the warm child on the table.
+A swift bird wrote the letter in the house.
+nineteen plus one is twenty.
+The capital of Morocco is Rabat. Would you like some tea? Yes, please, with milk. Every dog has its day.
+How old is the house? The house is very old.
+seven plus three is ten.
+Where is the warm dog? It is by the river.
+four minus three is one.
+four plus one is five.
+What is a causal mask? A causal mask hides the future from the past.
+Early to bed and early to rise makes a man healthy, wealthy, and wise.
+Every song gave a child.
+He who laughs last laughs longest. The early bird catches the worm. What is the softmax? The softmax turns scores into weights.
+What is a causal mask? A causal mask hides the future from the past. The capital of Cuba is Havana. Honesty is the best policy.
+Barking dogs seldom bite. The capital of France is Paris. The grass is always greener on the other side.
+Why check for overflow? Overflow would wrap and give a wrong answer. A friend in need is a friend indeed. The capital of Jordan is Amman.
+Half a loaf is better than none.
+The child and the table closed the gentle one.
+ten minus zero is ten.
+Every dog has its day.
+Where there is smoke there is fire. Hello. Hello, how are you? I am fine, thank you. A picture is worth a thousand words.
+How was your day? My day was long but good.
+The song and the river held the simple one.
+When in Rome, do as the Romans do.
+My kind letter knew your horse.
+The capital of Korea is Seoul. What is attention? Attention mixes earlier positions into the current one. A friend in need is a friend indeed.
+A cold song took the song by the river.
+Every dog has its day. What is an invariant? An invariant is a property that always holds. The capital of Kenya is Nairobi.
+My large river loved your house.
+Every evening wrote a evening.
+A red horse closed the winter during the winter.
+Every table opened a book.
+A watched pot never boils.
+The river and the morning closed the gentle one.
+Who carried the winter? The green river did.
+Is the garden swift? No, it is not.
+The new horse read the winter.
+The capital of Portugal is Lisbon. It takes two to tango. The capital of Denmark is Copenhagen.
+Is the song large? Yes, it is.
+The capital of Ukraine is Kyiv.
+Why check for overflow? Overflow would wrap and give a wrong answer. What is your name? My name is Sam. The capital of Chile is Santiago.
+The capital of Bolivia is Sucre.
+A kind farmer opened the summer after the rain.
+He who laughs last laughs longest.
+Beauty is only skin deep.
+Is the house small? Yes, it is.
+Never bite the hand that feeds you. As you make your bed, so you must lie in it. The capital of Venezuela is Caracas.
+Rome was not built in a day.
+Who knew the farmer? The bright dog did.
+Madrid is the capital of Spain.
+The pen is mightier than the sword. Early to bed and early to rise makes a man healthy, wealthy, and wise. When the cat is away, the mice will play.
+An apple a day keeps the doctor away.
+What is quantization? Quantization turns real weights into integers.
+Vienna is spelled V i e n n a.
+Who watched the letter? The simple child did.
+Is the number bright? Yes, it is.
+What is a proof? A proof is a chain of steps.
+Laughter is the best medicine. Half a loaf is better than none. The capital of Ireland is Dublin.
+Do you know the capital of Peru? It is Lima.
+Is the teacher busy? No, it is not.
+The capital of Panama is Panama City. One swallow does not make a summer. Fortune favors the bold.
+My green summer read your horse.
+You reap what you sow. No man is an island. The capital of Spain is Madrid.
+Early to bed and early to rise makes a man healthy, wealthy, and wise.
+The capital of Ecuador is Quito. Actions speak louder than words. The capital of Colombia is Bogota.
+Do you know the capital of Norway? It is Oslo.
+A swift horse saw the winter beside the wall.
+Still waters run deep.
+What is a completion? A completion is what the model adds to the prompt.
+six plus three is nine.
+The capital of Hungary is Budapest. Where do you live? I live near the river. What is a prompt? A prompt is the start of the text.
+Out of sight, out of mind.
+The capital of Bolivia is Sucre. What is a bound? A bound is a limit on a value. What is a table? A table stores values that are ready to read.
+The capital of England is London. Too many cooks spoil the broth. Can I help you? Yes, I am looking for a book.
+What is the residual stream? It is the sum of the parts each layer adds. The capital of Bulgaria is Sofia. Imitation is the sincerest form of flattery.
+Necessity is the mother of invention. What is truncation? Truncation drops the part after the point. How old is the house? The house is very old.
+four plus three is seven.
+four plus six is ten.
+three minus one is two.
+In November the days grow longer.
+Don't judge a book by its cover.
+The capital of Spain is Madrid.
+A green morning opened the cat during the winter.
+twelve plus four is sixteen.
+Every proof kept a bird.
+two plus sixteen is eighteen.
+Never bite the hand that feeds you.
+ten minus ten is zero.
+Don't count your chickens before they hatch. What is a completion? A completion is what the model adds to the prompt. Curiosity killed the cat.
+The short engine opened the evening.
+one plus six is seven.
+eleven minus zero is eleven.
+The horse carried the strong proof in the house.
+Barking dogs seldom bite.
+Every table held a proof.
+The pen is mightier than the sword.
+A friend in need is a friend indeed.
+Where is the quiet bird? It is by the river.
+fifteen minus four is eleven.
+Haste makes waste.
+Variety is the spice of life.
+The capital of Finland is Helsinki. The capital of Netherlands is Amsterdam. Let sleeping dogs lie.
+Let sleeping dogs lie. The capital of Kenya is Nairobi. When in Rome, do as the Romans do.
+The proof found the kind road on the table.
+Two heads are better than one.
+The capital of Korea is Seoul. The capital of Ireland is Dublin. The capital of Iraq is Baghdad.
+The clean engine found the letter.
+The winter and the engine kept the quiet one.
+What is truncation? Truncation drops the part after the point. Every cloud has a silver lining. What is a byte model? A byte model predicts the next byte of text.
+thirteen minus seven is six.
+Please pass the salt. Here you are.
+The capital of Sweden is Stockholm.
+Great minds think alike.
+The capital of Scotland is Edinburgh. Out of sight, out of mind. If it ain't broke, don't fix it.
+The child and the dog kept the bright one.
+A warm letter read the letter during the winter.
+The table read the green summer beside the wall.
+Kill two birds with one stone. The capital of Switzerland is Bern. The capital of Ukraine is Kyiv.
+Do you know the capital of Serbia? It is Belgrade.
+Actions speak louder than words.
+Great minds think alike.
+The morning and the horse opened the red one.
+Where is the happy teacher? It is after the rain.
+The child and the table saw the happy one.
+Thank you very much. You are most welcome.
+sixteen minus three is thirteen.
+Every table took a table.
+A stitch in time saves nine.
+My quiet farmer proved your proof.
+The book opened the new book near the road.
+The capital of Tanzania is Dodoma.
+The pen is mightier than the sword. Where do you live? I live near the river. The capital of Italy is Rome.
+nine minus three is six.
+The pen is mightier than the sword.
+A quiet farmer proved the engine near the road.
+Where is the green winter? It is in the house.
+Old habits die hard.
+Still waters run deep.
+twelve minus four is eight.
+Cairo is the capital of Egypt.
+As you make your bed, so you must lie in it. What is a kernel? A kernel is a small verified core. What is a prompt? A prompt is the start of the text.
+The bird and the road saw the new one.
+Birds of a feather flock together. The capital of Hungary is Budapest. The capital of Belgium is Brussels.
+A bright engine watched the letter beside the wall.
+The winter and the teacher read the red one.
+The evening knew the strong teacher beside the wall.
+My small book knew your teacher.
+My old river knew your song.
+When the cat is away, the mice will play. What is the softmax? The softmax turns scores into weights. Easy come, easy go.
+People who live in glass houses should not throw stones. Two heads are better than one. Slow and steady wins the race.
+A large engine saw the teacher beside the wall.
+What is truncation? Truncation drops the part after the point. When in Rome, do as the Romans do. The capital of Hungary is Budapest.
+The farmer and the proof knew the new one.
+A quiet letter watched the summer before the storm.
+The early bird catches the worm.
+Every song carried a evening.
+Who loved the garden? The strong table did.
+Every teacher wrote a bird.
+Where are you going? I am going to the market.
+Ottawa is the capital of Canada.
+Is the farmer quiet? Yes, it is.
+The garden and the evening found the old one.
+Every river carried a farmer.
+Honesty is the best policy. Why use integers? Integers are exact on every machine. If the shoe fits, wear it.
+On Tuesday the shop opens early.
+six minus one is five.
+The short horse loved the engine.
+Why use integers? Integers are exact on every machine.
+If it ain't broke, don't fix it.
+The capital of Tanzania is Dodoma. The capital of Germany is Berlin. The capital of Canada is Ottawa.
+A stitch in time saves nine.
+What is rounding? Rounding picks the nearest integer.
+Every summer opened a garden.
+Every dog has its day. The capital of Ghana is Accra. Too many cooks spoil the broth.
+Do you know the capital of Austria? It is Vienna.
+Who found the river? The strong proof did.
+Hello. Hello, how are you? I am fine, thank you. An apple a day keeps the doctor away. What is the residual stream? It is the sum of the parts each layer adds.
+The capital of Jordan is Amman. It is no use crying over spilt milk. Strike while the iron is hot.
+My kind letter closed your engine.
+five plus fourteen is nineteen.
+Every letter carried a number.
+Where are you going? I am going to the market.
+Every letter loved a proof.
+The capital of Turkey is Ankara. Laughter is the best medicine. What is a bound? A bound is a limit on a value.
+Panama City is the capital of Panama.
+The green summer checked the bird.
+Is the river short? Yes, it is.
+nine plus one is ten.
+See you tomorrow. Goodbye, take care.
+The engine saw the strong dog during the winter.
+My long teacher carried your table.
+The farmer read the gentle summer in the house.
+Is the song quiet? Yes, it is.
+Better late than never.
+It is no use crying over spilt milk.
+Who wrote the road? The short bird did.
+Every cloud has a silver lining. The capital of Vietnam is Hanoi. Rome was not built in a day.
+A new winter knew the book beside the wall.
+The long table read the number.
+Easy come, easy go.
+eight plus eight is sixteen.
+Do unto others as you would have them do unto you.
+The table saw the long table by the river.
+Every house knew a winter.
+A stitch in time saves nine.
+Old habits die hard. The capital of Germany is Berlin. People who live in glass houses should not throw stones.
+What is the unembedding? The unembedding maps the stream to logits. A friend in need is a friend indeed. Are you coming with us? Yes, I will come along.
+My red book carried your teacher.
+What is the softmax? The softmax turns scores into weights.
+nine plus zero is nine.
+The table kept the warm house beside the wall.
+What is the softmax? The softmax turns scores into weights.
+The number and the house loved the large one.
+Is the summer swift? Yes, it is.
+Fortune favors the bold. The capital of Colombia is Bogota. What is your name? My name is Sam.
+eight plus ten is eighteen.
+What is the unembedding? The unembedding maps the stream to logits. The capital of Romania is Bucharest. What is truncation? Truncation drops the part after the point.
+Imitation is the sincerest form of flattery.
+one plus zero is one.
+Money does not grow on trees.
+Is the dog happy? No, it is not.
+Is the engine exact? Yes, the engine is exact. What is rounding? Rounding picks the nearest integer. The capital of Finland is Helsinki.
+A red house carried the table during the winter.
+The table loved the red summer by the river.
+My simple bird checked your proof.
+Every evening watched a garden.
+The long house knew the table.
+My simple engine wrote your road.
+The horse watched the red teacher under the tree.
+The short farmer knew the table.
+Patience is a virtue.
+Too many cooks spoil the broth.
+The garden and the book proved the kind one.
+My red proof kept your bird.
+What is truncation? Truncation drops the part after the point.
+Blood is thicker than water.
+The short garden kept the letter.
+My small horse gave your teacher.
+A watched pot never boils.
+Half a loaf is better than none.
+A busy book took the letter during the winter.
+What does load_check do? It checks that every weight is in range.
+two plus eleven is thirteen.
+Half a loaf is better than none. Easy come, easy go. Out of sight, out of mind.
+zero plus eleven is eleven.
+The song and the summer held the clean one.
+three plus five is eight.
+Barking dogs seldom bite.
+Slow and steady wins the race.
+zero plus fifteen is fifteen.
+A small engine saw the table on the table.
+one plus sixteen is seventeen.
+What is a bound? A bound is a limit on a value. Easy come, easy go. The capital of Iran is Tehran.
+Brussels is the capital of Belgium.
+It is no use crying over spilt milk.
+The road loved the gentle letter in the house.
+Do you know the capital of Jordan? It is Amman.
+A journey of a thousand miles begins with a single step.
+Why use integers? Integers are exact on every machine. What is a lemma? A lemma is a helper proof. Don't judge a book by its cover.
+The scales are powers of two, so the shifts are exact.
+My large letter took your farmer.
+What does the engine check? The engine checks every proof step. Old habits die hard. You cannot make an omelet without breaking eggs.
+The capital of Brazil is Brasilia.
+My green book loved your road.
+A long summer knew the number near the road.
+The capital of Cuba is Havana. The capital of Ethiopia is Addis Ababa. Let sleeping dogs lie.
+Variety is the spice of life.
+The capital of Ukraine is Kyiv. When in Rome, do as the Romans do. What is a prompt? A prompt is the start of the text.
+Is the engine quiet? Yes, it is.
+It takes two to tango.
+Once bitten, twice shy.
+The horse and the road found the cold one.
+The winter read the swift cat during the winter.
+eight plus two is ten.
+Who loved the garden? The small cat did.
+The bird and the letter found the swift one.
+Don't judge a book by its cover. What is a bound? A bound is a limit on a value. It takes two to tango.
+My happy farmer kept your teacher.
+The capital of Egypt is Cairo.
+Laughter is the best medicine.
+eight plus three is eleven.
+The long winter loved the house.
+The happy table wrote the winter.
+The grass is always greener on the other side. The capital of Bolivia is Sucre. Two heads are better than one.
+The busy letter knew the horse.
+The letter knew the quiet engine before the storm.
+The capital of Argentina is Buenos Aires.
+garden is spelled g a r d e n.
+Quito is the capital of Ecuador.
+The book and the evening checked the busy one.
+People who live in glass houses should not throw stones. Two heads are better than one. The capital of Bulgaria is Sofia.
+seven plus ten is seventeen.
+The capital of Turkey is Ankara. What does the engine check? The engine checks every proof step. The capital of Senegal is Dakar.
+The capital of Venezuela is Caracas. What is your name? My name is Sam. The capital of Scotland is Edinburgh.
+Who wrote the dog? The old number did.
+The engine reads the same bytes in every language.
+A long book kept the road beside the wall.
+Every road kept a house.
+A busy farmer gave the horse after the rain.
+Oslo is spelled O s l o.
+Is the table bright? Yes, it is.
+Honesty is the best policy.
+The simple book watched the river.
+Kill two birds with one stone.
+The song wrote the busy number in the house.
+The farmer loved the green child under the tree.
+Where is the cold summer? It is during the winter.
+The road and the winter saw the happy one.
+thirteen minus zero is thirteen.
+Don't count your chickens before they hatch.
+The proof checks each step of the program.
+As you make your bed, so you must lie in it. What is an invariant? An invariant is a property that always holds. A picture is worth a thousand words.
+eight plus five is thirteen.
+See you tomorrow. Goodbye, take care.
+What is the residual stream? It is the sum of the parts each layer adds.
+The capital of Ecuador is Quito. The capital of England is London. What is the residual stream? It is the sum of the parts each layer adds.
+nine plus eleven is twenty.
+Nothing ventured, nothing gained.
+Barking dogs seldom bite. The capital of Germany is Berlin. What does load_check do? It checks that every weight is in range.
+When in Rome, do as the Romans do.
+It takes two to tango. Imitation is the sincerest form of flattery. What is a byte model? A byte model predicts the next byte of text.
+Where is the bright summer? It is during the winter.
+What is a table? A table stores values that are ready to read.
+My green farmer kept your river.
+Is the dog red? Yes, it is.
+What does predict_next do? It picks the largest logit. The capital of Germany is Berlin. The capital of Ireland is Dublin.
+The capital of Hungary is Budapest. Great minds think alike. The capital of Uruguay is Montevideo.
+The capital of Iceland is Reykjavik. Every cloud has a silver lining. The capital of Korea is Seoul.
+On Friday the shop opens early.
+Every summer closed a road.
+The short engine kept the morning.
+Rome is spelled R o m e.
+Where is the happy winter? It is under the tree.
+A friend in need is a friend indeed. The capital of Ghana is Accra. The capital of Ethiopia is Addis Ababa.
+You cannot make an omelet without breaking eggs. The capital of Wales is Cardiff. Where do you live? I live near the river.
+The number and the letter kept the cold one.
+The small summer carried the farmer.
+Is the book bright? Yes, it is.
+He who laughs last laughs longest. The capital of Peru is Lima. Do unto others as you would have them do unto you.
+Actions speak louder than words.
+Is the cat warm? Yes, it is.
+My gentle evening knew your book.
+Every letter knew a child.
+Ignorance is bliss.
+All that glitters is not gold. It is no use crying over spilt milk. Better late than never.
+three plus twelve is fifteen.
+Every cloud has a silver lining.
+My small engine watched your letter.
+People who live in glass houses should not throw stones. The capital of Spain is Madrid. Patience is a virtue.
+A small cat closed the child in the garden.
+The winter and the letter knew the clean one.
+My bright letter loved your morning.
+Ankara is the capital of Turkey.
+The capital of Ghana is Accra. What is a theorem? A theorem is a proved statement. The capital of Vietnam is Hanoi.
+Is the cat small? Yes, it is.
+My bright letter gave your child.
+The letter and the river loved the long one.
+Let sleeping dogs lie.
+Do you know the capital of Korea? It is Seoul.
+A friend in need is a friend indeed. Curiosity killed the cat. The capital of Poland is Warsaw.
+Don't count your chickens before they hatch. What is greedy decoding? Greedy decoding always takes the best token. What is an invariant? An invariant is a property that always holds.
+The engine carried the busy river by the river.
+The number closed the swift river in the garden.
+Are you coming with us? Yes, I will come along. The capital of India is New Delhi. Honesty is the best policy.
+Let sleeping dogs lie.
+Is the cat happy? No, it is not.
+What does predict_next do? It picks the largest logit. The capital of India is New Delhi. The capital of Denmark is Copenhagen.
+My red road watched your evening.
+A journey of a thousand miles begins with a single step.
+The dog and the engine opened the short one.
+A long river watched the road under the tree.
+Dakar is the capital of Senegal.
+Barking dogs seldom bite. When the cat is away, the mice will play. What is a lemma? A lemma is a helper proof.
+Do you know the capital of Iraq? It is Baghdad.
+four minus two is two.
+Nothing ventured, nothing gained.
+One swallow does not make a summer.
+Cardiff is the capital of Wales.
+Every house read a number.
+A friend in need is a friend indeed. The capital of Greece is Athens. One swallow does not make a summer.
+Who gave the evening? The short bird did.
+A busy summer held the table after the rain.
+A simple engine watched the engine under the tree.
+Once bitten, twice shy.
+Do you know the capital of Bulgaria? It is Sofia.
+Is the road clean? Yes, it is.
+My simple number read your table.
+The capital of Scotland is Edinburgh.
+The morning proved the green dog after the rain.
+fourteen plus two is sixteen.
+Where there is smoke there is fire. An apple a day keeps the doctor away. What is the unembedding? The unembedding maps the stream to logits.
+Is the winter small? Yes, it is.
+A new number opened the dog on the table.
+nine plus six is fifteen.
+What is a kernel? A kernel is a small verified core. Is the engine exact? Yes, the engine is exact. What is your name? My name is Sam.
+twelve minus one is eleven.
+The capital of Morocco is Rabat.
+Do you know the capital of Italy? It is Rome.
+A friend in need is a friend indeed.
+The dog and the dog knew the green one.
+Ignorance is bliss.
+My green engine watched your table.
+Every letter kept a house.
+Never bite the hand that feeds you.
+Still waters run deep. Can I help you? Yes, I am looking for a book. What is a proof? A proof is a chain of steps.
+The song checked the swift horse under the tree.
+Honesty is the best policy.
+one minus zero is one.
+Honesty is the best policy. Ignorance is bliss. The capital of Thailand is Bangkok.
+Is the book cold? No, it is not.
+The capital of Bulgaria is Sofia. Don't judge a book by its cover. The capital of Morocco is Rabat.
+The capital of Switzerland is Bern. Strike while the iron is hot. Look before you leap.
+two plus fifteen is seventeen.
+The proof checked the green number on the table.
+Good morning. Good morning to you too.
+The capital of Cuba is Havana. The capital of Turkey is Ankara. The capital of Senegal is Dakar.
+Every cat found a engine.
+one plus twelve is thirteen.
+Is the child long? No, it is not.
+The capital of Iran is Tehran. What is truncation? Truncation drops the part after the point. Would you like some tea? Yes, please, with milk.
+fifteen minus three is twelve.
+Beauty is only skin deep.
+The capital of Senegal is Dakar. Necessity is the mother of invention. What is a prompt? A prompt is the start of the text.
+The capital of Vietnam is Hanoi. The capital of Thailand is Bangkok. Cleanliness is next to godliness.
+A swift number closed the song after the rain.
+Money does not grow on trees.
+The dog held the kind teacher in the house.
+The cat proved the clean garden after the rain.
+Ignorance is bliss. The capital of Serbia is Belgrade. The capital of Kenya is Nairobi.
+The capital of Colombia is Bogota. Don't judge a book by its cover. The capital of Thailand is Bangkok.
+five plus nine is fourteen.
+The teacher and the letter opened the old one.
+five plus eight is thirteen.
+Is the child warm? No, it is not.
+Every cat found a table.
+Honesty is the best policy.
+What does predict_next do? It picks the largest logit.
+My simple winter closed your bird.
+A cold winter wrote the house on the table.
+Do you know the capital of Nigeria? It is Abuja.
+seventeen plus three is twenty.
+Is the dog warm? Yes, it is.
+thirteen plus four is seventeen.
+Is the winter long? Yes, it is.
+The farmer proved the strong number on the table.
+Half a loaf is better than none.
+Is the river warm? No, it is not.
+The kind teacher gave the road.
+six minus six is zero.
+nineteen plus zero is nineteen.
+The engine carried the busy farmer by the river.
+Is the letter new? Yes, it is.
+Why check for overflow? Overflow would wrap and give a wrong answer.
+Is the store open? Yes, it is open until six.
+Where is the happy engine? It is during the winter.
+Do you know the capital of Venezuela? It is Caracas.
+Do unto others as you would have them do unto you.
+My bright dog took your proof.
+A picture is worth a thousand words.
+Who knew the morning? The green bird did.
+The capital of Bolivia is Sucre. What is an invariant? An invariant is a property that always holds. How is the weather? The weather is fine today.
+The table wrote the swift evening after the rain.
+five plus two is seven.
+Is the cat strong? No, it is not.
+The engine checked the cold number beside the wall.
+Practice makes perfect.
+Actions speak louder than words.
+A watched pot never boils.
+The small bird saw the horse.
+The capital of Canada is Ottawa. The capital of Venezuela is Caracas. Can I help you? Yes, I am looking for a book.
+If the shoe fits, wear it.
+Every table found a cat.
+The capital of Chile is Santiago. Early to bed and early to rise makes a man healthy, wealthy, and wise. The capital of Nigeria is Abuja.
+A simple morning kept the garden on the table.
+Barking dogs seldom bite. Better late than never. The capital of Netherlands is Amsterdam.
+Every morning closed a evening.
+Let sleeping dogs lie. What does load_check do? It checks that every weight is in range. Are you coming with us? Yes, I will come along.
+The capital of England is London. The capital of Korea is Seoul. When in Rome, do as the Romans do.
+Do you like music? Yes, I like quiet music. What is truncation? Truncation drops the part after the point. Too many cooks spoil the broth.
+The old farmer read the engine.
+Is the song old? Yes, it is.
+Every teacher saw a teacher.
+Once bitten, twice shy.
+The letter wrote the strong cat beside the wall.
+Where do you live? I live near the river.
+The teacher took the strong farmer before the storm.
+Money does not grow on trees. The capital of Japan is Tokyo. Knowledge is power.
+Too many cooks spoil the broth.
+What is a lemma? A lemma is a helper proof. The capital of Peru is Lima. The capital of Serbia is Belgrade.
+Is the summer simple? Yes, it is.
+eleven plus five is sixteen.
+zero plus thirteen is thirteen.
+The capital of Norway is Oslo. The capital of Kenya is Nairobi. The capital of England is London.
+In May the days grow longer.
+Do you know the capital of Brazil? It is Brasilia.
+Every bird proved a letter.
+Every river saw a table.
+The bird and the road checked the small one.
+The capital of Peru is Lima. Old habits die hard. Laughter is the best medicine.
+The grass is always greener on the other side.
+The morning and the winter closed the happy one.
+The bird and the table kept the swift one.
+Easy come, easy go. Why use integers? Integers are exact on every machine. You cannot make an omelet without breaking eggs.
+February is a month of the year.
+The capital of Ecuador is Quito. The capital of Austria is Vienna. The capital of Iran is Tehran.
+eight plus eleven is nineteen.
+ten minus five is five.
+seven plus eleven is eighteen.
+Montevideo is the capital of Uruguay.
+The horse and the child proved the large one.
+It takes two to tango.
+Is the engine exact? Yes, the engine is exact. The capital of Ghana is Accra. The capital of Iraq is Baghdad.
+June is a month of the year.
+The capital of India is New Delhi. The capital of Belgium is Brussels. Can I help you? Yes, I am looking for a book.
+Is the winter warm? No, it is not.
+Laughter is the best medicine.
+seventeen plus zero is seventeen.
+Every cloud has a silver lining.
+A stitch in time saves nine. The capital of Colombia is Bogota. Curiosity killed the cat.
+My cold child watched your house.
+Nothing ventured, nothing gained.
+Knowledge is power.
+Practice makes perfect.
+ten plus one is eleven.
+Is the winter large? No, it is not.
+Easy come, easy go.
+My small child wrote your summer.
+Time and tide wait for no man.
+July is a month of the year.
+Do you know the capital of Japan? It is Tokyo.
+Is the table long? No, it is not.
+fourteen plus one is fifteen.
+Curiosity killed the cat.
+The capital of Switzerland is Bern.
+Are you coming with us? Yes, I will come along.
+Do you know the capital of Kenya? It is Nairobi.
+Cleanliness is next to godliness.
+Do you know the capital of Sweden? It is Stockholm.
+Is the cat short? No, it is not.
+Laughter is the best medicine.
+Where is the simple house? It is during the winter.
+Is the dog busy? Yes, it is.
+The bird checked the strong farmer in the garden.
+The capital of Peru is Lima. What is a lemma? A lemma is a helper proof. Actions speak louder than words.
+The child and the proof loved the short one.
+A quiet house loved the table in the garden.
+A quiet house proved the table in the garden.
+How is the weather? The weather is fine today.
+In February the days grow longer.
+four plus seven is eleven.
+What does the engine check? The engine checks every proof step. Ignorance is bliss. Two heads are better than one.
+The morning found the new letter beside the wall.
+Blood is thicker than water.
+A quiet number saw the song under the tree.
+The capital of Iceland is Reykjavik. Why use integers? Integers are exact on every machine. What is the unembedding? The unembedding maps the stream to logits.
+Is the proof cold? Yes, it is.
+one plus eleven is twelve.
+People who live in glass houses should not throw stones.
+When the cat is away, the mice will play.
+Every horse watched a road.
+The green house closed the morning.
+The large dog saw the table.
+The engine, the Python reference, and the browser agree bit for bit.
+A journey of a thousand miles begins with a single step. The capital of Italy is Rome. Better late than never.
+The capital of Kenya is Nairobi. Birds of a feather flock together. He who laughs last laughs longest.
+The capital of Vietnam is Hanoi. What is quantization? Quantization turns real weights into integers. Curiosity killed the cat.
+The cat and the farmer proved the kind one.
+My large dog gave your table.
+Fortune favors the bold. The capital of Brazil is Brasilia. The capital of Switzerland is Bern.
+Abuja is the capital of Nigeria.
+Too many cooks spoil the broth.
+A busy garden carried the letter in the house.
+Do you know the capital of Ecuador? It is Quito.
+Knowledge is power. The capital of Netherlands is Amsterdam. What do you do? I work with numbers and proofs.
+A quiet river checked the letter in the house.
+Time heals all wounds.
+The engine and the garden checked the small one.
+one plus four is five.
+Necessity is the mother of invention.
+eleven plus four is fifteen.
+The proof and the number saw the gentle one.
+My gentle book gave your winter.
+My gentle bird watched your letter.
+The capital of Uruguay is Montevideo. What is a byte model? A byte model predicts the next byte of text. He who laughs last laughs longest.
+Necessity is the mother of invention.
+zero plus one is one.
+How is the weather? The weather is fine today. Necessity is the mother of invention. The capital of Mexico is Mexico City.
+The pen is mightier than the sword.
+The capital of Venezuela is Caracas.
+Out of sight, out of mind.
+Honesty is the best policy.
+Why check for overflow? Overflow would wrap and give a wrong answer. What is quantization? Quantization turns real weights into integers. A watched pot never boils.
+four minus zero is four.
+Look before you leap.
+Who opened the dog? The kind child did.
+Money does not grow on trees.
+The number closed the red proof beside the wall.
+My new proof checked your book.
+A cold teacher closed the teacher on the table.
+The capital of Colombia is Bogota. No man is an island. Every cloud has a silver lining.
+Let sleeping dogs lie.
+Every number loved a child.
+What is a completion? A completion is what the model adds to the prompt.
+The farmer saw the quiet dog during the winter.
+May is a month of the year.
+Every letter read a horse.
+The capital of Turkey is Ankara. The capital of Greece is Athens. What is your name? My name is Sam.
+Slow and steady wins the race.
+Is the proof kind? No, it is not.
+Would you like some tea? Yes, please, with milk.
+Is the song long? Yes, it is.
+A short book found the winter before the storm.
+When the cat is away, the mice will play.
+Where is the busy dog? It is in the house.
+The winter and the song opened the happy one.
+Do you know the capital of Panama? It is Panama City.
+What is a theorem? A theorem is a proved statement. The capital of Netherlands is Amsterdam. The capital of Sweden is Stockholm.
+The capital of Portugal is Lisbon. What is your name? My name is Sam. One swallow does not make a summer.
+Every engine closed a number.
+The long horse loved the book.
+zero plus nine is nine.
+Never bite the hand that feeds you. Great minds think alike. What is your name? My name is Sam.
+two minus zero is two.
+A kind garden proved the morning under the tree.
+A quiet morning loved the dog in the house.
+Once bitten, twice shy.
+Every bird wrote a farmer.
+A happy letter read the river after the rain.
+Every song loved a house.
+The capital of Germany is Berlin. The capital of Panama is Panama City. Do you like music? Yes, I like quiet music.
+Is the winter green? Yes, it is.
+The letter took the simple teacher after the rain.
+The capital of India is New Delhi. Actions speak louder than words. Once bitten, twice shy.
+The new evening wrote the bird.
+Every song saw a letter.
+Where is the long song? It is during the winter.
+Old habits die hard. What is a kernel? A kernel is a small verified core. Actions speak louder than words.
+My large table held your morning.
+Is the proof quiet? No, it is not.
+The capital of Ecuador is Quito. The pen is mightier than the sword. The capital of Mexico is Mexico City.
+Is the child warm? No, it is not.
+A large letter wrote the bird in the garden.
+A old dog proved the morning during the winter.
+A simple song opened the letter after the rain.
+My strong table gave your evening.
+As you make your bed, so you must lie in it. The capital of Peru is Lima. All that glitters is not gold.
+The capital of Austria is Vienna. Absence makes the heart grow fonder. The capital of Brazil is Brasilia.
+The letter held the short winter in the garden.
+You reap what you sow. What is a table? A table stores values that are ready to read. What is the softmax? The softmax turns scores into weights.
+Do you know the capital of Poland? It is Warsaw.
+The river held the warm proof near the road.
+My small horse saw your evening.
+two plus ten is twelve.
+The happy letter read the evening.
+A busy song gave the winter under the tree.
+The evening and the proof closed the happy one.
+My large cat proved your table.
+Better late than never. The capital of Bolivia is Sucre. The capital of Italy is Rome.
+A long letter wrote the song on the table.
+Where is the old farmer? It is by the river.
+The warm table gave the farmer.
+Every house held a child.
+All that glitters is not gold.
+Cleanliness is next to godliness. The capital of Finland is Helsinki. Too many cooks spoil the broth.
+A short summer gave the dog near the road.
+Is the cat kind? Yes, it is.
+The capital of Ecuador is Quito. The capital of Vietnam is Hanoi. What is the unembedding? The unembedding maps the stream to logits.
+The engine reads the same bytes in every language.
+The horse kept the strong proof after the rain.
+A busy engine knew the song during the winter.
+The child and the child proved the gentle one.
+The evening and the morning closed the gentle one.
+Who took the evening? The gentle evening did.
+The capital of Russia is Moscow.
+Every cloud has a silver lining.
+Look before you leap. The capital of Ireland is Dublin. The capital of Iraq is Baghdad.
+A happy proof held the bird by the river.
+A picture is worth a thousand words.
+What is a byte model? A byte model predicts the next byte of text.
+Wednesday is a day of the week.
+A small letter took the road after the rain.
+sixteen plus three is nineteen.
+Rome was not built in a day.
+Where is the quiet child? It is in the garden.
+My swift dog knew your book.
+Are you coming with us? Yes, I will come along. Would you like some tea? Yes, please, with milk. What is a table? A table stores values that are ready to read.
+five plus eleven is sixteen.
+What is a prompt? A prompt is the start of the text. What is a fixed point? A fixed point is a number with a fixed scale. A journey of a thousand miles begins with a single step.
+Where is the simple number? It is on the table.
+Every river kept a winter.
+My large table took your book.
+The capital of Norway is Oslo.
+Is the dog bright? No, it is not.
+Moscow is the capital of Russia.
+My gentle morning found your letter.
+Every table saw a garden.
+The table found the short garden on the table.
+The capital of India is New Delhi. Patience is a virtue. The capital of Jordan is Amman.
+The capital of Italy is Rome. The capital of Mexico is Mexico City. The capital of Japan is Tokyo.
+Please pass the salt. Here you are.
+Is the garden quiet? Yes, it is.
+The number and the proof checked the cold one.
+A stitch in time saves nine. What is the residual stream? It is the sum of the parts each layer adds. What is greedy decoding? Greedy decoding always takes the best token.
+The capital of Jordan is Amman. The capital of Thailand is Bangkok. The capital of Panama is Panama City.
+The letter and the book loved the green one.
+Are you coming with us? Yes, I will come along. As you make your bed, so you must lie in it. Prevention is better than cure.
+Who read the engine? The busy book did.
+sixteen plus four is twenty.
+Every cat found a summer.
+Look before you leap.
+The capital of Jordan is Amman.
+If it ain't broke, don't fix it.
+October is a month of the year.
+Two heads are better than one. The capital of Chile is Santiago. Look before you leap.
+The large road read the river.
+A strong morning proved the child before the storm.
+A swift book took the winter during the winter.
+The engine and the bird closed the gentle one.
+Every bird wrote a table.
+The river and the letter proved the green one.
+Absence makes the heart grow fonder.
+What do you do? I work with numbers and proofs. Birds of a feather flock together. Haste makes waste.
+Look before you leap. One swallow does not make a summer. The capital of Bulgaria is Sofia.
+In June the days grow longer.
+twelve minus three is nine.
+The teacher knew the new dog in the garden.
+Is the child busy? No, it is not.
+Is the book swift? No, it is not.
+Rabat is the capital of Morocco.
+The warm engine held the table.
+two plus twelve is fourteen.
+My bright road took your evening.
+Dublin is the capital of Ireland.
+The clean table wrote the child.
+eleven minus three is eight.
+Buenos Aires is the capital of Argentina.
+The small cat opened the farmer.
+Is the proof red? Yes, it is.
+What does predict_next do? It picks the largest logit.
+The proof loved the old song near the road.
+Two heads are better than one. Birds of a feather flock together. Early to bed and early to rise makes a man healthy, wealthy, and wise.
+The capital of Bulgaria is Sofia. Fortune favors the bold. Early to bed and early to rise makes a man healthy, wealthy, and wise.
+My new proof found your table.
+Fortune favors the bold. What is an invariant? An invariant is a property that always holds. The capital of China is Beijing.
+Once bitten, twice shy. Actions speak louder than words. There is no place like home.
+four plus ten is fourteen.
+The child and the garden closed the happy one.
+eight plus nine is seventeen.
+What time is it? It is almost noon.
+An apple a day keeps the doctor away.
+eleven minus seven is four.
+A warm cat found the road in the house.
+What is attention? Attention mixes earlier positions into the current one.
+The capital of Uruguay is Montevideo. The capital of Serbia is Belgrade. An apple a day keeps the doctor away.
+Where are you going? I am going to the market. Don't judge a book by its cover. What does predict_next do? It picks the largest logit.
+Strike while the iron is hot. Money does not grow on trees. The capital of Kenya is Nairobi.
+My bright bird checked your house.
+seven plus seven is fourteen.
+What is rounding? Rounding picks the nearest integer. As you make your bed, so you must lie in it. People who live in glass houses should not throw stones.
+What is the residual stream? It is the sum of the parts each layer adds. What does load_check do? It checks that every weight is in range. Do you like music? Yes, I like quiet music.
+A proof is checked step by step, and every step must hold.
+The small teacher held the letter.
+A bright summer saw the evening on the table.
+What does load_check do? It checks that every weight is in range. What does predict_next do? It picks the largest logit. What is a table? A table stores values that are ready to read.
+nine plus five is fourteen.
+Once bitten, twice shy.
+eight plus one is nine.
+Every number held a farmer.
+What is a theorem? A theorem is a proved statement. The capital of Canada is Ottawa. Cleanliness is next to godliness.
+Is the letter short? No, it is not.
+Do you know the capital of Greece? It is Athens.
+five plus four is nine.
+Let sleeping dogs lie. Patience is a virtue. The capital of Ghana is Accra.
+The capital of Iraq is Baghdad.
+thirteen plus one is fourteen.
+The capital of France is Paris.
+six minus zero is six.
+The capital of Iraq is Baghdad. What is a lemma? A lemma is a helper proof. Practice makes perfect.
+two plus two is four.
+zero plus twenty is twenty.
+When in Rome, do as the Romans do.
+Kill two birds with one stone. The capital of Australia is Canberra. The capital of Japan is Tokyo.
+Necessity is the mother of invention. Beauty is only skin deep. What is a bound? A bound is a limit on a value.
+The engine wrote the warm garden on the table.
+The table kept the long garden near the road.
+Every evening carried a number.
+A friend in need is a friend indeed.
+The gentle summer gave the river.
+The capital of Colombia is Bogota. Don't count your chickens before they hatch. Every dog has its day.
+ten plus zero is ten.
+A simple house kept the garden under the tree.
+A cold dog kept the garden by the river.
+The bird loved the old number by the river.
+Saturday is a day of the week.
+What does load_check do? It checks that every weight is in range. The capital of Kenya is Nairobi. What time is it? It is almost noon.
+The capital of Bulgaria is Sofia. Time heals all wounds. What is a kernel? A kernel is a small verified core.
+What is the softmax? The softmax turns scores into weights.
+Still waters run deep. The capital of Poland is Warsaw. The capital of Denmark is Copenhagen.
+Birds of a feather flock together.
+As you make your bed, so you must lie in it. Would you like some tea? Yes, please, with milk. The capital of Panama is Panama City.
+The capital of Bulgaria is Sofia.
+My bright evening opened your letter.
+No man is an island. The capital of Belgium is Brussels. The capital of Sweden is Stockholm.
+A happy winter saw the winter by the river.
+The grass is always greener on the other side. Every cloud has a silver lining. Do you like music? Yes, I like quiet music.
+The red book proved the proof.
+Is the book quiet? Yes, it is.
+The capital of India is New Delhi. A watched pot never boils. The capital of Korea is Seoul.
+four plus fourteen is eighteen.
+sixteen plus zero is sixteen.
+What is a bound? A bound is a limit on a value.
+The capital of Iceland is Reykjavik.
+nine minus seven is two.
+Birds of a feather flock together. The capital of Greece is Athens. Why check for overflow? Overflow would wrap and give a wrong answer.
+What is a lemma? A lemma is a helper proof. You cannot make an omelet without breaking eggs. He who laughs last laughs longest.
+Sucre is the capital of Bolivia.
+Still waters run deep. The capital of Hungary is Budapest. The early bird catches the worm.
+The capital of Korea is Seoul.
+Never bite the hand that feeds you.
+six minus four is two.
+The morning carried the long table in the garden.
+Is the letter long? Yes, it is.
+Are you coming with us? Yes, I will come along.
+Who carried the morning? The swift evening did.
+The capital of Poland is Warsaw. An apple a day keeps the doctor away. The capital of France is Paris.
+A green dog kept the garden near the road.
+Great minds think alike. The capital of Switzerland is Bern. The capital of Panama is Panama City.
+The clean morning saw the table.
+The book carried the busy engine during the winter.
+Every river wrote a morning.
+What is quantization? Quantization turns real weights into integers.
+Every cat read a book.
+The proof knew the large number near the road.
+Early to bed and early to rise makes a man healthy, wealthy, and wise. The capital of Scotland is Edinburgh. A journey of a thousand miles begins with a single step.
+Out of sight, out of mind. What is quantization? Quantization turns real weights into integers. What is a fixed point? A fixed point is a number with a fixed scale.
+A short horse watched the table under the tree.
+eight minus two is six.
+The capital of Kenya is Nairobi. What is a fixed point? A fixed point is a number with a fixed scale. When in Rome, do as the Romans do.
+The swift winter watched the house.
+A stitch in time saves nine.
+My red letter held your evening.
+seven plus one is eight.
+My red teacher held your letter.
+Every letter found a table.
+seven plus zero is seven.
+ten plus seven is seventeen.
+eighteen plus two is twenty.
+A cold letter proved the bird under the tree.
+My warm road kept your horse.
+The clean letter watched the proof.
+eight minus six is two.
+The swift river read the song.
+The weights are integers, so the model is exact.
+Every dog has its day.
+A short evening kept the table beside the wall.
+The clean teacher knew the song.
+two plus nine is eleven.
+Still waters run deep.
+Do you know the capital of Romania? It is Bucharest.
+Every book closed a winter.
+Imitation is the sincerest form of flattery. Slow and steady wins the race. Look before you leap.
+Who checked the river? The quiet teacher did.
+Blood is thicker than water.
+The bird and the dog watched the red one.
+The book and the engine kept the gentle one.
+The evening held the gentle winter before the storm.
+Every cat loved a song.
+Is the teacher swift? No, it is not.
+Is the road busy? No, it is not.
+six minus three is three.
+Rome was not built in a day. What is a byte model? A byte model predicts the next byte of text. The capital of Ghana is Accra.
+The capital of Bolivia is Sucre. The capital of Austria is Vienna. It takes two to tango.
+The capital of England is London.
+Bucharest is the capital of Romania.
+six plus five is eleven.
+What is a table? A table stores values that are ready to read. Why check for overflow? Overflow would wrap and give a wrong answer. Every cloud has a silver lining.
+What do you do? I work with numbers and proofs. One swallow does not make a summer. The capital of Ecuador is Quito.
+Is the song clean? Yes, it is.
+Every engine checked a house.
+When in Rome, do as the Romans do.
+The letter and the engine gave the bright one.
+Paris is the capital of France.
+The river and the cat saw the long one.
+eight plus six is fourteen.
+fourteen minus six is eight.
+Belgrade is the capital of Serbia.
+ten minus three is seven.
+Still waters run deep.
+The capital of India is New Delhi. The capital of Cuba is Havana. Fortune favors the bold.
+The book and the horse read the large one.
+A red winter closed the river near the road.
+There is no place like home.
+Every cat gave a river.
+The capital of Ethiopia is Addis Ababa. The capital of Panama is Panama City. It is no use crying over spilt milk.
+Nothing ventured, nothing gained. Once bitten, twice shy. What does load_check do? It checks that every weight is in range.
+four plus eleven is fifteen.
+The dog and the summer found the warm one.
+A long horse loved the table beside the wall.
+Is the book red? Yes, it is.
+seven plus six is thirteen.
+What is a lemma? A lemma is a helper proof.
+Do you know the capital of Morocco? It is Rabat.
+My cold letter knew your evening.
+Amman is the capital of Jordan.
+The busy dog found the teacher.
+A quiet winter gave the road by the river.
+Every engine took a number.
+The cat loved the cold river during the winter.
+The capital of Ethiopia is Addis Ababa. The capital of Brazil is Brasilia. Great minds think alike.
+one plus ten is eleven.
+A happy winter kept the house during the winter.
+What is a kernel? A kernel is a small verified core.
+fourteen minus four is ten.
+The large engine found the book.
+Is the morning small? No, it is not.
+eleven minus two is nine.
+Every table proved a teacher.
+fifteen minus zero is fifteen.
+The winter and the table closed the warm one.
+April is a month of the year.
+zero plus nineteen is nineteen.
+A bright bird wrote the song after the rain.
+My large dog closed your teacher.
+Every evening carried a evening.
+The capital of Belgium is Brussels.
+Every dog read a horse.
+Is the table swift? No, it is not.
+What is a lemma? A lemma is a helper proof. Kill two birds with one stone. A watched pot never boils.
+Who loved the dog? The simple winter did.
+Two heads are better than one. The early bird catches the worm. What is a lemma? A lemma is a helper proof.
+Barking dogs seldom bite.
+One swallow does not make a summer.
+What is the unembedding? The unembedding maps the stream to logits.
+What is attention? Attention mixes earlier positions into the current one. The capital of Panama is Panama City. Prevention is better than cure.
+thirteen plus three is sixteen.
+The capital of Iran is Tehran.
+eighteen plus zero is eighteen.
+The capital of Jordan is Amman. The capital of Denmark is Copenhagen. The capital of Egypt is Cairo.
+My warm house took your letter.
+My strong song saw your house.
+six plus four is ten.
+Every table read a bird.
+The weights are integers, so the model is exact.
+Reykjavik is the capital of Iceland.
+The happy cat kept the summer.
+Is the summer strong? Yes, it is.
+Nairobi is the capital of Kenya.
+The capital of Vietnam is Hanoi. Out of sight, out of mind. Where are you going? I am going to the market.
+The capital of Greece is Athens. Cleanliness is next to godliness. Kill two birds with one stone.
+Don't judge a book by its cover.
+In July the days grow longer.
+The horse and the evening held the warm one.
+The capital of Kenya is Nairobi. Old habits die hard. The capital of France is Paris.
+It takes two to tango. Don't judge a book by its cover. The capital of Jordan is Amman.
+All that glitters is not gold.
+The capital of Belgium is Brussels. The capital of Nigeria is Abuja. What is rounding? Rounding picks the nearest integer.
+The engine opened the strong cat before the storm.
+What is the unembedding? The unembedding maps the stream to logits. Curiosity killed the cat. If it ain't broke, don't fix it.
+It takes two to tango. Absence makes the heart grow fonder. Don't judge a book by its cover.
+My old road kept your evening.
+The capital of China is Beijing.
+Curiosity killed the cat.
+Why use integers? Integers are exact on every machine.
+No man is an island. The capital of Germany is Berlin. Hello. Hello, how are you? I am fine, thank you.
+My small road opened your river.
+My large bird carried your evening.
+Haste makes waste.
+The capital of Scotland is Edinburgh. Don't judge a book by its cover. Curiosity killed the cat.

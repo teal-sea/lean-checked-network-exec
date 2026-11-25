@@ -1,0 +1,4 @@
+# The WebAssembly page and the Node receipt need to write the weight file into
+# the module's linear memory, so the memory is exported from the cdylib.
+[target.wasm32-unknown-unknown]
+rustflags = ["-C", "link-args=--export-memory"]

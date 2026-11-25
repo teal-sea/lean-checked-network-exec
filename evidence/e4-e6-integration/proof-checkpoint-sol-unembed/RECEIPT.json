@@ -1,0 +1,53 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Build": 0,
+    "UnembedAudit": 0,
+    "Argmax": 1,
+    "ArgmaxAudit": 125
+  },
+  "warnings": {
+    "Build": 18,
+    "UnembedAudit": 0,
+    "Argmax": 0,
+    "ArgmaxAudit": 0
+  },
+  "argmax_errors": [
+    [
+      "56",
+      "12",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ]
+  ],
+  "unembed_axioms": [
+    "'LcnExec.GeneralEngine.unembed_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LcnExec.GeneralEngine.unembed_loop0_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LcnExec.GeneralEngine.unembed_spec' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "argmax_axioms": [],
+  "inner_sha256": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+  "outer_sha256": "6e5a124ea2849e46935b87ca2abc1efed728d9a692e74751d3b7d9ec4ea65da3",
+  "argmax_sha256": "c3ca1140dc80950f4b56eb81572e49223e8eae651d24709eaab0b0d2e087e5d1",
+  "command_id": "cmd_3u0quiix4xcc",
+  "finished_at": "2026-11-23T02:09:31.204Z",
+  "files_sha256": {
+    "Argmax.log": "2ab2a482cdfee2a278bf79a1c9dfd2fd9bb094c58dc3dd4c0133c33f9941d466",
+    "ArgmaxAudit.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Build.log": "5cb111dfbcafa69343467f18675e396f8ff22caa9c90f95cf30b48af3767ba05",
+    "GeneralArgmax.lean.txt": "c3ca1140dc80950f4b56eb81572e49223e8eae651d24709eaab0b0d2e087e5d1",
+    "Unembed.lean.txt": "6e5a124ea2849e46935b87ca2abc1efed728d9a692e74751d3b7d9ec4ea65da3",
+    "UnembedAudit.lean.txt": "f0923fed83f50f87919375259c824670ba61f0986e921bb967a253aa8b450538",
+    "UnembedAudit.log": "d689550dead97195c6c0da22ca50fdce3ae46b5430afeaf86f53424c96c859ca",
+    "UnembedInner.lean.txt": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+    "boat-command.json": "168a5bd3a24eba52a5cc00403d3e93d81741e7197335d68af0a098ba4ed4be3c",
+    "exit.txt": "775b84db0eef0d406359964083f0c3f9106cd9501563947e45cc5fde1b7faf92",
+    "package.tar.gz": "f10425cb0929db17290d7bf8bf2f3c60ea7e455b15e8ed284d0bfb494e1cfd39",
+    "StandaloneReplay.json": "63fb042b3cee139e8be08caea15c7f39e893f2f61669ef525adeb7e2486ca73a",
+    "StandaloneReplay.tar.gz": "ddb99466c0454fc03b666bce946c5f0dbfec5a43a6a7f4847e9ea5a95902f312",
+    "UNEMBED-FINISH-ARGMAX.md": "66b7343d9d95b773892ac4fcc2a3f49ee3219e6e212b3841803740a4b5a7a5c6"
+  },
+  "base": "2bc0041e9c400b582933f3324e767b304a47bdcd",
+  "worker_checkpoint": "2f04aaef75c5303cb38e0ae30e79308b4f3a6207",
+  "scope": "Exact 128-term inner sum, 256-logit scan and public output projection all passed the module build and typed import. Argmax draft rejected at one take-to-original index bridge; full engine proof remains open."
+}

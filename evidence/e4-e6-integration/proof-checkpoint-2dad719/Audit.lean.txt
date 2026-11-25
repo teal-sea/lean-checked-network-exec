@@ -1,0 +1,17 @@
+import LcnExec.GeneralEngine.MlpHidden
+open Aeneas Aeneas.Std Result
+open LcnExec.GeneralEngine
+example (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2)
+    (r : Array I64 128#usize) (hr : Bounded Envelope.residual r) :
+    general_engine.mlp_hidden W l r ⦃ m =>
+      ints m = GeneralModel.mlpHidden (toGeneralModel W) l.val (ints r) ∧
+      Bounded Envelope.hidden m ⦄ :=
+  mlp_hidden_spec W hW l hl r hr
+
+#print axioms LcnExec.GeneralEngine.mlp_hidden_spec
+#print axioms LcnExec.GeneralEngine.activation_compare_probe
+#print axioms LcnExec.GeneralEngine.activation_upper_probe
+#print axioms LcnExec.GeneralEngine.activation_write_bound_probe
+#print axioms LcnExec.GeneralEngine.repeat_zero_index_probe
+#print axioms LcnExec.GeneralEngine.repeat_zero_bounded_probe

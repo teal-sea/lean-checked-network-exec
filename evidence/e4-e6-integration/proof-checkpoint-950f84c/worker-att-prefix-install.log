@@ -1,0 +1,6 @@
+=== AttentionPrefix install (2026-11-22 16:42 UTC) ===
+source: qa-att-add-ff985e4-phx081t_/Prefix.lean.txt (accepted scratch, exit 0, standard axioms for all three probes)
+installed as lean/LcnExec/GeneralEngine/AttentionPrefix.lean, sha256 940d14f74782f66af865ff4f8d3055055709c17c10bf3c3e726b71731b37e765, #print commands dropped, imports and theorem bodies retained
+direct elaboration on box: DIRECT=0, no diagnostics
+lake build LcnExec.GeneralEngine.AttentionPrefix: BUILD=0, 1812 jobs
+axiom audit: AX=0; all three probes depend on [propext, Classical.choice, Quot.sound]

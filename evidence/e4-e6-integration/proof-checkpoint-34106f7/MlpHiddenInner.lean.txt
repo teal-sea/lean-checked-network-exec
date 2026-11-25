@@ -1,0 +1,209 @@
+import LcnExec.GeneralEngine.Residual
+
+set_option maxHeartbeats 800000
+
+/-!
+# The MLP hidden inner dot loop `general_engine.mlp_hidden_loop0_loop0`
+
+`acc = sum_k r[k] * win[k][i]` over `k < 128` (the real `win` column at `i < 512`),
+with the input weights returned unchanged. Exact `GeneralModel.dot` and both sides
+of `Envelope.hidden_pre` (128 * residual * 82).
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- The `win` column for hidden index `i`: entries `win[k][i]`. -/
+def winColumn (w : general_engine.Weights) (l i : Nat) : List Int :=
+  ((w.layers.val[l]!).win.val).map (fun row => (row.val[i]!).val)
+
+theorem winColumn_length (w : general_engine.Weights) (l i : Nat) :
+    (winColumn w l i).length = 128 := by
+  simp [winColumn]
+
+theorem win_column_entry_probe (W : general_engine.Weights) (l t i : Usize)
+    (ht : t.val < 128) (hi : i.val < 512)
+    (a : Array I8 512#usize) (iv : I8) (casted : I64)
+    (hrow : (W.layers.val[l.val]!).win.val[t.val]! = a)
+    (hentry : iv = a.val[i.val]'(by rw [Array.length_eq]; exact hi))
+    (hcast : casted.val = iv.val) :
+    (winColumn W l.val i.val)[t.val]'(by rw [winColumn_length]; exact ht) = casted.val := by
+  have ht' : t.val < (W.layers.val[l.val]!).win.val.length := by
+    rw [Array.length_eq]; exact ht
+  rw [getElem!_pos (W.layers.val[l.val]!).win.val t.val ht'] at hrow
+  simp only [winColumn, List.getElem_map]
+  rw [hrow, getElem!_pos a.val i.val (by rw [Array.length_eq]; exact hi), ← hentry, hcast]
+
+theorem mlp_tail_linear_probe (acc a b new product tail whole : Int)
+    (hacc : acc + (a*b + tail) = whole) (hp : product = a*b)
+    (hnew : new = acc + product) : new + tail = whole := by
+  rw [hnew, hp, Int.add_assoc]
+  exact hacc
+
+theorem mlp_init_upper_probe : (0#i64).val ≤ (5253256708096 * 82) * ((0#usize).val : Int) := by
+  change (0 : Int) ≤ 0
+  omega
+
+theorem mlp_hidden_inner_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2)
+    (r : Array I64 128#usize) (hr : Bounded Envelope.residual r)
+    (i : Usize) (hi : i.val < 512) :
+    general_engine.mlp_hidden_loop0_loop0 W l r i 0#i64 0#usize ⦃ r' =>
+      r'.1 = W ∧
+      r'.2.val = GeneralModel.dot (ints r) (winColumn W l.val i.val) ∧
+      -Envelope.hidden_pre ≤ r'.2.val ∧ r'.2.val ≤ Envelope.hidden_pre ⦄ := by
+  have hL := layerBounds hW l hl
+  have hrc : ∀ x ∈ (ints r), -Envelope.residual ≤ x ∧ x ≤ Envelope.residual := by
+    intro x hx
+    change x ∈ r.val.map (fun v => v.val) at hx
+    rcases List.mem_map.mp hx with ⟨v, hv, rfl⟩
+    exact hr v hv
+  have hcc : ∀ x ∈ winColumn W l.val i.val, -(82 : Int) ≤ x ∧ x ≤ 82 := by
+    intro x hx
+    rcases List.mem_map.mp hx with ⟨row, hrow, rfl⟩
+    have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+      getElem!_pos _ l.val (by simp; omega)
+    rw [hlay] at hrow
+    have hwm := hL.win row hrow
+    have hmem2 : (row.val[i.val]!) ∈ row.val := by
+      rw [getElem!_pos _ i.val (by simp; omega)]
+      exact List.getElem_mem (by simp; omega)
+    exact hwm _ hmem2
+  have hbd : -Envelope.hidden_pre ≤ GeneralModel.dot (ints r)
+      (winColumn W l.val i.val) ∧
+      GeneralModel.dot (ints r) (winColumn W l.val i.val) ≤
+        Envelope.hidden_pre := by
+    have hd := project_dot_bound (ints r) (winColumn W l.val i.val)
+      Envelope.residual 82 (by simp only [Envelope.residual]; norm_num)
+      (by norm_num) hrc hcc
+    rw [ints_length128] at hd
+    have hnum : 128 * (5253256708096 * 82) ≤ 55138457286082560 ∧
+        -55138457286082560 ≤ -(128 * (5253256708096 * 82)) := by
+      norm_num
+    simp only [Envelope.residual, Envelope.hidden_pre] at hd ⊢
+    omega
+  unfold general_engine.mlp_hidden_loop0_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : I64 × Usize) => 128 - st.2.val)
+    (inv := fun (st : I64 × Usize) =>
+      st.2.val ≤ 128 ∧
+      st.1.val + GeneralModel.dot ((ints r).drop st.2.val)
+          ((winColumn W l.val i.val).drop st.2.val) =
+        GeneralModel.dot (ints r) (winColumn W l.val i.val) ∧
+      -(5253256708096 * 82) * (st.2.val : Int) ≤ st.1.val ∧
+      st.1.val ≤ (5253256708096 * 82) * (st.2.val : Int))
+  · rintro ⟨acc, t⟩ ⟨ht1, hacc, hlo, hhi⟩
+    unfold general_engine.mlp_hidden_loop0_loop0.body
+    dsimp only at ht1 hacc hlo hhi ⊢
+    simp only [general_engine.D_MODEL]
+    split
+    · have ht128 : t.val < 128 := by scalar_tac
+      rw [dot_drop _ _ _ (by rw [ints_length128]; omega)
+        (by rw [winColumn_length]; omega)] at hacc
+      step as ⟨i1v, hi1⟩
+      step as ⟨lw, hlw⟩
+      subst hlw
+      step as ⟨a, ha⟩
+      step as ⟨i2v, hi2⟩
+      step as ⟨i3v, hi3⟩
+      have hi3v' : i3v.val = i2v.val := by scalar_tac
+      have hmem : i1v.val ∈ (ints r) := by
+        change i1v.val ∈ r.val.map (fun v => v.val)
+        refine List.mem_map.mpr ⟨r.val[t.val]!, ?_, ?_⟩
+        · rw [getElem!_pos _ t.val (by simp; omega)]
+          exact List.getElem_mem (by simp; omega)
+        · rw [getElem!_pos _ t.val (by simp; omega), hi1]
+      have hrb : -5253256708096 ≤ i1v.val ∧ i1v.val ≤ 5253256708096 :=
+        hrc _ hmem
+      have hxi : (ints r)[t.val]'(by rw [ints_length128]; omega) = i1v.val := by
+        simp only [ints, List.getElem_map]
+        rw [hi1]
+      have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+        getElem!_pos _ l.val (by simp; omega)
+      have hwin : ((W.layers.val[l.val]!).win.val[t.val]!) = a := by
+        rw [hlay]
+        rw [getElem!_pos _ t.val (by simp; omega)]
+        exact ha.symm
+      have hcol : (winColumn W l.val i.val)[t.val]'(by rw [winColumn_length]; omega)
+          = i3v.val :=
+        win_column_entry_probe W l t i ht128 hi a i2v i3v hwin hi2 hi3v'
+      have hcb : -(82 : Int) ≤ i3v.val ∧ i3v.val ≤ 82 := by
+        have hct := hcc _ (List.getElem_mem (by rw [winColumn_length]; omega))
+        rw [hcol] at hct
+        exact hct
+      have hprod : -(5253256708096 * 82) ≤ i1v.val * i3v.val ∧
+          i1v.val * i3v.val ≤ 5253256708096 * 82 := by
+        constructor <;> nlinarith [mul_nonneg (by omega : 0 ≤ i1v.val + 5253256708096)
+          (by omega : 0 ≤ i3v.val + 82),
+          mul_nonneg (by omega : 0 ≤ i1v.val + 5253256708096) (by omega : 0 ≤ 82 - i3v.val),
+          mul_nonneg (by omega : 0 ≤ 5253256708096 - i1v.val) (by omega : 0 ≤ i3v.val + 82),
+          mul_nonneg (by omega : 0 ≤ 5253256708096 - i1v.val) (by omega : 0 ≤ 82 - i3v.val)]
+      have hminb : I64.min ≤ i1v.val * i3v.val := by
+        have hpp := hprod
+        scalar_tac
+      have hmaxb : i1v.val * i3v.val ≤ I64.max := by
+        have hpp := hprod
+        scalar_tac
+      step with I64.mul_spec hminb hmaxb as ⟨i4, hi4⟩
+      have hmina : I64.min ≤ acc.val + i4.val := by
+        have hpp : -(5253256708096 * 82) * 128 ≤ i1v.val * i3v.val + acc.val := by
+          have h1 := hprod.1
+          omega
+        scalar_tac
+      have hmaxa : acc.val + i4.val ≤ I64.max := by
+        have hpp := hprod
+        scalar_tac
+      step with I64.add_spec hmina hmaxa as ⟨acc1, hacc1⟩
+      step as ⟨t1, ht1'⟩
+      have ht1v : t1.val = t.val + 1 := by scalar_tac
+      rw [hxi, hcol] at hacc
+      rw [ht1v]
+      have hp' : i4.val = i1v.val * i3v.val := by scalar_tac
+      have hnew : acc1.val = acc.val + i4.val := by scalar_tac
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · exact mlp_tail_linear_probe acc.val i1v.val i3v.val acc1.val i4.val
+          (GeneralModel.dot ((ints r).drop (t.val + 1)) ((winColumn W l.val i.val).drop (t.val + 1)))
+          (GeneralModel.dot (ints r) (winColumn W l.val i.val)) hacc hp' hnew
+      · have hacc2 : acc1.val + GeneralModel.dot ((ints r).drop (t.val + 1))
+            ((winColumn W l.val i.val).drop (t.val + 1)) =
+          GeneralModel.dot (ints r) (winColumn W l.val i.val) :=
+          mlp_tail_linear_probe acc.val i1v.val i3v.val acc1.val i4.val
+            (GeneralModel.dot ((ints r).drop (t.val + 1)) ((winColumn W l.val i.val).drop (t.val + 1)))
+            (GeneralModel.dot (ints r) (winColumn W l.val i.val)) hacc hp' hnew
+        have hacc3 : acc1.val = acc.val + i1v.val * i3v.val := by
+          rw [hnew, hp']
+        have h1 := hlo
+        have h2 := hprod.1
+        omega
+      · have hacc2 : acc1.val + GeneralModel.dot ((ints r).drop (t.val + 1))
+            ((winColumn W l.val i.val).drop (t.val + 1)) =
+          GeneralModel.dot (ints r) (winColumn W l.val i.val) :=
+          mlp_tail_linear_probe acc.val i1v.val i3v.val acc1.val i4.val
+            (GeneralModel.dot ((ints r).drop (t.val + 1)) ((winColumn W l.val i.val).drop (t.val + 1)))
+            (GeneralModel.dot (ints r) (winColumn W l.val i.val)) hacc hp' hnew
+        have hacc3 : acc1.val = acc.val + i1v.val * i3v.val := by
+          rw [hnew, hp']
+        have h1 := hhi
+        have h2 := hprod.2
+        omega
+    · have ht128 : t.val = 128 := by scalar_tac
+      simp only [WP.spec_ok]
+      rw [ht128] at hacc
+      have hdz : ((ints r).drop 128) = [] := by simp [ints_length128]
+      have hdc : ((winColumn W l.val i.val).drop 128) = [] := by
+        simp [winColumn_length]
+      rw [hdz, hdc] at hacc
+      have hdot : acc.val = GeneralModel.dot (ints r) (winColumn W l.val i.val) := by
+        simpa [GeneralModel.dot] using hacc
+      refine ⟨trivial, hdot, ?_, ?_⟩
+      · rw [hdot]; exact hbd.1
+      · rw [hdot]; exact hbd.2
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_, ?_⟩
+    · simp
+    · change (-5253256708096 : Int) * 82 * ((0#usize).val : Int) ≤ (0#i64).val
+      norm_num
+    · exact mlp_init_upper_probe
+
+end LcnExec.GeneralEngine

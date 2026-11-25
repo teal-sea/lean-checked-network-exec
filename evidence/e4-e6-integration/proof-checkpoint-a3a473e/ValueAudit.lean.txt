@@ -1,0 +1,19 @@
+import LcnExec.GeneralEngine.ValueScan
+open Aeneas Aeneas.Std Result ControlFlow
+open LcnExec.GeneralEngine
+example (vs : Array (Array I64 32#usize) 32#usize) (j : Usize) (hj : j.val < 32)
+    (v : Array I64 32#usize) :
+    general_engine.head_out_at_loop0_loop0 vs j v 0#usize ⦃ r => r = Std.Array.set vs j v ⦄ :=
+  head_out_row_copy_spec vs j hj v
+example (W : general_engine.Weights) (hW : LoadBounds W) (l h : Usize)
+    (hl : l.val < 2) (hh : h.val < 4) (x : Array (Array I64 128#usize) 32#usize)
+    (p : Usize) (hp : p.val < 32) (hxb : streams x) :
+    general_engine.head_out_at_loop0 W l h x p
+      (Array.repeat 32#usize (Array.repeat 32#usize 0#i64)) 0#usize ⦃ r =>
+      (r.2.val.map ints).take (p.val + 1) =
+        (List.range (p.val + 1)).map (fun j =>
+          GeneralModel.value (toGeneralModel W) l.val h.val (GeneralModel.rowAt (ints2 x) j)) ∧
+      ∀ row ∈ r.2.val, Bounded Envelope.value row ⦄ :=
+  value_scan_spec W hW l h hl hh x p hp hxb
+#print axioms LcnExec.GeneralEngine.head_out_row_copy_spec
+#print axioms LcnExec.GeneralEngine.value_scan_spec

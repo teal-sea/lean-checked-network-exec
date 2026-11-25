@@ -1,0 +1,104 @@
+/home/user/e4/qa-sol-unembed-QFjyAP5A/LcnExec/GeneralEngine/Unembed.lean:77:24: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.390 = ?m.390
+but is expected to have type
+  Bounded Envelope.logit a
+in the application
+  And.intro rfl
+/home/user/e4/qa-sol-unembed-QFjyAP5A/LcnExec/GeneralEngine/Unembed.lean:77:13: error: Invalid `⟨...⟩` notation: The expected type
+  (256 - (↑v + 1)).succ.le (256 - ↑v)
+has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+/home/user/e4/qa-sol-unembed-QFjyAP5A/LcnExec/GeneralEngine/Unembed.lean:79:8: error: Type mismatch
+  project_bounded_set Envelope.logit out ?m.407 acc hbd ⟨hlo, hhi⟩
+has type
+  Bounded Envelope.logit (out.set ?m.407 acc)
+but is expected to have type
+  ∀ (q : ℕ) (hq : q < 256), q < ↑v + 1 → (ints (out.set v acc))[q] = GeneralModel.dot (ints fin) (unembedColumn W q)
+/home/user/e4/qa-sol-unembed-QFjyAP5A/LcnExec/GeneralEngine/Unembed.lean:87:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ints a)[↑v]
+in the target expression
+  (↑a)[↑v] = 0#i64
+
+case pos
+W : general_engine.Weights
+hW : LoadBounds W
+fin : Std.Array I64 128#usize
+hfin : Bounded Envelope.final_stream fin
+out : Std.Array I64 256#usize
+v : Usize
+hv1 : ↑v ≤ 256
+hbd : Bounded Envelope.logit out
+heq : ∀ (q : ℕ) (hq : q < 256), q < ↑v → (ints out)[q] = GeneralModel.dot (ints fin) (unembedColumn W q)
+hsuf : ∀ (q : ℕ) (hq : q < 256), ↑v ≤ q → (↑out)[q] = 0#i64
+h✝ : v < 256#usize
+hv : ↑v < 256
+acc : I64
+hdot : ↑acc = GeneralModel.dot (ints fin) (unembedColumn W ↑v)
+hlo : -Envelope.logit ≤ ↑acc
+hhi : ↑acc ≤ Envelope.logit
+a : Std.Array I64 256#usize
+ha : a = out.set v acc
+v1 : Usize
+hv1' hv1v : ↑v1 = ↑v + 1
+hq : ↑v < 256
+hiq : ↑v + 1 ≤ ↑v
+hset : (ints a)[↑v] = ↑acc
+⊢ (↑a)[↑v] = 0#i64
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (256 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-sol-unembed-QFjyAP5A/LcnExec/GeneralEngine/Unembed.lean:93:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ints a)[q]
+in the target expression
+  (↑a)[q] = 0#i64
+
+case neg
+W : general_engine.Weights
+hW : LoadBounds W
+fin : Std.Array I64 128#usize
+hfin : Bounded Envelope.final_stream fin
+out : Std.Array I64 256#usize
+v : Usize
+hv1 : ↑v ≤ 256
+hbd : Bounded Envelope.logit out
+heq : ∀ (q : ℕ) (hq : q < 256), q < ↑v → (ints out)[q] = GeneralModel.dot (ints fin) (unembedColumn W q)
+hsuf : ∀ (q : ℕ) (hq : q < 256), ↑v ≤ q → (↑out)[q] = 0#i64
+h✝ : v < 256#usize
+hv : ↑v < 256
+acc : I64
+hdot : ↑acc = GeneralModel.dot (ints fin) (unembedColumn W ↑v)
+hlo : -Envelope.logit ≤ ↑acc
+hhi : ↑acc ≤ Envelope.logit
+a : Std.Array I64 256#usize
+ha : a = out.set v acc
+v1 : Usize
+hv1' hv1v : ↑v1 = ↑v + 1
+q : ℕ
+hq : q < 256
+hiq : ↑v + 1 ≤ q
+hqv : ¬q = ↑v
+hval : (ints a)[q] = (ints out)[q]
+⊢ (↑a)[q] = 0#i64
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (256 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-sol-unembed-QFjyAP5A/LcnExec/GeneralEngine/Unembed.lean:95:6: error: No goals to be solved

@@ -1,0 +1,188 @@
+✖ [1801/1801] Building LcnExec.GeneralEngine.Softmax (8.0s)
+trace: .> LEAN_PATH=/home/user/e4/repo/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/build/lib/lean /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /home/user/e4/repo/lean/LcnExec/GeneralEngine/Softmax.lean -o /home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.olean -i /home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/GeneralEngine/Softmax.ilean -c /home/user/e4/repo/lean/.lake/build/ir/LcnExec/GeneralEngine/Softmax.c --setup /home/user/e4/repo/lean/.lake/build/ir/LcnExec/GeneralEngine/Softmax.setup.json --json
+warning: LcnExec/GeneralEngine/Softmax.lean:78:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:83:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:86:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:87:27: This simp argument is unused:
+  GeneralModel.nth
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [softMaxScan]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Softmax.lean:98:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:104:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:233:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:240:40: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+error: LcnExec/GeneralEngine/Softmax.lean:338:68: unsolved goals
+W : general_engine.Weights
+hW : LoadBounds W
+s : Std.Array I64 32#usize
+p : Usize
+hp : ↑p < 32
+hs : Bounded Envelope.score s
+smax : I64
+hsmax : ↑smax = softMaxScan (ints s) (↑p + 1)
+hsmaxb : -930186526720 ≤ ↑smax ∧ ↑smax ≤ 930186526720
+j : Usize
+e : Std.Array I64 32#usize
+den : I64
+hj : ↑j ≤ ↑p + 1
+hpt : ∀ j_1 < ↑j, ∀ (hj32 : j_1 < 32), (ints e)[j_1] = softEsAt (toGeneralModel W) (ints s) (↑smax) j_1
+hbd : ∀ v ∈ ↑e, 0 ≤ ↑v ∧ ↑v ≤ 1073741824
+hden : ↑den = (List.take (↑j) (softEs (toGeneralModel W) (ints s) ↑smax ↑p)).sum
+hdenlo : 0 ≤ ↑den
+hdenhi : ↑den ≤ ↑↑j * 1073741824
+h✝ : j ≤ p
+hjp : ↑j ≤ ↑p
+hj32 : ↑j < 32
+i : I64
+hi : i = (↑s)[↑j]
+hnth : GeneralModel.nth 0 (ints s) ↑j = (ints s)[↑j]
+hie : ↑i = GeneralModel.nth 0 (ints s) ↑j
+hib : -930186526720 ≤ ↑i ∧ ↑i ≤ 930186526720
+d : I64
+hd : ↑d = ↑smax - ↑i
+hdv : ↑d = ↑smax - GeneralModel.nth 0 (ints s) ↑j
+hdpos : 0 ≤ ↑d
+v : I64
+hv : ↑v = GeneralModel.expFix (toGeneralModel W) ↑d
+hvlo : 0 ≤ ↑v
+hvhi : ↑v ≤ 1073741824
+hvm : ↑v = softEsAt (toGeneralModel W) (ints s) ↑smax ↑j
+e1 : Std.Array I64 32#usize
+he1 : e1 = e.set j v
+hbde1 : ∀ v' ∈ ↑e1, 0 ≤ ↑v' ∧ ↑v' ≤ 1073741824
+i3 : I64
+hi3 : i3 = (↑e1)[↑j]
+hi3v : i3 = v
+den1 : I64
+hden1 : ↑den1 = ↑den + ↑i3
+j1 : Usize
+hj1 hj1v : ↑j1 = ↑j + 1
+hden1v : ↑den1 = ↑den + ↑v
+hpos : ↑j < (List.range (↑p + 1)).length
+⊢ ∃ a,
+    (List.range (↑p + 1))[↑j]? = some a ∧
+      GeneralModel.expFix (toGeneralModel W) (↑smax - GeneralModel.nth 0 (ints s) a) =
+        GeneralModel.expFix (toGeneralModel W) (↑smax - GeneralModel.nth 0 (ints s) ↑j)
+error: LcnExec/GeneralEngine/Softmax.lean:347:8: No goals to be solved
+error: LcnExec/GeneralEngine/Softmax.lean:359:12: No goals to be solved
+error: LcnExec/GeneralEngine/Softmax.lean:377:21: Application type mismatch: The argument
+  hj'
+has type
+  j' < ↑p + 1
+but is expected to have type
+  j' < ↑j
+in the application
+  hpt j' hj'
+error: LcnExec/GeneralEngine/Softmax.lean:381:8: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  c - d ≤ -1
+  1 ≤ b ≤ 32
+  1073741824*b - c ≥ 0
+  -930186526720 ≤ a ≤ 930186526720
+where
+ a := softMaxScan (ints s) (↑p + 1)
+ b := ↑↑j
+ c := (List.take (↑j) (softEs (toGeneralModel W) (ints s) ↑smax ↑p)).sum
+ d := (softEs (toGeneralModel W) (ints s) ↑smax ↑p).sum
+error: LcnExec/GeneralEngine/Softmax.lean:382:15: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  -930186526720 ≤ b ≤ 930186526720
+  0 ≤ a ≤ 31
+  a - c ≤ -2
+where
+ a := ↑↑p
+ b := softMaxScan (ints s) (↑p + 1)
+ c := ↑↑(0#usize, Array.repeat 32#usize 0#i64, 0#i64).1
+error: LcnExec/GeneralEngine/Softmax.lean:384:6: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e - f ≥ 1
+  0 ≤ d ≤ 31
+  c ≥ 0
+  c - d ≥ 1
+  -930186526720 ≤ b ≤ 930186526720
+  0 ≤ a ≤ 31
+where
+ a := ↑↑p
+ b := softMaxScan (ints s) (↑p + 1)
+ c := ↑↑(0#usize, Array.repeat 32#usize 0#i64, 0#i64).1
+ d := ↑j'
+ e := softEsAt (toGeneralModel W) (ints s) (↑smax) j'
+ f := (ints (0#usize, Array.repeat 32#usize 0#i64, 0#i64).2.1)[j']
+warning: LcnExec/GeneralEngine/Softmax.lean:340:46: This simp argument is unused:
+  List.getElem?_range hpos
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [softEs, List.getElem?_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Softmax.lean:365:70: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: LcnExec/GeneralEngine/Softmax.lean:430:6: And is not a supported spec statement
+error: LcnExec/GeneralEngine/Softmax.lean:468:34: Application type mismatch: The argument
+  hj'
+has type
+  j' < ↑p + 1
+but is expected to have type
+  j' < ↑j
+in the application
+  hpt j' hj'
+error: LcnExec/GeneralEngine/Softmax.lean:469:15: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 1
+  0 ≤ a ≤ 31
+  a - c ≤ -2
+where
+ a := ↑↑p
+ b := ↑den
+ c := ↑↑(0#usize, Array.repeat 32#usize 0#i64).1
+error: LcnExec/GeneralEngine/Softmax.lean:471:6: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f - g ≥ 1
+  0 ≤ d ≤ 31
+  c ≥ 0
+  c - d ≥ 1
+  b ≥ 1
+  0 ≤ a ≤ 31
+where
+ a := ↑↑p
+ b := ↑den
+ c := ↑↑(0#usize, Array.repeat 32#usize 0#i64).1
+ d := ↑j'
+ f := ((ints e)[j'] * 16777216).tdiv ↑den
+ g := (ints (0#usize, Array.repeat 32#usize 0#i64).2)[j']
+error: LcnExec/GeneralEngine/Softmax.lean:487:2: Exists is not a supported spec statement
+Some required targets logged failures:
+- LcnExec.GeneralEngine.Softmax
+error: build failed

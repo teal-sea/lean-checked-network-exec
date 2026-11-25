@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_drcdvwyx11od",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T16:44:19.069Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T16:44:12.213Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "Build=0\nDirect=0\nAudit=0\nFoldInterface=0\ndir=/home/user/e4/qa-att-prefix-950f84c-2v4cf34o\n50cb74411f4afab79462110ec6048457813ef822b0e7f31af15178f819d7e803  /home/user/e4/qa-att-prefix-950f84c-2v4cf34o.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

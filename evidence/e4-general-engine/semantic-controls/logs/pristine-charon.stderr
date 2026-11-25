@@ -1,0 +1,9 @@
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: Preparing a sysroot for Miri (target: x86_64-unknown-linux-gnu)... fatal error: failed to build sysroot: sysroot build failed; stderr:
+error: no matching package named `cfg-if` found
+location searched: crates.io index
+required by package `std v0.0.0 (/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std)`
+    ... which satisfies path dependency `std` (locked to 0.0.0) of package `custom-local-sysroot v0.0.0 (/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp/.tmpcFKP91)`
+note: offline mode (via `--offline`) can sometimes cause surprising resolution failures
+help: if this error is too confusing you may wish to retry without `--offline`
+   Compiling general_engine v0.1.0 (/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/rust/general_engine)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.83s

@@ -1,0 +1,2 @@
+'LcnExec.GeneralEngine.rescale_clamp_loop0_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.rescale_clamp_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

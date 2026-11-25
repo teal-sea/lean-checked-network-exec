@@ -1,0 +1,230 @@
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:141:12: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a[↑i] = ↑i2
+Error: Application type mismatch: The argument
+  hrown
+has type
+  (vals2 vs)[↑jj].length = 32
+but is expected to have type
+  _a.length = 32
+in the application
+  congrArg (fun _a => ↑i < _a) hrown
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+acc : I64
+jj : Usize
+hjj1 : ↑jj ≤ ↑p + 1
+hfold :
+  ↑acc =
+    List.foldl
+      (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+      (List.range ↑jj)
+hlo : -(Envelope.value * (List.take (↑jj) (ints alpha)).sum) ≤ ↑acc
+hhi : ↑acc ≤ Envelope.value * (List.take (↑jj) (ints alpha)).sum
+h✝ : jj ≤ p
+hjp : ↑jj ≤ ↑p
+hjj32 : ↑jj < 32
+i1 : I64
+hi1 : i1 = (↑alpha)[↑jj]
+a : Std.Array I64 32#usize
+ha : a = (↑vs)[↑jj]
+i2 : I64
+hi2 : i2 = (↑a)[↑i]
+hali1 : ↑i1 = (ints alpha)[↑jj]
+hrow : (vals2 vs)[↑jj] = ints a
+hli : ↑i < (ints a).length
+hi2v : (ints a)[↑i] = ↑i2
+hib : -Envelope.value ≤ ↑i2 ∧ ↑i2 ≤ Envelope.value
+hi1nn : 0 ≤ ↑i1
+htake1 : (List.take (↑p + 1) (ints alpha)).length = ↑p + 1
+hl2 : ↑jj < (ints alpha).length
+hmemtake : (ints alpha)[↑jj] ∈ List.take (↑p + 1) (ints alpha)
+hpnn : ∀ x ∈ List.take (↑p + 1) (ints alpha), 0 ≤ x
+hi1dom : ↑i1 ≤ (List.take (↑p + 1) (ints alpha)).sum
+hi1le : ↑i1 ≤ 16777216
+hvv : Envelope.value = 1723136
+hib2 : -1723136 ≤ ↑i2 ∧ ↑i2 ≤ 1723136
+hi1l2 : ↑i1 ≤ 16777216
+hprod : -(16777216 * 1723136) ≤ ↑i1 * ↑i2 ∧ ↑i1 * ↑i2 ≤ 16777216 * 1723136
+hminb : I64.min ≤ ↑i1 * ↑i2
+hmaxb : ↑i1 * ↑i2 ≤ I64.max
+i3 : I64
+hi3 : ↑i3 = ↑i1 * ↑i2
+hSjj : (List.take (↑jj) (ints alpha)).sum ≤ (List.take (↑p + 1) (ints alpha)).sum
+hP : Envelope.value * (List.take (↑jj) (ints alpha)).sum ≤ 28909424869376
+hPneg : -28909424869376 ≤ Envelope.value * (List.take (↑jj) (ints alpha)).sum
+acc1 : I64
+hacc1 : ↑acc1 = ↑acc + ↑i3
+jj1 : Usize
+hjj1' : ↑jj1 = ↑jj + 1
+hsumup : (List.take (↑jj + 1) (ints alpha)).sum = (List.take (↑jj) (ints alpha)).sum + (ints alpha)[↑jj]
+hn1 : GeneralModel.nth 0 (ints alpha) ↑jj = (ints alpha)[↑jj]
+hnr : GeneralModel.rowAt (vals2 vs) ↑jj = (vals2 vs)[↑jj]
+hrown : (vals2 vs)[↑jj].length = 32
+⊢ (vals2 vs)[↑jj][↑i] = ↑i2
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:157:29: error: Application type mismatch: The argument
+  Decidable.byContradiction fun a_1 =>
+    head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1
+has type
+  (0 : ℕ) ≤ 1723136
+but is expected to have type
+  (0 : ℤ) ≤ ?m.2194
+in the application
+  mul_nonneg hi1nn
+    (Decidable.byContradiction fun a_1 =>
+      head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1)
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:160:29: error: Application type mismatch: The argument
+  Decidable.byContradiction fun a_1 =>
+    head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1
+has type
+  (0 : ℕ) ≤ 1723136
+but is expected to have type
+  (0 : ℤ) ≤ ?m.2259
+in the application
+  mul_nonneg hi1nn
+    (Decidable.byContradiction fun a_1 =>
+      head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1)
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:163:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  -1723136 ≤ o ≤ 1723136
+  0 ≤ n ≤ 16777216
+  1723136*m - 1723136*n - q + r ≥ 0
+  1723136*m - 1723136*n + q - r ≥ 0
+  1723136*m + q - r + s ≤ -1
+  1 ≤ l ≤ 32
+  k - 1723136*n - q + r ≤ 0
+  -28909424869376 ≤ k - q + r ≤ 28909424869376
+  k + 1723136*n - q + r ≥ 0
+  -28909424869376 ≤ j ≤ 28909424869376
+  h - k + q - r ≥ 0
+  g - k + q - r ≤ 0
+  f ≥ 0
+  f - l ≥ 0
+  1 ≤ e ≤ 32
+  e - l ≥ 0
+  d ≥ 0
+  c ≤ 16777216
+  c - m + n ≥ 0
+  c - n ≥ 0
+  0 ≤ b ≤ 31
+  b - d ≤ -1
+where
+ b := ↑↑i
+ c := (List.take (↑p + 1) (ints alpha)).sum
+ d := ↑(ints a).length
+ e := ↑(List.take (↑p + 1) (ints alpha)).length
+ f := ↑(ints alpha).length
+ g := I64.min
+ h := I64.max
+ j := Envelope.value * (List.take (↑jj) (ints alpha)).sum
+ k := ↑acc1
+ l := ↑↑jj1
+ m := (List.take (↑jj + 1) (ints alpha)).sum
+ n := GeneralModel.nth 0 (ints alpha) ↑jj
+ o := GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) ↑jj) ↑i
+ q := List.foldl
+  (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+  (List.range (↑jj + 1))
+ r := GeneralModel.nth 0 (ints alpha) ↑jj * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) ↑jj) ↑i
+ s := (ints alpha)[↑jj] * ↑i2
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:166:29: error: Application type mismatch: The argument
+  Decidable.byContradiction fun a_1 =>
+    head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1
+has type
+  (0 : ℕ) ≤ 1723136
+but is expected to have type
+  (0 : ℤ) ≤ ?m.2347
+in the application
+  mul_nonneg hi1nn
+    (Decidable.byContradiction fun a_1 =>
+      head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1)
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:169:29: error: Application type mismatch: The argument
+  Decidable.byContradiction fun a_1 =>
+    head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1
+has type
+  (0 : ℕ) ≤ 1723136
+but is expected to have type
+  (0 : ℤ) ≤ ?m.2412
+in the application
+  mul_nonneg hi1nn
+    (Decidable.byContradiction fun a_1 =>
+      head_out_mix_inner_spec._proof_1_39 p alpha vs i acc jj hjj32 i1 a i2 hli i3 acc1 jj1 a_1)
+/home/user/e4/qa-weighted-fa8e1aa/WeightedDraft.lean:172:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  -1723136 ≤ o ≤ 1723136
+  0 ≤ n ≤ 16777216
+  1723136*m - 1723136*n - q + r ≥ 0
+  1723136*m - 1723136*n + q - r ≥ 0
+  1723136*m - q + r - s ≤ -1
+  1 ≤ l ≤ 32
+  k - 1723136*n - q + r ≤ 0
+  -28909424869376 ≤ k - q + r ≤ 28909424869376
+  k + 1723136*n - q + r ≥ 0
+  -28909424869376 ≤ j ≤ 28909424869376
+  h - k + q - r ≥ 0
+  g - k + q - r ≤ 0
+  f ≥ 0
+  f - l ≥ 0
+  1 ≤ e ≤ 32
+  e - l ≥ 0
+  d ≥ 0
+  c ≤ 16777216
+  c - m + n ≥ 0
+  c - n ≥ 0
+  0 ≤ b ≤ 31
+  b - d ≤ -1
+where
+ b := ↑↑i
+ c := (List.take (↑p + 1) (ints alpha)).sum
+ d := ↑(ints a).length
+ e := ↑(List.take (↑p + 1) (ints alpha)).length
+ f := ↑(ints alpha).length
+ g := I64.min
+ h := I64.max
+ j := Envelope.value * (List.take (↑jj) (ints alpha)).sum
+ k := ↑acc1
+ l := ↑↑jj1
+ m := (List.take (↑jj + 1) (ints alpha)).sum
+ n := GeneralModel.nth 0 (ints alpha) ↑jj
+ o := GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) ↑jj) ↑i
+ q := List.foldl
+  (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+  (List.range (↑jj + 1))
+ r := GeneralModel.nth 0 (ints alpha) ↑jj * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) ↑jj) ↑i
+ s := (ints alpha)[↑jj] * ↑i2
+case hInv.refine_2
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+⊢ -(Envelope.value * (List.take (↑0#usize) (ints alpha)).sum) ≤ ↑0#i64
+case hInv.refine_3
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+⊢ ↑0#i64 ≤ Envelope.value * (List.take (↑0#usize) (ints alpha)).sum

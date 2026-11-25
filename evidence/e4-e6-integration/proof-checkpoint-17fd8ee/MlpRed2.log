@@ -1,0 +1,191 @@
+/home/user/e4/qa-mlp-17fd8ee-C4c8iupj/MlpRed2.lean:108:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (↑a)[↑i]
+in the target expression
+  ↑(↑(↑(↑W.layers)[↑l]!.win)[↑t])[↑i]! = ↑i3v
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+i : Usize
+hi : ↑i < 512
+hL : LayerBounds (↑W.layers)[↑l]
+hrc : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+hbd :
+  -Envelope.hidden_pre ≤ GeneralModel.dot (ints r) (winColumn W ↑l ↑i) ∧
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i) ≤ Envelope.hidden_pre
+acc : I64
+t : Usize
+ht1 : ↑t ≤ 128
+hlo : -(5253256708096 * 82) * ↑↑t ≤ ↑acc
+hhi : ↑acc ≤ 5253256708096 * 82 * ↑↑t
+h✝ : t < 128#usize
+ht128 : ↑t < 128
+hacc :
+  ↑acc +
+      ((ints r)[↑t] * (winColumn W ↑l ↑i)[↑t] +
+        GeneralModel.dot (List.drop (↑t + 1) (ints r)) (List.drop (↑t + 1) (winColumn W ↑l ↑i))) =
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i)
+i1v : I64
+hi1 : i1v = (↑r)[↑t]
+a : Std.Array I8 512#usize
+ha : a = (↑(↑W.layers)[↑l].win)[↑t]
+i2v : I8
+hi2 : i2v = (↑a)[↑i]
+i3v : I64
+hi3 : i3v = IScalar.cast IScalarTy.I64 i2v
+hi3v' : ↑i3v = ↑i2v
+hmem : ↑i1v ∈ ints r
+hrb : -5253256708096 ≤ ↑i1v ∧ ↑i1v ≤ 5253256708096
+hxi : (ints r)[↑t] = ↑i1v
+hlay : (↑W.layers)[↑l]! = (↑W.layers)[↑l]
+hwin : (↑(↑W.layers)[↑l]!.win)[↑t]! = a
+⊢ ↑(↑(↑(↑W.layers)[↑l]!.win)[↑t])[↑i]! = ↑i3v
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl (List.map (fun row => ↑(↑row)[↑i]!) ↑(↑W.layers)[↑l]!.win)
+  has type
+    @Eq (List ℤ) (List.map (fun row => ↑(↑row)[↑i]!) ↑(↑W.layers)[↑l]!.win)
+      (List.map (fun row => ↑(↑row)[↑i]!) ↑(↑W.layers)[↑l]!.win)
+  but is expected to have type
+    @Eq (List ℤ) (winColumn W ↑l ↑i) (List.map (fun row => ↑(↑row)[↑i]!) ↑(↑W.layers)[↑l]!.win)
+  in the application
+    id (Eq.refl (List.map (fun row => ↑(↑row)[↑i]!) ↑(↑W.layers)[↑l]!.win))
+/home/user/e4/qa-mlp-17fd8ee-C4c8iupj/MlpRed2.lean:141:52: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  -430767050063872 ≤ k ≤ 430767050063872
+  -54707415358111744 ≤ k - m ≤ 54707415358111744
+  j - k ≥ 0
+  j - m ≥ 0
+  h - k ≤ 0
+  h - m ≤ 0
+  -82 ≤ g ≤ 82
+  -5253256708096 ≤ f ≤ 5253256708096
+  d - e - m ≥ 0
+  d + e + m ≥ 0
+  0 ≤ c ≤ 511
+  0 ≤ b ≤ 1
+where
+ b := ↑↑l
+ c := ↑↑i
+ d := Envelope.hidden_pre
+ e := GeneralModel.dot (List.drop (↑t + 1) (ints r)) (List.drop (↑t + 1) (winColumn W ↑l ↑i))
+ f := (ints r)[↑t]
+ g := (winColumn W ↑l ↑i)[↑t]
+ h := I64.min
+ j := I64.max
+ k := ↑i4
+ m := ↑acc1
+/home/user/e4/qa-mlp-17fd8ee-C4c8iupj/MlpRed2.lean:142:37: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  -430767050063872 ≤ k ≤ 430767050063872
+  -54707415358111744 ≤ k - m ≤ 54707415358111744
+  j - k ≥ 0
+  j - m ≥ 0
+  h - k ≤ 0
+  h - m ≤ 0
+  -82 ≤ g ≤ 82
+  -5253256708096 ≤ f ≤ 5253256708096
+  d - e - m ≥ 0
+  d + e + m ≥ 0
+  0 ≤ c ≤ 511
+  0 ≤ b ≤ 1
+where
+ b := ↑↑l
+ c := ↑↑i
+ d := Envelope.hidden_pre
+ e := GeneralModel.dot (List.drop (↑t + 1) (ints r)) (List.drop (↑t + 1) (winColumn W ↑l ↑i))
+ f := (ints r)[↑t]
+ g := (winColumn W ↑l ↑i)[↑t]
+ h := I64.min
+ j := I64.max
+ k := ↑i4
+ m := ↑acc1
+/home/user/e4/qa-mlp-17fd8ee-C4c8iupj/MlpRed2.lean:145:8: error: linarith failed to find a contradiction
+case a.refine_1.h1
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+i : Usize
+hi : ↑i < 512
+hL : LayerBounds (↑W.layers)[↑l]
+hrc : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+hbd :
+  -Envelope.hidden_pre ≤ GeneralModel.dot (ints r) (winColumn W ↑l ↑i) ∧
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i) ≤ Envelope.hidden_pre
+acc : I64
+t : Usize
+ht1 : ↑t ≤ 128
+hlo : -(5253256708096 * 82) * ↑↑t ≤ ↑acc
+hhi : ↑acc ≤ 5253256708096 * 82 * ↑↑t
+h✝ : t < 128#usize
+ht128 : ↑t < 128
+i1v : I64
+hi1 : i1v = (↑r)[↑t]
+a : Std.Array I8 512#usize
+ha : a = (↑(↑W.layers)[↑l].win)[↑t]
+i2v : I8
+hi2 : i2v = (↑a)[↑i]
+i3v : I64
+hacc :
+  ↑acc + (↑i1v * ↑i3v + GeneralModel.dot (List.drop (↑t + 1) (ints r)) (List.drop (↑t + 1) (winColumn W ↑l ↑i))) =
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i)
+hi3 : i3v = IScalar.cast IScalarTy.I64 i2v
+hi3v' : ↑i3v = ↑i2v
+hmem : ↑i1v ∈ ints r
+hrb : -5253256708096 ≤ ↑i1v ∧ ↑i1v ≤ 5253256708096
+hxi : (ints r)[↑t] = ↑i1v
+hcol : (winColumn W ↑l ↑i)[↑t] = ↑i3v
+hcb : -82 ≤ ↑i3v ∧ ↑i3v ≤ 82
+hprod : -(5253256708096 * 82) ≤ ↑i1v * ↑i3v ∧ ↑i1v * ↑i3v ≤ 5253256708096 * 82
+hminb : I64.min ≤ ↑i1v * ↑i3v
+hmaxb : ↑i1v * ↑i3v ≤ I64.max
+i4 : I64
+hi4 : ↑i4 = ↑i1v * ↑i3v
+hmina : I64.min ≤ ↑acc + ↑i4
+hmaxa : ↑acc + ↑i4 ≤ I64.max
+acc1 : I64
+hacc1 : ↑acc1 = ↑acc + ↑i4
+t1 : Usize
+ht1' ht1v : ↑t1 = ↑t + 1
+hp' : ↑i4 = ↑i1v * ↑i3v
+a✝ :
+  ↑acc + ↑i1v * ↑i3v +
+      ((ints r)[↑t + 1] * (winColumn W ↑l ↑i)[↑t + 1] +
+        GeneralModel.dot (List.drop (↑t + 1 + 1) (ints r)) (List.drop (↑t + 1 + 1) (winColumn W ↑l ↑i))) <
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i)
+⊢ False
+failed
+/home/user/e4/qa-mlp-17fd8ee-C4c8iupj/MlpRed2.lean:164:2: error: unsolved goals
+case hInv.refine_3
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+i : Usize
+hi : ↑i < 512
+hL : LayerBounds (↑W.layers)[↑l]
+hrc : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+hbd :
+  -Envelope.hidden_pre ≤ GeneralModel.dot (ints r) (winColumn W ↑l ↑i) ∧
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i) ≤ Envelope.hidden_pre
+⊢ ↑0#i64 ≤ 5253256708096 * 82 * ↑↑0#usize
+/home/user/e4/qa-mlp-17fd8ee-C4c8iupj/MlpRed2.lean:107:48: warning: This simp argument is unused:
+  hwin
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [winColumn, List.getElem_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

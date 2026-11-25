@@ -1,0 +1,13 @@
+   Compiling general_engine v0.1.0 (/home/thomas/worktrees/lcn-exec-general-lm-20261120/rust/general_engine)
+   Compiling general_engine_wasm v0.1.0 (/home/thomas/worktrees/lcn-exec-general-lm-20261120/rust/general_engine_wasm)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.21s
+     Running tests/parse.rs (rust/general_engine_wasm/target/e6-exact-2UJtvZ/debug/deps/parse-e63a3df4e5d4d126)
+
+running 4 tests
+test bad_headers_are_rejected ... ok
+test bytelm_fixture_loads ... ok
+test mod113_fixture_loads_and_predicts ... ok
+test out_of_bounds_weight_byte_is_rejected ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+

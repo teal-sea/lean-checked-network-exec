@@ -1,0 +1,52 @@
+/home/user/e4/qa-output-33c47b3-b1F4mmMD/FinalRed.lean:28:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?a :: ?«as»)[?i + 1]
+in the target expression
+  (((x.mul 256).add y).shiftRight 16 :: GeneralModel.finalStream xs ys)[i' + 1]! =
+    ((x :: xs)[i' + 1]! * 256 + (y :: ys)[i' + 1]!).shiftRight 16
+
+x : ℤ
+xs : List ℤ
+y : ℤ
+ys : List ℤ
+i' : ℕ
+hx : i' + 1 < (x :: xs).length
+hy : i' + 1 < (y :: ys).length
+hlen : (x :: xs).length = (y :: ys).length
+hlen' : xs.length = ys.length
+hrec : (GeneralModel.finalStream xs ys)[i']! = (xs[i']! * 256 + ys[i']!).shiftRight 16
+⊢ (((x.mul 256).add y).shiftRight 16 :: GeneralModel.finalStream xs ys)[i' + 1]! =
+    ((x :: xs)[i' + 1]! * 256 + (y :: ys)[i' + 1]!).shiftRight 16
+/home/user/e4/qa-output-33c47b3-b1F4mmMD/FinalRed.lean:179:50: error: unexpected token ')'; expected ']'
+/home/user/e4/qa-output-33c47b3-b1F4mmMD/FinalRed.lean:171:6: error: unsolved goals
+case hBody.isFalse.h
+r o : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+ho : Bounded Envelope.mlp_output o
+f1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded Envelope.final_stream f1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints f1)[k_1] = ((ints r)[k_1] * 256 + (ints o)[k_1]).shiftRight 16
+hsuf : ∀ (k_1 : ℕ) (hk : k_1 < 128), ¬k_1 < ↑k → (↑f1)[k_1] = 0#i64
+h✝ : ¬k < 128#usize
+hk128 : ↑k = 128
+k' : ℕ
+hk'✝ : k' < (ints f1).length
+hk' : k' < 128
+hk''✝ : k' < (GeneralModel.finalStream (ints r) (ints o)).length
+hk'' : k' < (ints r).length
+hk128' : k' < 128
+hb : (GeneralModel.finalStream (ints r) (ints o))[k']! = ((ints r)[k']! * 256 + (ints o)[k']!).shiftRight 16
+⊢ (ints f1)[k'] = (GeneralModel.finalStream (ints r) (ints o))[k']
+/home/user/e4/qa-output-33c47b3-b1F4mmMD/FinalRed.lean:44:45: error: unsolved goals
+case hInv
+r o : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+ho : Bounded Envelope.mlp_output o
+⊢ ↑(Array.repeat 128#usize 0#i64, 0#usize).2 ≤ 128 ∧
+    Bounded Envelope.final_stream (Array.repeat 128#usize 0#i64, 0#usize).1 ∧
+      (∀ (k : ℕ) (hk : k < 128),
+          k < ↑(Array.repeat 128#usize 0#i64, 0#usize).2 →
+            (ints (Array.repeat 128#usize 0#i64, 0#usize).1)[k] = ((ints r)[k] * 256 + (ints o)[k]).shiftRight 16) ∧
+        ∀ (k : ℕ) (hk : k < 128),
+          ¬k < ↑(Array.repeat 128#usize 0#i64, 0#usize).2 → (↑(Array.repeat 128#usize 0#i64, 0#usize).1)[k] = 0#i64

@@ -1,0 +1,56 @@
+{
+  "status": "Attention scoring subtheorem independently checked; weighting, accumulation, remaining engine proofs and final audit open.",
+  "worker_commit": "6475c695f795fed7799a14167f95e7832834b035",
+  "theorem_commit": "f103e51a7d66c625de66898cdae4c52cf42b4ecd",
+  "worker_handle": "proc_0e4de4a1416d",
+  "worker_admission": 2228,
+  "provider_model": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "box_cutoff_utc": "2026-11-21T22:15:07.128Z",
+  "remote_command_id": "cmd_r72cwazh4npv",
+  "remote_started_utc": "2026-11-21T21:20:59.560Z",
+  "remote_finished_utc": "2026-11-21T21:21:04.614Z",
+  "toolchain": "Lean 4.35.0",
+  "source_sha256": "9f9aef2f1ed597e85aef29e0e545553d8d2787cb4c11b4ad0a284cc936aff762",
+  "olean_sha256": "abbdb7b94743903345022b16a106cd7c51c2b7c8c8f49f66478efe89f03e7c80",
+  "worker_log": {
+    "path": "evidence/e4-general-engine/logs/att8.log",
+    "sha256": "b28986a413271eb51556b078b2760bb1fee0446c30a3351e92d0f6c931195206"
+  },
+  "producer_exits": {
+    "Attention": 0,
+    "Attention-elaboration": 0,
+    "AttentionAxioms": 0
+  },
+  "axioms": "'LcnExec.GeneralEngine.head_scores_at_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "warning_counts": {
+    "Attention.log": 12,
+    "Attention-elaboration.log": 0
+  },
+  "archive": {
+    "name": "attention-scoring-proof-and-logs.tar.gz",
+    "sha256": "74e320f9fbd302eb8c657c5ad21058c7d2294c7741350f637a67ece518a5dcbe",
+    "bytes": 277831,
+    "member_sha256": {
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Attention.ilean": "1fa8658f65772ac18ce8b17390e1397dc45a8002ea4415a1654f130430a3da2e",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Attention.ilean.hash": "021fca3dc161302d68245281d7d0b8d768e29b96375d7f9899e030af85765484",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Attention.olean": "abbdb7b94743903345022b16a106cd7c51c2b7c8c8f49f66478efe89f03e7c80",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Attention.olean.hash": "92443ca42288d9f878f7cc11697fb0b178eac0081e346a8adb00547c9d9764cf",
+      ".lake/build/lib/lean/LcnExec/GeneralEngine/Attention.trace": "b032d99cb70b01d49af8b94a5d852ddbed10ca4897456df3c089c463bdd5f9bd",
+      "Attention.log": "e1200a640db51938e9cf9b1b9047a7cba8a81c36e2b91ed69271f43941d3b640",
+      "Attention.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Attention-elaboration.log": "9450e48e7de57c590540029b16a5c7e96dfead40a203a7ee119cb9bd3b8ce560",
+      "Attention-elaboration.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "AttentionAxioms.lean": "3c51d470c24e5d0d399f444739832a40143bc13d0450f4bf37218866d13d033d",
+      "AttentionAxioms.log": "4f3e1b9a0163728d1325723c1b241292807da0dc42a68c273c4b5813c64d2343",
+      "AttentionAxioms.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "remaining": [
+    "head_out_at_spec (weighted sum)",
+    "attention_at_spec (combine four heads)",
+    "downstream, stages, final theorem",
+    "whole-engine axioms, fresh replay, nanoda, and semantic controls"
+  ],
+  "scope": "No full attention theorem, published demo, final Lean proof or external kernel verification. Archive extends the two earlier partial prefixes, not a complete dependency closure."
+}

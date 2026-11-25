@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_cpui2jugnlwg",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T19:54:52.645Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T19:54:51.044Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=1\n/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/TailsFinal.lean:97:81: error: unsolved goals\nn : Usize\nk : \u2115\nhk : k < \u2191n\n\u22a2 (\u2191{ list := cast \u22ef (Data.ListN.ListN.fromList (List.replicate (\u2191n) 0#i64)) })[k] = 0#i64\n/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/TailsFinal.lean:98:39: warning: This simp argument is unused:\n  List.getElem_replicate\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Array.repeat, Array.from]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'LcnExec.GeneralEngine.hidden_init_index_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.hidden_runtime_bias_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.hidden_mapped_entry_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

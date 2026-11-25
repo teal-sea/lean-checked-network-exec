@@ -1,0 +1,72 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Inner": 0,
+    "Outer": 1,
+    "Audit": 125
+  },
+  "errors": {
+    "Inner": [],
+    "Outer": [
+      [
+        "77",
+        "24",
+        "Application type mismatch: The argument"
+      ],
+      [
+        "77",
+        "13",
+        "Invalid `\u27e8...\u27e9` notation: The expected type"
+      ],
+      [
+        "79",
+        "8",
+        "Type mismatch"
+      ],
+      [
+        "87",
+        "14",
+        "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      [
+        "93",
+        "14",
+        "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      [
+        "95",
+        "6",
+        "No goals to be solved"
+      ]
+    ],
+    "Audit": []
+  },
+  "warnings": {
+    "Inner": 0,
+    "Outer": 0,
+    "Audit": 0
+  },
+  "inner_sha256": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+  "outer_sha256": "b40da13e14ab0dc6987d0c5416e9cba359ab720ebdace55a642cd485a8d64bfc",
+  "command_id": "cmd_vrzflsvvhs6q",
+  "finished_at": "2026-11-23T02:02:42.226Z",
+  "files_sha256": {
+    "Audit.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Inner.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Outer.log": "2a3ea5e70b9d40f6dd326f567037bd00c7eb3028cd8dc59584d1f5558676047f",
+    "TypedAudit.lean.txt": "f0923fed83f50f87919375259c824670ba61f0986e921bb967a253aa8b450538",
+    "Unembed.lean.txt": "b40da13e14ab0dc6987d0c5416e9cba359ab720ebdace55a642cd485a8d64bfc",
+    "UnembedInner.lean.txt": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+    "boat-command.json": "fb458b0c95a78ce3f0ab48aa1134d60ef997714895b6d5e7d3205d0bf5954da5",
+    "exit.txt": "241735ff66a58bb383991e73e3880807808ae6e222f3a589c2a99c77fc18e07e",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "unembed-replay.tar.gz": "3c351c588a8e45df39ba4e03b8eb98382f8289b3f0d0b6494c00a062a994ba85",
+    "FIX-UNEMBED-OUTER.md": "f5f9beebe31c1f245e5f87403c81e2faa76a8673eee00d917f5510c385d902c8",
+    "unembed-fix2-dispatch.json": "e82f8f53d4aa517f3d43d5f7ca98bb4c2e00bc409faa704704a90cce415b631b",
+    "unembed-fix2-exit.json": "8942ae2b4543e890d788ac27b0354202038dbd0b32107acb9f242ee9223f5479"
+  },
+  "base": "b6c7119d0d641b1d5bcc4dcc48b5a76ef7c295b7",
+  "worker_checkpoint": "2bc0041e9c400b582933f3324e767b304a47bdcd",
+  "scope": "First two outer errors cleared. Remaining diagnostics originate at line 77; the actual next field is the output bound, not the simplified unchanged-weight equality. No combined audit yet."
+}

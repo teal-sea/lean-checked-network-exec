@@ -1,0 +1,14 @@
+{
+  "status": "diagnostic pass, not integrated acceptance",
+  "integration_base": "f5ff8efa56313c20c744ba28f4f49053b44e6254",
+  "scope": "Independent Node.js execution of the E6 worker's current WebAssembly build using the E5 worker's exported trained model bytes. E6 and E4 used different Rust sources at this checkpoint. The browser page still had its own synthetic fixture; no Lean claim is made for this build.",
+  "wasm_sha256": "1e1a30910c04812e2852349eaba821b8632ff558d4ba74fc06523f43e7a6c1f7",
+  "mod113_sha256": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc",
+  "mod113_pairs": [[0, 0], [21, 56], [112, 112], [1, 112]],
+  "mod113_assertion": "All four predictions equalled (a+b)%113. The same binary rejected tok[0][0]=69 and accepted the restored bytes.",
+  "trained_model_sha256": "d7a469949b3016b02f05d4e596025c07d25bb793360c6c99db94c81a43550b73",
+  "trained_model_assertion": "The binary accepted the trained weights. Two resets to the prompt returned byte-identical completions.",
+  "prompt": "The meaning of ",
+  "completion": "is is A ca",
+  "continuation": "Keep the original browser session as sole E6 writer; it already resumed on Alibaba after the first CLI invocation hit its tool cap. Before delivery, use the reviewed E4 Rust crate as the only engine source, rebuild Wasm, use the verified E5 weights as the page default, replay checked native/Wasm/browser parity on those exact bytes, and label proof status accurately in the UI. Do not treat this run's completion quality, arithmetic sample or Wasm source as final."
+}

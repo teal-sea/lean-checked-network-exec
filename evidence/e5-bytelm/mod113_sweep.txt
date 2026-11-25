@@ -1,0 +1,8 @@
+file: mod113_v1.bin (479504 bytes), load_check True
+pairs: 12769 in 297 s
+wrong: 0; ties: 0
+smallest margin: 62944808481 at pair (21, 56)
+logits FNV-1a 64: 6cb24f7670e8562e
+fixture logits_fnv1a64 (rust/transformer): 6cb24f7670e8562e
+logit hash matches the pinned rust/transformer fixture: yes
+result: PASS

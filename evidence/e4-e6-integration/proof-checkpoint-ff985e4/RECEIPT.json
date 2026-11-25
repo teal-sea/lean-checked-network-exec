@@ -1,0 +1,85 @@
+{
+  "worker": {
+    "commit": "ff985e46cc50d620485d39b3eb677eb6dab8292d",
+    "base": "5dcdf94a19a7b927735ba8370ef03d74abda8eac",
+    "process": "proc_b9ff69f2d71a",
+    "admission": 2239,
+    "generation": 15,
+    "model": "alibaba-token-plan/glm-5.3",
+    "fallback_active": false
+  },
+  "scope": "Exact bounded checked addition of one head to the running attention sum, for all 128 entries. Does not prove the outer four-head execution.",
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-22T16:50:24.254Z",
+    "command": "cmd_vsvvox46hnin",
+    "finished_at": "2026-11-22T16:32:10.555Z",
+    "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\nbf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean\n8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake\n",
+    "exits": {
+      "Build": 0,
+      "Direct": 0,
+      "Audit": 0,
+      "Prefix": 0
+    },
+    "warnings": {
+      "Build": 18,
+      "Direct": 0,
+      "Audit": 0,
+      "Prefix": 0
+    },
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "archive": "attention-add-replay.tar.gz",
+    "archive_sha256": "ce953c53afd03dec84eb226d3068e18830b9cc6b581dd22badc1ec8b60535025",
+    "archive_member_sha256": {
+      "Prefix.log": "2b7fa416d0dbab2953449262f8414f5c84579b41bdda603bc04590d853de2645",
+      "Prefix.lean.txt": "3b235f2ebc4bdd91a609a5a7ec80263c7cf3222ce90ea203ba0f5b01496d785b",
+      "AttentionAdd.lean.txt": "7ce00277168a34a7e8d41773b11b2bed762f6dca2064e7e0bde33b336ea1e651",
+      "MEMBERS.sha256": "a86652199391c8fb38daa907880d8053e1c4d00a6cd4c209e14be2342fd30bcc",
+      "Build.log": "154e50802ad1e0997932e7d923e6d42fe8412ad6711d2b8188f8a0851a764efd",
+      "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+      "AttentionAdd.olean": "42a9e82e4e6120a8fe093aeaec04778c63a31d4800ad1a52f526a66417e6a0a8",
+      "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Prefix.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.lean.txt": "afc4e9f42f728b34183691e3dd6377595b84520e35df5216a190a20cccace14b",
+      "Audit.log": "1f77c7ac8a78c9e54036644dd58e45b60bf9de9ac7bd974dc24f913398461060",
+      "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "prefix_probe": {
+    "scope": "Exact active-prefix lookup, frozen softmax equality and frozen head output equality under matching active entries. Verified scratch only; no outer loop or library integration.",
+    "file": "Prefix.lean.txt",
+    "source_sha256": "3b235f2ebc4bdd91a609a5a7ec80263c7cf3222ce90ea203ba0f5b01496d785b",
+    "axioms": {
+      "nth_prefix_probe": "propext, Classical.choice, Quot.sound",
+      "softmax_prefix_probe": "propext, Classical.choice, Quot.sound",
+      "head_alpha_prefix_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "installed": false
+  },
+  "worker_interim_red_commit": "0d857b34d65d0ee5acfef1a6a5a7f3d1a326b59f",
+  "files_sha256": {
+    "Prefix.log": "2b7fa416d0dbab2953449262f8414f5c84579b41bdda603bc04590d853de2645",
+    "Prefix.lean.txt": "3b235f2ebc4bdd91a609a5a7ec80263c7cf3222ce90ea203ba0f5b01496d785b",
+    "AttentionAdd.lean.txt": "7ce00277168a34a7e8d41773b11b2bed762f6dca2064e7e0bde33b336ea1e651",
+    "MEMBERS.sha256": "a86652199391c8fb38daa907880d8053e1c4d00a6cd4c209e14be2342fd30bcc",
+    "Build.log": "154e50802ad1e0997932e7d923e6d42fe8412ad6711d2b8188f8a0851a764efd",
+    "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+    "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Prefix.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.lean.txt": "afc4e9f42f728b34183691e3dd6377595b84520e35df5216a190a20cccace14b",
+    "Audit.log": "1f77c7ac8a78c9e54036644dd58e45b60bf9de9ac7bd974dc24f913398461060",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "boat-command.json": "1a2552bc7c67d13dc57f542cdfddab2a514eed7678f149c06035614802285a6c",
+    "Worker-att-add-install.log": "6570a98200b758b6bbbfc4a4ba80f48de0725ae6eb63c4a2b9202012ec9d7984",
+    "WorkerAttentionAddRed.lean.txt": "a3687aca4bc78c3f40d2841dc42531196ff7f934699e9d7b03f7f6db88a16948",
+    "WorkerAttentionAddRed.log": "c68f3e34c1341d8a996cd4a78b6dc482821de71068449cca589f029a17540826"
+  }
+}

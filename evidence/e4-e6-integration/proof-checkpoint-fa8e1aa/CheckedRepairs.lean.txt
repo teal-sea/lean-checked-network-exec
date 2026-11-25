@@ -1,0 +1,20 @@
+import LcnExec.GeneralEngine.ValueScan
+open Aeneas Aeneas.Std Result ControlFlow LcnExec.GeneralEngine
+example (rows : List (List Int)) (j k : Nat) (row : List Int) (x : Int)
+    (hr : GeneralModel.rowAt rows j = row) (hk : k < row.length) (hx : row[k] = x) :
+    GeneralModel.nth 0 (GeneralModel.rowAt rows j) k = x :=
+  (congrArg (fun r => GeneralModel.nth 0 r k) hr).trans ((project_nth_eq 0 row k hk).trans hx)
+example (B s a v acc : Int) (ha : 0 ≤ a) (hl : -B ≤ v) (hu : v ≤ B)
+    (hlo : -(B * s) ≤ acc) (hhi : acc ≤ B * s) :
+    -(B * (s+a)) ≤ acc + a*v ∧ acc + a*v ≤ B * (s+a) := by
+  have hml : -(B*a) ≤ a*v := by
+    simpa [mul_neg, mul_comm] using mul_le_mul_of_nonneg_left hl ha
+  have hmu : a*v ≤ B*a := by
+    simpa [mul_comm] using mul_le_mul_of_nonneg_left hu ha
+  constructor
+  · calc
+      -(B * (s+a)) = -(B*s) + -(B*a) := by ring
+      _ ≤ acc + a*v := add_le_add hlo hml
+  · calc
+      acc + a*v ≤ B*s + B*a := add_le_add hhi hmu
+      _ = B*(s+a) := by ring

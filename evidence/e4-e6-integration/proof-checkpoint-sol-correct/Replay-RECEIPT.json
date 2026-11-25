@@ -1,0 +1,28 @@
+{
+  "base": "3aec9c8e1fa78d4535645d87eff48500a658a970",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exit": 0,
+  "errors": [],
+  "warnings": 0,
+  "axioms": [
+    [
+      "forward_logits_spec",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "general_engine_correct",
+      "propext, Classical.choice, Quot.sound"
+    ]
+  ],
+  "source_sha256": "5e806de0d456ff9ae53a8550c031308b9531700e107ce2c6c50640249be6d7d6",
+  "command_id": "cmd_j2e6t62e55tp",
+  "finished_at": "2026-11-23T02:44:18.058Z",
+  "files_sha256": {
+    "Correct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Correct.lean.txt": "5e806de0d456ff9ae53a8550c031308b9531700e107ce2c6c50640249be6d7d6",
+    "Correct.log": "4666e9a51ccec2acce2446fbfa458e43f50b7c340133efca50b323b69bef4e3d",
+    "boat-command.json": "fa68d788e570956d8852e2251b496991a26c6c29d41432b1f252055df8b58992",
+    "proof.tar.gz": "f210a6c50ad93d4bab4bcaec1f2344e0f62db222f3c29015292978bfaa40ac96"
+  }
+}

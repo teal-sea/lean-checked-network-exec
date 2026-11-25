@@ -1,0 +1,45 @@
+{
+  "exit": 0,
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "argv": [
+    "/home/thomas/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/cargo",
+    "build",
+    "--manifest-path",
+    "/home/thomas/worktrees/lcn-exec-general-lm-20261120/rust/general_engine_wasm/Cargo.toml",
+    "--release",
+    "--target",
+    "wasm32-unknown-unknown",
+    "--offline",
+    "--locked",
+    "-j",
+    "2",
+    "--target-dir",
+    "/home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-independent-build/fresh-target-same-source-root",
+    "-vv"
+  ],
+  "working_directory": "/home/thomas/worktrees/lcn-exec-general-lm-20261120",
+  "cpu_affinity": [
+    14,
+    15
+  ],
+  "compiler_log_sha256": "04a71604444df1e8c37718155a926fdb85df50abffc8a4503cd389fa5da449c1",
+  "cross_root_wasm_sha256": "d2127ae1066c77b994312925e5d253c16a5eee184e71774962d83063836dbc12",
+  "cross_root_byte_identical": false,
+  "canonical_wasm_sha256": "be9803f94a30189ebe23ef2c2dae841dcbef4d8716e03017e85eb0e00f2eb48d",
+  "same_root_wasm_sha256": "be9803f94a30189ebe23ef2c2dae841dcbef4d8716e03017e85eb0e00f2eb48d",
+  "same_root_byte_identical": true,
+  "wasm_bytes": 29755,
+  "inputs_sha256": {
+    "rust/general_engine/src/lib.rs": "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4",
+    "rust/general_engine/Cargo.toml": "a7fd1434bf7fe39cc0771290e27264fff10f37cf28edcc886f77231853bb61a7",
+    "rust/general_engine/Cargo.lock": "31ef5e30d1a1c8be92736728d84cda5ff923f9b1a205848258f7f8d80d78193f",
+    "rust/transformer/Cargo.toml": "554a408077e200a9ac7e99cf77ec89df875065bde3ff16ce0247d9ba75065979",
+    "rust/transformer/src/lib.rs": "c40db98f55fdd44d653c24b66bb8e1b31555e2ba595a99dec2dae5d61b6d23fd",
+    "rust/general_engine_wasm/Cargo.toml": "f3178bd6302fdb012c14c66392fab1e4fee1f3e1ade3ab4e8eeda0d8ec74407e",
+    "rust/general_engine_wasm/Cargo.lock": "9bca5b0191a2c7dc752b2ad4ec23f39b14e0bda200abc6b73e2fe5217adeadda",
+    "rust/general_engine_wasm/.cargo/config.toml": "6f4f58087f630f463709bba6857b38c61c895f24a8325070f3362bd3cf725966",
+    "rust/general_engine_wasm/src/lib.rs": "d227eb53ba43021b18579ee37c386d917e5bbbda12f3a435e75dad91fe8997cf",
+    "rust/rust-toolchain.toml": "f2ae6f783e147aae3d374eb2f582a90ae73c304082177f989a01ecc5d305388c",
+    "web/build.sh": "917c76731f76338d8eb36895acb28d5010ac7054aeeb6371345cb55205b8b196"
+  }
+}

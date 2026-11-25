@@ -1,0 +1,8 @@
+{"processId":54108,"stderrOffset":0,"stdoutOffset":0,"type":"attached"}
+{"data":"Running as unit: lcn-kernels-Zcsiifbe.scope; invocation ID: bb791d1f9bca4b7e9839e5ab847ef8af\n","nextOffset":93,"type":"stderr"}
+{"data":"start ordinary at 2026-11-23T02:50:23Z with 120s\n","nextOffset":49,"type":"stdout"}
+{"data":"end ordinary exit 0\nstart fresh at 2026-11-23T02:50:27Z with 1750s\n","nextOffset":116,"type":"stdout"}
+{"data":"end fresh exit 0\nstart export at 2026-11-23T02:53:57Z with 960s\n","nextOffset":180,"type":"stdout"}
+{"data":"end export exit 0\nstart nanoda at 2026-11-23T02:54:03Z with 925s\n","nextOffset":245,"type":"stdout"}
+{"data":"end nanoda exit 0\n","nextOffset":263,"type":"stdout"}
+{"exitCode":0,"signal":null,"status":"exited","stderrOffset":93,"stdoutOffset":263,"type":"exit"}

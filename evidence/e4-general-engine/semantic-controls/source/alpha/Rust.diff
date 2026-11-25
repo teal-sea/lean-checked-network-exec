@@ -1,0 +1,11 @@
+--- pristine/src/lib.rs
++++ alpha/src/lib.rs
+@@ -18,7 +18,7 @@
+ pub const EXP_FRAC_BITS: u32 = 30;
+ pub const EXP_N_LEN: i64 = 32;
+ /// A softmax weight of 1, scale 2^24.
+-pub const ALPHA_ONE: i64 = 1 << 24;
++pub const ALPHA_ONE: i64 = 1 << 23;
+ 
+ /// One transformer layer. Fixed dimensions enforce every shape requirement at the Rust type
+ /// boundary.

@@ -1,0 +1,11 @@
+import LcnExec.GeneralEngine.MlpOutput
+open Aeneas Aeneas.Std Result
+open LcnExec.GeneralEngine
+example (W : general_engine.Weights) (hW : LoadBounds W) (l : Usize) (hl : l.val < 2)
+    (m : Array I64 512#usize) (hm : Bounded Envelope.hidden m) :
+    general_engine.mlp_output W l m ⦃ o =>
+      ints o = GeneralModel.mlpOutput (toGeneralModel W) l.val (ints m) ∧
+      Bounded Envelope.mlp_output o ⦄ :=
+  mlp_output_spec W hW l hl m hm
+#print axioms LcnExec.GeneralEngine.mlp_output_spec
+#print axioms LcnExec.GeneralEngine.mlp_output_entry_probe

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_79wbtsvqgcj9",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:46:18.716Z",
+  "launcherFailed": false,
+  "noticedMs": 5,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 5,
+  "startedAt": "2026-11-23T02:45:50.262Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-correct-package-AOH6rONx\n4e453ef3700df5790dd99ff10dc5a34d55dc4e0e92c7b81ada4cb66f2210834f  /home/user/e4/qa-correct-package-AOH6rONx.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

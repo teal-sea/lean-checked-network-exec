@@ -1,0 +1,46 @@
+{
+  "base": "7716898abdd19b9edf84122cf75749b6f066f1c9",
+  "worker_checkpoint": "e75e6f83afc34be45d7b718b2af5fdab42045c28",
+  "module_paths": {
+    "ForwardInputs": "lean/LcnExec/GeneralEngine/ForwardInputs.lean",
+    "ForwardStack": "lean/LcnExec/GeneralEngine/ForwardStack.lean"
+  },
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Build": 0,
+    "TypedAudit": 0
+  },
+  "sources_sha256": {
+    "ForwardInputs": "ffeaae7d43e89192e280b1ba6e3fe83f54daa4aa9459a663e053a2b6199c68d0",
+    "ForwardStack": "b08ad788bcdd377562b04c080fd60117257f74b062165ff15339e2b278f2d219"
+  },
+  "axioms": [
+    "'LcnExec.GeneralEngine.tokens_invalid_eq_false_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LcnExec.GeneralEngine.forward_logits_loop0_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LcnExec.GeneralEngine.embed_all_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LcnExec.GeneralEngine.forward_logits_loop1_spec' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "command_id": "cmd_wilkhwnu1cfg",
+  "scope": "Exact token validity, embedding and full active layer stack proven against the model. The public forward_logits and predict_next wrappers and assembly are not yet proved by this package.",
+  "files_sha256": {
+    "ForwardInputs.lean.txt": "ffeaae7d43e89192e280b1ba6e3fe83f54daa4aa9459a663e053a2b6199c68d0",
+    "ForwardStack.lean.txt": "b08ad788bcdd377562b04c080fd60117257f74b062165ff15339e2b278f2d219",
+    "Typed.lean.txt": "de8360202c5d4e1a93cc31a8115b11ab170cd8e668f9d79baefa6ddc7663ffda",
+    "Build.log": "bbf00b1184e28df16ed703e49b20c4775b9e7357635b75bc3f4e2226dfbd255f",
+    "Audit.log": "d292a9d567216f44771e01c5a09a251ec1f1b795fc1398a0536ade49352bcc51",
+    "exit.txt": "0ccdb5a77ba5bf7687f2565a8ed97dfb9c1af45503c496fb646312239fab5101",
+    "FirstReplay-ForwardInputs.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "FirstReplay-ForwardInputs.lean.txt": "ffeaae7d43e89192e280b1ba6e3fe83f54daa4aa9459a663e053a2b6199c68d0",
+    "FirstReplay-ForwardInputs.log": "0d0316104f10c319157fad36cfcc7f9b0bde3c26456b1d8bdac08cc0875d9d7f",
+    "FirstReplay-ForwardStack.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "FirstReplay-ForwardStack.lean.txt": "b08ad788bcdd377562b04c080fd60117257f74b062165ff15339e2b278f2d219",
+    "FirstReplay-ForwardStack.log": "4b3b6a21e426a98483a6b2816134410507aa7fc14ace4c733d5ac0de7aa7836c",
+    "FirstReplay-boat-command.json": "b6c9f67eacb48e7f138ffe89f7de9043cb5e6c6d49f1b408eb8c0d265d294b20",
+    "FirstReplay-proofs.tar.gz": "93a99a8d4cc57bc9a87a49efb927e269b5d6d3367342d1c0699fb43297ebc095",
+    "FirstReplay.json": "91e826159d1795a4c910eed279e73a8032f6ca345d7d3d2d2c70001f6801daf3",
+    "Package.tar.gz": "206d86643d23472ce9a17dbf84dce798eb407157456f54ee4f19522160fee81d",
+    "boat-command.json": "adfe60b0a5773b0410c3a93661b706bf7c0e9a655c0853a720477cfe3bfe27b0",
+    "FORWARD-INPUTS-AND-STACK.md": "a109cdbeadd998db2586ba12692c6aee35411c7679bf02682008d884153b66f2"
+  }
+}

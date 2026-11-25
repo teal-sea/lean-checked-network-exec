@@ -1,0 +1,51 @@
+{
+  "scope": "Independently verified standalone value-preparation contract, including exact value rows, their previous bound, and unchanged weights. Not yet an importable library proof; not projection, full attention, or engine correctness.",
+  "worker": {
+    "commit": "229527d60c11b833c7415cb35b925747636fdbbc",
+    "base": "da019db1a9c9222d431e97a94f792ef086f6f794",
+    "process": "proc_327b32e719fe",
+    "admission": 2236,
+    "generation": 12,
+    "model": "alibaba-token-plan/glm-5.3",
+    "runtime_provider": "hp-gateway",
+    "fallback_active": false
+  },
+  "independent_replay": {
+    "boat_box": "bx_9m9mrg3q",
+    "rental_end": "2026-11-22T00:29:12.112Z",
+    "command_id": "cmd_apff5qafxgvx",
+    "started_at": "2026-11-22T00:26:22.809Z",
+    "finished_at": "2026-11-22T00:26:33.728Z",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "compiler_hashes": {
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1"
+    },
+    "exits": {
+      "exact_source": 0,
+      "source_with_print_axioms": 0
+    },
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "warnings": 0,
+    "olean": null
+  },
+  "files_sha256": {
+    "ValuePreservation.lean.txt": "9ef3526ece61b8fc70d4e71a741351a638a5d6c2f9d2ca6138a7fc11dc5020ae",
+    "ValuePreservationAudit.lean.txt": "86effbc32b0c2a6ea954789e347a310df41b06fff860d601d474a15ff76c48e4",
+    "independent-boat-replay.json": "db88ffe9a721d1c68719bb19ea6067fadaeb47c0cb8ef97d5767eab922f5d5fa",
+    "vp1.log": "f5d898c55c8f322104ad149809bd43b90c744356016d6dedfcace3733d7fb584",
+    "vp2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vp_ax.log": "f6550f98d22ab9ea8239516398cac0ccdaf3bc9f5e563159e88bae15abb3e14c"
+  },
+  "unchanged_paths": [
+    "lean",
+    "rust",
+    "gates",
+    "weights",
+    "web"
+  ]
+}

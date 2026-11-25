@@ -1,0 +1,73 @@
+{
+  "scope": "Unproved and excluded from acceptance. The already-checked attention scoring module still builds; the first value-vector lemma does not.",
+  "worker_commit": "025cf8a820017465341f0ad54cb05ed4fafcc225",
+  "admission": 2229,
+  "completion": "proc_cc63620bbd50",
+  "model": "alibaba-token-plan/glm-5.3",
+  "remote_command": "cmd_rhxzey1xdj54",
+  "box": "bx_9m9mrg3q",
+  "toolchain": "Lean 4.35.0",
+  "draft_sha256": "653235e8ca678a297e75866687986ef6c8b01bd35037d120d5c1c756399a3326",
+  "placeholder_count": 3,
+  "remote_quarantine": "/home/user/e4/qa-valuevectors-025cf8a/ValueVectors.uncompiled.lean.txt",
+  "build_exits": {
+    "value_vector_draft": 1,
+    "attention_scoring_after_quarantine": 0
+  },
+  "draft_diagnostics": [
+    {
+      "line": 27,
+      "column": 13,
+      "message": "Application type mismatch: The argument"
+    },
+    {
+      "line": 44,
+      "column": 15,
+      "message": "Application type mismatch: The argument"
+    },
+    {
+      "line": 44,
+      "column": 28,
+      "message": "Type mismatch: After simplification, term"
+    },
+    {
+      "line": 70,
+      "column": 35,
+      "message": "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    },
+    {
+      "line": 70,
+      "column": 57,
+      "message": "`simp` made no progress"
+    },
+    {
+      "line": 73,
+      "column": 6,
+      "message": "Step failed: could not find a local assumption or a theorem to apply"
+    }
+  ],
+  "archive": {
+    "name": "valuevectors-red.tar.gz",
+    "sha256": "8adbb2fce3f7913bfdde74972515d2cee7560ed13444e3151d68e5295521ca94",
+    "member_sha256": {
+      "ValueVectors.uncompiled.lean.txt": "653235e8ca678a297e75866687986ef6c8b01bd35037d120d5c1c756399a3326",
+      "ValueVectors.log": "c28f1bde6cc8473eb029ead9abf17ba733fcac7dde7e556ebd8e929be8b7f8eb",
+      "ValueVectors.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "VerifiedAttention.log": "e1200a640db51938e9cf9b1b9047a7cba8a81c36e2b91ed69271f43941d3b640",
+      "VerifiedAttention.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "classification": "The draft was not imported by another module, but the library glob .andSubmodules LcnExec includes it. The exact uncompiled bytes were removed from the guest build tree, not deleted, and archived locally.",
+  "worktree_quarantine_commit": "6a0cc71799bcc08f1d1e135389f37671056ccd56",
+  "interface_probe": {
+    "remote_command": "cmd_hkzpxmnuycyn",
+    "exit": 0,
+    "source_sha256": "6ff3c34acea7e868d65672f4348f38b499df73ec10c0a629b7b18da4210dd661",
+    "log_sha256": "cb4ac6e69375c13d2ef99414f4d7a203863e1c70df7fac4aa21db762165c3629",
+    "scoring_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

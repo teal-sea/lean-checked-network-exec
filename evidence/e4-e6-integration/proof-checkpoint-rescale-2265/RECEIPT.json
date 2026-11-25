@@ -1,0 +1,122 @@
+{
+  "base": "1cef7d2618517a4aaa4a4e117b585438b3fc1577",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2265,
+  "generation": 35,
+  "process": "proc_bab5d67738e3",
+  "termination": {
+    "http": 400,
+    "code": "data_inspection_failed",
+    "request_id": "chatcmpl-f11b1852-ffac-44fc-b0be-9c72b05cf598"
+  },
+  "source_sha256": "c4d41a8fb72ccc75a1eb639bf866818f8d6b53107b01c0fbe0c4b2e369ee70fc",
+  "dependency_sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+  "exit": 1,
+  "errors": [
+    [
+      "57",
+      "60",
+      "unsolved goals"
+    ],
+    [
+      "89",
+      "12",
+      "Type mismatch"
+    ],
+    [
+      "94",
+      "25",
+      "Tactic `rewrite` failed: motive is not type correct:"
+    ],
+    [
+      "123",
+      "14",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ],
+    [
+      "127",
+      "47",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ],
+    [
+      "128",
+      "23",
+      "failed to synthesize instance of type class"
+    ],
+    [
+      "128",
+      "48",
+      "unsolved goals"
+    ],
+    [
+      "128",
+      "61",
+      "unsolved goals"
+    ],
+    [
+      "137",
+      "16",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ],
+    [
+      "144",
+      "49",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ],
+    [
+      "146",
+      "45",
+      "Application type mismatch: The argument"
+    ],
+    [
+      "156",
+      "14",
+      "omega could not prove the goal:"
+    ],
+    [
+      "159",
+      "14",
+      "omega could not prove the goal:"
+    ],
+    [
+      "164",
+      "49",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ],
+    [
+      "167",
+      "37",
+      "Application type mismatch: The argument"
+    ],
+    [
+      "174",
+      "6",
+      "unsolved goals"
+    ],
+    [
+      "186",
+      "6",
+      "maximum recursion depth has been reached"
+    ]
+  ],
+  "archive": "rescale-inner2-replay.tar.gz",
+  "archive_sha256": "62be2e7276fd7563a83121ca01b44817786fd16f54f127d576f400ba63e6ce6d",
+  "command_id": "cmd_kjqmfpwz7a1x",
+  "finished_at": "2026-11-22T22:52:10.303Z",
+  "files_sha256": {
+    "RescaleInner2.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "RescaleInner2.lean.txt": "c4d41a8fb72ccc75a1eb639bf866818f8d6b53107b01c0fbe0c4b2e369ee70fc",
+    "RescaleInner2.log": "78fa6615d06b0147dbe23f0ee1bb95cb2fa0bb80fa962b51dfc6d4713fa6961b",
+    "boat-command.json": "ee6209fb90406bbba7d2376ed1220c8ae3520afda396c8537db50bd1ddf3b30c",
+    "rescale-inner2-replay.tar.gz": "62be2e7276fd7563a83121ca01b44817786fd16f54f127d576f400ba63e6ce6d",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "rcfix8.py.txt": "bfcaabcebec8ab76418e46c8b492eea9021085a7b9663ecb9130f3194714f33c"
+  },
+  "scope": "Latest interrupted inner clamp draft. Exact replay failed to elaborate, with no clamp loop accepted. Provider rejected one request; no account denial or rate limit established.",
+  "unapplied_patch": {
+    "path": "rcfix8.py.txt",
+    "sha256": "bfcaabcebec8ab76418e46c8b492eea9021085a7b9663ecb9130f3194714f33c",
+    "applied": false
+  }
+}

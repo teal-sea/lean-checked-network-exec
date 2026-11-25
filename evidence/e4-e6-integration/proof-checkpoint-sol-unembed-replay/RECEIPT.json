@@ -1,0 +1,50 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Inner": 1,
+    "Outer": 125,
+    "Audit": 125
+  },
+  "errors": {
+    "Inner": [
+      [
+        "63",
+        "8",
+        "Type mismatch: After simplification, term"
+      ],
+      [
+        "119",
+        "14",
+        "Application type mismatch: The argument"
+      ]
+    ],
+    "Outer": [],
+    "Audit": []
+  },
+  "warnings": {
+    "Inner": 0,
+    "Outer": 0,
+    "Audit": 0
+  },
+  "inner_sha256": "19d3a1346e79e011243107068b013a28db801b1065210cfdb09b36f161dd305e",
+  "outer_sha256": "d74f8aac233af3bc05f6064fb6fcca21de9938611b81266e5b969340a63fe2e8",
+  "command_id": "cmd_mjjj0e8y4qku",
+  "finished_at": "2026-11-23T01:57:57.944Z",
+  "files_sha256": {
+    "Audit.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Inner.log": "bc1858c0766aeebd526a964572e928119d11f7b76c7e94b70fd8c9900c9b1483",
+    "Outer.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "TypedAudit.lean.txt": "f0923fed83f50f87919375259c824670ba61f0986e921bb967a253aa8b450538",
+    "Unembed.lean.txt": "d74f8aac233af3bc05f6064fb6fcca21de9938611b81266e5b969340a63fe2e8",
+    "UnembedInner.lean.txt": "19d3a1346e79e011243107068b013a28db801b1065210cfdb09b36f161dd305e",
+    "boat-command.json": "55aeba144872ca728da0c75620953e2c42a8721bf680d03f85e11c7ffeae089c",
+    "exit.txt": "40b4a55cd08bd62f2801083b042d403602d00d088ce3913dd8f9131935b4cd1d",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "unembed-replay.tar.gz": "4638e88084206b38c1c1e7420aec0bd6d180165e044802a41eaefabf38f5d4ea",
+    "ENGINE-BOX-WINDOW.json": "f2e18286dd90b4aa804ec3a983d160171da92556bacfcd863a93140c6b62c55a",
+    "replay-unembed.py": "e14e2b0a72afe9e490e305cb7f7725f8d377270dc7b414c1362cd03058f387d9"
+  },
+  "base": "da4aa9c312a2cb47951b21657d105f1b55b738c9",
+  "scope": "Exact first replay. Inner proof rejected at two sites; outer proof and typed import not run."
+}

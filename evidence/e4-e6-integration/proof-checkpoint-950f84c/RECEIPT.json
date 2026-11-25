@@ -1,0 +1,78 @@
+{
+  "worker": {
+    "commit": "950f84c706be08acf2b3074fd60a79bfb26b2d82",
+    "base": "ff985e46cc50d620485d39b3eb677eb6dab8292d",
+    "admission": 2240,
+    "generation": 16,
+    "process": "proc_e205109d1a58",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-22T16:50:24.254Z",
+    "command_id": "cmd_drcdvwyx11od",
+    "finished_at": "2026-11-22T16:44:19.069Z",
+    "exits": {
+      "Build": 0,
+      "Direct": 0,
+      "Audit": 0,
+      "FoldInterface": 0
+    },
+    "warnings": {
+      "Build": 18,
+      "Direct": 0,
+      "Audit": 0,
+      "FoldInterface": 0
+    },
+    "axioms": {
+      "nth_prefix_probe": "propext, Classical.choice, Quot.sound",
+      "softmax_prefix_probe": "propext, Classical.choice, Quot.sound",
+      "head_alpha_prefix_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "archive": "attention-prefix-replay.tar.gz",
+    "archive_sha256": "50cb74411f4afab79462110ec6048457813ef822b0e7f31af15178f819d7e803",
+    "archive_member_sha256": {
+      "FoldInterface.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "FoldInterface.lean.txt": "f17262fc42f34c7d21249faa39e55a6548023c763c3b0e68c13fa3ef5af89b26",
+      "FoldInterface.log": "5f067f797aa9ba66d10736c02f9c851e943f8af43d7d7ca53d5c63e7337943ce",
+      "MEMBERS.sha256": "c753ee6a9a69edb686a88d2822bd4eef0f9010afada9a7722c9d87c45d09385e",
+      "Build.log": "53c8efc758162a4f44f8ef90e451cebd417670b44080724bfbd9eee647604495",
+      "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+      "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "AttentionPrefix.olean": "62f3431c1374869c5d55f90a246e28f67e40bdfd414d18579b0c70c48ad2cc2a",
+      "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "AttentionPrefix.lean.txt": "940d14f74782f66af865ff4f8d3055055709c17c10bf3c3e726b71731b37e765",
+      "Audit.lean.txt": "61b3e1ccbfc5065f273b07a69b243694107706b02fb64fa8bab3ff14f05647cf",
+      "Audit.log": "2b7fa416d0dbab2953449262f8414f5c84579b41bdda603bc04590d853de2645",
+      "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\nbf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean\n8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake\n"
+  },
+  "scope": "The three active-prefix bridges passed library build, direct elaboration, exact typed tests and axiom audit. The next two interfaces passed in scratch only. No four-head fold or attention_at_spec yet.",
+  "fold_interface_scratch": {
+    "installed": false,
+    "source_sha256": "f17262fc42f34c7d21249faa39e55a6548023c763c3b0e68c13fa3ef5af89b26",
+    "axioms": {
+      "att_fold_succ_probe": "propext, Quot.sound",
+      "att_alpha_nonneg_probe": "propext, Classical.choice, Quot.sound"
+    }
+  },
+  "files_sha256": {
+    "FoldInterface.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "FoldInterface.lean.txt": "f17262fc42f34c7d21249faa39e55a6548023c763c3b0e68c13fa3ef5af89b26",
+    "FoldInterface.log": "5f067f797aa9ba66d10736c02f9c851e943f8af43d7d7ca53d5c63e7337943ce",
+    "MEMBERS.sha256": "c753ee6a9a69edb686a88d2822bd4eef0f9010afada9a7722c9d87c45d09385e",
+    "Build.log": "53c8efc758162a4f44f8ef90e451cebd417670b44080724bfbd9eee647604495",
+    "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+    "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "AttentionPrefix.lean.txt": "940d14f74782f66af865ff4f8d3055055709c17c10bf3c3e726b71731b37e765",
+    "Audit.lean.txt": "61b3e1ccbfc5065f273b07a69b243694107706b02fb64fa8bab3ff14f05647cf",
+    "Audit.log": "2b7fa416d0dbab2953449262f8414f5c84579b41bdda603bc04590d853de2645",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "boat-command.json": "804704823b716434a618cd8c35be391b59a36fb7d32452ff8927fef35b5a80ad",
+    "worker-att-prefix-install.log": "99088141eb3005d896dfe6426d9bad9bdd6bd953b791d372640fad2067ee4e5c"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "scope": "Installed value scan preserves weights and retains the previous contract. Installed inner dot loop computes the exact signed projection for any valid output coordinate within the fixed bounds. Both compiled and typed contracts checked. The installed projection has lint warnings; a separate scratch repair passes without warnings and was not installed. No outer projection, full head, attention, or whole-engine claim.",
+  "worker": {
+    "process": "proc_5bf73b47e842",
+    "admission": 2237,
+    "generation": 13,
+    "base": "229527d60c11b833c7415cb35b925747636fdbbc",
+    "commit": "680b691d21c55cd58d93705c81f4629357724981",
+    "route": "alibaba-token-plan/glm-5.3",
+    "fallback_active": false
+  },
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "rental_end": "2026-11-22T04:24:53.429Z",
+    "command": "cmd_epcomjosjflj",
+    "finished_at": "2026-11-22T02:52:00.096Z",
+    "exits": {
+      "Build": 0,
+      "DirectValue": 0,
+      "DirectProjection": 0,
+      "Audit": 0
+    },
+    "warning_count": {
+      "Build": 25,
+      "DirectValue": 0,
+      "DirectProjection": 7,
+      "Audit": 0
+    },
+    "axioms": {
+      "LcnExec.GeneralEngine.vals2": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.value_scan_weights_spec": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.value_scan_spec": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.woColumn": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.woColumn_length": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.head_out_proj_inner_spec": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.mix_scan_spec": "propext, Classical.choice, Quot.sound"
+    },
+    "archive": "independent-projection.tar.gz",
+    "archive_sha256": "83c68010d3c9088008c137a239141fdd314aef7331dd7f89e27d08029edf5059",
+    "archive_member_sha256": {
+      "DirectProjection.log": "cd12fb3db4c2f4157e55ec62cae026d0e71215b44ae0d76aeef1df9af17d2960",
+      "DirectValue.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "MEMBERS.sha256": "069b09da0d2643cd8356dd538719026a9c6693a6544f920c4866a39183f2bd7b",
+      "ValueScan.lean.txt": "0e41060e466ca9616eca77babe8d1488f7434834ab4ff4c4c32a9856ed8dd322",
+      "ProjectionInner.lean.txt": "ddf0782dd7f03743712e8f7f8d03bd55f58c075167bc004a6d455e700c0ad945",
+      "Build.log": "04485ff49365d3f22eebd200aa2176d629c34053fa895a490bb5c3633fb17d84",
+      "DirectProjection.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "ValueScan.olean": "3eb1e773ac98c6230fe9bc9b5df9b11771a4f6f41e62656c05785a541d69048f",
+      "IndependentAudit.lean.txt": "7054e40402da89ad53b6907ec8a3e97a96edd4789af8584b265f2b4a9824dc56",
+      "MixScan.olean": "dc5633b7c9d16c2e2081bdc8750c9fed3cc3785d2c5da4f26082d8a6ba13184f",
+      "toolchain.txt": "868a71ca3d553a23d90f9d8fa70c1de3648a2eca3f51882e4b47852915980966",
+      "ProjectionInner.olean": "1a9d1465c80079526ad64d0276d71e1f7a5e212e27846254f88924c86bc2e5f6",
+      "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.log": "f947e10a7a2075b2bdebce386ca6196a9967d80dc2aa768306628fbcfcc758f8",
+      "MixScan.lean.txt": "589c7ff3fe213eab3e2066c8055dd53c1d88ce0272890796e58806247e5018f7",
+      "DirectValue.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "lint_probe": {
+    "command": "cmd_zoq0knu2mzvr",
+    "finished_at": "2026-11-22T02:53:09.649Z",
+    "exits": {
+      "direct": 0,
+      "audit": 0
+    },
+    "warnings": 0,
+    "installed": false,
+    "source_sha256": "c0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd",
+    "audit_source_sha256": "c7add3c6f86e2b01ccb5e227e2668d8a23baa03f4248744c16ccd66adf44ab2d"
+  },
+  "files_sha256": {
+    "DirectProjection.log": "cd12fb3db4c2f4157e55ec62cae026d0e71215b44ae0d76aeef1df9af17d2960",
+    "DirectValue.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "MEMBERS.sha256": "069b09da0d2643cd8356dd538719026a9c6693a6544f920c4866a39183f2bd7b",
+    "ValueScan.lean.txt": "0e41060e466ca9616eca77babe8d1488f7434834ab4ff4c4c32a9856ed8dd322",
+    "ProjectionInner.lean.txt": "ddf0782dd7f03743712e8f7f8d03bd55f58c075167bc004a6d455e700c0ad945",
+    "Build.log": "04485ff49365d3f22eebd200aa2176d629c34053fa895a490bb5c3633fb17d84",
+    "DirectProjection.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "IndependentAudit.lean.txt": "7054e40402da89ad53b6907ec8a3e97a96edd4789af8584b265f2b4a9824dc56",
+    "toolchain.txt": "868a71ca3d553a23d90f9d8fa70c1de3648a2eca3f51882e4b47852915980966",
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.log": "f947e10a7a2075b2bdebce386ca6196a9967d80dc2aa768306628fbcfcc758f8",
+    "MixScan.lean.txt": "589c7ff3fe213eab3e2066c8055dd53c1d88ce0272890796e58806247e5018f7",
+    "DirectValue.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "boat-command.json": "aea4aa465ea64c137cf3fa83f0465bcd49392153e5a61a147cf6140ac9fbe200",
+    "ProjectionInnerLintProbe.lean.txt": "c0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd",
+    "ProjectionInnerLintProbeAudit.lean.txt": "c7add3c6f86e2b01ccb5e227e2668d8a23baa03f4248744c16ccd66adf44ab2d",
+    "projection-lints-command.json": "4728f1d27a7ae32fe24cb5f8d30469ff62d78d2cc496600e25af79208edacc47"
+  }
+}

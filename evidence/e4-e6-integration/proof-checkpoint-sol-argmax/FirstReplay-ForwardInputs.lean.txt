@@ -1,0 +1,218 @@
+import LcnExec.GeneralEngine.RescaleClamp
+
+set_option maxHeartbeats 800000
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- Valid tokens at every active position. The scan and embedding contracts ensure
+that the prefix fits in the token array. -/
+def ValidTokenPrefix (tokens : Array Usize 32#usize) (n : Nat) : Prop :=
+  ∀ p : Nat, p < n → (tokens.val[p]!).val < 256
+
+theorem tokens_invalid_eq_false_iff (tokens : Array Usize 32#usize)
+    (n : Nat) (hn : n ≤ 32) :
+    ((tokens.val.map (·.val)).take n).any (fun t => t ≥ 256) = false ↔
+      ValidTokenPrefix tokens n := by
+  let xs := tokens.val.map (·.val)
+  have hlen : (xs.take n).length = n := by
+    simpa only [xs, List.length_take, List.length_map, Array.length_eq] using
+      (Nat.min_eq_left hn)
+  have hget (p : Nat) (hp : p < n) :
+      (xs.take n)[p]'(by rwa [hlen]) = (tokens.val[p]!).val := by
+    dsimp only [xs]
+    rw [List.getElem_take, List.getElem_map,
+      getElem!_pos tokens.val p (by rw [Array.length_eq]; omega)]
+  change (xs.take n).any (fun t => decide (256 ≤ t)) = false ↔ ValidTokenPrefix tokens n
+  rw [List.any_eq_false]
+  constructor
+  · intro h p hp
+    have hp' : p < (xs.take n).length := by rwa [hlen]
+    have hi := h _ (List.getElem_mem hp')
+    rw [hget p hp] at hi
+    simpa only [decide_eq_true_eq, Nat.not_le] using hi
+  · intro h t ht
+    obtain ⟨p, hp, rfl⟩ := List.mem_iff_getElem.mp ht
+    have hp' : p < n := by simpa only [hlen] using hp
+    rw [hget p hp']
+    simpa only [decide_eq_true_eq, Nat.not_le] using h p hp'
+
+theorem forward_logits_loop0_spec (tokens : Array Usize 32#usize)
+    (seq_len : Usize) (hs : seq_len.val ≤ 32) :
+    general_engine.forward_logits_loop0 tokens seq_len true 0#usize ⦃ b =>
+      b = true ↔ ValidTokenPrefix tokens seq_len.val ⦄ := by
+  unfold general_engine.forward_logits_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : Bool × Usize) => seq_len.val - st.2.val)
+    (inv := fun (st : Bool × Usize) =>
+      st.2.val ≤ seq_len.val ∧ (st.1 = true ↔ ValidTokenPrefix tokens st.2.val))
+  · rintro ⟨b, p⟩ ⟨hp, hvalid⟩
+    unfold general_engine.forward_logits_loop0.body
+    dsimp only at hp hvalid ⊢
+    simp only [general_engine.VOCAB]
+    split
+    · have hpseq : p.val < seq_len.val := by scalar_tac
+      have hp32 : p.val < 32 := by omega
+      step as ⟨i, hi⟩
+      have hread : tokens.val[p.val]! = i := by
+        rw [getElem!_pos tokens.val p.val (by simpa using hp32)]
+        exact hi.symm
+      split
+      · rename_i hbad
+        have hibad : 256 ≤ i.val := by scalar_tac
+        have hbadPrefix : ¬ ValidTokenPrefix tokens (p.val + 1) := by
+          intro h
+          have hlt := h p.val (by omega)
+          rw [hread] at hlt
+          omega
+        step as ⟨p1, hp1⟩
+        simp only [hp1]
+        refine ⟨by omega, ?_, by omega⟩
+        simp [hbadPrefix]
+      · rename_i hgood
+        have higood : i.val < 256 := by scalar_tac
+        have happend : ValidTokenPrefix tokens (p.val + 1) ↔ ValidTokenPrefix tokens p.val := by
+          constructor
+          · intro h q hq
+            exact h q (by omega)
+          · intro h q hq
+            by_cases hqp : q < p.val
+            · exact h q hqp
+            · have he : q = p.val := by omega
+              subst q
+              rw [hread]
+              exact higood
+        step as ⟨p1, hp1⟩
+        simp only [hp1]
+        exact ⟨by omega, hvalid.trans happend.symm, by omega⟩
+    · have hpdone : p.val = seq_len.val := by scalar_tac
+      simp only [WP.spec_ok]
+      simpa only [hpdone] using hvalid
+  · refine ⟨by scalar_tac, ?_⟩
+    change true = true ↔ ValidTokenPrefix tokens 0
+    have hzero : ValidTokenPrefix tokens 0 := by
+      intro q hq
+      omega
+    simp [hzero]
+
+private theorem token_nth_eq (tokens : Array Usize 32#usize) (p : Nat) (hp : p < 32) :
+    GeneralModel.nth 0 (tokens.val.map (·.val)) p = (tokens.val[p]!).val := by
+  rw [project_nth_eq 0 (tokens.val.map (·.val)) p
+    (by rw [List.length_map, Array.length_eq]; exact hp)]
+  simp only [List.getElem_map]
+  rw [getElem!_pos tokens.val p (by simpa using hp)]
+
+theorem embed_all_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (tokens : Array Usize 32#usize) (seq_len : Usize) (hs : seq_len.val ≤ 32)
+    (hvalid : ValidTokenPrefix tokens seq_len.val) :
+    general_engine.embed_all W tokens seq_len ⦃ out =>
+      ints2 out =
+        GeneralModel.embedAll (toGeneralModel W) (tokens.val.map (·.val)) seq_len.val ∧
+      streams out ⦄ := by
+  unfold general_engine.embed_all general_engine.embed_all_loop
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array (Array I64 128#usize) 32#usize × Usize) =>
+      seq_len.val - st.2.val)
+    (inv := fun (st : Array (Array I64 128#usize) 32#usize × Usize) =>
+      st.2.val ≤ seq_len.val ∧
+      (∀ (q : Nat) (hq : q < 32) (hiq : q < st.2.val),
+        (ints2 st.1)[q]'(by rw [ints2_length]; exact hq) =
+          GeneralModel.embed (toGeneralModel W)
+            (GeneralModel.nth 0 (tokens.val.map (·.val)) q) q) ∧
+      (∀ (q : Nat) (hq : q < 32) (hiq : st.2.val ≤ q),
+        st.1.val[q]'(by simpa using hq) = Array.repeat 128#usize 0#i64) ∧
+      (∀ row ∈ st.1.val, Bounded Envelope.embedding row))
+  · rintro ⟨out, p⟩ ⟨hp1, heq, hsuf, hbd⟩
+    unfold general_engine.embed_all_loop.body
+    dsimp only at hp1 heq hsuf hbd ⊢
+    split
+    · have hpseq : p.val < seq_len.val := by scalar_tac
+      have hp : p.val < 32 := by omega
+      step as ⟨i, hi⟩
+      have hiread : (tokens.val[p.val]!).val = i.val := by
+        rw [getElem!_pos tokens.val p.val (by simpa using hp), hi]
+      have hit : i.val < 256 := by
+        rw [← hiread]
+        exact hvalid p.val hpseq
+      have htoken : GeneralModel.nth 0 (tokens.val.map (·.val)) p.val = i.val :=
+        (token_nth_eq tokens p.val hp).trans hiread
+      step with embed_spec W hW i p hit hp as ⟨row, hroweq, hrowbd⟩
+      step with Array.update_spec out p row (by simpa using hp) as ⟨a, ha⟩
+      step as ⟨p1, hp1'⟩
+      have hp1v : p1.val = p.val + 1 := by scalar_tac
+      simp only [hp1v]
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · intro q hq hiq
+        by_cases hqq : q = p.val
+        · subst q
+          have hset : (ints2 a)[p.val]'(by rw [ints2_length]; exact hp) = ints row := by
+            rw [ha]
+            simp only [ints2, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_self (by simp; omega)]
+          rw [hset, hroweq, htoken]
+        · have hval : (ints2 a)[q]'(by rw [ints2_length]; exact hq) =
+              (ints2 out)[q]'(by rw [ints2_length]; exact hq) := by
+            rw [ha]
+            simp only [ints2, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact heq q hq (by omega)
+      · intro q hq hiq
+        have hval : a.val[q]'(by simpa using hq) = out.val[q]'(by simpa using hq) := by
+          subst ha
+          simp only [Array.set_val_eq]
+          rw [List.getElem_set_ne (by omega)]
+        rw [hval]
+        exact hsuf q hq (by omega)
+      · intro r hr
+        rw [ha, Array.set_val_eq out p row] at hr
+        rcases List.mem_or_eq_of_mem_set hr with h | h
+        · exact hbd r h
+        · rw [h]
+          exact hrowbd
+    · have hpdone : p.val = seq_len.val := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · simp [ints2_length, GeneralModel.embedAll, GeneralModel.MAX_SEQ]
+      · intro q hq1 hq2
+        have hq : q < 32 := by simpa only [ints2_length] using hq1
+        have hmodel : (GeneralModel.embedAll (toGeneralModel W)
+            (tokens.val.map (·.val)) seq_len.val)[q]'hq2 =
+              if q < seq_len.val then
+                GeneralModel.embed (toGeneralModel W)
+                  (GeneralModel.nth 0 (tokens.val.map (·.val)) q) q
+              else GeneralModel.zeroRow := by
+          simp only [GeneralModel.embedAll, List.getElem_map,
+            List.getElem_range, GeneralModel.MAX_SEQ]
+        rw [hmodel]
+        by_cases hactive : q < seq_len.val
+        · rw [ite_eq_left hactive]
+          exact heq q hq (by omega)
+        · rw [ite_eq_right hactive]
+          have hrow : out.val[q]'(by simpa using hq) = Array.repeat 128#usize 0#i64 :=
+            hsuf q hq (by omega)
+          show (out.val.map ints)[q]'(by simpa using hq) = GeneralModel.zeroRow
+          simp only [List.getElem_map]
+          rw [hrow]
+          simp [ints, GeneralModel.zeroRow]
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_, ?_⟩
+    · intro q hq hiq
+      exact absurd hiq (Nat.not_lt.mpr (Nat.zero_le q))
+    · intro q hq hiq
+      show (List.replicate 32 (Array.repeat 128#usize 0#i64))[q]'(by simp; omega) =
+        Array.repeat 128#usize 0#i64
+      exact List.getElem_replicate hq
+    · intro row hrow
+      have hm : List.Mem row (List.replicate 32 (Array.repeat 128#usize 0#i64)) := hrow
+      have hzero : row = Array.repeat 128#usize 0#i64 := (List.mem_replicate.mp hm).2
+      rw [hzero]
+      intro v hv
+      rw [repeat_val_probe] at hv
+      have hvzero : v = 0#i64 := (List.mem_replicate.mp hv).2
+      rw [hvzero]
+      constructor <;> simp only [Envelope.embedding] <;> norm_num
+
+end LcnExec.GeneralEngine

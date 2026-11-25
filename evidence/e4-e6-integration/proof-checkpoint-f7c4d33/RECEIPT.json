@@ -1,0 +1,39 @@
+{
+  "scope": "The saved draft failed. A scratch version of the exact reference-fold bound reuses the same statement without the unused prefix nonnegativity detour; checked separately, not yet a library module. No proof of the generated outer loop.",
+  "worker_commit": "f7c4d33fa3090d7c3d617895a1b11085d1db2067",
+  "worker_admission": 2234,
+  "worker_proc": "proc_09ac2a2115cc",
+  "route": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "remote_command": "cmd_fcv1kcxjic43",
+  "finished_at": "2026-11-22T00:03:09.831Z",
+  "build_exits": {
+    "BoundProbe": 0,
+    "RawDraft": 1
+  },
+  "draft_error_positions": {
+    "BoundProbe": [],
+    "RawDraft": [
+      "95:24"
+    ]
+  },
+  "scratch_bound_checked": true,
+  "scratch_axioms": [
+    [
+      "LcnExec.GeneralEngine.mix_fold_bound",
+      "propext, Classical.choice, Quot.sound"
+    ]
+  ],
+  "archive": {
+    "name": "mixbound-probes.tar.gz",
+    "sha256": "bae5a01167b018c62a836fde370a2fc018c646861fce8db68d4df3d0e8535f28",
+    "member_sha256": {
+      "BoundProbe.log": "820ab90ae640c85c095e5ccb8d81951b3c79a61e9c1d4e28163173f631ecea1f",
+      "RawDraft.log": "5ec35c6bd0da7b08d4b6aa80d49821a59463ae2832c4b5f18eb0713879e12c4e",
+      "BoundProbe.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "RawDraft.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "BoundProbe.lean.txt": "f7b308b68017ab9a49b5b439cd0652b06cb554f29cb91ef7ff1bbfb3846245d0",
+      "RawDraft.lean.txt": "c6b6122761c101f1dec7c7fb631c85d376f3c89e2118684cbf8f0c5a348f9eb9"
+    }
+  }
+}

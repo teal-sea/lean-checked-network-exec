@@ -1,0 +1,39 @@
+{
+  "base": "e75e6f83afc34be45d7b718b2af5fdab42045c28",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exit": 1,
+  "errors": [
+    [
+      "57",
+      "18",
+      "Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce"
+    ],
+    [
+      "81",
+      "66",
+      "unsolved goals"
+    ],
+    [
+      "175",
+      "6",
+      "unsolved goals"
+    ]
+  ],
+  "warnings": 3,
+  "source_sha256": "c1cba77e04d22ffc218eb366665e1265e618d6e9354a4d236f6bf6471d5a6ca8",
+  "command_id": "cmd_xmffwhaairmh",
+  "finished_at": "2026-11-23T02:40:27.318Z",
+  "files_sha256": {
+    "Correct.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "Correct.lean.txt": "c1cba77e04d22ffc218eb366665e1265e618d6e9354a4d236f6bf6471d5a6ca8",
+    "Correct.log": "cc179e595cf799665d8b6ae6b261ec81900588973f983a6b2c916d19b1e882a1",
+    "boat-command.json": "2e5e9cb6f2a70f5217d8ca87a713b7519fc9a01e3967677de7290d1aca40700c",
+    "proof.tar.gz": "f3185d6463423abb8265262dc306c6c992c8cc6b7fafff15f6e2902ff6e991fb",
+    "FIX-CORRECT-WRAPPERS.md": "30c96e635ad862365b29fed0743a27f9487d10d575a199fcb9fe19e20bc209fe",
+    "first-exit.json": "a8bacd1d7a8c90763c811a6e416217811e7f01d36f785e61eb7406b33af73fee",
+    "first-dispatch.json": "9b6db119d2300a4c11cd06ec03cad310d9e6a861fd94ee1d204a16505a7e3e7a"
+  },
+  "worker_checkpoint": "3aec9c8e1fa78d4535645d87eff48500a658a970",
+  "scope": "Worker timed out (124); exact saved draft independently replayed and rejected (Lean 1). Not installed."
+}

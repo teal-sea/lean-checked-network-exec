@@ -1,0 +1,40 @@
+{
+  "scope": "isolated Chromium against task-owned 127.0.0.1 HTTP",
+  "pass": false,
+  "started": "2026-11-23T03:39:18.570Z",
+  "checks": {},
+  "requests": [],
+  "exceptions": [],
+  "mode": "browser-replay",
+  "origin": "http://127.0.0.1:44829",
+  "chromiumCommand": [
+    "/usr/bin/taskset",
+    "-c",
+    "14,15",
+    "/home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-chromium-short-tmp.sh",
+    "--headless",
+    "--remote-debugging-pipe",
+    "--disable-gpu",
+    "--disable-background-networking",
+    "--disable-component-update",
+    "--disable-dev-shm-usage",
+    "--disable-sync",
+    "--no-first-run",
+    "--no-default-browser-check",
+    "--no-proxy-server",
+    "--renderer-process-limit=1",
+    "--window-size=1440,1050",
+    "--user-data-dir=/home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-final-package-replay/package/evidence/e6-wasm/browser-run-0W2EaS/profile",
+    "about:blank"
+  ],
+  "error": {
+    "message": "write EPIPE",
+    "code": "EPIPE",
+    "stack": "Error: write EPIPE\n    at afterWriteDispatched (node:internal/stream_base_commons:138:10)\n    at writeGeneric (node:internal/stream_base_commons:126:10)\n    at Socket._writeGeneric (node:net:1324:11)\n    at Socket._write (node:net:1336:8)\n    at writeOrBuffer (node:internal/streams/writable:574:12)\n    at _write (node:internal/streams/writable:503:10)\n    at Writable.write (node:internal/streams/writable:512:10)\n    at /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-final-package-replay/package/scripts/e6_browser_replay.js:103:22\n    at new Promise (<anonymous>)\n    at /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-final-package-replay/package/scripts/e6_browser_replay.js:96:46"
+  },
+  "chromiumExit": {
+    "code": 126,
+    "signal": null
+  },
+  "finished": "2026-11-23T03:39:18.628Z"
+}

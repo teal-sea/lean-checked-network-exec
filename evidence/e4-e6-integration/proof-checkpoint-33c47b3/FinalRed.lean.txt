@@ -1,0 +1,215 @@
+import LcnExec.GeneralEngine.MlpOutput
+
+set_option maxHeartbeats 800000
+
+/-!
+# The final residual stream `general_engine.final_stream`
+
+`(r[k] * 256 + o[k]) >> 16` over the 128 entries, exactly `GeneralModel.finalStream`
+and `Bounded Envelope.final_stream`.
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem final_stream_getElem : ∀ (xs ys : List Int) (i : Nat),
+    i < xs.length → i < ys.length → xs.length = ys.length →
+    (GeneralModel.finalStream xs ys)[i]! =
+      Int.shiftRight (xs[i]! * 256 + ys[i]!) 16
+  | [], _, i, hx, _, _ => by simp at hx
+  | _, [], i, _, hy, _ => by simp at hy
+  | x :: xs, y :: ys, 0, _, _, _ => by simp [GeneralModel.finalStream]
+  | x :: xs, y :: ys, i' + 1, hx, hy, hlen => by
+      have hlen' : xs.length = ys.length := by simpa using hlen
+      have hrec := final_stream_getElem xs ys i'
+        (by simp at hx; omega) (by simp at hy; omega) hlen' 
+      simp only [GeneralModel.finalStream]
+      rw [List.getElem_cons_succ]
+      exact hrec
+
+theorem final_stream_length (xs ys : List Int) (h : xs.length = ys.length) :
+    (GeneralModel.finalStream xs ys).length = xs.length := by
+  induction xs generalizing ys with
+  | nil => cases ys <;> rfl
+  | cons x xs ih =>
+      match ys, h with
+      | [], h => exact absurd h (by simp)
+      | y :: ys, h => simpa [GeneralModel.finalStream] using ih ys (by simp at h; omega)
+
+theorem final_stream_spec (r o : Array I64 128#usize)
+    (hr : Bounded Envelope.residual r) (ho : Bounded Envelope.mlp_output o) :
+    general_engine.final_stream r o ⦃ fin =>
+      ints fin = GeneralModel.finalStream (ints r) (ints o) ∧
+      Bounded Envelope.final_stream fin ⦄ := by
+  unfold general_engine.final_stream general_engine.final_stream_loop
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array I64 128#usize × Usize) => 128 - st.2.val)
+    (inv := fun (st : Array I64 128#usize × Usize) =>
+      st.2.val ≤ 128 ∧
+      Bounded Envelope.final_stream st.1 ∧
+      (∀ (k : Nat) (hk : k < 128) (hik : k < st.2.val),
+        (ints st.1)[k]'(by rw [ints_length128]; omega) =
+          Int.shiftRight ((ints r)[k]'(by rw [ints_length128]; omega) * 256 +
+            (ints o)[k]'(by rw [ints_length128]; omega)) 16) ∧
+      (∀ (k : Nat) (hk : k < 128) (hik : ¬ k < st.2.val),
+        st.1.val[k]'(by simp; omega) = 0#i64))
+  · rintro ⟨f1, k⟩ ⟨hk1, hbd, heq, hsuf⟩
+    unfold general_engine.final_stream_loop.body
+    dsimp only at hk1 hbd heq hsuf ⊢
+    simp only [general_engine.D_MODEL]
+    split
+    · have hk128 : k.val < 128 := by scalar_tac
+      step as ⟨iv, hiv⟩
+      have hrb : -5253256708096 ≤ iv.val ∧ iv.val ≤ 5253256708096 := by
+        have hmem : iv.val ∈ (ints r) := by
+          change iv.val ∈ r.val.map (fun v => v.val)
+          refine List.mem_map.mpr ⟨r.val[k.val]!, ?_, ?_⟩
+          · rw [getElem!_pos _ k.val (by simp; omega)]
+            exact List.getElem_mem (by simp; omega)
+          · rw [getElem!_pos _ k.val (by simp; omega), hiv]
+        have hmem : r.val[k.val]'(by simp; omega) ∈ r.val :=
+          List.getElem_mem (by simp; omega)
+        have hbound := hr _ hmem
+        rw [← hiv] at hbound
+        exact hbound
+      have hminm : I64.min ≤ iv.val * (256#i64).val := by
+        have hpp := hrb
+        scalar_tac
+      have hmaxm : iv.val * (256#i64).val ≤ I64.max := by
+        have hpp := hrb
+        scalar_tac
+      step with I64.mul_spec hminm hmaxm as ⟨i1, hi1⟩
+      step as ⟨i2v, hi2⟩
+      have hob : -8160491815779172352 ≤ i2v.val ∧ i2v.val ≤ 8160491815779172352 := by
+        have hmem : i2v.val ∈ (ints o) := by
+          change i2v.val ∈ o.val.map (fun v => v.val)
+          refine List.mem_map.mpr ⟨o.val[k.val]!, ?_, ?_⟩
+          · rw [getElem!_pos _ k.val (by simp; omega)]
+            exact List.getElem_mem (by simp; omega)
+          · rw [getElem!_pos _ k.val (by simp; omega), hi2]
+        have hmem : o.val[k.val]'(by simp; omega) ∈ o.val :=
+          List.getElem_mem (by simp; omega)
+        have hbound : -8160491815779172352 ≤ (o.val[k.val]'(by simp; omega)).val ∧
+            (o.val[k.val]'(by simp; omega)).val ≤ 8160491815779172352 := ho _ hmem
+        have hget : o.val[k.val]'(by simp; omega) = i2v := hi2.symm
+        rw [hget] at hbound
+        exact hbound
+      have hmina : I64.min ≤ i1.val + i2v.val := by
+        rw [hi1]
+        have h3 := hrb
+        have h4 := hob
+        scalar_tac
+      have hmaxa : i1.val + i2v.val ≤ I64.max := by
+        rw [hi1]
+        have h3 := hrb
+        have h4 := hob
+        scalar_tac
+      step with I64.add_spec hmina hmaxa as ⟨i3, hi3⟩
+      step as ⟨i4, hi4⟩
+      step with Array.update_spec f1 k i4 (by simp; omega) as ⟨a, ha⟩
+      step as ⟨k1, hk1'⟩
+      have hk1v : k1.val = k.val + 1 := by scalar_tac
+      simp only [hk1v]
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · rw [ha]
+        have hs : ∀ x : Int, Int.shiftRight x 16 = x / 65536 :=
+          fun x => Int.shiftRight_eq_div_pow x 16
+        have hpre : i4.val = Int.shiftRight (i1.val + i2v.val) 16 := by
+          have h := hi4
+          rw [hi3] at h
+          exact h
+        have hbv : -Envelope.final_stream ≤ i4.val ∧ i4.val ≤ Envelope.final_stream := by
+          rw [hpre, hs _]
+          change -124539743797248 ≤ (i1.val + i2v.val) / 65536 ∧
+            (i1.val + i2v.val) / 65536 ≤ 124539743797248
+          have h3 : -(5253256708096 * 256) ≤ i1.val := by
+            rw [hi1]
+            have hlo := hrb.1
+            nlinarith [mul_le_mul_of_nonneg_right hlo (by norm_num : (0:Int) ≤ 256)]
+          have h4 : i1.val ≤ 5253256708096 * 256 := by
+            rw [hi1]
+            have hhi := hrb.2
+            nlinarith [mul_le_mul_of_nonneg_right hhi (by norm_num : (0:Int) ≤ 256)]
+          have h5 := hob
+          omega
+        exact project_bounded_set _ _ _ _ hbd hbv
+      · intro k' hk' hik
+        by_cases hkk : k' = k.val
+        · subst k'
+          have hset : (ints a)[k.val]'(by rw [ints_length128]; omega) = i4.val := by
+            rw [ha]
+            simp only [ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_self (by simp; omega)]
+          have hrv : (ints r)[k.val]'(by rw [ints_length128]; omega) = iv.val := by
+            simp only [ints, List.getElem_map]
+            rw [hiv]
+          have hov : (ints o)[k.val]'(by rw [ints_length128]; omega) = i2v.val := by
+            simp only [ints, List.getElem_map]
+            rw [hi2]
+          rw [hset, hi4, hi3, hi1, hrv, hov]
+          rfl
+        · have hval : (ints a)[k']'(by rw [ints_length128]; omega) =
+              (ints f1)[k']'(by rw [ints_length128]; omega) := by
+            rw [ha]
+            simp only [ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact heq k' hk' (by omega)
+      · intro k' hk' hik
+        have hval : a.val[k']'(by simp; omega) = f1.val[k']'(by simp; omega) := by
+          rw [ha]
+          simp only [Array.set_val_eq]
+          rw [List.getElem_set_ne (by omega)]
+        rw [hval]
+        exact hsuf k' hk' (by omega)
+    · have hk128 : k.val = 128 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · simp [ints_length128, final_stream_length]
+      · intro k' hk' hk''
+        rw [ints_length128] at hk'
+        rw [final_stream_length (ints r) (ints o)
+          (by simp [ints_length128])] at hk''
+        have hk128' : k' < 128 := hk'
+        have hb := final_stream_getElem (ints r) (ints o) k'
+          (by rw [ints_length128]; omega) (by rw [ints_length128]; omega)
+          (by rw [show (ints r).length = (ints o).length from
+            by rw [ints_length128, ints_length128])
+        rw [show (ints r)[k']! = (ints r)[k]'(by rw [ints_length128]; omega) from
+          getElem!_pos _ k' (by simp [ints_length128])] at hb
+        rw [show (ints o)[k']! = (ints o)[k]'(by rw [ints_length128]; omega) from
+          getElem!_pos _ k' (by simp [ints_length128])] at hb
+        rw [show (GeneralModel.finalStream (ints r) (ints o))[k']!
+              = (GeneralModel.finalStream (ints r) (ints o))[k]'(by omega) from
+          getElem!_pos _ k' (by
+            rw [final_stream_length (ints r) (ints o)
+              (by simp [ints_length128])]; omega)] at hb
+        have hinvk := heq k' (by omega) (by omega)
+        exact hinvk.trans hb.symm
+    · have hk128 : k.val = 128 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · simp [ints_length128, final_stream_length]
+      · intro k' hk' hk''
+        rw [final_stream_getElem _ _ k' (by rw [ints_length128]; omega)
+          (by rw [ints_length128]; omega) (by simp [ints_length128])]
+        exact heq k' (by rw [ints_length128] at hk'; omega) (by omega)
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_, ?_⟩
+    · intro v hv
+      rw [repeat_val_probe] at hv
+      rcases List.mem_replicate.mp hv with ⟨-, rfl⟩
+      constructor <;> simp only [Envelope.final_stream] <;> norm_num
+    · intro k hk hik
+      exact absurd hik (by show ¬(k < 0); omega)
+    · intro k hk hik
+      have hz : ∀ x ∈ (Array.repeat 128#usize 0#i64).val, x = 0#i64 := by
+        intro x hx
+        rw [repeat_val_probe] at hx
+        exact (List.mem_replicate.mp hx).2
+      exact hz _ (List.getElem_mem (by simp; omega))
+
+end LcnExec.GeneralEngine

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_00wiltxneotx",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T20:03:15.486Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T20:03:13.952Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=0\n'LcnExec.GeneralEngine.repeat_val_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.repeat_zero_index_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.repeat_zero_bounded_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

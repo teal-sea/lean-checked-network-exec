@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_apff5qafxgvx",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T00:26:33.728Z",
+  "launcherFailed": false,
+  "noticedMs": 15,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 15,
+  "startedAt": "2026-11-22T00:26:22.809Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\nbf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean\n8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake\n9ef3526ece61b8fc70d4e71a741351a638a5d6c2f9d2ca6138a7fc11dc5020ae  /home/user/e4/qa-vpres-229527d-_6a4g2rh/ValuePreservation.lean\n86effbc32b0c2a6ea954789e347a310df41b06fff860d601d474a15ff76c48e4  /home/user/e4/qa-vpres-229527d-_6a4g2rh/ValuePreservationAudit.lean\nValuePreservation=0\nValuePreservationAudit=0\n'LcnExec.GeneralEngine.value_scan_weights_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\nguest_dir=/home/user/e4/qa-vpres-229527d-_6a4g2rh\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

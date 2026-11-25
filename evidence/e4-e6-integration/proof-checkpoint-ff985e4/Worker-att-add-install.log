@@ -1,0 +1,7 @@
+=== att-add install (2026-11-22 16:29 UTC) ===
+source sha256: 7ce00277168a34a7e8d41773b11b2bed762f6dca2064e7e0bde33b336ea1e651 (box and local identical)
+direct elaboration: DIRECT=0, 0 warnings (ad1.log)
+lake build LcnExec.GeneralEngine.AttentionAdd: BUILD=0, 1811 jobs (ad2.log)
+axiom audit: AX=0; att_add_spec depends on [propext, Classical.choice, Quot.sound]
+typed contract: WP.spec (attention_at_loop0_loop0 att ho 0) r => ints r = addV (ints att) (ints ho) ∧ Bounded (b + head_output) r
+premises: Bounded b att, Bounded head_output ho, b ≤ 3 * head_output (suffix-unwritten-entry bound b, per AttentionAddInterfaces probe)

@@ -1,0 +1,222 @@
+import LcnExec.GeneralEngine.MlpHiddenInner
+
+set_option maxHeartbeats 800000
+
+/-!
+# The MLP hidden layer `general_engine.mlp_hidden`
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem ints_length512 (m : Array I64 512#usize) : (ints m).length = 512 := by
+  simp [ints]
+
+def winRowsProbe (W : general_engine.Weights) (l : Usize) :=
+  (W.layers.val[l.val]!).win.val.map (fun row => row.val.map (·.val))
+
+theorem hidden_length_probe (xs ys : List Int) (h : xs.length = ys.length) :
+    (GeneralModel.hidden xs ys).length = xs.length := by
+  induction xs generalizing ys with
+  | nil => cases ys <;> rfl
+  | cons x xs ih =>
+      cases ys with
+      | nil => simp at h
+      | cons y ys =>
+          have hs : xs.length = ys.length := by simpa using h
+          simpa [GeneralModel.hidden] using ih ys hs
+
+theorem winRows_model_probe (W : general_engine.Weights) (l : Usize) (hl : l.val < 2) :
+    (GeneralModel.layer (toGeneralModel W) l.val).win = winRowsProbe W l := by
+  rw [model_layer_eq W l hl]
+  simp only [toLayerModel, winRowsProbe]
+  rw [getElem!_pos W.layers.val l.val (by rw [Array.length_eq]; exact hl)]
+
+theorem winRows_width_probe (W : general_engine.Weights) (l : Usize) (row : List Int)
+    (hm : row ∈ winRowsProbe W l) : row.length = 512 := by
+  rcases List.mem_map.mp hm with ⟨v, _, rfl⟩
+  simp
+
+theorem winColumn_model_probe (W : general_engine.Weights) (l : Usize) (i : Nat)
+    (hi : i < 512) :
+    winColumn W l.val i = (winRowsProbe W l).map (fun row => GeneralModel.nth 0 row i) := by
+  unfold winRowsProbe winColumn
+  rw [List.map_map]
+  apply List.map_congr_left
+  intro row _
+  rw [Function.comp_apply, project_nth_eq 0 (row.val.map (·.val)) i
+      (by rw [List.length_map, Array.length_eq]; exact hi)]
+  simp only [List.getElem_map]
+  rw [getElem!_pos row.val i (by rw [Array.length_eq]; exact hi)]
+
+theorem bin_read_signed_probe (W : general_engine.Weights) (hW : LoadBounds W)
+    (l i : Usize) (hl : l.val < 2) (hi : i.val < 512) :
+    let lw := W.layers.val[l.val]'(by rw [Array.length_eq]; exact hl)
+    let b := lw.bin.val[i.val]'(by rw [Array.length_eq]; exact hi)
+    GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin i.val = b.val ∧
+      -1073741824 ≤ b.val ∧ b.val ≤ 1073741824 := by
+  dsimp only
+  refine ⟨?_, (layerBounds hW l hl).bin _ (List.getElem_mem _)⟩
+  rw [model_layer_eq W l hl]
+  simp only [toLayerModel]
+  rw [project_nth_eq _ _ _ (by rw [List.length_map, Array.length_eq]; exact hi)]
+  simp only [List.getElem_map]
+
+theorem hidden_mapped_length_probe (W : general_engine.Weights) (l : Usize)
+    (hl : l.val < 2) (r : List Int) :
+    (GeneralModel.mlpHidden (toGeneralModel W) l.val r).length = 512 := by
+  have ht := project_lincomb_length 512 r (winRowsProbe W l) (winRows_width_probe W l)
+  have hb : (GeneralModel.layer (toGeneralModel W) l.val).bin.length = 512 := by
+    rw [model_layer_eq W l hl]
+    simp [toLayerModel]
+  simp only [GeneralModel.mlpHidden, winRows_model_probe W l hl]
+  rw [hidden_length_probe _ _ (ht.trans hb.symm), ht]
+
+theorem hidden_activation_bang_probe : ∀ (xs ys : List Int) (k : Nat),
+    k < xs.length → k < ys.length →
+    (GeneralModel.hidden xs ys)[k]! =
+      (let pre := xs[k]! + ys[k]! * 256
+       if pre > 0 then Int.shiftRight pre 8 else 0)
+  | [], _, _, hx, _ => by simp at hx
+  | _ :: _, [], _, _, hy => by simp at hy
+  | _ :: _, _ :: _, 0, _, _ => by simp [GeneralModel.hidden]
+  | x :: xs, y :: ys, k + 1, hx, hy => by
+      simp only [List.length_cons] at hx hy
+      simpa [GeneralModel.hidden] using hidden_activation_bang_probe xs ys k (by omega) (by omega)
+
+theorem hidden_shift_bound_probe (pre : Int) (hp : 0 < pre) (hb : pre ≤ Envelope.hidden_pre) :
+    0 ≤ Int.shiftRight pre 8 ∧ Int.shiftRight pre 8 ≤ Envelope.hidden := by
+  have hs : Int.shiftRight pre 8 = pre / 256 := Int.shiftRight_eq_div_pow pre 8
+  rw [hs]
+  change 0 ≤ pre / 256 ∧ pre / 256 ≤ 215384598773760
+  change pre ≤ 55138457286082560 at hb
+  omega
+
+theorem mlp_hidden_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2)
+    (r : Array I64 128#usize) (hr : Bounded Envelope.residual r) :
+    general_engine.mlp_hidden W l r ⦃ m =>
+      ints m = GeneralModel.mlpHidden (toGeneralModel W) l.val (ints r) ∧
+      Bounded Envelope.hidden m ⦄ := by
+  have hL := layerBounds hW l hl
+  have hrb : ∀ x ∈ (ints r), -Envelope.residual ≤ x ∧ x ≤ Envelope.residual := by
+    intro x hx
+    change x ∈ r.val.map (fun v => v.val) at hx
+    rcases List.mem_map.mp hx with ⟨v, hv, rfl⟩
+    exact hr v hv
+  have hcc : ∀ (i : Usize), i.val < 512 → ∀ x ∈ winColumn W l.val i.val,
+      -(82 : Int) ≤ x ∧ x ≤ 82 := by
+    intro i hi x hx
+    rcases List.mem_map.mp hx with ⟨row, hrow, rfl⟩
+    have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+      getElem!_pos _ l.val (by simp; omega)
+    rw [hlay] at hrow
+    have hwm := hL.win row hrow
+    have hmem2 : (row.val[i.val]!) ∈ row.val := by
+      rw [getElem!_pos _ i.val (by simp; omega)]
+      exact List.getElem_mem (by simp; omega)
+    exact hwm _ hmem2
+  unfold general_engine.mlp_hidden general_engine.mlp_hidden_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : general_engine.Weights × Array I64 512#usize × Usize) =>
+      512 - st.2.2.val)
+    (inv := fun (st : general_engine.Weights × Array I64 512#usize × Usize) =>
+      st.2.2.val ≤ 512 ∧
+      st.1 = W ∧
+      Bounded Envelope.hidden st.2.1 ∧
+      (∀ (k : Nat) (hk : k < 512) (hik : k < st.2.2.val),
+        (ints st.2.1)[k]'(by rw [ints_length512]; omega) =
+          (let pre := GeneralModel.dot (ints r) (winColumn W l.val k) +
+              GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin k * 256
+           if pre > 0 then Int.shiftRight pre 8 else 0)) ∧
+      (∀ (k : Nat) (hk : k < 512) (hik : ¬ k < st.2.2.val),
+        st.2.1.val[k]'(by simp; omega) = 0#i64))
+  · rintro ⟨w1, m1, i1⟩ ⟨hi1, hw, hbd, heq, hsuf⟩
+    unfold general_engine.mlp_hidden_loop0.body
+    dsimp only at hi1 hw hbd heq hsuf ⊢
+    simp only [general_engine.D_MLP]
+    split
+    · have hi512 : i1.val < 512 := by scalar_tac
+      have hwL : LoadBounds w1 := by rw [hw]; exact hW
+      step with mlp_hidden_inner_spec w1 hwL l hl r hr i1 hi512 as
+        ⟨w2, acc, hw2, hdot, hlo, hhi⟩
+      step as ⟨lw, hlw⟩
+      subst hlw
+      step as ⟨i1v, hi1v⟩
+      have hbin := bin_read_signed_probe W hW l i1 hl hi512
+      have hbinv : i1v.val =
+          GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin i1.val :=
+        congrArg (fun v => v.val) hbin.1.symm
+      have hbb : -1073741824 ≤ i1v.val ∧ i1v.val ≤ 1073741824 := by
+        rw [hbinv]
+        exact hbin.2
+      have hdotcap : -55138182408175616 ≤ acc.val ∧ acc.val ≤ 55138182408175616 := by
+        rw [hw, hw2] at hdot
+        rw [hdot]
+        have hd := project_dot_bound (ints r) (winColumn W l.val i1.val)
+          Envelope.residual 82 (by simp only [Envelope.residual]; norm_num)
+          (by norm_num) hrb (hcc i1 hi512)
+        rw [ints_length128] at hd
+        simp only [Envelope.residual] at hd
+        have hnum : 128 * (5253256708096 * 82) = 55138182408175616 := by norm_num
+        omega
+      have hminm : I64.min ≤ i1v.val * (256#i64).val := by
+        have hpp := hbb
+        scalar_tac
+      have hmaxm : i1v.val * (256#i64).val ≤ I64.max := by
+        have hpp := hbb
+        scalar_tac
+      step with I64.mul_spec hminm hmaxm as ⟨i2, hi2⟩
+      have hbi2 : -274877906944 ≤ i2.val ∧ i2.val ≤ 274877906944 := by
+        rw [hi2]
+        change -1073741824 * 256 ≤ i1v.val * 256 ∧ i1v.val * 256 ≤ 1073741824 * 256
+        have h3 := hbb
+        omega
+      have hmina : I64.min ≤ acc.val + i2.val := by
+        have h1 := hdotcap
+        have h2 := hbi2
+        scalar_tac
+      have hmaxa : acc.val + i2.val ≤ I64.max := by
+        have h1 := hdotcap
+        have h2 := hbi2
+        scalar_tac
+      step with I64.add_spec hmina hmaxa as ⟨pre, hpre⟩
+      have hpreb : -55138457286082560 ≤ pre.val ∧ pre.val ≤ 55138457286082560 := by
+        have h1 := hdotcap
+        have h2 := hbi2
+        rw [hpre]
+        omega
+      rw [hw2] at hbin
+      have hdoteq : GeneralModel.dot (ints r) (winColumn W l.val i1.val) = acc.val := by
+        rw [hw, hw2] at hdot
+        exact hdot.symm
+      have hbineq : GeneralModel.nth 0
+          (GeneralModel.layer (toGeneralModel W) l.val).bin i1.val = i1v.val :=
+        hbinv.symm
+      split
+      · -- true branch: 0 < pre, the checked shift and the write
+        sorry
+      · -- false branch: no write; conjoin the suffix zero at i1
+        sorry
+    · have hi512 : i1.val = 512 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · rw [ints_length512, hidden_mapped_length_probe W l hl]
+      · intro k hk' hk''
+        have hk512 : k < 512 := by omega
+        sorry
+  · simp only
+    refine ⟨by scalar_tac, trivial, ?_, ?_, ?_⟩
+    · intro v hv
+      change v ∈ List.replicate 512 0#i64 at hv
+      rcases List.mem_replicate.mp hv with ⟨-, rfl⟩
+      constructor <;> simp only [Envelope.hidden] <;> norm_num
+    · intro k hk hik
+      exact absurd hik (by show ¬(k < 0); omega)
+    · intro k hk hik
+      simp only
+      rfl
+
+end LcnExec.GeneralEngine

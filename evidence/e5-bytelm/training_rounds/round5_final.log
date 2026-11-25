@@ -1,0 +1,66 @@
+corpus: train 142094 B (142062 windows), val 14728 B (3674 windows)
+model: 2 layers, 464128 parameters
+step     1  loss 5.5479  ema 5.5479  bpb 8.004  satur 0  3s
+step    50  loss 2.9935  ema 4.7033  bpb 6.785  satur 0  10s
+step   100  loss 2.3954  ema 3.3380  bpb 4.816  satur 7.2e-09  17s
+step   150  loss 2.1649  ema 2.6540  bpb 3.829  satur 2.03e-07  23s
+step   200  loss 2.0870  ema 2.3304  bpb 3.362  satur 2.94e-06  30s
+step   250  loss 1.9427  ema 2.1350  bpb 3.080  satur 5.08e-05  37s
+step   300  loss 1.8052  ema 1.9718  bpb 2.845  satur 0.000639  44s
+step   350  loss 1.7306  ema 1.8258  bpb 2.634  satur 0.00215  51s
+step   400  loss 1.5959  ema 1.7151  bpb 2.474  satur 0.00462  57s
+step   450  loss 1.5087  ema 1.6234  bpb 2.342  satur 0.00761  64s
+step   500  loss 1.3959  ema 1.5304  bpb 2.208  satur 0.0105  71s
+step   550  loss 1.4009  ema 1.4487  bpb 2.090  satur 0.0132  77s
+step   600  loss 1.2833  ema 1.3832  bpb 1.996  satur 0.0153  84s
+step   650  loss 1.3208  ema 1.3179  bpb 1.901  satur 0.0175  90s
+step   700  loss 1.2222  ema 1.2583  bpb 1.815  satur 0.0196  98s
+step   750  loss 1.1591  ema 1.2019  bpb 1.734  satur 0.0225  104s
+step   800  loss 1.0989  ema 1.1615  bpb 1.676  satur 0.0247  111s
+step   850  loss 1.0816  ema 1.1224  bpb 1.619  satur 0.027  117s
+step   900  loss 0.9790  ema 1.0819  bpb 1.561  satur 0.0298  124s
+step   950  loss 1.0010  ema 1.0501  bpb 1.515  satur 0.0326  130s
+step  1000  loss 1.0013  ema 1.0105  bpb 1.458  satur 0.0356  137s
+step  1050  loss 0.9852  ema 0.9839  bpb 1.420  satur 0.039  143s
+step  1100  loss 0.9443  ema 0.9595  bpb 1.384  satur 0.0428  149s
+step  1150  loss 0.8755  ema 0.9338  bpb 1.347  satur 0.0463  156s
+step  1200  loss 0.8673  ema 0.9144  bpb 1.319  satur 0.0495  163s
+step  1250  loss 0.9067  ema 0.8940  bpb 1.290  satur 0.0537  169s
+step  1300  loss 0.8762  ema 0.8749  bpb 1.262  satur 0.0573  176s
+step  1350  loss 0.8712  ema 0.8581  bpb 1.238  satur 0.0617  182s
+step  1400  loss 0.8431  ema 0.8416  bpb 1.214  satur 0.0668  189s
+step  1450  loss 0.7685  ema 0.8301  bpb 1.198  satur 0.0713  195s
+step  1500  loss 0.8076  ema 0.8145  bpb 1.175  satur 0.0758  202s
+step  1550  loss 0.8235  ema 0.8034  bpb 1.159  satur 0.0813  208s
+step  1600  loss 0.7530  ema 0.7938  bpb 1.145  satur 0.0867  215s
+step  1650  loss 0.7312  ema 0.7829  bpb 1.129  satur 0.0926  222s
+step  1700  loss 0.7586  ema 0.7733  bpb 1.116  satur 0.099  229s
+step  1750  loss 0.8101  ema 0.7683  bpb 1.108  satur 0.105  235s
+step  1800  loss 0.7448  ema 0.7571  bpb 1.092  satur 0.111  242s
+step  1850  loss 0.7392  ema 0.7474  bpb 1.078  satur 0.118  249s
+step  1900  loss 0.7588  ema 0.7417  bpb 1.070  satur 0.123  255s
+step  1950  loss 0.7320  ema 0.7339  bpb 1.059  satur 0.129  262s
+step  2000  loss 0.7019  ema 0.7290  bpb 1.052  satur 0.138  269s
+step  2050  loss 0.8185  ema 0.7313  bpb 1.055  satur 0.146  276s
+step  2100  loss 0.7467  ema 0.7313  bpb 1.055  satur 0.151  283s
+step  2150  loss 0.6793  ema 0.7235  bpb 1.044  satur 0.158  289s
+step  2200  loss 0.6732  ema 0.7117  bpb 1.027  satur 0.166  296s
+step  2250  loss 0.7390  ema 0.7151  bpb 1.032  satur 0.174  302s
+step  2300  loss 0.7360  ema 0.7119  bpb 1.027  satur 0.182  308s
+step  2350  loss 0.6762  ema 0.7062  bpb 1.019  satur 0.189  315s
+step  2400  loss 0.6947  ema 0.7081  bpb 1.022  satur 0.198  321s
+step  2450  loss 0.6948  ema 0.7043  bpb 1.016  satur 0.205  327s
+step  2500  loss 0.7175  ema 0.6973  bpb 1.006  satur 0.212  334s
+step  2550  loss 0.6616  ema 0.7026  bpb 1.014  satur 0.222  341s
+step  2600  loss 0.6638  ema 0.7006  bpb 1.011  satur 0.229  347s
+step  2650  loss 0.6821  ema 0.6996  bpb 1.009  satur 0.236  354s
+step  2700  loss 0.7571  ema 0.7006  bpb 1.011  satur 0.242  360s
+step  2750  loss 0.6854  ema 0.6974  bpb 1.006  satur 0.25  367s
+step  2800  loss 0.6948  ema 0.6966  bpb 1.005  satur 0.257  373s
+step  2850  loss 0.6684  ema 0.6959  bpb 1.004  satur 0.264  380s
+step  2900  loss 0.7311  ema 0.6960  bpb 1.004  satur 0.27  386s
+val bits/byte (float QAT): 1.1080
+weight saturation (mean |int| / box): {'l0.wq': '3.54/5', 'l0.wk': '7.03/22', 'l0.wv': '6.61/106', 'l0.wo': '5.49/93', 'l0.win': '6.55/82', 'l0.wout': '5.33/74', 'l1.wq': '4.67/5', 'l1.wk': '15.38/22', 'l1.wv': '26.46/106', 'l1.wo': '24.06/93', 'l1.win': '24.42/82', 'l1.wout': '22.42/74', 'tok': '30.06/68', 'pos': '21.17/59', 'u': '32.4/37'}
+exported /home/thomas/worktrees/lcn-exec-e5-bytelm-20261120/weights/tiny_bytelm_v1.bin (479504 bytes), round-trip load_check True
+wrote evidence/e5-bytelm/train_result.json
+exit=0

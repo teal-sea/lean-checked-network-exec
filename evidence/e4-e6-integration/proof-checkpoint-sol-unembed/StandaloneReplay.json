@@ -1,0 +1,35 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Inner": 0,
+    "Outer": 0,
+    "Audit": 0
+  },
+  "errors": {
+    "Inner": [],
+    "Outer": [],
+    "Audit": []
+  },
+  "warnings": {
+    "Inner": 0,
+    "Outer": 0,
+    "Audit": 0
+  },
+  "inner_sha256": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+  "outer_sha256": "6e5a124ea2849e46935b87ca2abc1efed728d9a692e74751d3b7d9ec4ea65da3",
+  "command_id": "cmd_ufqbfqfejqi5",
+  "finished_at": "2026-11-23T02:07:24.254Z",
+  "files_sha256": {
+    "Audit.log": "d689550dead97195c6c0da22ca50fdce3ae46b5430afeaf86f53424c96c859ca",
+    "Inner.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Outer.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "TypedAudit.lean.txt": "f0923fed83f50f87919375259c824670ba61f0986e921bb967a253aa8b450538",
+    "Unembed.lean.txt": "6e5a124ea2849e46935b87ca2abc1efed728d9a692e74751d3b7d9ec4ea65da3",
+    "UnembedInner.lean.txt": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+    "boat-command.json": "34ccae7427c2fed92bf721429405c0bda5c4300a55da72af9b25adf7b87361fd",
+    "exit.txt": "a17138988e1387532b5cb0bd7a23f18a11d537123873e67154dada3c6359e53e",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "unembed-replay.tar.gz": "ddb99466c0454fc03b666bce946c5f0dbfec5a43a6a7f4847e9ea5a95902f312"
+  }
+}

@@ -1,0 +1,41 @@
+numpy int path vs ref_engine scalar: 2048 logits, 0 mismatches
+val windows: 3674 (stride 4), head-to-head subset 460 (stride 32)
+float QAT (all 3674 windows): bpb 1.4380, argmax acc 0.6938 (26.9s)
+exact integer (subset): bpb 1.3866, argmax acc 0.7043 (12.3s for 460 windows)
+float QAT (same subset): bpb 1.3866, argmax acc 0.7043
+logit correlation (int/2^32 vs float QAT): 1.000000, max |diff| 5.806e-04
+static bounds from the weights alone:
+  project            <=                   531114  20 bits  fits i64
+  head_scores        <=             641183153115  40 bits  fits i64
+  exp_fix            <=      1152921504606846976  61 bits  fits i64
+  softmax_weights    <=        18014398509481984  55 bits  fits i64
+  head_output.z      <=            8910614298624  44 bits  fits i64
+  head_output.w      <=             180561764352  38 bits  fits i64
+  attention          <=             572392974592  40 bits  fits i64
+  residual           <=             574523681024  40 bits  fits i64
+  mlp_hidden         <=         1646509192621824  51 bits  fits i64
+  mlp_output         <=        65287733048975745  56 bits  fits i64
+  final_stream       <=        65374815944712577  56 bits  fits i64
+  unembed            <=         4053096106001362  52 bits  fits i64
+  'The capital of France is' -> ' Panama '
+  'Rome is the capital of' -> ' Senegal i'
+  'A stitch in time' -> ' saves nine.\nThe'
+  'Actions speak louder' -> ' than the ro'
+  'The engine checks' -> ' every decoding'
+  'What is a proof? A proof is' -> ' a ch'
+  'two plus three is' -> ' fifteen.\nThe c'
+  'The small cat sat on' -> 'e.\nThe capit'
+  'Hello. How are you? I am' -> ' finetin'
+  'Paris is spelled' -> ' the broth.\nThe '
+  'Knowledge is' -> ' the broth.\nThe capi'
+  'Better late than' -> ' never.\nThe capi'
+  'Two heads are' -> ' better than neveni'
+  'The early bird' -> ' catches the lette'
+  'Where is the old book? It is' -> ' bet'
+  'Monday is a day' -> '.\nThe capital of '
+  'In January the days' -> ' grow on tree'
+  'The proof checks each' -> ' layer to t'
+  'Greedy decoding always' -> ' takes the'
+  'Time heals' -> ' all wounds.\nThe capit'
+wrote evidence/e5-bytelm/eval_exact.json
+exit=0

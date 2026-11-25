@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_lxy3wignpuoy",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T15:39:04.809Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T15:39:02.184Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "e33017767079a8b731ed4a47615e9798c2a5f9bbb1ddbd109e3c293220103b63  /home/user/e4/qa-attadd-interfaces-l5sd8xw6/AttentionAddInterfaces.lean\nDirectProbe=0\n'LcnExec.GeneralEngine.next_add_bound_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

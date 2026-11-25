@@ -1,0 +1,25 @@
+{
+  "base": "285e247ed5d8d1ffd76dcfa1d4cb846693187455",
+  "parent_source_sha256": "7cd2d32678525d601aa344fec7e685f176513875273bdf48c8012ca5f86de82d",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "command_id": "cmd_489ifadmmhvk",
+  "lean_module_exit": 0,
+  "typed_import_exit": 1,
+  "files_sha256": {
+    "RescaleInner.lean.txt": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+    "TypedAudit.lean.txt": "81777f7b6251e5aa8c3ccbe26e1e83c09fc5867de79b380bf6b5329cfa1e7099",
+    "Compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "TypedAudit.log": "ef1db7c59c4bd23c3451f5834cf7036a877acf09d267c071c34ca407f7f72129",
+    "boat-import.json": "b75e1b00968c23c06217c62ff879aea9e5c6ed180a898872d1d6e2d9ceab1123",
+    "boat-audit-retry.json": "3a9f2c8c4fe3d5dbea65bac19e08d59dd4b4560b7d8dd9a320041b65f6930125",
+    "TypedAuditRetry.log": "df3576088adff0f29ee7b4ecd8383d16cce3279d2078e6a04c9df832f1db9a1e",
+    "TypedAuditRetry.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "worker_checkpoint": "fe2e16691fc9e72d406d0fdf69a86c2831ecf0e4",
+  "module_path": "lean/LcnExec/GeneralEngine/RescaleInner.lean",
+  "module_sha256": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+  "typed_import_retry_exit": 0,
+  "typed_import_retry_command_id": "cmd_ocsvhr3uaf4p",
+  "scope": "Exact warning-free module source compiled with the pinned Lean toolchain, then independently imported at the exact theorem type; standard three axioms. Checked in isolation, not a full Lake or engine build. The 32-row outer loop remains open."
+}

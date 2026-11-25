@@ -1,0 +1,54 @@
+{
+  "scope": "Independent compilation and interface/axiom checks for the row-copy loop and value preparation scan only, not weighted mixing, the head result, or full attention.",
+  "worker_commit": "a3a473ea4f60ed6f78cd95737b08427414bfdb00",
+  "worker_admission": 2230,
+  "worker_proc": "proc_b314ec36d4cb",
+  "route": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "remote_command": "cmd_h5y5t290xeqp",
+  "finished_at": "2026-11-21T22:54:32.211Z",
+  "build_exits": {
+    "Build": 0,
+    "ValueRow": 0,
+    "ValueScan": 0,
+    "ValueAudit": 0
+  },
+  "warnings": {
+    "Build.log": 12,
+    "ValueRow.log": 0,
+    "ValueScan.log": 0,
+    "ValueAudit.log": 0
+  },
+  "axioms": {
+    "LcnExec.GeneralEngine.head_out_row_copy_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LcnExec.GeneralEngine.value_scan_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "archive": {
+    "name": "value-proof-and-logs.tar.gz",
+    "sha256": "ea667a7567d2b77448f8a176935affa111dc60cae8ea8e7951b7b1ef2e4d3ffe",
+    "member_sha256": {
+      "ValueRow.lean.txt": "50b6e797e34bdff945ce804d93bdb63ae62d161159f64e9570914f4b0d95198f",
+      "ValueScan.lean.txt": "73f620aaa8e5082950d656013597320c766246eac7e0878bb0bd969ee2b85db3",
+      "ValueRow.olean": "3a774204ee2d5793e3a32112a3813da755d19321e93f0c1af3a16f2c310c14dd",
+      "ValueScan.olean": "d7d3080c35ae055621a16ade2a4793d49693c314cdc79a830ef1f4fd247fb821",
+      "Build.log": "a0a4ed6055545f0ce660663cced97c3f3ee9895f982ff29f8fe90af49ebd3bc0",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "ValueRow.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ValueRow.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "ValueScan.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ValueScan.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "ValueAudit.lean.txt": "274e8a45c50aa522da8ce2b70dd43c80c6610fd5787792e46a8a70330df70def",
+      "ValueAudit.log": "d67d33e0bcae6cd49a3d250b6667ddc22cbdc23a419ba1590163df850da3207a",
+      "ValueAudit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Toolchain.log": "b32f8ed27657a9679a9f1c966ba960fe21be68c8510c365fbf2b3dae4cae3224"
+    }
+  }
+}

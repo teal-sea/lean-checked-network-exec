@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_qdscph72ndxq",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T00:45:49.260Z",
+  "launcherFailed": false,
+  "noticedMs": 4,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 5,
+  "startedAt": "2026-11-23T00:45:33.292Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-rescale-package-sgvTAjKd\n28caf821001afa0cb0521074ca623f03e22971db43fffb003dba386e0b75eed8  /home/user/e4/qa-rescale-package-sgvTAjKd.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

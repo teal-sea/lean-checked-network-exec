@@ -1,0 +1,31 @@
+[package]
+name = "general_engine_wasm"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+general_engine = { path = "../general_engine" }
+
+# `cargo test` and `cargo run --example` build for the host, where std is linked
+# (the crate code itself never uses it) so the test harness works. The
+# WebAssembly target compiles the same code as `no_std`.
+[profile.dev]
+overflow-checks = true
+
+# The release profile is what builds general_engine_wasm.wasm: checked integer
+# arithmetic stays on in the shipped binary.
+[profile.release]
+overflow-checks = true
+lto = true
+codegen-units = 1
+
+# One codegen unit and full LTO: with overflow checks on (required), the panic
+# paths prevent auto-vectorization and hurt register allocation; inlining
+# everything into one unit keeps the checked scalar loops tight.
+[profile.release.package."*"]
+codegen-units = 1

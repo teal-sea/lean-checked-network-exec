@@ -1,0 +1,9 @@
+{
+  "wave": "source-only",
+  "model": "gpt-6.2-sol",
+  "thread": "01a205b6-ced0-7a10-b998-71d84b4cc9e3",
+  "brief_git": "8fa7d62280ac71091dfed87671a56a17a16f906b",
+  "brief_sha256": "17a22f94a0cab28df6235a8d897602728a5cdd602f59627f2b602a2842868e03",
+  "base": "6eef3f9b83ec14aca04185e06f0e9c33d41f018a",
+  "started_at": "2026-11-23T00:48:14.226653+00:00"
+}

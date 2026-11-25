@@ -1,0 +1,112 @@
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:37:40: warning: This simp argument is unused:
+  List.getElem_cons_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GeneralModel.residual]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:70:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c - d ≥ 1
+  0 ≤ b ≤ 127
+  a ≥ 0
+where
+ a := Envelope.embedding
+ b := ↑↑k
+ c := I64.min
+ d := ↑i * ↑16777216#i64
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:71:6: error: LE.le is not a supported spec statement
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:138:35: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 128
+  c - d ≤ -1
+  b ≥ 0
+  b - c ≥ 1
+  a ≥ 0
+where
+ a := Envelope.embedding
+ b := ↑(ints r1).length
+ c := ↑k'
+ d := ↑(GeneralModel.residual (ints x) (ints att)).length
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:138:67: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 128
+  c - d ≤ -1
+  b ≥ 0
+  b - c ≥ 1
+  a ≥ 0
+where
+ a := Envelope.embedding
+ b := ↑(ints r1).length
+ c := ↑k'
+ d := ↑(GeneralModel.residual (ints x) (ints att)).length
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:140:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.424[k']!
+in the target expression
+  (ints r1)[k'] = (GeneralModel.residual (ints x) (ints att))[k']
+
+case hBody.isFalse.h
+x att : Std.Array I64 128#usize
+hx : Bounded Envelope.embedding x
+hatt : Bounded Envelope.attention att
+hemb : 0 ≤ Envelope.embedding
+halpha : general_engine.ALPHA_ONE = ok 16777216#i64
+r1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded Envelope.residual r1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints r1)[k_1] = (ints x)[k_1] * GeneralModel.ALPHA_ONE + (ints att)[k_1]
+hsuf : ∀ (k_1 : ℕ) (hk : k_1 < 128), ¬k_1 < ↑k → (↑r1)[k_1] = (↑(Array.repeat 128#usize 0#i64))[k_1]
+h✝ : ¬k < 128#usize
+hk128 : ↑k = 128
+k' : ℕ
+hk' : k' < (ints r1).length
+hk'' : k' < (GeneralModel.residual (ints x) (ints att)).length
+hmod : (GeneralModel.residual (ints x) (ints att))[k']! = (ints x)[k']! * GeneralModel.ALPHA_ONE + (ints att)[k']!
+⊢ (ints r1)[k'] = (GeneralModel.residual (ints x) (ints att))[k']
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (128 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:140:38: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (GeneralModel.residual ?m.437 ?m.438).length
+in the target expression
+  ?m.420 ?m.424 k'
+
+x att : Std.Array I64 128#usize
+hx : Bounded Envelope.embedding x
+hatt : Bounded Envelope.attention att
+hemb : 0 ≤ Envelope.embedding
+halpha : general_engine.ALPHA_ONE = ok 16777216#i64
+r1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded Envelope.residual r1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints r1)[k_1] = (ints x)[k_1] * GeneralModel.ALPHA_ONE + (ints att)[k_1]
+hsuf : ∀ (k_1 : ℕ) (hk : k_1 < 128), ¬k_1 < ↑k → (↑r1)[k_1] = (↑(Array.repeat 128#usize 0#i64))[k_1]
+h✝ : ¬k < 128#usize
+hk128 : ↑k = 128
+k' : ℕ
+hk' : k' < (ints r1).length
+hk'' : k' < (GeneralModel.residual (ints x) (ints att)).length
+hmod : (GeneralModel.residual (ints x) (ints att))[k']! = (ints x)[k']! * GeneralModel.ALPHA_ONE + (ints att)[k']!
+⊢ ?m.420 ?m.424 k'
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:147:4: error: unsolved goals
+case hInv.refine_1.right
+x att : Std.Array I64 128#usize
+hx : Bounded Envelope.embedding x
+hatt : Bounded Envelope.attention att
+hemb : 0 ≤ Envelope.embedding
+halpha : general_engine.ALPHA_ONE = ok 16777216#i64
+hv : 0#i64 ∈ ↑(Array.repeat 128#usize 0#i64)
+⊢ ↑0#i64 ≤ 5253256708096
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/ResidualRed.lean:155:6: error: No goals to be solved

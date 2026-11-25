@@ -1,0 +1,5 @@
+[3139322:3139322:1123/032653.892351:FATAL:chrome/browser/process_singleton_posix.cc:315] Socket path too long: /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/browser-coordinator-replay/package/evidence/e6-wasm/browser-run-4igiGy/tmp/org.chromium.Chromium.P1gohN/SingletonSocket.
+[1123/032653.934588:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory (2)
+[1123/032653.935376:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory (2)
+[3139350:3139350:0100/000000.969460:ERROR:content/zygote/zygote_linux.cc:662] write: Broken pipe (32)
+[1:1:0100/000000.003154:ERROR:content/zygote/zygote_main_linux.cc:197] Failed sending zygote boot message: Broken pipe (32)

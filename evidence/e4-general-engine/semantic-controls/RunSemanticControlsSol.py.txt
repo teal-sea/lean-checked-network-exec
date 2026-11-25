@@ -1,0 +1,651 @@
+#!/usr/bin/env python3
+"""Run on bx_9m9mrg3q: python3 -I /home/user/e4/RunSemanticControlsSol.py.txt.
+
+The printed scratch directory contains RECEIPT.json, SHA256SUMS, logs and exact sources.
+Exit 0 requires pinned native controls and all extraction/proof controls to pass.
+"""
+
+import datetime as dt
+import difflib
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import subprocess
+import tempfile
+import time
+
+ROOT = Path("/home/user/e4")
+REPO = ROOT / "repo"
+HOME = ROOT.parent
+CUTOFF = dt.datetime.fromisoformat("2026-11-23T03:56:20.284+00:00").timestamp()
+RUST_SHA = "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4"
+LEAN_SHA = "9e803f5abf12b83dfcb079ca8bfe4a2b9f439fd572e3632e239e8c3fd16e2f4d"
+RUST_PIN = "1.99.1"
+RUST_COMMIT = "58cf8f9c3"
+EXTRACT_PIN = "nightly-2026-09-17"
+CHARON_PIN = "a58d159210b3a36fedeaba4437bda896a8b12f0d"
+AENEAS_PIN = "aeneas nightly-2026.11.04-d1e177b"
+HOST = "x86_64-unknown-linux-gnu"
+RUSTUPS = HOME / ".rustup/toolchains"
+LEAN = HOME / ".elan/toolchains/leanprover--lean4---v4.35.0/bin/lean"
+CHARON = ROOT / "charon/charon/target/debug/charon"
+RUST_SOURCE = REPO / "rust/general_engine/src/lib.rs"
+MODULE = Path("LcnExec/Translated/GeneralEngine.lean")
+LEAN_SOURCE = REPO / "lean" / MODULE
+RETAINED_LLBC = ROOT / "extraction/general_engine.llbc"
+
+# Old and new bytes, affected proof, exact proof site, and characteristic diagnostics.
+CONTROLS = {
+    "shift": (
+        b"let s = f[p][k] >> 16;", b"let s = f[p][k] >> 15;",
+        "RescaleInner", "have hsval : s.val = Int.shiftRight iv.val 16 := hs",
+        (r"Type mismatch", r"(>>>|shiftRight)\s+15", r"\b16\b"),
+    ),
+    "alpha": (
+        b"pub const ALPHA_ONE: i64 = 1 << 24;",
+        b"pub const ALPHA_ONE: i64 = 1 << 23;",
+        "Softmax", "unfold general_engine.ALPHA_ONE; rfl",
+        (r"rfl|definitionally equal", r"\b(?:23|8388608)\b", r"16777216"),
+    ),
+    "tie": (
+        b"if l[c] > best_value {", b"if l[c] >= best_value {",
+        "Argmax", "have hgt' : v.val > bv.val := by scalar_tac",
+        (r"omega|grind|could not prove|unsolved goals|scalar_tac",),
+    ),
+}
+BASELINE = {
+    "shift": [1, 1, -2, 127, -127, 0],
+    "alpha": [8388608, 8388608, 16777216, 0],
+    "tie": 1,
+}
+CHANGES = {"shift": [2, 3, -3, 127, -127, 0],
+           "alpha": [4194304, 4194304, 8388608, 0], "tie": 2}
+TRANSLATION_SITES = {
+    "shift": ("rescale_clamp_loop0_loop0.body", r">>> 16#i32", r">>> 15#i32"),
+    "alpha": ("ALPHA_ONE", r"<<< 24#i32", r"<<< 23#i32"),
+    "tie": ("argmax_loop.body", r"if i > best_value",
+            r"if (?:i\s*(?:>=|≥)\s*best_value|best_value\s*(?:<=|≤)\s*i)\b"),
+}
+
+OBSERVER = r"""
+use general_engine::{argmax, load_check, rescale_clamp, softmax_at, LayerWeights, Weights,
+                     D_HEAD, D_MLP, D_MODEL, EXP_ONE, MAX_SEQ, N_HEADS, VOCAB};
+
+fn layer() -> LayerWeights {
+    LayerWeights {
+        wq: [[[0; D_HEAD]; D_MODEL]; N_HEADS],
+        wk: [[[0; D_HEAD]; D_MODEL]; N_HEADS],
+        wv: [[[0; D_HEAD]; D_MODEL]; N_HEADS],
+        wo: [[[0; D_MODEL]; D_HEAD]; N_HEADS],
+        win: [[0; D_MLP]; D_MODEL],
+        bin: [0; D_MLP],
+        wout: [[0; D_MODEL]; D_MLP],
+        bout: [0; D_MODEL],
+    }
+}
+
+fn main() {
+    let mut f = [[0; D_MODEL]; MAX_SEQ];
+    f[0][..5].copy_from_slice(&[65536, 98304, -98304, 127 * 65536, -128 * 65536]);
+    let shifted = rescale_clamp(&f);
+
+    let w = Weights {
+        n_layers: 1, vocab_size: 3, tok: [[0; D_MODEL]; VOCAB],
+        pos: [[0; D_MODEL]; MAX_SEQ], layers: [layer(), layer()],
+        u: [[0; VOCAB]; D_MODEL], exp_n: [EXP_ONE; 32],
+        exp_2: [EXP_ONE; 256], exp_1: [EXP_ONE; 256], exp_0: [EXP_ONE; 256],
+    };
+    assert!(load_check(&w));
+    // Equal scores make each exp EXP_ONE, giving den = 2 * EXP_ONE.
+    let a = softmax_at(&w, &[10; MAX_SEQ], 1);
+
+    // The higher sentinel is outside the runtime vocabulary.
+    let mut logits = [0; VOCAB];
+    logits[..4].copy_from_slice(&[3, 9, 9, 10]);
+    let best = argmax(&logits, 3);
+    println!("{{\"shift\":{:?},\"alpha\":{:?},\"tie\":{}}}",
+             &shifted[0][..6], [a[0], a[1], a[0] + a[1], a[2]], best);
+}
+""".lstrip()
+
+INFRA_ERROR = re.compile(
+    r"unknown module|object file .*does not exist|cannot find module|"
+    r"incompatible.*(?:olean|version)|failed to (?:load|import)|"
+    r"unknown (?:constant|identifier)|(?:heartbeats|recursion depth) has been reached",
+    re.I,
+)
+
+
+def sha(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def write_json(path, data):
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    temporary.replace(path)
+
+
+def diff(before, after, output, old_name, new_name):
+    output.write_bytes(b"".join(difflib.diff_bytes(
+        difflib.unified_diff, before.splitlines(keepends=True), after.splitlines(keepends=True),
+        old_name.encode(), new_name.encode(),
+    )))
+
+
+def executable(path):
+    return path.is_file() and os.access(path, os.X_OK)
+
+
+def stage_path(name):
+    return REPO / "lean/LcnExec/GeneralEngine" / (name + ".lean")
+
+
+def declaration(source, name):
+    match = re.search(r"^.*\bdef " + re.escape(name) + r"(?=\s|$)", source, re.M)
+    if match is None:
+        return ""
+    end = source.find("\n/--", match.end())
+    return source[match.start():] if end == -1 else source[match.start():end]
+
+
+class Run:
+    def __init__(self, root):
+        self.root = root
+        self.logs = root / "logs"
+        self.logs.mkdir()
+        self.work = root / "work"
+        self.work.mkdir()
+        self.home = self.work / "home"
+        self.home.mkdir()
+        (self.home / "tmp").mkdir()
+        self.env = {
+            "PATH": "/usr/bin:/bin", "HOME": str(self.home), "TMPDIR": str(self.home / "tmp"),
+            "LANG": "C", "CARGO_HOME": str(self.home / "cargo"),
+            "CARGO_NET_OFFLINE": "true", "CARGO_BUILD_JOBS": "2",
+            "LEAN_NUM_THREADS": "2", "RAYON_NUM_THREADS": "2",
+        }
+        self.receipt = {
+            "schema": 1, "box": "bx_9m9mrg3q",
+            "cutoff": "2026-11-23T03:56:20.284Z", "artifacts": str(root),
+            "started_utc": self.now(), "inventory": "SHA256SUMS",
+            "native": {"status": "not_run", "cases": {}, "compiler_probes": {}},
+            "extraction": {"status": "not_run", "cases": {}}, "commands": [],
+        }
+
+    @staticmethod
+    def now():
+        return dt.datetime.now(dt.timezone.utc).isoformat()
+
+    def save(self):
+        write_json(self.root / "RECEIPT.json", self.receipt)
+
+    def run(self, name, argv, cwd, limit, **extra_env):
+        stdout = self.logs / (name + ".stdout")
+        stderr = self.logs / (name + ".stderr")
+        env = self.env | extra_env
+        timeout = min(limit, int(CUTOFF - time.time() - 25))
+        record = {
+            "name": name, "argv": [str(a) for a in argv], "cwd": str(cwd),
+            "environment": env, "timeout_seconds": max(0, timeout),
+            "stdout": str(stdout.relative_to(self.root)), "stderr": str(stderr.relative_to(self.root)),
+            "started_utc": self.now(), "status": "running",
+        }
+        self.receipt["commands"].append(record)
+        self.save()
+        started = time.monotonic()
+        with stdout.open("xb") as out, stderr.open("xb") as err:
+            if timeout < 1:
+                record.update(status="deadline", returncode=None)
+                err.write(b"Skipped to preserve the lease cutoff.\n")
+            else:
+                try:
+                    with subprocess.Popen(record["argv"], cwd=cwd, env=env, stdin=subprocess.DEVNULL,
+                                          stdout=out, stderr=err, start_new_session=True) as proc:
+                        try:
+                            code = proc.wait(timeout=timeout)
+                            record.update(status="ok" if code == 0 else "exit", returncode=code)
+                        except subprocess.TimeoutExpired:
+                            try:
+                                os.killpg(proc.pid, signal.SIGKILL)
+                            except ProcessLookupError:
+                                pass
+                            record.update(status="timeout", returncode=proc.wait())
+                except OSError as exc:
+                    err.write((str(exc) + "\n").encode())
+                    record.update(status="launch_error", returncode=None)
+        record.update(finished_utc=self.now(), elapsed_seconds=round(time.monotonic() - started, 3))
+        self.save()
+        return record, stdout, stderr
+
+    def prepare(self):
+        original = RUST_SOURCE.read_bytes()
+        translation = LEAN_SOURCE.read_bytes()
+        if hashlib.sha256(original).hexdigest() != RUST_SHA or sha(LEAN_SOURCE) != LEAN_SHA:
+            raise ValueError("Rust or frozen translation SHA-256 mismatch")
+        (self.root / "observer.rs").write_text(OBSERVER, encoding="utf-8")
+        (self.root / "GeneralEngine.frozen.lean").write_bytes(translation)
+        sources = self.root / "source"
+        sources.mkdir()
+        for name in ("pristine", *CONTROLS):
+            case = sources / name
+            case.mkdir()
+            data = original
+            if name != "pristine":
+                old, new, *_ = CONTROLS[name]
+                if original.count(old) != 1 or new in original:
+                    raise ValueError(f"{name}: mutation anchor is not unique")
+                data = original.replace(old, new, 1)
+                if data.count(new) != 1 or data.replace(new, old, 1) != original:
+                    raise ValueError(f"{name}: mutation failed round-trip")
+                diff(original, data, case / "Rust.diff", "pristine/src/lib.rs", f"{name}/src/lib.rs")
+            (case / "lib.rs").write_bytes(data)
+        self.save()
+
+    def probe_rust(self, channel):
+        tool = RUSTUPS / f"{channel}-{HOST}/bin/rustc"
+        record, out, _ = self.run(f"rustc-{channel}", [tool, "-Vv"], self.work, 8)
+        version = out.read_text(errors="replace")
+        self.receipt["native"]["compiler_probes"][channel] = {
+            "version": version, "status": record["status"], "path": str(tool),
+        }
+        return tool, version if record["status"] == "ok" else ""
+
+    def native(self):
+        result = self.receipt["native"]
+        candidates = {channel: self.probe_rust(channel) for channel in
+                      (RUST_PIN, "stable", "nightly-2025-03-01")}
+        pin_prefix = f"rustc {RUST_PIN} ({RUST_COMMIT}"
+        selection = next(((tool, True) for tool, ver in candidates.values()
+                          if ver.startswith(pin_prefix)), None)
+        if selection is None and candidates["stable"][1]:
+            selection = candidates["stable"][0], False
+        if selection is None:
+            result.update(status="blocked", reason="No installed pinned or stable Rust compiler")
+            self.save()
+            return
+        rustc, pinned = selection
+        result.update(compiler=str(rustc), pinned=pinned, required_pin=pin_prefix + "…")
+        for name in ("pristine", *CONTROLS):
+            case = self.root / "source" / name
+            expected = dict(BASELINE)
+            if name != "pristine":
+                expected[name] = CHANGES[name]
+            entry = {"expected": expected, "observed": None, "status": "not_run"}
+            result["cases"][name] = entry
+            lib = case / "libgeneral_engine.rlib"
+            observer = case / "observe"
+            flags = ["--edition=2024", "-C", "overflow-checks=yes", "-C", "codegen-units=2"]
+            steps = [
+                ("compile-lib", [rustc, *flags, "--crate-name", "general_engine",
+                                 "--crate-type", "rlib", case / "lib.rs", "-o", lib], 60),
+                ("compile-observer", [rustc, *flags, "--extern", f"general_engine={lib}",
+                                      self.root / "observer.rs", "-o", observer], 40),
+                ("observe", [observer], 10),
+            ]
+            for stage, argv, budget in steps:
+                command, out, _ = self.run(f"native-{name}-{stage}", argv, case, budget)
+                if command["status"] != "ok":
+                    entry.update(status="blocked", failed_step=stage, reason=command["status"])
+                    break
+            else:
+                try:
+                    entry["observed"] = json.loads(out.read_bytes())
+                except (ValueError, UnicodeError) as exc:
+                    entry.update(status="fail", reason=f"Observation was not JSON: {exc}")
+                else:
+                    entry["status"] = "pass" if entry["observed"] == expected else "fail"
+            self.save()
+        baseline_pass = result["cases"]["pristine"]["status"] == "pass"
+        semantic_pass = baseline_pass and all(
+            case["status"] == "pass" for case in result["cases"].values())
+        result["semantic_observations_pass"] = semantic_pass
+        result["status"] = ("pass" if pinned else "unpinned_diagnostic") if semantic_pass else "fail"
+        if not pinned:
+            result["pin_limitation"] = "Required Rust compiler unavailable. Stable results are diagnostic."
+        self.save()
+
+    def extraction(self, aeneas):
+        result = self.receipt["extraction"]
+        extract = self.root / "extraction"
+        extract.mkdir()
+        # Do not give Charon a rustup proxy: its normal path can install missing components.
+        sysroot = RUSTUPS / f"{EXTRACT_PIN}-{HOST}"
+        xenv = {
+            "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+            "PATH": f"{sysroot / 'bin'}:/usr/bin:/bin",
+            "LD_LIBRARY_PATH": str(sysroot / "lib"),
+        }
+        commands = [
+            ("charon-version", [CHARON, "version"], CHARON_PIN),
+            ("charon-toolchain", [CHARON, "toolchain-version"], EXTRACT_PIN),
+            ("aeneas-version", [aeneas, "-version"], AENEAS_PIN),
+            ("extraction-rustc", [sysroot / "bin/rustc", "-Vv"], "-nightly"),
+            ("extraction-cargo", [sysroot / "bin/cargo", "-V"], "cargo "),
+            ("lean-version", [LEAN, "--version"], "version 4.35.0"),
+        ]
+        probes = {}
+        for name, argv, pin in commands:
+            command, out, err = self.run(name, argv, self.work, 8, **xenv)
+            probes[name] = command["status"] == "ok" and pin in (
+                out.read_text(errors="replace") + err.read_text(errors="replace"))
+        result["pin_probes"] = probes
+        reasons = [name for name, matched in probes.items() if not matched and name != "lean-version"]
+        if not executable(CHARON.with_name("charon-driver")):
+            reasons.append("charon-driver missing")
+        if reasons:
+            self.retained_probe(aeneas, extract, probes["aeneas-version"])
+            result.update(status="blocked", missing_step="fresh pristine extraction",
+                          reason="Missing or mismatched pinned tools: " + ", ".join(reasons))
+            self.save()
+            return
+
+        pristine = self.translate("pristine", aeneas, extract, xenv)
+        if pristine is None:
+            self.retained_probe(aeneas, extract, True)
+            result.update(status="blocked", missing_step="fresh pristine extraction",
+                          reason=result["cases"]["pristine"]["reason"])
+            self.save()
+            return
+        if pristine.read_bytes() != LEAN_SOURCE.read_bytes():
+            diff(LEAN_SOURCE.read_bytes(), pristine.read_bytes(), extract / "Pristine.diff",
+                 "frozen/GeneralEngine.lean", "pristine/GeneralEngine.lean")
+            result.update(status="fail", missing_step="mutant extraction and proof replay",
+                          reason="Fresh pristine translation differs from accepted bytes")
+            self.save()
+            return
+        result["pristine_byte_identical"] = True
+        self.save()
+
+        if not probes["lean-version"]:
+            result["proof_setup_error"] = "Pinned Lean 4.35.0 not available"
+        else:
+            try:
+                self.proof_path()
+            except ValueError as exc:
+                result["proof_setup_error"] = str(exc)
+        baseline_proofs = {}
+        if "proof_setup_error" not in result:
+            overlay = self.build_translation("pristine", extract)
+            if overlay is not None:
+                for name, (_, _, stage, _, _) in CONTROLS.items():
+                    baseline_proofs[name] = self.replay_stage("pristine", stage, overlay, extract)[0]["status"]
+        result["baseline_proofs"] = baseline_proofs
+        self.save()
+
+        for name, (_, _, stage, anchor, diagnostics) in CONTROLS.items():
+            generated = self.translate(name, aeneas, extract, xenv)
+            if generated is None:
+                continue
+            case = result["cases"][name]
+            diff(pristine.read_bytes(), generated.read_bytes(), generated.parent / "Lean.diff",
+                 "pristine/GeneralEngine.lean", f"{name}/GeneralEngine.lean")
+            decl, old, new = TRANSLATION_SITES[name]
+            before = declaration(pristine.read_text(), decl)
+            after = declaration(generated.read_text(), decl)
+            site_changed = bool(re.search(old, before) and re.search(new, after)
+                                and not re.search(old, after))
+            case["expected_translated_change"] = {"declaration": decl, "matched": site_changed}
+            if not site_changed:
+                case.update(status="fail", reason="Expected semantic change absent in generated declaration")
+            elif baseline_proofs.get(name) != "ok":
+                case.update(status="blocked", reason="No successful pristine stage replay")
+            else:
+                overlay = self.build_translation(name, extract)
+                if overlay is not None:
+                    proof, out, err = self.replay_stage(name, stage, overlay, extract)
+                    self.classify(case, stage, anchor, diagnostics, proof, out, err)
+            self.save()
+        result["status"] = "pass" if all(result["cases"].get(name, {}).get("status") ==
+                                        "semantic_rejection" for name in CONTROLS) else "incomplete"
+        self.save()
+
+    def translate(self, name, aeneas, extract, env):
+        case = extract / name
+        case.mkdir()
+        crate_root = self.work / name / "rust"
+        crate = crate_root / "general_engine"
+        (crate / "src").mkdir(parents=True)
+        original_crate = RUST_SOURCE.parent.parent
+        for filename in ("Cargo.toml", "Cargo.lock"):
+            shutil.copy2(original_crate / filename, crate / filename)
+        shutil.copy2(self.root / "source" / name / "lib.rs", crate / "src/lib.rs")
+        # Cargo resolves the local dev dependency even though extraction builds only the library.
+        transformer = REPO / "rust/transformer"
+        (crate_root / "transformer").mkdir()
+        shutil.copy2(transformer / "Cargo.toml", crate_root / "transformer/Cargo.toml")
+        for source_dir in ("src", "examples", "tests"):
+            if (transformer / source_dir).exists():
+                shutil.copytree(transformer / source_dir, crate_root / "transformer" / source_dir)
+
+        # Match scripts/translate.sh's Charon arguments and Aeneas arguments.
+        llbc = case / "general_engine.llbc"
+        charon, _, _ = self.run(
+            f"{name}-charon",
+            [CHARON, "cargo", "--preset=aeneas", "--dest-file", llbc,
+             "--abort-on-error", "--error-on-warnings", "--", "--lib"],
+            crate, 240, **env, CARGO_TARGET_DIR=str(crate_root / "target"),
+        )
+        if charon["status"] != "ok" or not llbc.is_file():
+            self.receipt["extraction"]["cases"][name] = {
+                "status": "blocked", "reason": f"Charon {charon['status']} or LLBC missing"}
+            self.save()
+            return None
+        converted, generated = self.aeneas(name, aeneas, case, llbc)
+        if converted["status"] != "ok" or not generated.is_file():
+            self.receipt["extraction"]["cases"][name] = {
+                "status": "blocked", "reason": f"Aeneas {converted['status']} or Lean source missing"}
+            self.save()
+            return None
+        self.receipt["extraction"]["cases"][name] = {
+            "status": "translated", "llbc_sha256": sha(llbc), "lean_sha256": sha(generated)}
+        self.save()
+        return generated
+
+    def aeneas(self, name, binary, case, llbc):
+        command, _, _ = self.run(
+            f"{name}-aeneas",
+            [binary, "-backend", "lean", "-abort-on-error", "-warnings-as-errors", "-dest", case, llbc],
+            case, 80,
+        )
+        return command, case / "GeneralEngine.lean"
+
+    def retained_probe(self, aeneas, extract, pinned):
+        result = self.receipt["extraction"]
+        if not pinned or not RETAINED_LLBC.is_file():
+            result["retained_llbc"] = {"status": "not_run",
+                "reason": "Pinned Aeneas or retained pristine LLBC unavailable"}
+            return
+        case = extract / "retained"
+        case.mkdir()
+        command, generated = self.aeneas("retained", aeneas, case, RETAINED_LLBC)
+        result["retained_llbc"] = {
+            "status": command["status"],
+            "byte_identical": generated.is_file() and sha(generated) == LEAN_SHA,
+            "scope": "Retained LLBC to Lean only. Fresh Rust extraction remains unverified.",
+        }
+
+    def proof_path(self):
+        lean_project = REPO / "lean"
+        project = lean_project / ".lake/build/lib/lean"
+        aeneas = REPO / "toolchain/aeneas/backends/lean/.lake/build/lib/lean"
+        packages = lean_project / ".lake/packages"
+        if not (project / MODULE.with_suffix(".olean")).is_file() or not (aeneas / "Aeneas.olean").is_file():
+            raise ValueError("Accepted translated object or pinned Aeneas objects missing")
+        self.project = project
+        self.dependencies = [aeneas, *sorted(packages.glob("*/.lake/build/lib/lean"))]
+
+    def build_translation(self, name, extract):
+        case = extract / name
+        overlay = self.work / name / "olean"
+        overlay.mkdir()
+        # Lean selects the first root containing a top-level namespace. Mirror the complete
+        # project namespace and leave the three GeneralEngine object facets out of Translated.
+        for entry in self.project.iterdir():
+            if entry.name != "LcnExec":
+                (overlay / entry.name).symlink_to(entry, target_is_directory=entry.is_dir())
+        (overlay / "LcnExec/Translated").mkdir(parents=True)
+        for entry in (self.project / "LcnExec").iterdir():
+            if entry.name != "Translated":
+                (overlay / "LcnExec" / entry.name).symlink_to(entry, target_is_directory=entry.is_dir())
+        for entry in (self.project / "LcnExec/Translated").iterdir():
+            if not entry.name.startswith("GeneralEngine."):
+                (overlay / "LcnExec/Translated" / entry.name).symlink_to(entry, target_is_directory=entry.is_dir())
+
+        src_root = case / "lean"
+        src = src_root / MODULE
+        src.parent.mkdir(parents=True)
+        shutil.copy2(case / "GeneralEngine.lean", src)
+        obj = overlay / MODULE.with_suffix(".olean")
+        compiled, _, _ = self.run(
+            f"{name}-lean-translation",
+            [LEAN, "-j", "2", "--json", f"--root={src_root}", "-o", obj, src],
+            src_root, 180, LEAN_PATH=os.pathsep.join(map(str, [overlay, *self.dependencies])),
+        )
+        entry = self.receipt["extraction"]["cases"][name]
+        if compiled["status"] != "ok" or not obj.is_file():
+            entry.update(status="blocked",
+                         reason=f"Translation compilation: {compiled['status']} or object missing")
+            return None
+        # Preserve generated objects, including any private and server facets.
+        object_dir = case / "objects"
+        object_dir.mkdir()
+        for facet in obj.parent.glob("GeneralEngine.*"):
+            shutil.copy2(facet, object_dir / facet.name)
+        entry["translation_object_sha256"] = sha(obj)
+        return overlay
+
+    def replay_stage(self, name, stage, overlay, extract):
+        case = extract / name
+        src_root = case / "lean"
+        proof = src_root / "LcnExec/GeneralEngine" / (stage + ".lean")
+        proof.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(stage_path(stage), proof)
+        return self.run(
+            f"{name}-proof-{stage}", [LEAN, "-j", "2", "--json", f"--root={src_root}", proof],
+            src_root, 140, LEAN_PATH=os.pathsep.join(map(str, [overlay, *self.dependencies])),
+        )
+
+    @staticmethod
+    def classify(case, stage, anchor, patterns, proof, out, err):
+        if proof["status"] == "ok":
+            case.update(status="fail", reason="Unchanged stage proof accepted the mutant")
+            return
+        if proof["status"] != "exit" or proof["returncode"] != 1:
+            case.update(status="blocked", reason=f"Proof infrastructure: {proof['status']}")
+            return
+        text = out.read_text(errors="replace") + "\n" + err.read_text(errors="replace")
+        if INFRA_ERROR.search(text):
+            case.update(status="blocked", reason="Lean reported import, compatibility or resource error")
+            return
+        source = stage_path(stage).read_text().splitlines()
+        lines = [i for i, line in enumerate(source, 1) if anchor in line]
+        errors = []
+        for line in text.splitlines():
+            try:
+                payload = json.loads(line)
+            except ValueError:
+                continue
+            if isinstance(payload, dict) and payload.get("severity") == "error":
+                errors.append(payload)
+        targeted = [
+            error for error in errors if
+            Path(error.get("fileName", "")).name == f"{stage}.lean"
+            and error.get("pos", {}).get("line") in lines
+            and all(re.search(pattern, error.get("data", ""), re.I) for pattern in patterns)
+        ]
+        case["expected_error_site"] = {"stage": stage, "line": lines, "patterns": patterns}
+        if targeted and len(lines) == 1:
+            case.update(status="semantic_rejection", diagnostics=targeted)
+        else:
+            case.update(status="unclassified_rejection",
+                        reason="No diagnostic matched the affected frozen proof site")
+
+    def finish(self, inputs):
+        self.receipt["inputs_after"] = fingerprint(inputs)
+        self.receipt["inputs_unchanged"] = self.receipt["inputs_before"] == self.receipt["inputs_after"]
+        self.receipt["all_controls_pass"] = (
+            self.receipt["native"]["status"] == "pass"
+            and self.receipt["extraction"]["status"] == "pass"
+            and self.receipt["inputs_unchanged"] and "error" not in self.receipt
+        )
+        self.receipt["finished_utc"] = self.now()
+        self.save()
+        # The work directory holds disposable Cargo caches and the read-only namespace mirror.
+        with (self.root / "SHA256SUMS").open("x", encoding="utf-8") as manifest:
+            for path in sorted(self.root.iterdir()):
+                if path.name in {"work", "SHA256SUMS"}:
+                    continue
+                candidates = [path] if path.is_file() else sorted(path.rglob("*"))
+                for item in candidates:
+                    if item.is_file() and not item.is_symlink():
+                        manifest.write(f"{sha(item)}  {item.relative_to(self.root)}\n")
+
+
+def fingerprint(inputs):
+    return {str(path): {"sha256": sha(path), "bytes": path.stat().st_size}
+            if path.is_file() else None for path in inputs}
+
+
+def main():
+    if Path.home().resolve() != HOME or not REPO.is_dir():
+        raise SystemExit("Run only in the authorized bx_9m9mrg3q guest layout")
+    root = Path(tempfile.mkdtemp(prefix="qa-semantic-controls-", dir=ROOT))
+    print(f"Artifacts: {root}", flush=True)
+    run = Run(root)
+    aeneas = next((path for path in (ROOT / "aeneas", ROOT / "aeneas/aeneas",
+                                    ROOT / "aeneas/bin/aeneas") if executable(path)), ROOT / "aeneas")
+    inputs = [
+        RUST_SOURCE, LEAN_SOURCE, RUST_SOURCE.parent.parent / "Cargo.toml",
+        RUST_SOURCE.parent.parent / "Cargo.lock", REPO / "rust/transformer/Cargo.toml",
+        REPO / "rust/rust-toolchain.toml", REPO / "toolchain/PINS.md", REPO / "lean/lean-toolchain",
+        REPO / "lean/lake-manifest.json", RETAINED_LLBC, CHARON, CHARON.with_name("charon-driver"),
+        aeneas, LEAN, Path(__file__).resolve(),
+        *(REPO / "lean/LcnExec/GeneralEngine").glob("*.lean"),
+        *(REPO / "lean/.lake/build/lib/lean/LcnExec/Translated").glob("GeneralEngine.olean*"),
+        *(p for folder in ("src", "examples", "tests")
+          for p in (REPO / "rust/transformer" / folder).rglob("*.rs")),
+        *(RUSTUPS / f"{channel}-{HOST}/bin/rustc"
+          for channel in (RUST_PIN, "stable", "nightly-2025-03-01", EXTRACT_PIN)),
+        RUSTUPS / f"{EXTRACT_PIN}-{HOST}/bin/cargo",
+    ]
+    run.receipt["inputs_before"] = fingerprint(inputs)
+    run.save()
+    try:
+        # Lock an existing file without truncating or creating it.
+        with (ROOT / "locks/build.lock").open("rb") as lock:
+            end = min(time.monotonic() + 20, time.monotonic() + CUTOFF - time.time() - 25)
+            while True:
+                if time.monotonic() >= end:
+                    raise TimeoutError("Shared build lock or deadline limit")
+                try:
+                    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    break
+                except BlockingIOError:
+                    time.sleep(0.25)
+            # Charon's parallel frontend also consults process CPU affinity.
+            cpus = sorted(os.sched_getaffinity(0))[:2]
+            os.sched_setaffinity(0, cpus)
+            run.receipt["cpu_affinity"] = cpus
+            run.prepare()
+            run.native()
+            run.extraction(aeneas)
+    except (OSError, ValueError) as exc:
+        run.receipt["error"] = f"{type(exc).__name__}: {exc}"
+    finally:
+        run.finish(inputs)
+    print(f"Receipt: {root / 'RECEIPT.json'}", flush=True)
+    return 0 if run.receipt["all_controls_pass"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

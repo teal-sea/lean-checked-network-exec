@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_489ifadmmhvk",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T00:12:20.593Z",
+  "launcherFailed": false,
+  "noticedMs": 4,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 4,
+  "startedAt": "2026-11-23T00:12:14.787Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "0 1\n\nL2hvbWUvdXNlci9lNC9xYS1zb2wtaW1wb3J0LU5PMFNkelFaL1R5cGVkQXVkaXQubGVhbjoxOjA6IGVycm9yOiBvYmplY3QgZmlsZSAnL2hvbWUvdXNlci9lNC9xYS1zb2wtaW1wb3J0LU5PMFNkelFaL0xjbkV4ZWMvR2VuZXJhbEVuZ2luZS9MYXllckZvcndhcmQub2xlYW4nIG9mIG1vZHVsZSBMY25FeGVjLkdlbmVyYWxFbmdpbmUuTGF5ZXJGb3J3YXJkIGRvZXMgbm90IGV4aXN0Cg==\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

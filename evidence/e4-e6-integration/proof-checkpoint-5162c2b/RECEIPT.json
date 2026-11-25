@@ -1,0 +1,54 @@
+{
+  "worker": {
+    "commit": "5162c2bbdb7bb335664685eed434e5bc1d424e77",
+    "base": "519fc10431480334d3dfc02b425fd9b39a7d1a5d",
+    "admission": 2251,
+    "generation": 24,
+    "process": "proc_b22b3d9b2ce2",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "scope": "Outer hidden scan draft is incomplete, rejected, and not installed. The model/shift probes are independent checks, not the loop theorem.",
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-23T00:13:53.772Z",
+    "command_id": "cmd_vo7fffoqsqmm",
+    "finished_at": "2026-11-22T19:43:51.851Z",
+    "exits": {
+      "OuterRed2": 1,
+      "Interfaces": 1
+    },
+    "interface_axioms": {
+      "hidden_mapped_length_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_activation_bang_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_shift_bound_probe": "sorryAx"
+    },
+    "guest_dir": "/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ",
+    "archive": "hidden-outer-red2-replay.tar.gz",
+    "archive_sha256": "61b97c06f0db6157264584d90f60a8f0cc31cb153774156411fca8a0b234eafc",
+    "files_sha256": {
+      "OuterRed2.lean.txt": "fc51c00ce8f4b628a31c8ab50348255446845f6748831f0438da3874caa51d61",
+      "OuterRed2.log": "c457f9e6fd8c9a7f8da041e5df8ce047e227294181b65f6f41812a9c5e1991d0",
+      "OuterRed2.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "Interfaces.lean.txt": "df954b95a908e0c2c50964c4f5777e26d74b2a654b68a1eb89ed02ebda81cb09",
+      "Interfaces.log": "da0a8318ea460a8e9171682d388a4824ab91bd2e63d98462a80f10bec4279b79",
+      "Interfaces.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a"
+    }
+  },
+  "exact_interfaces": {
+    "command_id": "cmd_8rbsl5emm6jk",
+    "finished_at": "2026-11-22T19:44:30.686Z",
+    "exit": 0,
+    "axioms": {
+      "hidden_mapped_length_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_activation_bang_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_shift_bound_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "files_sha256": {
+      "InterfacesExact.lean.txt": "ae41c213efc11fe94abf4b11fd1084814e644053a2d20eb78032422bddc0f4e1",
+      "InterfacesExact.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "InterfacesExact.log": "4c5d29fdbaf478a3ecf90d0d23de1289b74bfcfb5422448a277d3eb29432de0e",
+      "boat-interfaces-exact.json": "27719ba9b85184523b0ce07c9e12d0f2202daae50d48d2976db2b016590e5fed"
+    }
+  }
+}

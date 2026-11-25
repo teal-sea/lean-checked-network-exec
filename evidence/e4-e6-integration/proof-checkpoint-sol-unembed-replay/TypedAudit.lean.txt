@@ -1,0 +1,12 @@
+import LcnExec.GeneralEngine.Unembed
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (W : general_engine.Weights) (hW : LoadBounds W)
+    (fin : Array I64 128#usize) (hfin : Bounded Envelope.final_stream fin) :
+    general_engine.unembed W fin ⦃ out =>
+      ints out = GeneralModel.unembed (toGeneralModel W) (ints fin) ∧
+      Bounded Envelope.logit out ⦄ := unembed_spec W hW fin hfin
+#print axioms unembed_inner_spec
+#print axioms unembed_loop0_spec
+#print axioms unembed_spec
+end LcnExec.GeneralEngine

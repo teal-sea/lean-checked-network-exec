@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_vrzflsvvhs6q",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:02:42.226Z",
+  "launcherFailed": false,
+  "noticedMs": 3,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 3,
+  "startedAt": "2026-11-23T02:02:36.975Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-sol-unembed-QFjyAP5A\n3c351c588a8e45df39ba4e03b8eb98382f8289b3f0d0b6494c00a062a994ba85  /home/user/e4/qa-sol-unembed-QFjyAP5A.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

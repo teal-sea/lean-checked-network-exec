@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_zxgflo2gwyxn",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T19:27:07.562Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 3,
+  "startedAt": "2026-11-22T19:26:58.538Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-mlp-inner-34106f7-yeZy8ZHb\n33a5f30878cf531f3f1663d7173e01effe0a34c7cad3a40d76a042876e69d938  /home/user/e4/qa-mlp-inner-34106f7-yeZy8ZHb.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

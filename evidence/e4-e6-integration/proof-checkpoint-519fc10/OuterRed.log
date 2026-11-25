@@ -1,0 +1,109 @@
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:17:14: warning: This simp argument is unused:
+  Array.length_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:20:5: warning: `hidden` has been deprecated: use the builtin pretty-printer elision (`⋯`, see `pp.deepTerms`) instead
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:20:5: error: Function expected at
+  hidden
+but this term has type
+  ?m.8
+
+Note: Expected a function because this term is being applied to the argument
+  accs
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:29:30: warning: `hidden` has been deprecated: use the builtin pretty-printer elision (`⋯`, see `pp.deepTerms`) instead
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:31:8: warning: declaration uses `sorry`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:34:2: warning: Unused tactic linter: `· simp [project_lincomb_length]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:35:2: warning: Unused tactic linter: `· simp [project_lincomb_length]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:34:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:35:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:38:8: warning: declaration uses `sorry`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:45:8: error: Application type mismatch: The argument
+  (GeneralModel.layer (toGeneralModel W) ↑l).bin
+has type
+  List ℤ
+but is expected to have type
+  List (List ?m.17)
+in the application
+  GeneralModel.nth [] (GeneralModel.layer (toGeneralModel W) ↑l).bin
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:47:8: error: Application type mismatch: The argument
+  (GeneralModel.layer (toGeneralModel W) ↑l).bin
+has type
+  List ℤ
+but is expected to have type
+  List (List ?m.26)
+in the application
+  GeneralModel.nth [] (GeneralModel.layer (toGeneralModel W) ↑l).bin
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:60:26: error(lean.unknownIdentifier): Unknown identifier `Weights`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:61:22: error(lean.unknownIdentifier): Unknown identifier `Weights`
+/home/user/e4/qa-hidden-outer-519fc10-NgZuzkPA/OuterRed.lean:54:37: error: unsolved goals
+case a
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hdotcap : 0 ≤ 128 * Envelope.residual * 82
+⊢ (have m := Array.repeat 512#usize 0#i64;
+      loop
+        (fun x =>
+          match x with
+          | (w1, m1, i1) => general_engine.mlp_hidden_loop0.body l r w1 m1 i1)
+        (W, m, 0#usize)) ⦃
+      m => ints m = GeneralModel.mlpHidden (toGeneralModel W) (↑l) (ints r) ∧ Bounded Envelope.hidden m ⦄ ∈
+    Set.range fun f => ↑f ()
+
+case post
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hdotcap : 0 ≤ 128 * Envelope.residual * 82
+⊢ ?m.45 → Prop
+
+case body
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hdotcap : 0 ≤ 128 * Envelope.residual * 82
+⊢ sorry × Std.Array I64 512#usize × Usize → Result (ControlFlow (sorry × Std.Array I64 512#usize × Usize) ?m.45)
+
+case x
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hdotcap : 0 ≤ 128 * Envelope.residual * 82
+⊢ sorry × Std.Array I64 512#usize × Usize
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hdotcap : 0 ≤ 128 * Envelope.residual * 82
+⊢ Type ?u.32

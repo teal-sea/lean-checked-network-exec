@@ -1,0 +1,3 @@
+'LcnExec.GeneralEngine.hidden_mapped_length_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_activation_bang_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_shift_bound_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

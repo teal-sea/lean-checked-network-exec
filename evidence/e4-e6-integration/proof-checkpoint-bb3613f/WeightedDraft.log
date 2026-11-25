@@ -1,0 +1,118 @@
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:19:8: warning: `List.take_succ` has been deprecated: Use `List.take_add_one` instead
+
+Hint: Replace the deprecated name:
+  List.take_s̵u̵c̵c̵a̲d̲d̲_̲o̲n̲e̲
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:21:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.99[n]!
+in the target expression
+  l[n]?.toList = [l[n]]
+
+case e_a
+l : List ℤ
+n : ℕ
+hn : n + 1 ≤ l.length
+⊢ l[n]?.toList = [l[n]]
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:21:29: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑l.length
+ b := ↑n
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:56:56: error: Type mismatch
+  a
+has type
+  Std.Array I64 32#usize
+but is expected to have type
+  List ℤ
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:56:41: error: `simp` made no progress
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:56:61: error: unsolved goals
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+acc : I64
+jj : Usize
+hjj1 : ↑jj ≤ ↑p + 1
+hfold :
+  ↑acc =
+    List.foldl
+      (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+      (List.range ↑jj)
+hlo : -(Envelope.value * (List.take (↑jj) (ints alpha)).sum) ≤ ↑acc
+hhi : ↑acc ≤ Envelope.value * (List.take (↑jj) (ints alpha)).sum
+h✝ : jj ≤ p
+hjp : ↑jj ≤ ↑p
+hjj32 : ↑jj < 32
+i1 : I64
+hi1 : i1 = (↑alpha)[↑jj]
+a : Std.Array I64 32#usize
+ha : a = (↑vs)[↑jj]
+i2 : I64
+hi2 : i2 = (↑a)[↑i]
+hal : (ints alpha)[↑jj] = ↑i1
+⊢ sorry ()
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:58:42: error: `simp` made no progress
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:59:14: error: Invalid argument: Variable `hrow` is not a proposition or let-declaration
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:58:92: error: unsolved goals
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+acc : I64
+jj : Usize
+hjj1 : ↑jj ≤ ↑p + 1
+hfold :
+  ↑acc =
+    List.foldl
+      (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+      (List.range ↑jj)
+hlo : -(Envelope.value * (List.take (↑jj) (ints alpha)).sum) ≤ ↑acc
+hhi : ↑acc ≤ Envelope.value * (List.take (↑jj) (ints alpha)).sum
+h✝ : jj ≤ p
+hjp : ↑jj ≤ ↑p
+hjj32 : ↑jj < 32
+i1 : I64
+hi1 : i1 = (↑alpha)[↑jj]
+a : Std.Array I64 32#usize
+ha : a = (↑vs)[↑jj]
+i2 : I64
+hi2 : i2 = (↑a)[↑i]
+hal : (ints alpha)[↑jj] = ↑i1
+hrow : sorry
+⊢ (vals2 vs)[↑jj][↑i] = ↑(↑a)[↑i]
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:65:6: error: LE.le is not a supported spec statement
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:57:14: warning: This simp argument is unused:
+  vals2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:57:21: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [vals2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-weighted-bb3613f/WeightedDraft.lean:59:20: warning: This simp argument is unused:
+  ints
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hrow, hi2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

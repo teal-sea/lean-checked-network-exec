@@ -1,0 +1,53 @@
+{
+  "worker": {
+    "commit": "8e73c3f3e23e30072bf00e609e02acc58c32d222",
+    "base": "9a58efbd3196fd9fc42555fd55ef76172c166bcd",
+    "admission": 2246,
+    "generation": 19,
+    "process": "proc_001a7e76c057",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-23T00:13:53.772Z",
+    "command_id": "cmd_m7oz1xmtrphv",
+    "finished_at": "2026-11-22T18:46:52.749Z",
+    "exits": {
+      "ResidualRed": 1,
+      "Interfaces": 1
+    },
+    "interface_axioms": {
+      "residual_mul_bounds_probe": "propext, Classical.choice, Quot.sound",
+      "residual_getElem_plain_probe": "propext, sorryAx, Classical.choice, Quot.sound"
+    },
+    "guest_dir": "/home/user/e4/qa-residual-8e73c3f-zVRuRuiF",
+    "archive": "residual-replay.tar.gz",
+    "archive_sha256": "1842bf7dd5adf54fb70e9014d8780cbae6c1dbfb08f1ef958343fedd21e5dc7e",
+    "files_sha256": {
+      "ResidualRed.lean.txt": "9c228b0db4f5a6e3fe805a71bba52f8e34bbe590a81e324b710e7e3f078c16b1",
+      "ResidualRed.log": "c2501740d61ebbbdf2c74ace69f7c0a5471927f43ddab1b58baed01a327b3bb7",
+      "ResidualRed.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "Interfaces.lean.txt": "b34eed1d2af5f3b25ff3f6fab9187e5c9105098911e9741a425c237ac8da878b",
+      "Interfaces.log": "550b71b4f12fedf239d6d7b4e5979cef0e5bd07fc45b532724baa35cfebad599",
+      "Interfaces.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a"
+    }
+  },
+  "scope": "Residual draft still rejected; scratch interfaces are not the actual residual theorem.",
+  "explicit_interfaces": {
+    "command_id": "cmd_fxtkdrz9ycrt",
+    "finished_at": "2026-11-22T18:47:52.768Z",
+    "exit": 0,
+    "axioms": {
+      "residual_zero_bounds_probe": "propext, Classical.choice, Quot.sound",
+      "residual_mul_bounds_probe": "propext, Classical.choice, Quot.sound",
+      "residual_getElem_plain_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "files_sha256": {
+      "InterfacesExplicit.lean.txt": "b758c25a26775705961a02a311956c84fe9fbd9b05cede990b2f2203264074fc",
+      "InterfacesExplicit.log": "5cfccf9d63cc63b1181dfd9c95d17c7a3215c2f81394bcc0f2cfa413010b591f",
+      "InterfacesExplicit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "boat-interfaces-explicit.json": "981be9517fec27a769716ed926f6757d8712e468f5d0494d9736730a571543ea"
+    }
+  }
+}

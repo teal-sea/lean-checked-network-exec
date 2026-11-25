@@ -1,0 +1,3 @@
+'LcnExec.GeneralEngine.repeat_val_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.repeat_zero_index_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.repeat_zero_bounded_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

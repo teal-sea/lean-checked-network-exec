@@ -1,0 +1,88 @@
+import LcnExec.GeneralEngine.MixBound
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem mix_scan_spec (p : Usize) (hp : p.val < 32)
+    (alpha : Array I64 32#usize) (vs : Array (Array I64 32#usize) 32#usize)
+    (halpha : ∀ j (_ : j ≤ p.val), 0 ≤ (ints alpha)[j]'(by rw [ints_length32]; omega))
+    (hsum : ((ints alpha).take (p.val + 1)).sum ≤ 16777216)
+    (hvs : ∀ row ∈ vs.val, Bounded Envelope.value row) :
+    general_engine.head_out_at_loop1 p alpha vs (Array.repeat 32#usize 0#i64) 0#usize ⦃ r =>
+      ints r = GeneralModel.mixAt (ints alpha) (vals2 vs) p.val ∧
+      Bounded Envelope.mixed_value r ⦄ := by
+  unfold general_engine.head_out_at_loop1
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array I64 32#usize × Usize) => 32 - st.2.val)
+    (inv := fun (st : Array I64 32#usize × Usize) =>
+      st.2.val ≤ 32 ∧ Bounded Envelope.mixed_value st.1 ∧
+      ∀ (k : Nat) (hk : k < 32) (hik : k < st.2.val),
+        (ints st.1)[k]'(by rw [ints_length32]; omega) =
+          Int.shiftRight ((List.range (p.val + 1)).foldl
+            (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+              GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k) 0) 16)
+  · rintro ⟨z, i⟩ ⟨hi1, hbd, heq⟩
+    unfold general_engine.head_out_at_loop1.body
+    dsimp only at hi1 hbd heq ⊢
+    simp only [general_engine.D_HEAD]
+    split
+    · have hi32 : i.val < 32 := by scalar_tac
+      step with head_out_mix_inner_spec p hp alpha vs i hi32 halpha hsum hvs as ⟨acc, hacc⟩
+      step as ⟨i1, hi1v⟩
+      change i1.val = Int.shiftRight acc.val 16 at hi1v
+      step with Array.update_spec z i i1 (by simp; omega) as ⟨a, ha⟩
+      step as ⟨i2, hi2⟩
+      have hi2v : i2.val = i.val + 1 := by scalar_tac
+      have hs : ∀ x : Int, Int.shiftRight x 16 = x / 65536 :=
+        fun x => Int.shiftRight_eq_div_pow x 16
+      have hbnd : -441122816 ≤ i1.val ∧ i1.val ≤ 441122816 := by
+        have hf := mix_fold_bound p hp alpha vs i hi32 halpha hsum hvs
+        rw [hi1v, hacc, hs _]
+        omega
+      simp only [hi2]
+      refine ⟨by omega, ?_, ?_, by omega⟩
+      · intro v hv
+        by_cases hvj : v = i1
+        · subst v; exact hbnd
+        · simp only [ha, Array.set_val_eq] at hv
+          rcases List.mem_or_eq_of_mem_set hv with h | h
+          · exact hbd v h
+          · exact absurd h (by simpa using hvj)
+      · intro k hk hik
+        by_cases hki : k = i.val
+        · subst k
+          have hval : (ints a)[i.val]'(by rw [ints_length32]; omega) = i1.val := by
+            simp [ha, Array.set_val_eq, List.getElem_set_self, ints]
+          rw [hval, hi1v, hacc]
+        · have hval : (ints a)[k]'(by rw [ints_length32]; omega) =
+              (ints z)[k]'(by rw [ints_length32]; omega) := by
+            simp only [ha, ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact heq k hk (by omega)
+    · have hi32 : i.val = 32 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · simp [GeneralModel.mixAt, ints_length32]
+      · intro k hk hk'
+        have hk32 : k < 32 := by simpa only [ints_length32] using hk
+        have hget : ((ints z)[k]'(by rw [ints_length32]; omega)) =
+            Int.shiftRight ((List.range (p.val + 1)).foldl
+              (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+                GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k) 0) 16 :=
+            heq k hk32 (by omega)
+        rw [hget]
+        simp only [GeneralModel.mixAt, List.getElem_map, List.getElem_range]
+        rfl
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_⟩
+    · intro v hv
+      have hvz : v = 0#i64 := by simpa using hv
+      subst hvz
+      constructor <;> (simp only [Envelope.mixed_value]; norm_num)
+    · intro k hk hik
+      exact absurd hik (by show ¬(k < 0); omega)
+
+end LcnExec.GeneralEngine

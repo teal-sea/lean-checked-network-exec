@@ -1,0 +1,52 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Inner": 0,
+    "Outer": 1,
+    "Audit": 125
+  },
+  "errors": {
+    "Inner": [],
+    "Outer": [
+      [
+        "73",
+        "52",
+        "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+      ],
+      [
+        "113",
+        "27",
+        "Application type mismatch: The argument"
+      ]
+    ],
+    "Audit": []
+  },
+  "warnings": {
+    "Inner": 0,
+    "Outer": 0,
+    "Audit": 0
+  },
+  "inner_sha256": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+  "outer_sha256": "d74f8aac233af3bc05f6064fb6fcca21de9938611b81266e5b969340a63fe2e8",
+  "command_id": "cmd_gvd0bd3c0ayw",
+  "finished_at": "2026-11-23T01:59:53.055Z",
+  "files_sha256": {
+    "Audit.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Inner.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Outer.log": "daa40109f306859f99cde47f61c23620d3ad492dff4481c76b30618669c402e5",
+    "TypedAudit.lean.txt": "f0923fed83f50f87919375259c824670ba61f0986e921bb967a253aa8b450538",
+    "Unembed.lean.txt": "d74f8aac233af3bc05f6064fb6fcca21de9938611b81266e5b969340a63fe2e8",
+    "UnembedInner.lean.txt": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc",
+    "boat-command.json": "dc5efd60c9c5f4d6347942c8fcd1803da69143535b140fc36a29699de60ed3b7",
+    "exit.txt": "241735ff66a58bb383991e73e3880807808ae6e222f3a589c2a99c77fc18e07e",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "unembed-replay.tar.gz": "2e8f98c21e50fe3086c6e484a09a437101079b4addcc1914400e9824ce70b2a1",
+    "FIX-UNEMBED-REPLAY.md": "35d19e3f14086291f4b8dcc8ee155eb6eecd8d6e7104ec42a33113c6cee147fb",
+    "unembed-fix1-dispatch.json": "644f85fe799104fdfe18510ce485d9e6100ee1b3f158f2a37c770af16b4283d3",
+    "unembed-fix1-exit.json": "275d72bbd164ee9bdca990df00df9f12b8154bb7c2af13382c8b507e71c2e171"
+  },
+  "base": "da4aa9c312a2cb47951b21657d105f1b55b738c9",
+  "worker_checkpoint": "b6c7119d0d641b1d5bcc4dcc48b5a76ef7c295b7",
+  "scope": "Exact inner output dot checked by Lean with zero warnings. Outer scan rejected at two sites, so combined typed import and axiom audit did not run."
+}

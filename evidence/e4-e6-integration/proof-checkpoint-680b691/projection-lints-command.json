@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_zoq0knu2mzvr",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T02:53:09.649Z",
+  "launcherFailed": false,
+  "noticedMs": 4,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 4,
+  "startedAt": "2026-11-22T02:52:55.362Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "c7add3c6f86e2b01ccb5e227e2668d8a23baa03f4248744c16ccd66adf44ab2d  /home/user/e4/qa-projection-lints-680b691-s43e0cdi/ProjectionProbeAudit.lean\nc0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd  /home/user/e4/qa-projection-lints-680b691-s43e0cdi/ProjectionProbe.lean\nProjectionProbe=0\nProjectionProbeAudit=0\n'LcnExec.GeneralEngine.head_out_proj_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

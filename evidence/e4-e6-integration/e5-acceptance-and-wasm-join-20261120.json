@@ -1,0 +1,34 @@
+{
+  "e5": {
+    "commit": "b4a0bc8a2c0262cb31d853480769e99419659000",
+    "receipt_sha256": "2b6e197992c2305b56e708c6f50f42c78a65a81b0d4d16f43ce51db438dd9413",
+    "receipt_artifact_hashes_verified": 17,
+    "original_parity_receipt": {"prompts": 200, "tiny_lm_logits": 51200, "mod113_logits": 22600, "mismatches": 0},
+    "fresh_parity_spot_check": {
+      "build": "cargo +1.99.1 build --offline --locked --release with a temporary target directory",
+      "prompt_hex": ["00", "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "0008101820283038404850586068707880889098a0a8b0c8d0e8f0f8", "c2bf5175c3a920657320756e61207072756562613f", "412073746974636820696e2074696d65", "090a2000ff"],
+      "tiny_lm_logits": 1536,
+      "mod113_logits": 678,
+      "mismatches": 0
+    },
+    "scope": "The E5 standalone Rust harness against the exact Python reference, not the verified engine or final browser. The original 200-prompt run was authenticated by receipt; the coordinator independently replayed six additional prompts."
+  },
+  "provisional_wasm_join": {
+    "engine_checkpoint": "77c31de98f901c1798d88d609e21884f0154d09e",
+    "wrapper_commit": "f6aa052a5f035ae7392d39d80cfb26c088464c7e",
+    "weights_and_reference_commit": "b4a0bc8a2c0262cb31d853480769e99419659000",
+    "build": "cargo +1.99.1 build --offline --locked --release --target wasm32-unknown-unknown in a temporary assembly of the three committed snapshots",
+    "sha256": {
+      "engine_source": "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4",
+      "wasm": "adf89aec183de1099324ecb1cf79593c299602a4f84a964e58b47a49d5b34e50",
+      "tiny_weights": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "mod113_weights": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc"
+    },
+    "mod113_pairs_checked_in_node": [[0, 0], [21, 56], [112, 112], [1, 112], [57, 56], [107, 42]],
+    "corrupt_tok_0_0_rejected_and_prediction_disabled": true,
+    "tiny_lm_logits_compared": 1024,
+    "tiny_lm_mismatches": 0,
+    "greedy_repeat": {"prompt": "A stitch in time", "completion": " saves nine.\n", "repeated_identically": true},
+    "scope": "Node WebAssembly smoke check only, not final Lean evidence, exhaustive Wasm sweep or actual browser acceptance. Keep E4 and E6 open. The E6 prototype trust banner must not be presented as a completed proof."
+  }
+}

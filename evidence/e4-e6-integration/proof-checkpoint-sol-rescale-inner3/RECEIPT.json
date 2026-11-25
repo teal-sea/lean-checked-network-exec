@@ -1,0 +1,49 @@
+{
+  "base": "1cef7d2618517a4aaa4a4e117b585438b3fc1577",
+  "prior_checkpoint": "c7b3eec71a322be20e5530c1f063bda83689a4f1",
+  "worker": "gpt-6.2-sol",
+  "thread": "01a205b6-ced0-7a10-b998-71d84b4cc9e3",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "source_sha256": "01aeaa5a6c120624570acf52a844ae02d38bb67ce3302bbd4ce2e588f38dcd7a",
+  "dependency_sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+  "direct_exit": 1,
+  "errors": [
+    [
+      "129",
+      "8",
+      "Tactic `apply` failed: could not unify the conclusion of `hfinish (-127)#i64 row2 hrow2 hm`"
+    ],
+    [
+      "143",
+      "10",
+      "Tactic `apply` failed: could not unify the conclusion of `hfinish 127#i64 row2 hrow2 hm`"
+    ],
+    [
+      "154",
+      "10",
+      "Type mismatch"
+    ]
+  ],
+  "warnings": 5,
+  "source_audit_exit": "not run",
+  "archive": "sol1-replay.tar.gz",
+  "archive_sha256": "d761955fde8c87808714180c954d7beda1c4e130b3bdb4746f397a00b8a91d75",
+  "command_id": "cmd_8s5jigj5evie",
+  "finished_at": "2026-11-23T00:07:27.292Z",
+  "files_sha256": {
+    "Audit.exit": "02131f7ca56ee11dfb0dfc0fa581d973e52894fd4e38207b6d29b2905d62f81a",
+    "Audit.lean.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Audit.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "RescaleInner3.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "RescaleInner3.lean.txt": "01aeaa5a6c120624570acf52a844ae02d38bb67ce3302bbd4ce2e588f38dcd7a",
+    "RescaleInner3.log": "4648d2ea7c6e2ebc60f7c51657dfb826f452afc77a2d1be12fcdcde3b0d014ea",
+    "boat-command.json": "6c1a6792777693fd0efffa2066fb9af2085bcf0bdb4265cb422b08edb935bd83",
+    "sol1-replay.tar.gz": "d761955fde8c87808714180c954d7beda1c4e130b3bdb4746f397a00b8a91d75",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "RescaleInner3.replay.sh": "30006d71004ce5d7e733690001396bc43af92b8d64d7c4ad8aff5a36775125f1",
+    "RescaleInner3.replay.stderr": "23fed1cb7b5247b42f9d2cf82d17e1b7936dedf5e14a800d19ca08263b89dc23"
+  },
+  "scope": "Standalone draft replay only. No installed module or downstream acceptance.",
+  "worker_checkpoint": "285e247ed5d8d1ffd76dcfa1d4cb846693187455"
+}

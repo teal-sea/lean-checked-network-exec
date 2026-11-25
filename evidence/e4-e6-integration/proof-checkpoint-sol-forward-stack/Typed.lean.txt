@@ -1,0 +1,29 @@
+import LcnExec.GeneralEngine.ForwardInputs
+import LcnExec.GeneralEngine.ForwardStack
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (t : Array Usize 32#usize) (n : Nat) (hn : n ≤ 32) :
+    ((t.val.map (·.val)).take n).any (fun x => x ≥ 256) = false ↔ ValidTokenPrefix t n :=
+  tokens_invalid_eq_false_iff t n hn
+example (t : Array Usize 32#usize) (n : Usize) (hn : n.val ≤ 32) :
+    general_engine.forward_logits_loop0 t n true 0#usize ⦃ b =>
+      b = true ↔ ValidTokenPrefix t n.val ⦄ := forward_logits_loop0_spec t n hn
+example (W : general_engine.Weights) (hW : LoadBounds W)
+    (t : Array Usize 32#usize) (n : Usize) (hn : n.val ≤ 32) (hv : ValidTokenPrefix t n.val) :
+    general_engine.embed_all W t n ⦃ out =>
+      ints2 out = GeneralModel.embedAll (toGeneralModel W) (t.val.map (·.val)) n.val ∧ streams out ⦄ :=
+  embed_all_spec W hW t n hn hv
+example (W : general_engine.Weights) (hW : LoadBounds W)
+    (n : Usize) (hp : 0 < n.val) (hn : n.val ≤ 32) (hw : W.n_layers.val ≤ 2)
+    (x : Array (Array I64 128#usize) 32#usize) (hx : streams x)
+    (last : Array I64 128#usize) (hlast : Bounded Envelope.final_stream last) :
+    general_engine.forward_logits_loop1 W.n_layers W.vocab_size W.tok W.pos W.layers
+        W.u W.exp_n W.exp_2 W.exp_1 W.exp_0 n x last 0#usize ⦃ out =>
+      ints out = GeneralModel.runLayers (toGeneralModel W) 0 W.n_layers.val
+        (ints2 x) n.val (ints last) ∧ Bounded Envelope.final_stream out ⦄ :=
+  forward_logits_loop1_spec W hW n hp hn hw x hx last hlast
+#print axioms tokens_invalid_eq_false_iff
+#print axioms forward_logits_loop0_spec
+#print axioms embed_all_spec
+#print axioms forward_logits_loop1_spec
+end LcnExec.GeneralEngine

@@ -1,0 +1,6 @@
+'LcnExec.GeneralEngine.mlp_hidden_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.activation_compare_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.activation_upper_probe' does not depend on any axioms
+'LcnExec.GeneralEngine.activation_write_bound_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.repeat_zero_index_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.repeat_zero_bounded_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

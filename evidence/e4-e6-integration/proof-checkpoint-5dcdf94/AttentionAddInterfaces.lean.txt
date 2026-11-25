@@ -1,0 +1,42 @@
+import LcnExec.GeneralEngine.HeadOut
+
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+
+/-- The exact shape printed by the two translated index steps, plus the
+untouched-suffix equality at the next index, suffices for the checked addition. -/
+theorem next_add_bound_probe (att ho att1 : Array I64 128#usize)
+    (b : Int) (hatt : Bounded b att) (hho : Bounded Envelope.head_output ho)
+    (hb : b ≤ 3 * Envelope.head_output) (k : Usize) (hk : k.val < 128)
+    (hsuf : att1.val[k.val]'(by simpa using hk) = att.val[k.val]'(by simpa using hk))
+    (i i1 : I64) (hiv : i = ho.val[k.val]'(by simpa using hk))
+    (hi1v : i1 = att1.val[k.val]'(by simpa using hk)) :
+    I64.min ≤ i1.val + i.val ∧ i1.val + i.val ≤ I64.max ∧
+    -(b + Envelope.head_output) ≤ i1.val + i.val ∧
+    i1.val + i.val ≤ b + Envelope.head_output := by
+  have hi : i ∈ ho.val := by
+    rw [hiv]
+    exact List.getElem_mem _
+  have hi1 : i1 ∈ att.val := by
+    rw [hi1v, hsuf]
+    exact List.getElem_mem _
+  obtain ⟨haLo, haHi⟩ := hatt i1 hi1
+  obtain ⟨hhLo, hhHi⟩ := hho i hi
+  have hLo : -(b + Envelope.head_output) ≤ i1.val + i.val := by omega
+  have hHi : i1.val + i.val ≤ b + Envelope.head_output := by omega
+  have hcap : b + Envelope.head_output ≤ 5251126001664 := by
+    simp only [Envelope.head_output] at hb ⊢
+    omega
+  exact ⟨by scalar_tac, by scalar_tac, hLo, hHi⟩
+
+/-- The already-proved array update support avoids a membership rewrite on a
+projected dependent array when checking the new accumulator. -/
+example (a att1 : Array I64 128#usize) (k : Usize) (v : I64) (b : Int)
+    (ha : a = att1.set k v) (hbd : Bounded b att1)
+    (hv : -b ≤ v.val ∧ v.val ≤ b) : Bounded b a := by
+  rw [ha]
+  exact project_bounded_set _ _ _ _ hbd hv
+
+#print axioms next_add_bound_probe
+
+end LcnExec.GeneralEngine

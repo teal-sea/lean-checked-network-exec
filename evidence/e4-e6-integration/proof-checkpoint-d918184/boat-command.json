@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_jmmse0hjfky0",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T22:29:53.842Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T22:29:45.688Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-layer-d918184-1dwj7j2Y\na4030d9479784e96da3a8054fc6ab6404d5de4b2e19da23367160312eba49666  /home/user/e4/qa-layer-d918184-1dwj7j2Y.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

@@ -1,0 +1,13 @@
+import LcnExec.GeneralEngine.RescaleInner
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (f : Array (Array I64 128#usize) 32#usize)
+    (hfb : ∀ row ∈ f.val, Bounded Envelope.final_stream row)
+    (p : Usize) (hp : p.val < 32) :
+    general_engine.rescale_clamp_loop0_loop0 f p
+        (Array.repeat 128#usize 0#i64) 0#usize ⦃ r =>
+      ints r = ((ints2 f)[p.val]!).map GeneralModel.clampEntry ∧
+      Bounded Envelope.embedding r ⦄ :=
+  rescale_clamp_inner_spec f hfb p hp
+#print axioms rescale_clamp_inner_spec
+end LcnExec.GeneralEngine

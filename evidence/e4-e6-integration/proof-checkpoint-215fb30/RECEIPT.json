@@ -1,0 +1,72 @@
+{
+  "scope": "The checked inner weighted-sum loop succeeds and matches the signed model fold before shifting. Its public spec exposes equality only; the internal accumulator invariant is not a returned bound. Outer signed shift and head composition are not verified.",
+  "worker_commit": "215fb3070f4d2ee5642260c50565025704e2a960",
+  "worker_admission": 2233,
+  "worker_proc": "proc_97534b68ac50",
+  "route": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "remote_command": "cmd_6jit4kay1wl7",
+  "finished_at": "2026-11-21T23:48:18.614Z",
+  "build_exits": {
+    "Audit": 1,
+    "Build": 0,
+    "WeightedMix": 0
+  },
+  "warnings": {
+    "Build.log": 18,
+    "WeightedMix.log": 6,
+    "Audit.log": 0
+  },
+  "axioms": {
+    "LcnExec.GeneralEngine.head_out_mix_inner_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LcnExec.GeneralEngine.acc_update_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LcnExec.GeneralEngine.take_sum_succ": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "archive": {
+    "name": "weighted-proof-and-logs.tar.gz",
+    "sha256": "5446614737928497c5d73217035fd82441f6fb166e361a97149adeab7faaa47e",
+    "member_sha256": {
+      "Audit.log": "eea3c2fe55101253c2d04b593d01ab244ce982b5b7ee0762a88c1c9c0094edf3",
+      "Build.log": "55a9a514215c09281ae333fb6544baf8cb8755f821e1a529b9d4efceccc945e5",
+      "Toolchain.log": "b32f8ed27657a9679a9f1c966ba960fe21be68c8510c365fbf2b3dae4cae3224",
+      "WeightedMix.log": "ffcd5c68a0e936a9d4f78485dd16a2ea83385c3a9572ac6cacb6cbce9d31acc3",
+      "Audit.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "WeightedMix.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.lean.txt": "82ca2e5f8b620c145b5c3241b5b1f99b9954c9c4652cef8fce35153c86912375",
+      "WeightedMix.lean.txt": "5c0083b4199bc0a85bb3808728c098155f0f7c9bebf3d3f066111635bf2d72be",
+      "WeightedMix.olean": "bfa84b39755d95f08f7050c361dc1107eaca001597bbc56e3a033c7c08c19dd4"
+    }
+  },
+  "audit_followup": {
+    "remote_command": "cmd_3zmyywwlxzho",
+    "build_exits": {
+      "ExactAudit": 0,
+      "ShiftProbe": 0
+    },
+    "archive": {
+      "name": "weighted-audit-followup.tar.gz",
+      "sha256": "b769eed3609945bcbd904252017b1a05dcb5e3d9c08b10315ea814d6efa0d002",
+      "member_sha256": {
+        "ExactAudit.log": "4c1c4b5d92e22722ca50794a7eea0a5344eec5407ebd1a787559234fb887467e",
+        "ShiftProbe.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ExactAudit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "ShiftProbe.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "ExactAudit.lean.txt": "6f739fcab0c21248dbdf5e77b89468d9f9ec67f062e4db5a873fca5e086831d3",
+        "ShiftProbe.lean.txt": "ac320d0ec5c41cc911833969960472e77177ba3935e7cae001d8f323731c68ee"
+      }
+    },
+    "note": "The original audit command mixed a passing declaration/axiom check with a failed independent shift probe. The exact audit and the corrected bound probe were then run as separate producer commands. The probe does not certify the translated outer loop."
+  }
+}

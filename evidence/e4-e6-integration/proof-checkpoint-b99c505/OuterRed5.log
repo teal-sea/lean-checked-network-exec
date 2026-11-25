@@ -1,0 +1,531 @@
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:327:32: error: unexpected token 'if'; expected ')', ',' or ':'
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:255:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:263:10: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  -55138457286082560 ≤ h ≤ 0
+  g - h ≥ 0
+  f - h ≤ 0
+  e - f ≥ 0
+  e - g ≤ 0
+  -1073741824 ≤ d ≤ 1073741824
+  -1073741824 ≤ d ≤ 1073741824
+  -55138182408175616 ≤ 256*d - h ≤ 55138182408175616
+  c - 256*d + h ≥ 0
+  c + 256*d - h ≥ 0
+  0 ≤ b ≤ 511
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑↑i1
+ c := Envelope.hidden_pre
+ d := GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+ e := ↑i1v * ↑256#i64
+ f := I64.min
+ g := I64.max
+ h := ↑pre
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:263:21: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  -55138457286082560 ≤ h ≤ 55138457286082560
+  g - h ≥ 0
+  f - h ≤ 0
+  e - f ≥ 0
+  e - g ≤ 0
+  -1073741824 ≤ d ≤ 1073741824
+  -1073741824 ≤ d ≤ 1073741824
+  -55138182408175616 ≤ 256*d - h ≤ 55138182408175616
+  c - 256*d + h ≥ 0
+  c - h ≤ -1
+  c + 256*d - h ≥ 0
+  0 ≤ b ≤ 511
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑↑i1
+ c := Envelope.hidden_pre
+ d := GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+ e := ↑i1v * ↑256#i64
+ f := I64.min
+ g := I64.max
+ h := ↑pre
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:270:45: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑i3
+in the target expression
+  I64
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hdotW : ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+hdotcap : -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+hminm : I64.min ≤ ↑i1v * ↑256#i64
+hmaxm : ↑i1v * ↑256#i64 ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1v * 256
+hbi2 : -274877906944 ≤ ↑i2 ∧ ↑i2 ≤ 274877906944
+hmina : I64.min ≤ ↑acc + ↑i2
+hmaxa : ↑acc + ↑i2 ≤ I64.max
+pre : I64
+hpre : ↑pre = ↑acc + ↑i2
+hpreb : -55138457286082560 ≤ ↑pre ∧ ↑pre ≤ 55138457286082560
+hp : pre > 0#i64
+i3 : I64
+hshift : ↑i3 = ↑pre >>> 8
+_✝ : i3.bv = pre.bv.sshiftRight 8
+hshiftv : ↑i3 = (↑pre).shiftRight 8
+hsb : 0 ≤ (↑pre).shiftRight 8 ∧ (↑pre).shiftRight 8 ≤ Envelope.hidden
+m2 : Std.Array I64 512#usize
+hm2 : m2 = m1.set i1 i3
+i4 : Usize
+hi4 hi4v : ↑i4 = ↑i1 + 1
+⊢ I64
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:280:12: error: 'change' tactic failed, pattern
+  (GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) +
+          GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 * 256).shiftRight
+      8 =
+    if
+        GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) +
+            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 * 256 >
+          0 then
+      (GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) +
+            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 * 256).shiftRight
+        8
+    else 0
+is not definitionally equal to target
+  (↑acc + ↑i1v * 256).shiftRight 8 = if ↑acc + ↑i1v * 256 > 0 then (↑acc + ↑i1v * 256).shiftRight 8 else 0
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:304:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:313:30: error: `simp` made no progress
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:323:14: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  1 ≤ h ≤ 512
+  1 ≤ g ≤ 55138457286082560
+  f - g ≥ 0
+  e - g ≤ 0
+  d - e ≥ 0
+  d - f ≤ 0
+  -1073741824 ≤ c ≤ 1073741824
+  -1073741824 ≤ c ≤ 1073741824
+  -55138182408175616 ≤ 256*c - g ≤ 55138182408175616
+  b - 256*c + g ≥ 0
+  b + 256*c - g ≥ 0
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := Envelope.hidden_pre
+ c := GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+ d := ↑i1v * ↑256#i64
+ e := I64.min
+ f := I64.max
+ g := ↑pre
+ h := ↑↑i4
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:327:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HMul ℕ ℕ (Sort ?u.560)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:325:17: error: Missing cases:
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:311:10: error: unsolved goals
+case pos.refine_2
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hdotW : ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+hdotcap : -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+hminm : I64.min ≤ ↑i1v * ↑256#i64
+hmaxm : ↑i1v * ↑256#i64 ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1v * 256
+hbi2 : -274877906944 ≤ ↑i2 ∧ ↑i2 ≤ 274877906944
+hmina : I64.min ≤ ↑acc + ↑i2
+hmaxa : ↑acc + ↑i2 ≤ I64.max
+pre : I64
+hpre : ↑pre = ↑acc + ↑i2
+hpreb : -55138457286082560 ≤ ↑pre ∧ ↑pre ≤ 55138457286082560
+hp : ¬pre > 0#i64
+i4 : Usize
+hi4 hi4v : ↑i4 = ↑i1 + 1
+hk : ↑i1 < 512
+hik : ↑i1 < ↑i1 + 1
+hz : (↑m1)[↑i1] = 0#i64
+hzv : (ints m1)[↑i1] = 0
+hpre2 : ↑pre = ↑acc + ↑i2
+hnpre : ¬0 < ↑pre
+hact :
+  let padd :=
+    ↑(GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)) +
+      GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin;
+  ↑i1 * 256
+⊢ 0 =
+    if
+        GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) +
+            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 * 256 >
+          0 then
+      (GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) +
+            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 * 256).shiftRight
+        8
+    else 0
+
+case pos.refine_1
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hdotW : ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+hdotcap : -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+hminm : I64.min ≤ ↑i1v * ↑256#i64
+hmaxm : ↑i1v * ↑256#i64 ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1v * 256
+hbi2 : -274877906944 ≤ ↑i2 ∧ ↑i2 ≤ 274877906944
+hmina : I64.min ≤ ↑acc + ↑i2
+hmaxa : ↑acc + ↑i2 ≤ I64.max
+pre : I64
+hpre : ↑pre = ↑acc + ↑i2
+hpreb : -55138457286082560 ≤ ↑pre ∧ ↑pre ≤ 55138457286082560
+hp : ¬pre > 0#i64
+i4 : Usize
+hi4 hi4v : ↑i4 = ↑i1 + 1
+hk : ↑i1 < 512
+hik : ↑i1 < ↑i1 + 1
+hz : (↑m1)[↑i1] = 0#i64
+hzv : (ints m1)[↑i1] = 0
+hpre2 : ↑pre = ↑acc + ↑i2
+hnpre : ¬0 < ↑pre
+⊢ HMul ℕ ℕ (Sort ?u.560)
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:309:8: error: unsolved goals
+case neg
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hdotW : ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+hdotcap : -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+hminm : I64.min ≤ ↑i1v * ↑256#i64
+hmaxm : ↑i1v * ↑256#i64 ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1v * 256
+hbi2 : -274877906944 ≤ ↑i2 ∧ ↑i2 ≤ 274877906944
+hmina : I64.min ≤ ↑acc + ↑i2
+hmaxa : ↑acc + ↑i2 ≤ I64.max
+pre : I64
+hpre : ↑pre = ↑acc + ↑i2
+hpreb : -55138457286082560 ≤ ↑pre ∧ ↑pre ≤ 55138457286082560
+hp : ¬pre > 0#i64
+i4 : Usize
+hi4 hi4v : ↑i4 = ↑i1 + 1
+k : ℕ
+hk : k < 512
+hik : k < ↑i1 + 1
+hkk : ¬k = ↑i1
+⊢ (ints m1)[k] =
+    if
+        GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+          0 then
+      (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+        8
+    else 0
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:304:6: error: unsolved goals
+case a.refine_2
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hdotW : ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+hdotcap : -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+hminm : I64.min ≤ ↑i1v * ↑256#i64
+hmaxm : ↑i1v * ↑256#i64 ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1v * 256
+hbi2 : -274877906944 ≤ ↑i2 ∧ ↑i2 ≤ 274877906944
+hmina : I64.min ≤ ↑acc + ↑i2
+hmaxa : ↑acc + ↑i2 ≤ I64.max
+pre : I64
+hpre : ↑pre = ↑acc + ↑i2
+hpreb : -55138457286082560 ≤ ↑pre ∧ ↑pre ≤ 55138457286082560
+hp : ¬pre > 0#i64
+i4 : Usize
+hi4 hi4v : ↑i4 = ↑i1 + 1
+⊢ ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 + 1 → (↑m1)[k] = 0#i64
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:193:2: error: unsolved goals
+case hBody.isFalse
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : ¬i1 < 512#usize
+⊢ ok (done m1) ⦃ r =>
+    match r with
+    | done y => ints y = GeneralModel.mlpHidden (toGeneralModel W) (↑l) (ints r) ∧ Bounded Envelope.hidden y
+    | cont x' =>
+      (↑x'.2.2 ≤ 512 ∧
+          x'.1 = W ∧
+            Bounded Envelope.hidden x'.2.1 ∧
+              (∀ (k : ℕ) (hk : k < 512),
+                  k < ↑x'.2.2 →
+                    (ints x'.2.1)[k] =
+                      if
+                          GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                              GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+                            0 then
+                        (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                              GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+                          8
+                      else 0) ∧
+                ∀ (k : ℕ) (hk : k < 512), ¬k < ↑x'.2.2 → (↑x'.2.1)[k] = 0#i64) ∧
+        512 - ↑x'.2.2 < 512 - ↑i1 ⦄
+/home/user/e4/qa-hidden-b99c505-f08rYaGa/OuterRed5.lean:159:37: error: unsolved goals
+case hInv
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+⊢ ↑(W, Array.repeat 512#usize 0#i64, 0#usize).2.2 ≤ 512 ∧
+    (W, Array.repeat 512#usize 0#i64, 0#usize).1 = W ∧
+      Bounded Envelope.hidden (W, Array.repeat 512#usize 0#i64, 0#usize).2.1 ∧
+        (∀ (k : ℕ) (hk : k < 512),
+            k < ↑(W, Array.repeat 512#usize 0#i64, 0#usize).2.2 →
+              (ints (W, Array.repeat 512#usize 0#i64, 0#usize).2.1)[k] =
+                let pre :=
+                  GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                    GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256;
+                if pre > 0 then pre.shiftRight 8 else 0) ∧
+          ∀ (k : ℕ) (hk : k < 512),
+            ¬k < ↑(W, Array.repeat 512#usize 0#i64, 0#usize).2.2 →
+              (↑(W, Array.repeat 512#usize 0#i64, 0#usize).2.1)[k] = 0#i64

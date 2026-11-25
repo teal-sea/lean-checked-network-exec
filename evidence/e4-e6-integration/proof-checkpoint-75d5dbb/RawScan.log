@@ -1,0 +1,86 @@
+/home/user/e4/qa-mixscan-75d5dbb/RawScan.lean:36:71: error: Type mismatch
+  rfl
+has type
+  ?m.452 = ?m.452
+but is expected to have type
+  x.shiftRight 16 = x / 65536
+/home/user/e4/qa-mixscan-75d5dbb/RawScan.lean:68:57: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 32
+  d - e ≤ -1
+  c ≥ 0
+  c - d ≥ 1
+  b ≤ 16777216
+  0 ≤ a ≤ 31
+where
+ a := ↑↑p
+ b := (List.take (↑p + 1) (ints alpha)).sum
+ c := ↑(ints z).length
+ d := ↑k
+ e := ↑(GeneralModel.mixAt (ints alpha) (vals2 vs) ↑p).length
+/home/user/e4/qa-mixscan-75d5dbb/RawScan.lean:72:22: error: Type mismatch: After simplification, term
+  hk
+ has type
+  k < (ints z).length
+but is expected to have type
+  k < 32
+/home/user/e4/qa-mixscan-75d5dbb/RawScan.lean:72:42: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 32
+  d - e ≤ -1
+  c ≥ 0
+  c - d ≥ 1
+  b ≤ 16777216
+  0 ≤ a ≤ 31
+where
+ a := ↑↑p
+ b := (List.take (↑p + 1) (ints alpha)).sum
+ c := ↑(ints z).length
+ d := ↑k
+ e := ↑(GeneralModel.mixAt (ints alpha) (vals2 vs) ↑p).length
+/home/user/e4/qa-mixscan-75d5dbb/RawScan.lean:67:6: error: unsolved goals
+case hBody.isFalse.h
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+z : Std.Array I64 32#usize
+i : Usize
+hi1 : ↑i ≤ 32
+hbd : Bounded Envelope.mixed_value z
+heq :
+  ∀ (k : ℕ) (hk : k < 32),
+    k < ↑i →
+      (ints z)[k] =
+        (List.foldl
+              (fun acc j =>
+                acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k)
+              0 (List.range (↑p + 1))).shiftRight
+          16
+h✝ : ¬i < 32#usize
+hi32 : ↑i = 32
+k : ℕ
+hk : k < (ints z).length
+hk' : k < (GeneralModel.mixAt (ints alpha) (vals2 vs) ↑p).length
+hget :
+  (ints z)[k] =
+    (List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k)
+          0 (List.range (↑p + 1))).shiftRight
+      16
+⊢ (List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k)
+          0 (List.range (↑p + 1))).shiftRight
+      16 =
+    (List.foldl
+          (fun acc j =>
+            acc.add ((GeneralModel.nth 0 (ints alpha) j).mul (GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k)))
+          (Int.ofNat 0) (List.range (↑p + 1))).shiftRight
+      16

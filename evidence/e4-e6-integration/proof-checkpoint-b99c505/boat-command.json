@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_86r2vk18qxbm",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T20:10:35.024Z",
+  "launcherFailed": false,
+  "noticedMs": 5,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 5,
+  "startedAt": "2026-11-22T20:10:28.540Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-hidden-b99c505-f08rYaGa\nf5eaa7cacf095e7af048f5c6854ce63e0892dad5a1a6b51516581f223be3d6e0  /home/user/e4/qa-hidden-b99c505-f08rYaGa.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

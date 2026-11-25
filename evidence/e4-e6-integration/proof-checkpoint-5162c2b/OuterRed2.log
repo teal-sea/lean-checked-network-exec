@@ -1,0 +1,173 @@
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:74:4: error: `simp` made no progress
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:75:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+case h
+W : general_engine.Weights
+l : Usize
+hl : ↑l < 2
+r : List ℤ
+hw : (GeneralModel.layer (toGeneralModel W) ↑l).win = winRowsProbe W l
+⊢ (GeneralModel.lincomb 512 r (winRowsProbe W l)).length = (GeneralModel.layer (toGeneralModel W) ↑l).bin.length
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:116:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(↑(↑W.layers)[↑l].bin)[↑i1]
+in the target expression
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑w2.layers)[↑l].bin)[↑i1]
+hbin :
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bin)[↑i1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑b ∧ -1073741824 ≤ ↑b ∧ ↑b ≤ 1073741824
+h1 : GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑(↑(↑W.layers)[↑l].bin)[↑i1]
+⊢ ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:119:20: error: Type mismatch
+  hbin.right
+has type
+  -1073741824 ≤ ↑(↑(↑W.layers)[↑l].bin)[↑i1] ∧ ↑(↑(↑W.layers)[↑l].bin)[↑i1] ≤ 1073741824
+but is expected to have type
+  -1073741824 ≤ GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧
+    GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ≤ 1073741824
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:133:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (winColumn ?w ?l ?i).length
+in the target expression
+  -↑128 * (Envelope.residual * 82) ≤ GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) ∧
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) ≤ ↑128 * (Envelope.residual * 82)
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑w2.layers)[↑l].bin)[↑i1]
+hbin :
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bin)[↑i1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑b ∧ -1073741824 ≤ ↑b ∧ ↑b ≤ 1073741824
+hbinv : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ x ∈ winColumn W ↑l ↑i1, -82 ≤ x ∧ x ≤ 82
+hd :
+  -↑128 * (Envelope.residual * 82) ≤ GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) ∧
+    GeneralModel.dot (ints r) (winColumn W ↑l ↑i1) ≤ ↑128 * (Envelope.residual * 82)
+⊢ -55138182408175616 ≤ GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1) ∧
+    GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1) ≤ 55138182408175616
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (128 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:142:35: error: Application type mismatch: The argument
+  hmaxm
+has type
+  ↑i1v * 256 ≤ I64.max
+but is expected to have type
+  ↑?m.923 * ↑?m.924 ≤ I64.max
+in the application
+  I64.mul_spec ?m.925 hmaxm
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:164:13: error: Application type mismatch: The argument
+  heq
+has type
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k).shiftRight
+            8
+        else 0
+but is expected to have type
+  ints m1 = GeneralModel.mlpHidden (toGeneralModel W) (↑l) (ints r)
+in the application
+  And.intro heq
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:166:27: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.988 = ?m.988
+but is expected to have type
+  True
+in the application
+  And.intro rfl
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:169:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/OuterRed2.lean:174:6: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information

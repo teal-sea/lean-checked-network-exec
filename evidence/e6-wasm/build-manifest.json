@@ -1,0 +1,84 @@
+{
+  "build": {
+    "engine_dependency": "../general_engine",
+    "jobs": 2,
+    "locked": true,
+    "offline": true,
+    "overflow_checks": true,
+    "profile": "release",
+    "rust": "1.99.1 (58cf8f9c3)",
+    "target": "wasm32-unknown-unknown"
+  },
+  "files": {
+    "evidence/e6-wasm/native-general.json": {
+      "bytes": 6033,
+      "sha256": "b5fe4889aa8330a04dfc97ce5add593e0c05306f8e9afb02617fe939387bbb6f"
+    },
+    "rust/general_engine/Cargo.lock": {
+      "bytes": 245,
+      "sha256": "31ef5e30d1a1c8be92736728d84cda5ff923f9b1a205848258f7f8d80d78193f"
+    },
+    "rust/general_engine/Cargo.toml": {
+      "bytes": 253,
+      "sha256": "a7fd1434bf7fe39cc0771290e27264fff10f37cf28edcc886f77231853bb61a7"
+    },
+    "rust/general_engine/src/lib.rs": {
+      "bytes": 17417,
+      "sha256": "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4"
+    },
+    "rust/general_engine_wasm/Cargo.lock": {
+      "bytes": 256,
+      "sha256": "9bca5b0191a2c7dc752b2ad4ec23f39b14e0bda200abc6b73e2fe5217adeadda"
+    },
+    "rust/general_engine_wasm/Cargo.toml": {
+      "bytes": 922,
+      "sha256": "f3178bd6302fdb012c14c66392fab1e4fee1f3e1ade3ab4e8eeda0d8ec74407e"
+    },
+    "rust/general_engine_wasm/examples/e6_native.rs": {
+      "bytes": 9490,
+      "sha256": "197f6d35ef76dd301c072ed05503fa67ccfde3f057d35445a2489a64b1d912af"
+    },
+    "rust/general_engine_wasm/src/lib.rs": {
+      "bytes": 16734,
+      "sha256": "d227eb53ba43021b18579ee37c386d917e5bbbda12f3a435e75dad91fe8997cf"
+    },
+    "rust/rust-toolchain.toml": {
+      "bytes": 148,
+      "sha256": "f2ae6f783e147aae3d374eb2f582a90ae73c304082177f989a01ecc5d305388c"
+    },
+    "web/app.js": {
+      "bytes": 19306,
+      "sha256": "3cdd9c05a00044df8d2b3d18ec4a4bdc359a431f0fee98c93c8491bceca7bec6"
+    },
+    "web/build.sh": {
+      "bytes": 1273,
+      "sha256": "917c76731f76338d8eb36895acb28d5010ac7054aeeb6371345cb55205b8b196"
+    },
+    "web/general_engine_wasm.wasm": {
+      "bytes": 29755,
+      "sha256": "be9803f94a30189ebe23ef2c2dae841dcbef4d8716e03017e85eb0e00f2eb48d"
+    },
+    "web/index.html": {
+      "bytes": 8530,
+      "sha256": "48cf2d80e3f3b332de5572f1dd63ceb4e19acad603ac395bd1e907782aff2068"
+    },
+    "web/style.css": {
+      "bytes": 6906,
+      "sha256": "c691658275aaf077e853fa6ec649ab02d9f8f6af3a14a18b4d2281df7c7b9a69"
+    },
+    "weights/mod113_v1.bin": {
+      "bytes": 479504,
+      "sha256": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc"
+    },
+    "weights/tiny_bytelm_v1.bin": {
+      "bytes": 479504,
+      "sha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87"
+    }
+  },
+  "provenance": {
+    "e4_engine": "e54c7ffab83521246e1f5372a92b57c1168fb756",
+    "e5_weights": "b4a0bc8a2c0262cb31d853480769e99419659000",
+    "e6_ui_base": "f6aa052a5f035ae7392d39d80cfb26c088464c7e",
+    "integration": "3f0de5de22cecea941fe586fca39a47fc305368a"
+  }
+}

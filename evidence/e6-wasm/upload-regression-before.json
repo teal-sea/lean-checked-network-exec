@@ -1,0 +1,62 @@
+{
+  "mode": "before",
+  "environment": "Node DOM fixture with real Wasm",
+  "approved_sha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+  "rejected_sha256": "1fa57ccaa37196a842ffc7113c1253f6cfd6dc26b64d164e9f296945229b207a",
+  "events": [
+    {
+      "label": "trained startup weights",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "",
+      "name": "",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "",
+      "generated": "",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    },
+    {
+      "label": "valid custom upload and generation",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "approved-custom.bin: GLMW v1, 479504 bytes, custom load",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "4 tokens · 394.6 ms/token · greedy",
+      "generated": " sav",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    },
+    {
+      "label": "actual file-input handler rejected out-of-range payload",
+      "badge": "load_check: FAIL",
+      "note": "qa-invalid.bin parsed but rejected: a bound failed, keep the previous weights",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "4 tokens · 394.6 ms/token · greedy",
+      "generated": " sav",
+      "retainedSha256": "1fa57ccaa37196a842ffc7113c1253f6cfd6dc26b64d164e9f296945229b207a",
+      "wasmPredict": -1,
+      "wasmLogitsAccepted": false
+    },
+    {
+      "label": "generation attempted after rejection",
+      "badge": "load_check: FAIL",
+      "note": "qa-invalid.bin parsed but rejected: a bound failed, keep the previous weights",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "engine rejected the input (weights or tokens out of range)",
+      "generated": "",
+      "retainedSha256": "1fa57ccaa37196a842ffc7113c1253f6cfd6dc26b64d164e9f296945229b207a",
+      "wasmPredict": -1,
+      "wasmLogitsAccepted": false
+    }
+  ],
+  "pass": false,
+  "error": "AssertionError [ERR_ASSERTION]: rejection must retain the last approved bytes\n+ actual - expected\n\n+ '1fa57ccaa37196a842ffc7113c1253f6cfd6dc26b64d164e9f296945229b207a'\n- 'c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87'\n\n    at main (/home/thomas/worktrees/lcn-exec-general-lm-20261120/scripts/e6_upload_regression.js:105:10)"
+}

@@ -1,0 +1,66 @@
+{
+  "base": "ae5f86704097bf9f0e6f9430ac52fa27baf2ac68",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2262,
+  "process": "proc_9ce33dd1e084",
+  "source_sha256": "39089a365c79740453412149ce98287c3cb152bdbc732ba202cbd048710021df",
+  "dependency_sha256": "f54a0679a7a1f9baa44b92bafbdd35a45e27bf348a25bf3e1a6acf8791c637b2",
+  "errors": [
+    [
+      "138",
+      "16"
+    ],
+    [
+      "142",
+      "24"
+    ]
+  ],
+  "warnings": [
+    [
+      "19",
+      "15"
+    ],
+    [
+      "111",
+      "22"
+    ],
+    [
+      "114",
+      "22"
+    ]
+  ],
+  "exit": 1,
+  "archive": "layer-red2-replay.tar.gz",
+  "archive_sha256": "e1cf7a815d0d1efb3488c7bfa519f4aaeb798453fd815fe4aa928d795610ca11",
+  "command_id": "cmd_xzj78hpxz4p8",
+  "files_sha256": {
+    "LayerRed2.lean.txt": "39089a365c79740453412149ce98287c3cb152bdbc732ba202cbd048710021df",
+    "LayerRed2.log": "42db9397ac604492b6068a3e24afdfd784d236510ef30be23d8a2bca69e7d099",
+    "LayerRed2.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "worker-lw37.log": "e785b287e96bc3f607d669ac2067fa130c22b85d6aa37319649a05c19278fe07",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "boat-command.json": "fcf5777894c44d8db178bdb9715a5875121cba369703c3d7e98e43df55bdef34"
+  },
+  "scope": "Exact second layer draft rejected at initializer; no whole-layer proof accepted.",
+  "init_probe": {
+    "exit": 1,
+    "command_id": "cmd_ixtzcs5levie",
+    "files_sha256": {
+      "LayerInit.lean.txt": "8b30ec2318773d028f4db1bea839af4f48dc1e876905f9d249ff6a04e8853d9d",
+      "LayerInit.log": "35564bd443847b6b204f44035bb575830563da1e9a022a0168c254915d950756",
+      "LayerInit.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "boat-init-command.json": "f222e0dbe2393c2bb7f8d600cd130e33a8f9f3de8ed8cdc04cc61f50b774fc39"
+    }
+  },
+  "symbolic_init_probe": {
+    "exit": 1,
+    "command_id": "cmd_pnld77u2nzub",
+    "files_sha256": {
+      "LayerInitGeneric.lean.txt": "0a65dd8668d6f4f5942026e070c7351f5c6b706940b186913c69faaa5e109847",
+      "LayerInitGeneric.log": "5c475a6d89afecbcc34efc81b8bb48494b5c410ffa91f5f44b2a5d87a2bc077d",
+      "LayerInitGeneric.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "boat-init-generic.json": "8fb440b02be7ff5cfe6780f2c0f05446e575ea65d848094004263ca1d48edde0"
+    }
+  }
+}

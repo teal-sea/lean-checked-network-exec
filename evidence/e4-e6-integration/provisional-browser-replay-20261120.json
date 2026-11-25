@@ -1,0 +1,46 @@
+{
+  "status": "provisional browser check, not acceptance",
+  "engine_checkpoint": "1c48c71b69d708df19e086743ea4b4d63600ec24",
+  "wrapper_and_ui_commit": "f6aa052a5f035ae7392d39d80cfb26c088464c7e",
+  "weights_commit": "b4a0bc8a2c0262cb31d853480769e99419659000",
+  "build": "cargo +1.99.1 build --offline --locked --release --target wasm32-unknown-unknown in a scratch tree",
+  "origin": "temporary loopback listener, closed after replay",
+  "sha256": {
+    "web/index.html": "065fe0cb1fd4c4690884c1ec872ad0936e4df6d42abd6ae600f5a0afbfa01ca5",
+    "web/app.js": "1454df862d9b3c1bcdfd737434e9f475c51257e67dbe5d854790ffb748d302",
+    "web/style.css": "c691658275aaf077e853fa6ec649ab02d9f8f6af3a14a18b4d2281df7c7b9a69",
+    "web/general_engine_wasm.wasm": "a473098da3fcbb85d383a177cf1dbf84a1d9bdb994296678a3042cd2c24e989a",
+    "weights/tiny_bytelm_v1.bin": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+    "weights/mod113_v1.bin": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc"
+  },
+  "browser_checks": {
+    "browser": "HeadlessChrome/156.0.0.0",
+    "greedy_prompt": "A stitch in time",
+    "completion": " saves nine.\n",
+    "logit_inspector_rows_present": true,
+    "corrupt_button_disabled_generation": true,
+    "valid_restore_repeated_same_completion": true,
+    "arithmetic_pair": {"a": 21, "b": 56, "predicted": 77, "expected": 77},
+    "uncaught_exceptions": 0
+  },
+  "failed_acceptance_check": {
+    "surface": "custom weight upload",
+    "reproduce": "Generate with the default checkpoint. Copy it, change byte 16 (tok[0][0]) to 99, and upload the same-length copy as qa-invalid.bin. Try Generate again.",
+    "expected": "A rejected upload leaves the prior valid checkpoint functional, or explicitly shows a restore path and disables generation.",
+    "actual_notice": "qa-invalid.bin parsed but rejected: a bound failed, keep the previous weights",
+    "generation_disabled": false,
+    "restore_visible": false,
+    "actual_generate": "engine rejected the input (weights or tokens out of range)",
+    "control": "Built-in corruption button disables generation and offers working restore in the same build.",
+    "owner_followup": "Regression should assert the rejected upload does not replace the last-good buffer, not just that the badge turns red. Have the existing browser owner correct the restore path and distinguish tested versus proved wording. Rebuild with the frozen final engine, then rerun browser including all 12,769 pairs and bind the exact served bytes."
+  },
+  "proof_prefix": {
+    "boat_command": "cmd_63pwd8v3olu2",
+    "verified_matching_local_and_remote_sha256": {
+      "Load.lean": "da145a17d255e3734d45a3533c9d6c2c667d445c7a5b10bdab6c242e6add550b",
+      "Softmax.lean": "dfba95e8fd767c9d351f49be2a7f65b30732b529f215d44c0fcbbfc308df780f"
+    },
+    "observed_remote_Load_olean_sha256": "b95fbdc8a60c731781ef01523fda4912b3742bef7921c1f04b4d9edfb87e8603",
+    "scope": "Load object present. Softmax remains uncompiled at checkpoint; full theorem and independent kernel checks not accepted."
+  }
+}

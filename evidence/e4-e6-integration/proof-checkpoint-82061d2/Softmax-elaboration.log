@@ -1,0 +1,49 @@
+LcnExec/GeneralEngine/Softmax.lean:78:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+LcnExec/GeneralEngine/Softmax.lean:83:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+LcnExec/GeneralEngine/Softmax.lean:86:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+LcnExec/GeneralEngine/Softmax.lean:87:27: warning: This simp argument is unused:
+  GeneralModel.nth
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [softMaxScan]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LcnExec/GeneralEngine/Softmax.lean:98:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+LcnExec/GeneralEngine/Softmax.lean:104:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+LcnExec/GeneralEngine/Softmax.lean:233:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+LcnExec/GeneralEngine/Softmax.lean:240:40: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+LcnExec/GeneralEngine/Softmax.lean:363:70: warning: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LcnExec/GeneralEngine/Softmax.lean:447:72: warning: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [halph, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

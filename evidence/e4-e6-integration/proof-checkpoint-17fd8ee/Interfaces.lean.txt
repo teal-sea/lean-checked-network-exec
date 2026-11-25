@@ -1,0 +1,51 @@
+import LcnExec.GeneralEngine.Residual
+
+set_option maxHeartbeats 800000
+
+/-!
+# The MLP hidden inner dot loop `general_engine.mlp_hidden_loop0_loop0`
+
+`acc = sum_k r[k] * win[k][i]` over `k < 128` (the real `win` column at `i < 512`),
+with the input weights returned unchanged. Exact `GeneralModel.dot` and both sides
+of `Envelope.hidden_pre` (128 * residual * 82).
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- The `win` column for hidden index `i`: entries `win[k][i]`. -/
+def winColumn (w : general_engine.Weights) (l i : Nat) : List Int :=
+  ((w.layers.val[l]!).win.val).map (fun row => (row.val[i]!).val)
+
+theorem winColumn_length (w : general_engine.Weights) (l i : Nat) :
+    (winColumn w l i).length = 128 := by
+  simp [winColumn]
+
+theorem win_column_entry_probe (W : general_engine.Weights) (l t i : Usize)
+    (ht : t.val < 128) (hi : i.val < 512)
+    (a : Array I8 512#usize) (iv : I8) (casted : I64)
+    (hrow : (W.layers.val[l.val]!).win.val[t.val]! = a)
+    (hentry : iv = a.val[i.val]'(by rw [Array.length_eq]; exact hi))
+    (hcast : casted.val = iv.val) :
+    (winColumn W l.val i.val)[t.val]'(by rw [winColumn_length]; exact ht) = casted.val := by
+  have ht' : t.val < (W.layers.val[l.val]!).win.val.length := by
+    rw [Array.length_eq]; exact ht
+  rw [getElem!_pos (W.layers.val[l.val]!).win.val t.val ht'] at hrow
+  simp only [winColumn, List.getElem_map]
+  rw [hrow, getElem!_pos a.val i.val (by rw [Array.length_eq]; exact hi), ← hentry, hcast]
+
+theorem mlp_tail_linear_probe (acc a b new product tail whole : Int)
+    (hacc : acc + (a*b + tail) = whole) (hp : product = a*b)
+    (hnew : new = acc + product) : new + tail = whole := by
+  rw [hnew, hp, Int.add_assoc]
+  exact hacc
+
+theorem mlp_init_upper_probe : (0#i64).val ≤ (5253256708096 * 82) * ((0#usize).val : Int) := by
+  change (0 : Int) ≤ 0
+  omega
+
+#print axioms win_column_entry_probe
+#print axioms mlp_tail_linear_probe
+#print axioms mlp_init_upper_probe
+end LcnExec.GeneralEngine

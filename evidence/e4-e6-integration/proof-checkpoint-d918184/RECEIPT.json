@@ -1,0 +1,60 @@
+{
+  "commit": "d918184bd933bd12915308b4d143240749ea9ae3",
+  "head": "f0ee4378c1d9a5080c4bcb035c49c2134460d2c4",
+  "source_sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+  "clamp_draft_sha256": "08614b320635ec1ce62346f35040110f20983441065445d4ff9f42e995c1935e",
+  "object_sha256": "2aa1381907efa4494c57aa1d0a7eef590294fd9e5f37b48368fcdfeebf885645",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2263,
+  "previous_process": "proc_bda8b2591555",
+  "exits": {
+    "Build": 0,
+    "Direct": 0,
+    "Audit": 0,
+    "ClampEntry": 0,
+    "ClampDraft": 0
+  },
+  "warnings": {
+    "Build": 18,
+    "Direct": 0,
+    "Audit": 0,
+    "ClampEntry": 0,
+    "ClampDraft": 2
+  },
+  "axioms": {
+    "layer_forward_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "clamp_entry_spec": [
+      "propext"
+    ]
+  },
+  "clamp_placeholders": 2,
+  "command_id": "cmd_jmmse0hjfky0",
+  "finished_at": "2026-11-22T22:29:53.842Z",
+  "archive": "layer-forward-and-clamp-replay.tar.gz",
+  "archive_sha256": "a4030d9479784e96da3a8054fc6ab6404d5de4b2e19da23367160312eba49666",
+  "files_sha256": {
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.lean.txt": "0993aabe558eb31d697a2a91218343c46bc7ea3e0a570cba23e24e8ebf85efc0",
+    "Audit.log": "b6e2b2087dbdb40c66e3032667dc4027082369da64cc61bda12f8e083dc8ea80",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Build.log": "b6a04477c79bfa5a650f0f5521fd3e8aafefa5770c1995f63f33fff7bf741558",
+    "ClampDraft.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "ClampDraft.lean.txt": "08614b320635ec1ce62346f35040110f20983441065445d4ff9f42e995c1935e",
+    "ClampDraft.log": "f876b5f99f2720dcb9dde78b662e7049d75c86e063d6cb0bf1fab23712829ffb",
+    "ClampEntry.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "ClampEntry.lean.txt": "216838104c3ba602643bcc35446d0fe500906422474ef13979d626bb92187311",
+    "ClampEntry.log": "d2b8162783d6b56d9cf23eb505c55d354239abff4c6ac7325500085d8d8f06e5",
+    "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "LayerForward.lean.txt": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+    "object.sha256": "aa0b77662f5793b5fb2a78c1505ee9af70ae249e960d85371f85cf5b191b1fb4",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "boat-command.json": "fbed142aa0064e48061d432c162866514bf4713c6b10d8cfcdf67d0061f32106"
+  },
+  "accepted": "Actual layer_forward_spec and pure clamp expression. Neither clamp loop is proved; engine correctness not proved."
+}

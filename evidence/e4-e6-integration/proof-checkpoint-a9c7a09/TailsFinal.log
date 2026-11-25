@@ -1,0 +1,15 @@
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/TailsFinal.lean:97:81: error: unsolved goals
+n : Usize
+k : ℕ
+hk : k < ↑n
+⊢ (↑{ list := cast ⋯ (Data.ListN.ListN.fromList (List.replicate (↑n) 0#i64)) })[k] = 0#i64
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/TailsFinal.lean:98:39: warning: This simp argument is unused:
+  List.getElem_replicate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Array.repeat, Array.from]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'LcnExec.GeneralEngine.hidden_init_index_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_runtime_bias_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_mapped_entry_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

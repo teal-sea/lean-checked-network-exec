@@ -1,0 +1,17 @@
+import LcnExec.GeneralEngine.Residual
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (x a : Array I64 128#usize) (hx : Bounded Envelope.embedding x)
+    (ha : Bounded Envelope.attention a) :
+    general_engine.residual x a ⦃ out =>
+      ints out = GeneralModel.residual (ints x) (ints a) ∧
+      Bounded Envelope.residual out ⦄ :=
+  residual_spec x a hx ha
+example : Envelope.residual = 5253256708096 := rfl
+#print axioms residual_spec
+#print axioms residual_mul_bounds_probe
+#print axioms residual_getElem_plain_probe
+#print axioms residual_zero_bounds_probe
+#print axioms residual_length
+#print axioms residual_getElem
+end LcnExec.GeneralEngine

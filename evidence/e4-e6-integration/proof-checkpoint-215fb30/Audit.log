@@ -1,0 +1,12 @@
+'LcnExec.GeneralEngine.head_out_mix_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.acc_update_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.take_sum_succ' depends on axioms: [propext, Quot.sound]
+/home/user/e4/qa-weighted-215fb30/Audit.lean:17:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m >>> ?n
+in the target expression
+  -441122816 ≤ x.shiftRight 16 ∧ x.shiftRight 16 ≤ 441122816
+
+x : ℤ
+hl : -28909424869376 ≤ x
+hu : x ≤ 28909424869376
+⊢ -441122816 ≤ x.shiftRight 16 ∧ x.shiftRight 16 ≤ 441122816

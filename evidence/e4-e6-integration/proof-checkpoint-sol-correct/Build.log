@@ -1,0 +1,110 @@
+⚠ [1801/1828] Replayed LcnExec.GeneralEngine.Softmax
+warning: LcnExec/GeneralEngine/Softmax.lean:78:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:83:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:86:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:87:27: This simp argument is unused:
+  GeneralModel.nth
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [softMaxScan]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Softmax.lean:98:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:104:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:233:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:240:40: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:363:70: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Softmax.lean:447:72: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [halph, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1802/1828] Replayed LcnExec.GeneralEngine.Attention
+warning: LcnExec/GeneralEngine/Attention.lean:161:70: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hs1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Attention.lean:174:37: This simp argument is unused:
+  List.length_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_take]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1807/1828] Replayed LcnExec.GeneralEngine.WeightedMix
+info: LcnExec/GeneralEngine/WeightedMix.lean:191:6: case hInv.refine_2
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+⊢ -(Envelope.value * (List.take (↑0#usize) (ints alpha)).sum) ≤ ↑0#i64
+info: LcnExec/GeneralEngine/WeightedMix.lean:194:6: case hInv.refine_3
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+⊢ ↑0#i64 ≤ Envelope.value * (List.take (↑0#usize) (ints alpha)).sum
+warning: LcnExec/GeneralEngine/WeightedMix.lean:193:18: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: LcnExec/GeneralEngine/WeightedMix.lean:193:22: Unused tactic linter: `simp [hz]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: LcnExec/GeneralEngine/WeightedMix.lean:196:18: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: LcnExec/GeneralEngine/WeightedMix.lean:196:22: Unused tactic linter: `simp [hz]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: LcnExec/GeneralEngine/WeightedMix.lean:193:22: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: LcnExec/GeneralEngine/WeightedMix.lean:196:22: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [1828/1828] Built LcnExec.GeneralEngine.Correct (15s)
+Build completed successfully (1828 jobs).

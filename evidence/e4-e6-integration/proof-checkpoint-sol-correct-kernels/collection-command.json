@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_xthxfiwoxkx4",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:55:55.065Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-23T02:55:54.697Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "6cffb14abec928f85508dd5efbe5173346e851afb679bfe024f3679e223dbdc7  export.stdout\n58382178\na8b93a4df6245301c8abbbc883b7b12c5ca171170d22fa4bbcef76571f25fd6e  /home/user/e4/qa-kernel-collection-F5C9BoL2/Evidence.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

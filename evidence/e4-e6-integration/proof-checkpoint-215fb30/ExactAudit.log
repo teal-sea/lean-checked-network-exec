@@ -1,0 +1,3 @@
+'LcnExec.GeneralEngine.head_out_mix_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.acc_update_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.take_sum_succ' depends on axioms: [propext, Quot.sound]

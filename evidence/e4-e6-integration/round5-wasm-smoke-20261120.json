@@ -1,0 +1,10 @@
+{
+  "status": "diagnostic pass, not integrated acceptance",
+  "browser_branch_commit": "f6aa052",
+  "wasm_sha256": "4044d03f5bc67f1bc7fe26bbec78960bf4e1f4e96804dbff197c6a6798b10506",
+  "trained_checkpoint_sha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+  "method": "Instantiated the exact committed E6 binary in Node.js, copied in the actual round-5 E5 weights, asserted wasm_load_weights()==1, and repeated greedy generation twice to 32 bytes from three prefixes. All three repeats matched byte for byte.",
+  "prompt_and_continuation": [["The capital of ", "Senegal is Canber"], ["A proof is ", "a chain of steps.\nThe"], ["Hello, ", "don't fix it.\nThe capital"]],
+  "quality_limit": "The model produces readable continuations but factual reliability is not established. The first example is visibly incorrect.",
+  "integration_limit": "E6's final Node receipt matches this Wasm hash; its earlier browser receipt does not. The branch's default weights are synthetic and its Rust core differs from E4. Browser acceptance requires replay on the final combined bytes. The E4 proof and E5 final exact metrics do not follow from this check."
+}

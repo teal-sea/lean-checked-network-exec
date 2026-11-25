@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_8rbsl5emm6jk",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T19:44:30.686Z",
+  "launcherFailed": false,
+  "noticedMs": 3,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 3,
+  "startedAt": "2026-11-22T19:44:27.263Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=0\n'LcnExec.GeneralEngine.hidden_mapped_length_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.hidden_activation_bang_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.hidden_shift_bound_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

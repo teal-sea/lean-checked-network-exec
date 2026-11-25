@@ -1,0 +1,40 @@
+{
+  "scope": "isolated Chromium against task-owned 127.0.0.1 HTTP",
+  "pass": false,
+  "started": "2026-11-23T03:26:53.693Z",
+  "checks": {},
+  "requests": [],
+  "exceptions": [],
+  "mode": "browser-replay",
+  "origin": "http://127.0.0.1:44107",
+  "chromiumCommand": [
+    "/usr/bin/taskset",
+    "-c",
+    "14,15",
+    "/usr/bin/chromium",
+    "--headless",
+    "--remote-debugging-pipe",
+    "--disable-gpu",
+    "--disable-background-networking",
+    "--disable-component-update",
+    "--disable-dev-shm-usage",
+    "--disable-sync",
+    "--no-first-run",
+    "--no-default-browser-check",
+    "--no-proxy-server",
+    "--renderer-process-limit=1",
+    "--window-size=1440,1050",
+    "--user-data-dir=/home/thomas/.hermes/cache/scratch/lcn-sol-20261123/browser-coordinator-replay/package/evidence/e6-wasm/browser-run-4igiGy/profile",
+    "about:blank"
+  ],
+  "error": {
+    "message": "read ECONNRESET",
+    "code": "ECONNRESET",
+    "stack": "Error: read ECONNRESET\n    at Pipe.onStreamRead (node:internal/stream_base_commons:221:20)"
+  },
+  "chromiumExit": {
+    "code": null,
+    "signal": "SIGABRT"
+  },
+  "finished": "2026-11-23T03:26:53.975Z"
+}

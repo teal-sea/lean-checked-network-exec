@@ -1,0 +1,3 @@
+'LcnExec.GeneralEngine.unembed_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.unembed_loop0_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.unembed_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

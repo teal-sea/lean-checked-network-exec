@@ -1,0 +1,8 @@
+import LcnExec.GeneralEngine.Argmax
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (l : Array I64 256#usize) (n : Usize) (hp : 0 < n.val) (hm : n.val ≤ 256) :
+    general_engine.argmax l n ⦃ r =>
+      r.val = GeneralModel.argmaxN (ints l) n.val ∧ r.val < n.val ⦄ := argmax_spec l n hp hm
+#print axioms argmax_spec
+end LcnExec.GeneralEngine

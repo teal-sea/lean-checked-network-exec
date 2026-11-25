@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_e68hroerzdbi",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:17:53.340Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-23T02:17:46.497Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-argmax-package-SNUBZIxE\nff096bea1695c684eb8b07f676a9fa10eeb2de0d4ba020f2c71472f3ae17e1bc  /home/user/e4/qa-argmax-package-SNUBZIxE.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

@@ -1,0 +1,5 @@
+'LcnExec.GeneralEngine.hidden_length_probe' depends on axioms: [propext]
+'LcnExec.GeneralEngine.winRows_model_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.winRows_width_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.winColumn_model_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.bin_read_signed_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

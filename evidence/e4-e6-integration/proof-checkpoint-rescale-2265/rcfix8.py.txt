@@ -1,0 +1,40 @@
+src = open('/tmp/e4layer/RescaleInner2.lean', encoding='utf-8').read()
+
+# 1. hmid side via ints2_length
+src = src.replace('''  have hmid : (ints2 f)[p.val]! = ints (f.val[p.val]'(by simp; omega)) := by
+    rw [getElem!_pos (ints2 f) p.val (by simp [ints2]; omega)]
+    simp [ints2]''',
+'''  have hmid : (ints2 f)[p.val]! = ints (f.val[p.val]'(by simp; omega)) := by
+    rw [getElem!_pos (ints2 f) p.val (by rw [ints2_length f]; omega)]
+    simp [ints2]''')
+
+# 2. prefix q<k case: hq rewrite then heq (the mrow form is defeq)
+src = src.replace('''            rw [hval]
+            exact heq q hq (by omega)
+        · constructor
+          · intro q hq hiq
+            have hval : row2.val[q]'(by simp; omega) =
+                row1.val[q]'(by simp; omega) := by
+              rw [hrow2, Array.set_val_eq]
+              rw [List.getElem_set_ne (by omega)]''',
+'''            rw [hval]
+            exact heq q hq (by omega)
+        · constructor
+          · intro q hq hiq
+            have hval : row2.val[q]'(by simp; omega) =
+                row1.val[q]'(by simp; omega) := by
+              subst hrow2
+              simp only [Array.set_val_eq]
+              rw [List.getElem_set_ne (by omega)]''')
+
+# 3. the branch bridges: hn' from hn directly (I64 lt is Int lt on .val)
+src = src.replace('''        have hn' : Int.shiftRight iv.val 16 < -127 := by
+          have h := hn
+          rw [← hsval] at h
+          exact h''',
+'''        have hn' : Int.shiftRight iv.val 16 < -127 := by
+          have h : s.val < (-127 : Int) := hn
+          rw [hsval] at h
+          exact h''')
+open('/tmp/e4layer/RescaleInner2.lean', 'w', encoding='utf-8').write(src)
+print('J fixes')

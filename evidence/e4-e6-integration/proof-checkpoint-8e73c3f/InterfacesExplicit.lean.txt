@@ -1,0 +1,66 @@
+import LcnExec.GeneralEngine.AttentionAt
+
+/-!
+# Residual: the scaled token stream plus attention output
+
+`residual x att` computes `x[k] * ALPHA_ONE + att[k]` for all `k < 128` through the
+real checked multiply and add, i.e. exactly `GeneralModel.residual (ints x) (ints att)`,
+bounded by `Envelope.residual`.
+-/
+
+open Aeneas Aeneas Std Result ControlFlow
+
+set_option maxHeartbeats 800000
+
+namespace LcnExec.GeneralEngine
+
+theorem residual_length (xs bs : List Int) (h : xs.length = bs.length) :
+    (GeneralModel.residual xs bs).length = xs.length := by
+  induction xs generalizing bs with
+  | nil => cases bs with
+    | nil => rfl
+    | cons a bs' => exact absurd h (by simp)
+  | cons x xs' ih =>
+    cases bs with
+    | nil => exact absurd h.symm (by simp)
+    | cons a bs' => simpa [GeneralModel.residual] using ih bs' (by simpa using h)
+
+theorem residual_getElem : ∀ (xs bs : List Int) (i : Nat),
+    i < xs.length → i < bs.length → xs.length = bs.length →
+    (GeneralModel.residual xs bs)[i]! = xs[i]! * GeneralModel.ALPHA_ONE + bs[i]!
+  | [], _, i, hx, _, _ => by simp at hx
+  | x :: xs', [], i, _, ha, _ => by simp at ha
+  | x :: xs', b :: bs', 0, _, _, _ => by simp [GeneralModel.residual]
+  | x :: xs', b :: bs', i' + 1, hx, ha, hlen => by
+      simp only [List.length_cons] at hx ha hlen ⊢
+      have hrec := residual_getElem xs' bs' i' (by omega) (by omega) (by omega)
+      simp only [GeneralModel.residual]
+      simpa using hrec
+
+theorem residual_mul_bounds_probe (i : I64) (h : -Envelope.embedding <= i.val ∧ i.val <= Envelope.embedding) :
+    I64.min <= i.val * (16777216#i64).val ∧ i.val * (16777216#i64).val <= I64.max := by
+  change -127 <= i.val ∧ i.val <= 127 at h
+  have hprod : -2130706432 <= i.val * (16777216#i64).val ∧
+      i.val * (16777216#i64).val <= 2130706432 := by
+    change -2130706432 <= i.val * 16777216 ∧ i.val * 16777216 <= 2130706432
+    omega
+  constructor <;> scalar_tac
+
+theorem residual_getElem_plain_probe (xs bs : List Int) (i : Nat) (hx : i < xs.length)
+    (hb : i < bs.length) (hs : xs.length = bs.length)
+    (hm : i < (GeneralModel.residual xs bs).length) :
+    (GeneralModel.residual xs bs)[i]'hm = xs[i]'hx * GeneralModel.ALPHA_ONE + bs[i]'hb := by
+  have h := residual_getElem xs bs i hx hb hs
+  rw [getElem!_pos (GeneralModel.residual xs bs) i hm,
+    getElem!_pos xs i hx, getElem!_pos bs i hb] at h
+  exact h
+
+theorem residual_zero_bounds_probe : -Envelope.residual ≤ (0#i64).val ∧
+    (0#i64).val ≤ Envelope.residual := by
+  change (-5253256708096 : Int) ≤ 0 ∧ (0 : Int) ≤ 5253256708096
+  norm_num
+
+#print axioms residual_zero_bounds_probe
+#print axioms residual_mul_bounds_probe
+#print axioms residual_getElem_plain_probe
+end LcnExec.GeneralEngine

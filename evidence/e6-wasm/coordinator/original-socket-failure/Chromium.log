@@ -1,0 +1,9 @@
+Private page: http://127.0.0.1:44107/web/index.html
+Evidence: /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/browser-coordinator-replay/package/evidence/e6-wasm/browser-run-4igiGy
+Error: read ECONNRESET
+    at Pipe.onStreamRead (node:internal/stream_base_commons:221:20) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Browser receipt: /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/browser-coordinator-replay/package/evidence/e6-wasm/browser-run-4igiGy/browser-ui-check.json

@@ -1,0 +1,7 @@
+'LcnExec.GeneralEngine.vals2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.value_scan_weights_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.value_scan_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.woColumn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.woColumn_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.head_out_proj_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.mix_scan_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

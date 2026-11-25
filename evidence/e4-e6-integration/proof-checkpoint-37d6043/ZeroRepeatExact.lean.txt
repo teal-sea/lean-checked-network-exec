@@ -1,0 +1,26 @@
+import LcnExec.GeneralEngine.MlpHiddenInner
+namespace LcnExec.GeneralEngine
+open Aeneas Aeneas.Std
+
+theorem repeat_val_probe (n : Usize) (v : I64) :
+    (Array.repeat n v).val = List.replicate n.val v := by
+  simp [Array.repeat]
+
+theorem repeat_zero_index_probe (k : Nat) (hk : k < 512) :
+    (Array.repeat 512#usize 0#i64).val[k]'(by rw [Array.length_eq]; exact hk) = 0#i64 := by
+  have hz : ∀ x ∈ (Array.repeat 512#usize 0#i64).val, x = 0#i64 := by
+    intro x hx
+    rw [repeat_val_probe] at hx
+    exact (List.mem_replicate.mp hx).2
+  exact hz _ (List.getElem_mem _)
+
+theorem repeat_zero_bounded_probe : Bounded Envelope.hidden (Array.repeat 512#usize 0#i64) := by
+  intro v hv
+  rw [repeat_val_probe] at hv
+  rcases List.mem_replicate.mp hv with ⟨_, rfl⟩
+  constructor <;> simp only [Envelope.hidden] <;> norm_num
+
+#print axioms repeat_val_probe
+#print axioms repeat_zero_index_probe
+#print axioms repeat_zero_bounded_probe
+end LcnExec.GeneralEngine

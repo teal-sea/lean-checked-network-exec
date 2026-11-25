@@ -1,0 +1,38 @@
+{
+  "scope": "The weighted-sum draft failed. The standalone interface probes are diagnostics only; the weighted sum remains unproved.",
+  "worker_commit": "bb3613fb34ccf03b2f561e7f3b17a0bc5aefd5aa",
+  "worker_admission": 2231,
+  "worker_proc": "proc_b9b1bcb78682",
+  "route": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "remote_command": "cmd_jborvaktzsco",
+  "finished_at": "2026-11-21T23:00:38.256Z",
+  "build_exits": {
+    "WeightedDraft": 1,
+    "WeightedInterfaces": 0
+  },
+  "draft_error_positions": [
+    "21:8",
+    "21:29",
+    "56:56",
+    "56:41",
+    "56:61",
+    "58:42",
+    "59:14",
+    "58:92",
+    "65:6"
+  ],
+  "value_scan_axioms_unchanged": true,
+  "archive": {
+    "name": "weighted-draft-checkpoint.tar.gz",
+    "sha256": "7b6211f69f22a1c46bbabf21bd3428292eaaeea6f81f8b62d375492327f14918",
+    "member_sha256": {
+      "WeightedDraft.uncompiled.lean.txt": "01efd5a6e98712371d06ece0d59bf622deaa3bc90dae20ad63783e18e530ec8e",
+      "WeightedDraft.log": "98fa902884453d09df190be95942fa6599ab26a4aa58ca022859f6ef2218242b",
+      "WeightedDraft.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "WeightedInterfaces.lean.txt": "97e246280993b905960e7d440c1a1b6cfefc90aa2f273c699a3246998189c287",
+      "WeightedInterfaces.log": "150ebd2f6caaa4b13096bca4922a01b09b1d70c1490100c063c6666c21a313af",
+      "WeightedInterfaces.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  }
+}

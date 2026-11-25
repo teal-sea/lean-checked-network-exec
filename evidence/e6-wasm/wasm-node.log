@@ -1,0 +1,4 @@
+wrote /home/thomas/worktrees/lcn-exec-general-lm-20261120/evidence/e6-wasm/RECEIPT.json
+(a) mod113: load_check 1, 12,769/12,769 exact, 121101 ms single-threaded
+(b) corrupt tok[0][0] = 99: load_check 0, predict_next -1
+(c) bytelm: 5/5 greedy sequences match native, logits 256/256, deterministic true

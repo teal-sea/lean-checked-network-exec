@@ -1,0 +1,6 @@
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/Tails.lean:98:2: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+'LcnExec.GeneralEngine.hidden_init_index_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_runtime_bias_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_mapped_entry_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,30 @@
+CHECK_EXIT=0
+@ints2 : {n : Usize} → Std.Array (Std.Array I64 128#usize) n → List (List ℤ)
+@ints : {n : Usize} → Std.Array I64 n → List ℤ
+general_engine.head_out_at_loop0 : general_engine.Weights →
+  Usize →
+    Usize →
+      Std.Array (Std.Array I64 128#usize) 32#usize →
+        Usize →
+          Std.Array (Std.Array I64 32#usize) 32#usize →
+            Usize → Result (general_engine.Weights × Std.Array (Std.Array I64 32#usize) 32#usize)
+general_engine.head_out_at_loop0_loop0 : Std.Array (Std.Array I64 32#usize) 32#usize →
+  Usize → Std.Array I64 32#usize → Usize → Result (Std.Array (Std.Array I64 32#usize) 32#usize)
+@loop.spec_decr_nat : ∀ {α : Type u_1} {β : Type u_2} (measure : α → ℕ) (inv : α → Prop) (post : β → Prop)
+  (body : α → Result (ControlFlow α β)) (x : α),
+  (∀ (x : α),
+      inv x →
+        body x ⦃ r =>
+          match r with
+          | done y => post y
+          | cont x' => inv x' ∧ measure x' < measure x ⦄) →
+    inv x → loop body x ⦃ post ⦄
+@Array.repeat : {α : Type u_1} → (n : Usize) → α → Std.Array α n
+@Array.index_mut_usize_spec : ∀ {α : Type u_1} {n : Usize} (v : Std.Array α n) (i : Usize) (hbound : ↑i < v.length),
+  v.index_mut_usize i ⦃ x back => x = (↑v)[↑i] ∧ back = v.set i ⦄
+@Array.update_spec : ∀ {α : Type u_1} {n : Usize} (v : Std.Array α n) (i : Usize) (x : α),
+  ↑i < v.length → v.update i x ⦃ nv => nv = v.set i x ⦄
+@List.getElem_set_self : ∀ {α : Type u_1} {l : List α} {i : ℕ} {a : α} (h : i < (l.set i a).length), (l.set i a)[i] = a
+@List.getElem_set_ne : ∀ {α : Type u_1} {l : List α} {i j : ℕ},
+  i ≠ j → ∀ {a : α} (hj : j < (l.set i a).length), (l.set i a)[j] = l[j]
+'LcnExec.GeneralEngine.head_scores_at_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

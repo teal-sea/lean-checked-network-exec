@@ -1,0 +1,163 @@
+import LcnExec.GeneralEngine.ValueScan
+
+set_option maxHeartbeats 800000
+
+/-!
+# The projection inner dot loop `general_engine.head_out_at_loop2_loop0`
+
+Coordinate `k < 128` of the head output: `acc = sum_t z[t] * wo[h][t][k]` over `t < 32`,
+with the input weights returned unchanged. Exact `GeneralModel.dot` against the
+`wo` column and the `±Envelope.head_output` bound (32 * mixed_value * 93).
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- The `wo` column for coordinate `k` of head `h`: entries `wo[h][t][k]`. -/
+def woColumn (w : general_engine.Weights) (l h k : Nat) : List Int :=
+  (((w.layers.val[l]!).wo.val[h]!).val).map (fun row => (row.val[k]!).val)
+
+theorem woColumn_length (w : general_engine.Weights) (l h k : Nat) :
+    (woColumn w l h k).length = 32 := by
+  simp [woColumn]
+
+theorem head_out_proj_inner_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l h : Usize) (hl : l.val < 2) (hh : h.val < 4)
+    (z : Array I64 32#usize) (hz : Bounded Envelope.mixed_value z)
+    (k : Usize) (hk : k.val < 128) :
+    general_engine.head_out_at_loop2_loop0 W l h z k 0#i64 0#usize ⦃ r =>
+      r.1 = W ∧
+      r.2.val = GeneralModel.dot (ints z) (woColumn W l.val h.val k.val) ∧
+      -Envelope.head_output ≤ r.2.val ∧ r.2.val ≤ Envelope.head_output ⦄ := by
+  have hL := layerBounds hW l hl
+  have hzc : ∀ x ∈ (ints z), -Envelope.mixed_value ≤ x ∧ x ≤ Envelope.mixed_value := by
+    intro x hx
+    rcases (by simpa [ints] using hx : ∃ v ∈ z.val, v.val = x) with ⟨v, hv, rfl⟩
+    exact hz v hv
+  have hcc : ∀ x ∈ woColumn W l.val h.val k.val, -(93 : Int) ≤ x ∧ x ≤ 93 := by
+    intro x hx
+    rcases List.mem_map.mp hx with ⟨row, hrow, rfl⟩
+    have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+      getElem!_pos _ l.val (by simp; omega)
+    have hmemW : (W.layers.val[l.val]!).wo.val[h.val]! ∈
+        (W.layers.val[l.val]'(by simpa using hl)).wo.val := by
+      rw [hlay]
+      rw [getElem!_pos _ h.val (by simp; omega)]
+      exact List.getElem_mem (by simp; omega)
+    have hwm := hL.wo _ hmemW
+    have hrowb := hwm row hrow
+    exact hrowb (row.val[k.val]!) (by
+      rw [getElem!_pos _ k.val (by simp; omega)]
+      exact List.getElem_mem (by simp; omega))
+  have hbd : -Envelope.head_output ≤ GeneralModel.dot (ints z)
+      (woColumn W l.val h.val k.val) ∧
+      GeneralModel.dot (ints z) (woColumn W l.val h.val k.val) ≤
+        Envelope.head_output := by
+    have hd := project_dot_bound (ints z) (woColumn W l.val h.val k.val)
+      Envelope.mixed_value 93 (by simp only [Envelope.mixed_value]; norm_num)
+      (by norm_num) hzc hcc
+    rw [ints_length32] at hd
+    simp only [Envelope.mixed_value] at hd
+    constructor <;> simp only [Envelope.head_output] <;> omega
+  unfold general_engine.head_out_at_loop2_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : I64 × Usize) => 32 - st.2.val)
+    (inv := fun (st : I64 × Usize) =>
+      st.2.val ≤ 32 ∧
+      st.1.val + GeneralModel.dot ((ints z).drop st.2.val)
+          ((woColumn W l.val h.val k.val).drop st.2.val) =
+        GeneralModel.dot (ints z) (woColumn W l.val h.val k.val) ∧
+      -(441122816 * 93) * (st.2.val : Int) ≤ st.1.val ∧
+      st.1.val ≤ (441122816 * 93) * (st.2.val : Int))
+  · rintro ⟨acc, t⟩ ⟨ht1, hacc, hlo, hhi⟩
+    unfold general_engine.head_out_at_loop2_loop0.body
+    dsimp only at ht1 hacc hlo hhi ⊢
+    simp only [general_engine.D_HEAD]
+    split
+    · have ht32 : t.val < 32 := by scalar_tac
+      rw [dot_drop _ _ _ (by rw [ints_length32]; omega)
+        (by rw [woColumn_length]; omega)] at hacc
+      step as ⟨i, hi⟩
+      step as ⟨lw, hlw⟩
+      subst hlw
+      step as ⟨a, ha⟩
+      step as ⟨red, hred⟩
+      step as ⟨a1, ha1⟩
+      step as ⟨a2, ha2⟩
+      step as ⟨i1, hi1⟩
+      step as ⟨i2, hi2⟩
+      have hzb : -441122816 ≤ i.val ∧ i.val ≤ 441122816 := hz i (by simp [hi])
+      have hxi : (ints z)[t.val]'(by rw [ints_length32]; omega) = i.val := by
+        simp [ints, hi]
+      have hcol : (woColumn W l.val h.val k.val)[t.val]'(by rw [woColumn_length]; omega)
+          = i1.val := by
+        have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+          getElem!_pos _ l.val (by simp; omega)
+        have hh2 : h.val < ((W.layers.val[l.val]'(by simpa using hl)).wo.val).length := by
+          rw [Array.length_eq]
+          exact hh
+        have hwo : ((W.layers.val[l.val]!).wo.val[h.val]!) = a1 := by
+          rw [hlay]
+          rw [getElem!_pos _ h.val hh2]
+          exact ha1.symm
+        simp only [woColumn, List.getElem_map, hwo, ha2]
+        rw [getElem!_pos _ k.val (by simp; omega)]
+        rw [← ha2, hi1]
+      have hi1b : -(93 : Int) ≤ i1.val ∧ i1.val ≤ 93 := by
+        have hct := hcc _ (List.getElem_mem (by rw [woColumn_length]; omega))
+        rw [hcol] at hct
+        exact hct
+      have hi2v : i2.val = i1.val := by scalar_tac
+      have hi2b : -(93 : Int) ≤ i2.val ∧ i2.val ≤ 93 := by rw [hi2v]; exact hi1b
+      have hprod : -(441122816 * 93) ≤ i.val * i2.val ∧
+          i.val * i2.val ≤ 441122816 * 93 := by
+        constructor <;> nlinarith [mul_nonneg (by omega : 0 ≤ i.val + 441122816)
+          (by omega : 0 ≤ i2.val + 93),
+          mul_nonneg (by omega : 0 ≤ i.val + 441122816) (by omega : 0 ≤ 93 - i2.val),
+          mul_nonneg (by omega : 0 ≤ 441122816 - i.val) (by omega : 0 ≤ i2.val + 93),
+          mul_nonneg (by omega : 0 ≤ 441122816 - i.val) (by omega : 0 ≤ 93 - i2.val)]
+      have hminb : I64.min ≤ i.val * i2.val := by scalar_tac
+      have hmaxb : i.val * i2.val ≤ I64.max := by scalar_tac
+      step with I64.mul_spec hminb hmaxb as ⟨i3, hi3⟩
+      step as ⟨acc1, hacc1⟩
+      step as ⟨t1, ht1'⟩
+      have ht1v : t1.val = t.val + 1 := by scalar_tac
+      rw [hxi, hcol] at hacc
+      rw [ht1v]
+      have hpprod : -(441122816 * 93) ≤ i.val * i1.val ∧
+          i.val * i1.val ≤ 441122816 * 93 := by
+        constructor <;> nlinarith [mul_nonneg (by omega : 0 ≤ i.val + 441122816)
+          (by omega : 0 ≤ i1.val + 93),
+          mul_nonneg (by omega : 0 ≤ i.val + 441122816) (by omega : 0 ≤ 93 - i1.val),
+          mul_nonneg (by omega : 0 ≤ 441122816 - i.val) (by omega : 0 ≤ i1.val + 93),
+          mul_nonneg (by omega : 0 ≤ 441122816 - i.val) (by omega : 0 ≤ 93 - i1.val)]
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · have hp' : i3.val = i.val * i1.val := by scalar_tac
+        simp only [hacc1, hp']
+        linarith
+      · have hp' : i3.val = i.val * i1.val := by scalar_tac
+        simp only [hacc1, hp']
+        omega
+      · have hp' : i3.val = i.val * i1.val := by scalar_tac
+        simp only [hacc1, hp']
+        omega
+    · have ht32 : t.val = 32 := by scalar_tac
+      simp only [WP.spec_ok]
+      rw [ht32] at hacc
+      have hdz : ((ints z).drop 32) = [] := by simp [ints_length32]
+      have hdc : ((woColumn W l.val h.val k.val).drop 32) = [] := by
+        simp [woColumn_length]
+      rw [hdz, hdc] at hacc
+      have hdot : acc.val = GeneralModel.dot (ints z) (woColumn W l.val h.val k.val) := by
+        simpa [GeneralModel.dot] using hacc
+      refine ⟨trivial, hdot, ?_, ?_⟩
+      · rw [hdot]; exact hbd.1
+      · rw [hdot]; exact hbd.2
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_, ?_⟩
+    · simp
+    · constructor <;> simp
+    · constructor <;> simp
+
+end LcnExec.GeneralEngine

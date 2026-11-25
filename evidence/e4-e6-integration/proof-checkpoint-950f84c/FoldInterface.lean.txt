@@ -1,0 +1,23 @@
+import LcnExec.GeneralEngine.AttentionPrefix
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+
+theorem att_fold_succ_probe (W : GeneralModel.Weights) (l p h : Nat)
+    (xs : List (List Int)) (init : List Int) :
+    (List.range (h + 1)).foldl (fun acc j => GeneralModel.addV acc
+      (GeneralModel.headTermAt W l j p xs)) init =
+    GeneralModel.addV ((List.range h).foldl (fun acc j => GeneralModel.addV acc
+      (GeneralModel.headTermAt W l j p xs)) init) (GeneralModel.headTermAt W l h p xs) := by
+  rw [List.range_succ, List.foldl_append]
+  rfl
+
+theorem att_alpha_nonneg_probe (a : Array I64 32#usize) (p : Usize) (hp : p.val < 32)
+    (ha : ∀ v ∈ a.val, 0 ≤ v.val) :
+    ∀ j (_ : j ≤ p.val), 0 ≤ (ints a)[j]'(by rw [ints_length32]; omega) := by
+  intro j hj
+  simp only [ints, List.getElem_map]
+  exact ha _ (List.getElem_mem _)
+
+#print axioms att_fold_succ_probe
+#print axioms att_alpha_nonneg_probe
+end LcnExec.GeneralEngine

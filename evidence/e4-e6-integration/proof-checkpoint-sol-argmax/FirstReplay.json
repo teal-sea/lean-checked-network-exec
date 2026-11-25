@@ -1,0 +1,47 @@
+{
+  "base": "2f04aaef75c5303cb38e0ae30e79308b4f3a6207",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "Argmax": 0,
+    "ArgmaxAudit": 0,
+    "ForwardInputs": 1
+  },
+  "errors": {
+    "Argmax": [],
+    "ArgmaxAudit": [],
+    "ForwardInputs": [
+      [
+        "20",
+        "4",
+        "Type mismatch: After simplification, term"
+      ],
+      [
+        "26",
+        "58",
+        "omega could not prove the goal:"
+      ]
+    ]
+  },
+  "warnings": {
+    "Argmax": 0,
+    "ArgmaxAudit": 0,
+    "ForwardInputs": 0
+  },
+  "sources_sha256": {
+    "Argmax": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6",
+    "ForwardInputs": "45e32d1a2ba025b8e40ece4f68b45bd7abb01ac97fcad8e2d9c885fefff4d240"
+  },
+  "command_id": "cmd_eq3b3t1xa6bc",
+  "finished_at": "2026-11-23T02:15:29.417Z",
+  "files_sha256": {
+    "Argmax.lean.txt": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6",
+    "Argmax.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ArgmaxAudit.log": "80e8fb69eb7bca55488a9310185e73b5ab417e88b92a6bb34777c03aeeb78210",
+    "ForwardInputs.lean.txt": "45e32d1a2ba025b8e40ece4f68b45bd7abb01ac97fcad8e2d9c885fefff4d240",
+    "ForwardInputs.log": "ec5ff1934e43d4017328b902c2d590a34961d90d9bbd7398daf19cafcd72ff6d",
+    "boat-command.json": "0b972bc5dafa55e23bd949fec9b33833cad624f8070af06c32ee0d229aa235ee",
+    "exit.txt": "d1e6414acf1391a892310ae174cea15edab168123dc4fc0a261a62132fd0bb33",
+    "proofs.tar.gz": "a37965479a37bd7aec458e199f817763b7a8b7b33ea96a320afd4295ddd2f667"
+  }
+}

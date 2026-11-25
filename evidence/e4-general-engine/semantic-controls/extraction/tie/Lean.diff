@@ -1,0 +1,11 @@
+--- pristine/GeneralEngine.lean
++++ tie/GeneralEngine.lean
+@@ -1776,7 +1776,7 @@
+   then
+     let i ← Array.index_usize l c
+     let (best1, best_value1) ←
+-      if i > best_value
++      if i >= best_value
+       then ok (c, i)
+       else ok (best, best_value)
+     let c1 ← c + 1#usize

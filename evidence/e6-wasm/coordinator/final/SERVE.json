@@ -1,0 +1,44 @@
+{
+  "argv": [
+    "/home/thomas/.local/bin/node",
+    "scripts/e6_browser_replay.js",
+    "--serve",
+    "0"
+  ],
+  "scope": "manual local serving entrypoint, all six resources matched",
+  "loopback_url": "http://127.0.0.1:33617/web/index.html",
+  "files": {
+    "web/app.js": {
+      "http": 200,
+      "bytes": 19306,
+      "sha256": "3cdd9c05a00044df8d2b3d18ec4a4bdc359a431f0fee98c93c8491bceca7bec6"
+    },
+    "web/general_engine_wasm.wasm": {
+      "http": 200,
+      "bytes": 29755,
+      "sha256": "be9803f94a30189ebe23ef2c2dae841dcbef4d8716e03017e85eb0e00f2eb48d"
+    },
+    "web/index.html": {
+      "http": 200,
+      "bytes": 8530,
+      "sha256": "48cf2d80e3f3b332de5572f1dd63ceb4e19acad603ac395bd1e907782aff2068"
+    },
+    "web/style.css": {
+      "http": 200,
+      "bytes": 6906,
+      "sha256": "c691658275aaf077e853fa6ec649ab02d9f8f6af3a14a18b4d2281df7c7b9a69"
+    },
+    "weights/mod113_v1.bin": {
+      "http": 200,
+      "bytes": 479504,
+      "sha256": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc"
+    },
+    "weights/tiny_bytelm_v1.bin": {
+      "http": 200,
+      "bytes": 479504,
+      "sha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87"
+    }
+  },
+  "exit": 0,
+  "server_closed": true
+}

@@ -1,0 +1,21 @@
+/home/user/e4/qa-layer-init-KYKCgFzW/LayerInit.lean:7:49: error: No goals to be solved
+/home/user/e4/qa-layer-init-KYKCgFzW/LayerInit.lean:10:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Array.repeat ?n ?v)
+in the target expression
+  row ∈ ↑(Array.repeat 32#usize (Array.repeat 128#usize 0#i64))
+
+row : Std.Array I64 128#usize
+hrow : row ∈ ↑(Array.repeat 32#usize (Array.repeat 128#usize 0#i64))
+⊢ Bounded Envelope.final_stream row
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (128 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+'LcnExec.GeneralEngine.layer_zero_rows_bound_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

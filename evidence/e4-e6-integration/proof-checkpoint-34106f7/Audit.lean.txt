@@ -1,0 +1,20 @@
+import LcnExec.GeneralEngine.MlpHiddenInner
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (w : general_engine.Weights) (hw : LoadBounds w)
+    (l i : Usize) (hl : l.val < 2) (hi : i.val < 512)
+    (x : Array I64 128#usize) (hx : Bounded Envelope.residual x) :
+    general_engine.mlp_hidden_loop0_loop0 w l x i 0#i64 0#usize ⦃ out =>
+      out.1 = w ∧
+      out.2.val = GeneralModel.dot (ints x)
+        (((w.layers.val[l.val]!).win.val).map (fun row => (row.val[i.val]!).val)) ∧
+      -Envelope.hidden_pre ≤ out.2.val ∧ out.2.val ≤ Envelope.hidden_pre ⦄ :=
+  mlp_hidden_inner_spec w hw l hl x hx i hi
+example : Envelope.hidden_pre = 128 * Envelope.residual * 82 := rfl
+#print axioms mlp_hidden_inner_spec
+#print axioms winColumn
+#print axioms winColumn_length
+#print axioms win_column_entry_probe
+#print axioms mlp_tail_linear_probe
+#print axioms mlp_init_upper_probe
+end LcnExec.GeneralEngine

@@ -1,0 +1,67 @@
+{
+  "commit": "2dad7196f3383b65e0c4dd3e33a8fa264a6d34c4",
+  "parent": "b99c5056dcb2795d1fe04253689d7e0445300ba0",
+  "source_sha256": "8f753b004fb2cc13525f97f2743561db5b614257c996cdba5dd5f22175aa2c42",
+  "object_sha256": "3d3226663eab8c8a234792429256edbfbecb2e1e16a25dfbf31cf6c984960fb8",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2255,
+  "generation": 28,
+  "worker_process": "proc_0ab42b7d0244",
+  "replay_command_id": "cmd_q4kzghygkiql",
+  "replay_finished_at": "2026-11-22T20:20:58.952Z",
+  "exits": {
+    "Build": 0,
+    "Direct": 0,
+    "Audit": 0
+  },
+  "warnings": {
+    "Build": 18,
+    "Direct": 0,
+    "Audit": 0
+  },
+  "axioms": {
+    "mlp_hidden_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "activation_compare_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "activation_upper_probe": [],
+    "activation_write_bound_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "repeat_zero_index_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "repeat_zero_bounded_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "archive": "mlp-hidden-verified-replay.tar.gz",
+  "archive_sha256": "7df5c5bb1633ccc3b92c8c7fef888243e039ac4866e28c295063ee1b5fcb7234",
+  "files_sha256": {
+    "MlpHidden.lean.txt": "8f753b004fb2cc13525f97f2743561db5b614257c996cdba5dd5f22175aa2c42",
+    "Audit.lean.txt": "58088a6b386df3df1b8c00e8f64b71d8b45f01a1d1285379ead0975065947b4a",
+    "Audit.log": "3e210f3bf26501beeb114aac8a9055860e636c223577b3aeae013c0b1d52109f",
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Build.log": "4b7427c02f6b7a07b9a1b0a81a7a1ecb93269425143838ff3e669e78c10f2ad7",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "object.sha256": "614c1b64df8fdb69f3652cd64dfd2871accc12f7f9eb2061bae5ca631b91aa80",
+    "boat-command.json": "446dfa4a9214733dc72732ef45c7678a2317969d71bcdc4a22ccca88616b60ce"
+  },
+  "accepted": "mlp_hidden_spec: real 512-output hidden layer, both activation branches, exact model output and numeric bound under LoadBounds, valid layer and bounded residual. Output projection and enclosing engine remain unproved."
+}

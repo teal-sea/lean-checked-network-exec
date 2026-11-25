@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_ixtzcs5levie",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T22:10:44.186Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T22:10:42.736Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=1\n/home/user/e4/qa-layer-init-KYKCgFzW/LayerInit.lean:7:49: error: No goals to be solved\n/home/user/e4/qa-layer-init-KYKCgFzW/LayerInit.lean:10:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u2191(Array.repeat ?n ?v)\nin the target expression\n  row \u2208 \u2191(Array.repeat 32#usize (Array.repeat 128#usize 0#i64))\n\nrow : Std.Array I64 128#usize\nhrow : row \u2208 \u2191(Array.repeat 32#usize (Array.repeat 128#usize 0#i64))\n\u22a2 Bounded Envelope.final_stream row\n\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\nFull error:\n  Application type mismatch: The argument\n    Eq.refl true\n  has type\n    @Eq Bool true true\n  but is expected to have type\n    @Eq Bool (decide (128 \u2264 UScalar.cMax UScalarTy.Usize)) true\n  in the application\n    id (Eq.refl true)\n'LcnExec.GeneralEngine.layer_zero_rows_bound_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

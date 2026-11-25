@@ -1,0 +1,3 @@
+'LcnExec.GeneralEngine.nth_prefix_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.softmax_prefix_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.head_alpha_prefix_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>general_engine lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="title-row">
+    <h1>general_engine <span class="thin">lab</span></h1>
+    <div class="engine-meta" id="engine-meta">engine: loading WebAssembly...</div>
+  </div>
+  <div class="trust-banner" id="trust-banner">
+    <div class="trust-head">Trust boundary</div>
+    <div class="trust-cols">
+      <div>
+        <div class="trust-tag proved">checked in Lean 4 and nanoda</div>
+        <p>For weights accepted by translated <code>load_check</code>, the Aeneas translation of
+        <code>predict_next</code> returns normally and agrees exactly with the Lean integer model,
+        including rejected inputs and first-index tie breaking.</p>
+      </div>
+      <div>
+        <div class="trust-tag trusted">outside the generic proof</div>
+        <p>The extraction and Rust-to-Wasm compiler, Wasm wrapper, GLMW parser, browser,
+        generation loop and non-greedy sampler are checked separately. The native and Wasm
+        builds use the same Rust engine with overflow checks enabled.</p>
+      </div>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="bytelm">Byte-Level Language Model</button>
+    <button class="tab" data-tab="mod113">Mod-113 Arithmetic Verifier</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ============================ Tab 1: byte LM ============================ -->
+  <section class="panel active" id="tab-bytelm">
+    <div class="two-col">
+      <div class="col controls">
+        <div class="weight-box">
+          <div class="weight-line">
+            <span class="label">weights</span>
+            <span id="weight-name" class="mono">tiny_bytelm_v1.bin</span>
+            <span id="load-badge" class="badge pending">load_check: ...</span>
+          </div>
+          <div class="weight-actions">
+            <label class="btn small" for="file-input">Load custom .bin weights</label>
+            <input type="file" id="file-input" accept=".bin" hidden>
+            <button class="btn small danger" id="corrupt-btn">Test corrupt weight (tok[0][0] = 99)</button>
+            <button class="btn small hidden" id="restore-btn">Restore valid weights</button>
+          </div>
+          <div class="weight-note mono" id="weight-note" role="status">Loading the trained byte model…</div>
+        </div>
+
+        <label class="label" for="prompt">prompt (UTF-8 bytes feed the engine)</label>
+        <textarea id="prompt" rows="4" spellcheck="false">Hello, world! It</textarea>
+        <div class="prompt-meta mono" id="prompt-meta">16 bytes &middot; context window: 16 / 32 bytes</div>
+        <div class="chips" id="chips">
+          <button class="chip" data-p="Hello, world! It">Hello, world! It</button>
+          <button class="chip" data-p="The quick brown fox jumps over ">quick brown fox</button>
+          <button class="chip" data-p="count with me: 1 2 3 4 5 ">count with me</button>
+          <button class="chip" data-p="add mod 113: 21 + 56 = ">21 + 56 = </button>
+        </div>
+
+        <div class="row">
+          <label class="label" for="mode">mode</label>
+          <select id="mode">
+            <option value="greedy" selected>greedy (deterministic, pure predict_next)</option>
+            <option value="sample">seeded temperature (top-k, LCG seed)</option>
+          </select>
+        </div>
+        <div class="row three" id="sample-row">
+          <div>
+            <label class="label" for="temp">temperature</label>
+            <input class="mono" id="temp" type="number" min="0.1" max="8" step="0.1" value="1.0">
+          </div>
+          <div>
+            <label class="label" for="topk">top-k</label>
+            <input class="mono" id="topk" type="number" min="1" max="256" step="1" value="8">
+          </div>
+          <div>
+            <label class="label" for="seed">seed</label>
+            <input class="mono" id="seed" type="number" step="1" value="20261120">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label class="label" for="steps">tokens to generate</label>
+            <input class="mono" id="steps" type="number" min="1" max="512" step="1" value="48">
+          </div>
+          <div class="grow"></div>
+          <button class="btn primary" id="generate-btn" disabled>Generate</button>
+          <button class="btn" id="stop-btn" disabled>Stop</button>
+        </div>
+      </div>
+
+      <div class="col output">
+        <div class="label">generated text <span class="muted" id="gen-stats">0 tokens &middot; 0.0 ms/token</span></div>
+        <pre id="output" class="output-pre"><span class="prompt-part" id="prompt-part"></span><span class="gen-part" id="gen-part"></span></pre>
+        <div class="inspector">
+          <div class="label">exact i64 logit inspector <span class="muted">next-byte candidates, raw logits at scale 2^32</span></div>
+          <table class="logit-table mono" id="logit-table">
+            <thead>
+              <tr><th>#</th><th>byte</th><th>char</th><th>i64 logit</th><th></th></tr>
+            </thead>
+            <tbody id="logit-body">
+              <tr class="muted"><td colspan="5">waiting for the first step...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Tab 2: mod 113 ============================ -->
+  <section class="panel" id="tab-mod113">
+    <div class="two-col">
+      <div class="col controls">
+        <div class="weight-box">
+          <div class="weight-line">
+            <span class="label">weights</span>
+            <span id="m-weight-name" class="mono">mod113_v1.bin</span>
+            <span id="m-load-badge" class="badge pending">load_check: ...</span>
+          </div>
+          <div class="weight-note mono">GLMW v1, 479,504 bytes, 1 layer, vocab 113. The frozen gate 3/4 checkpoint of rust/transformer, repacked. tokens: [a, b, =].</div>
+        </div>
+
+        <label class="label">single pair (a, b in 0..112)</label>
+        <div class="row three">
+          <div>
+            <label class="label" for="m-a">a</label>
+            <input class="mono" id="m-a" type="number" min="0" max="112" step="1" value="21">
+          </div>
+          <div>
+            <label class="label" for="m-b">b</label>
+            <input class="mono" id="m-b" type="number" min="0" max="112" step="1" value="56">
+          </div>
+          <div>
+            <button class="btn primary" id="m-predict-btn">Predict (a + b) mod 113</button>
+          </div>
+        </div>
+        <pre class="output-pre small mono" id="m-predict-out">engine output appears here</pre>
+
+        <div class="label">exhaustive check</div>
+        <button class="btn primary wide" id="m-verify-btn">Verify all 12,769 pairs in browser</button>
+        <div class="progress-wrap"><div class="progress" id="m-progress"></div></div>
+        <pre class="output-pre small mono" id="m-verify-out">all 12,769 (a, b) pairs run through wasm_predict_next inside this exact WebAssembly binary</pre>
+      </div>
+
+      <div class="col output">
+        <div class="label">what is being verified</div>
+        <div class="explain">
+          <p>The engine sees the three tokens <span class="mono">[a, b, =]</span> (the token
+          <span class="mono">=</span> is 113), runs the full causal forward pass of
+          <span class="mono">general_engine</span>, and <span class="mono">predict_next</span> returns the
+          strict-first-maximum over logits <span class="mono">0..113</span>.</p>
+          <p>Native Rust, on the same weights, is exact on all 12,769 pairs and its 113 logits per pair
+          hash to <span class="mono">6cb24f7670e8562e</span>, the value frozen in
+          <span class="mono">rust/transformer/tests/fixtures/python_reference.txt</span>. This page runs
+          the identical integer program.</p>
+          <p>Every pair runs in WebAssembly with checked integer arithmetic. The sweep uses at most
+          two workers, each running the same <span class="mono">.wasm</span> module. The result shows
+          the measured wall time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="mono">general_engine 0.1.0 &middot; rustc 1.99.1 &middot; wasm32-unknown-unknown &middot; overflow-checks on in release</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

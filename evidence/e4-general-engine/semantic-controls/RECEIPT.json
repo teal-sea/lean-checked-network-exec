@@ -1,0 +1,2085 @@
+{
+  "all_controls_pass": true,
+  "artifacts": "/home/user/e4/qa-semantic-controls-m0xheupb",
+  "box": "bx_9m9mrg3q",
+  "commands": [
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "-Vv"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.114,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.414471+00:00",
+      "name": "rustc-1.99.1",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:47.299716+00:00",
+      "status": "ok",
+      "stderr": "logs/rustc-1.99.1.stderr",
+      "stdout": "logs/rustc-1.99.1.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc",
+        "-Vv"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.0,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.416153+00:00",
+      "name": "rustc-stable",
+      "returncode": null,
+      "started_utc": "2026-11-23T03:07:47.415379+00:00",
+      "status": "launch_error",
+      "stderr": "logs/rustc-stable.stderr",
+      "stdout": "logs/rustc-stable.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/nightly-2025-03-01-x86_64-unknown-linux-gnu/bin/rustc",
+        "-Vv"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.0,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.417369+00:00",
+      "name": "rustc-nightly-2025-03-01",
+      "returncode": null,
+      "started_utc": "2026-11-23T03:07:47.416706+00:00",
+      "status": "launch_error",
+      "stderr": "logs/rustc-nightly-2025-03-01.stderr",
+      "stdout": "logs/rustc-nightly-2025-03-01.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--crate-name",
+        "general_engine",
+        "--crate-type",
+        "rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine/lib.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine/libgeneral_engine.rlib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine",
+      "elapsed_seconds": 0.214,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.632484+00:00",
+      "name": "native-pristine-compile-lib",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:47.417892+00:00",
+      "status": "ok",
+      "stderr": "logs/native-pristine-compile-lib.stderr",
+      "stdout": "logs/native-pristine-compile-lib.stdout",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--extern",
+        "general_engine=/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine/libgeneral_engine.rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/observer.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine",
+      "elapsed_seconds": 0.266,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.899868+00:00",
+      "name": "native-pristine-compile-observer",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:47.633511+00:00",
+      "status": "ok",
+      "stderr": "logs/native-pristine-compile-observer.stderr",
+      "stdout": "logs/native-pristine-compile-observer.stdout",
+      "timeout_seconds": 40
+    },
+    {
+      "argv": [
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/pristine",
+      "elapsed_seconds": 0.004,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.905633+00:00",
+      "name": "native-pristine-observe",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:47.901412+00:00",
+      "status": "ok",
+      "stderr": "logs/native-pristine-observe.stderr",
+      "stdout": "logs/native-pristine-observe.stdout",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--crate-name",
+        "general_engine",
+        "--crate-type",
+        "rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift/lib.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift/libgeneral_engine.rlib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift",
+      "elapsed_seconds": 0.064,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:47.971003+00:00",
+      "name": "native-shift-compile-lib",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:47.906806+00:00",
+      "status": "ok",
+      "stderr": "logs/native-shift-compile-lib.stderr",
+      "stdout": "logs/native-shift-compile-lib.stdout",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--extern",
+        "general_engine=/home/user/e4/qa-semantic-controls-m0xheupb/source/shift/libgeneral_engine.rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/observer.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift",
+      "elapsed_seconds": 0.064,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.036462+00:00",
+      "name": "native-shift-compile-observer",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:47.971807+00:00",
+      "status": "ok",
+      "stderr": "logs/native-shift-compile-observer.stderr",
+      "stdout": "logs/native-shift-compile-observer.stdout",
+      "timeout_seconds": 40
+    },
+    {
+      "argv": [
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/shift",
+      "elapsed_seconds": 0.004,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.041583+00:00",
+      "name": "native-shift-observe",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.037471+00:00",
+      "status": "ok",
+      "stderr": "logs/native-shift-observe.stderr",
+      "stdout": "logs/native-shift-observe.stdout",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--crate-name",
+        "general_engine",
+        "--crate-type",
+        "rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha/lib.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha/libgeneral_engine.rlib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha",
+      "elapsed_seconds": 0.064,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.107348+00:00",
+      "name": "native-alpha-compile-lib",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.042828+00:00",
+      "status": "ok",
+      "stderr": "logs/native-alpha-compile-lib.stderr",
+      "stdout": "logs/native-alpha-compile-lib.stdout",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--extern",
+        "general_engine=/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha/libgeneral_engine.rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/observer.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha",
+      "elapsed_seconds": 0.064,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.172979+00:00",
+      "name": "native-alpha-compile-observer",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.108360+00:00",
+      "status": "ok",
+      "stderr": "logs/native-alpha-compile-observer.stderr",
+      "stdout": "logs/native-alpha-compile-observer.stdout",
+      "timeout_seconds": 40
+    },
+    {
+      "argv": [
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/alpha",
+      "elapsed_seconds": 0.004,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.178490+00:00",
+      "name": "native-alpha-observe",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.174164+00:00",
+      "status": "ok",
+      "stderr": "logs/native-alpha-observe.stderr",
+      "stdout": "logs/native-alpha-observe.stdout",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--crate-name",
+        "general_engine",
+        "--crate-type",
+        "rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie/lib.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie/libgeneral_engine.rlib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie",
+      "elapsed_seconds": 0.064,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.244720+00:00",
+      "name": "native-tie-compile-lib",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.179985+00:00",
+      "status": "ok",
+      "stderr": "logs/native-tie-compile-lib.stderr",
+      "stdout": "logs/native-tie-compile-lib.stdout",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "--edition=2024",
+        "-C",
+        "overflow-checks=yes",
+        "-C",
+        "codegen-units=2",
+        "--extern",
+        "general_engine=/home/user/e4/qa-semantic-controls-m0xheupb/source/tie/libgeneral_engine.rlib",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/observer.rs",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie",
+      "elapsed_seconds": 0.064,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.310076+00:00",
+      "name": "native-tie-compile-observer",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.245651+00:00",
+      "status": "ok",
+      "stderr": "logs/native-tie-compile-observer.stderr",
+      "stdout": "logs/native-tie-compile-observer.stdout",
+      "timeout_seconds": 40
+    },
+    {
+      "argv": [
+        "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie/observe"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/source/tie",
+      "elapsed_seconds": 0.003,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.315141+00:00",
+      "name": "native-tie-observe",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.311046+00:00",
+      "status": "ok",
+      "stderr": "logs/native-tie-observe.stderr",
+      "stdout": "logs/native-tie-observe.stdout",
+      "timeout_seconds": 10
+    },
+    {
+      "argv": [
+        "/home/user/e4/charon/charon/target/debug/charon",
+        "version"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.003,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.320795+00:00",
+      "name": "charon-version",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.316835+00:00",
+      "status": "ok",
+      "stderr": "logs/charon-version.stderr",
+      "stdout": "logs/charon-version.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/e4/charon/charon/target/debug/charon",
+        "toolchain-version"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.003,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.325412+00:00",
+      "name": "charon-toolchain",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.321553+00:00",
+      "status": "ok",
+      "stderr": "logs/charon-toolchain.stderr",
+      "stdout": "logs/charon-toolchain.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/e4/aeneas",
+        "-version"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.215,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.541214+00:00",
+      "name": "aeneas-version",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.326071+00:00",
+      "status": "ok",
+      "stderr": "logs/aeneas-version.stderr",
+      "stdout": "logs/aeneas-version.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin/rustc",
+        "-Vv"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.115,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.658151+00:00",
+      "name": "extraction-rustc",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.542873+00:00",
+      "status": "ok",
+      "stderr": "logs/extraction-rustc.stderr",
+      "stdout": "logs/extraction-rustc.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin/cargo",
+        "-V"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.008,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.668777+00:00",
+      "name": "extraction-cargo",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.659859+00:00",
+      "status": "ok",
+      "stderr": "logs/extraction-cargo.stderr",
+      "stdout": "logs/extraction-cargo.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "--version"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work",
+      "elapsed_seconds": 0.265,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:48.935379+00:00",
+      "name": "lean-version",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.669987+00:00",
+      "status": "ok",
+      "stderr": "logs/lean-version.stderr",
+      "stdout": "logs/lean-version.stdout",
+      "timeout_seconds": 8
+    },
+    {
+      "argv": [
+        "/home/user/e4/charon/charon/target/debug/charon",
+        "cargo",
+        "--preset=aeneas",
+        "--dest-file",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/general_engine.llbc",
+        "--abort-on-error",
+        "--error-on-warnings",
+        "--",
+        "--lib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/rust/general_engine",
+      "elapsed_seconds": 1.167,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CARGO_TARGET_DIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/rust/target",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:50.105765+00:00",
+      "name": "pristine-charon",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:48.938067+00:00",
+      "status": "ok",
+      "stderr": "logs/pristine-charon.stderr",
+      "stdout": "logs/pristine-charon.stdout",
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "/home/user/e4/aeneas",
+        "-backend",
+        "lean",
+        "-abort-on-error",
+        "-warnings-as-errors",
+        "-dest",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/general_engine.llbc"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine",
+      "elapsed_seconds": 7.347,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:07:57.454846+00:00",
+      "name": "pristine-aeneas",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:50.106981+00:00",
+      "status": "ok",
+      "stderr": "logs/pristine-aeneas.stderr",
+      "stdout": "logs/pristine-aeneas.stdout",
+      "timeout_seconds": 80
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/olean/LcnExec/Translated/GeneralEngine.olean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean/LcnExec/Translated/GeneralEngine.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+      "elapsed_seconds": 9.207,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:06.674775+00:00",
+      "name": "pristine-lean-translation",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:07:57.466836+00:00",
+      "status": "ok",
+      "stderr": "logs/pristine-lean-translation.stderr",
+      "stdout": "logs/pristine-lean-translation.stdout",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean/LcnExec/GeneralEngine/RescaleInner.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+      "elapsed_seconds": 8.688,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:15.368791+00:00",
+      "name": "pristine-proof-RescaleInner",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:06.679855+00:00",
+      "status": "ok",
+      "stderr": "logs/pristine-proof-RescaleInner.stderr",
+      "stdout": "logs/pristine-proof-RescaleInner.stdout",
+      "timeout_seconds": 140
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean/LcnExec/GeneralEngine/Softmax.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+      "elapsed_seconds": 4.483,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:19.853424+00:00",
+      "name": "pristine-proof-Softmax",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:15.370306+00:00",
+      "status": "ok",
+      "stderr": "logs/pristine-proof-Softmax.stderr",
+      "stdout": "logs/pristine-proof-Softmax.stdout",
+      "timeout_seconds": 140
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean/LcnExec/GeneralEngine/Argmax.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/pristine/lean",
+      "elapsed_seconds": 2.428,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/pristine/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:22.284115+00:00",
+      "name": "pristine-proof-Argmax",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:19.855109+00:00",
+      "status": "ok",
+      "stderr": "logs/pristine-proof-Argmax.stderr",
+      "stdout": "logs/pristine-proof-Argmax.stdout",
+      "timeout_seconds": 140
+    },
+    {
+      "argv": [
+        "/home/user/e4/charon/charon/target/debug/charon",
+        "cargo",
+        "--preset=aeneas",
+        "--dest-file",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/general_engine.llbc",
+        "--abort-on-error",
+        "--error-on-warnings",
+        "--",
+        "--lib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work/shift/rust/general_engine",
+      "elapsed_seconds": 0.767,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CARGO_TARGET_DIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/shift/rust/target",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:23.056773+00:00",
+      "name": "shift-charon",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:22.288888+00:00",
+      "status": "ok",
+      "stderr": "logs/shift-charon.stderr",
+      "stdout": "logs/shift-charon.stdout",
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "/home/user/e4/aeneas",
+        "-backend",
+        "lean",
+        "-abort-on-error",
+        "-warnings-as-errors",
+        "-dest",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/general_engine.llbc"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift",
+      "elapsed_seconds": 8.052,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:31.111963+00:00",
+      "name": "shift-aeneas",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:23.059053+00:00",
+      "status": "ok",
+      "stderr": "logs/shift-aeneas.stderr",
+      "stdout": "logs/shift-aeneas.stdout",
+      "timeout_seconds": 80
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/work/shift/olean/LcnExec/Translated/GeneralEngine.olean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean/LcnExec/Translated/GeneralEngine.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean",
+      "elapsed_seconds": 2.827,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/shift/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:33.950298+00:00",
+      "name": "shift-lean-translation",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:31.122360+00:00",
+      "status": "ok",
+      "stderr": "logs/shift-lean-translation.stderr",
+      "stdout": "logs/shift-lean-translation.stdout",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean/LcnExec/GeneralEngine/RescaleInner.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean",
+      "elapsed_seconds": 5.385,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/shift/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:39.341990+00:00",
+      "name": "shift-proof-RescaleInner",
+      "returncode": 1,
+      "started_utc": "2026-11-23T03:08:33.955365+00:00",
+      "status": "exit",
+      "stderr": "logs/shift-proof-RescaleInner.stderr",
+      "stdout": "logs/shift-proof-RescaleInner.stdout",
+      "timeout_seconds": 140
+    },
+    {
+      "argv": [
+        "/home/user/e4/charon/charon/target/debug/charon",
+        "cargo",
+        "--preset=aeneas",
+        "--dest-file",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/general_engine.llbc",
+        "--abort-on-error",
+        "--error-on-warnings",
+        "--",
+        "--lib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work/alpha/rust/general_engine",
+      "elapsed_seconds": 0.767,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CARGO_TARGET_DIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/alpha/rust/target",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:40.114848+00:00",
+      "name": "alpha-charon",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:39.346462+00:00",
+      "status": "ok",
+      "stderr": "logs/alpha-charon.stderr",
+      "stdout": "logs/alpha-charon.stdout",
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "/home/user/e4/aeneas",
+        "-backend",
+        "lean",
+        "-abort-on-error",
+        "-warnings-as-errors",
+        "-dest",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/general_engine.llbc"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha",
+      "elapsed_seconds": 7.658,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:47.775543+00:00",
+      "name": "alpha-aeneas",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:40.116387+00:00",
+      "status": "ok",
+      "stderr": "logs/alpha-aeneas.stderr",
+      "stdout": "logs/alpha-aeneas.stdout",
+      "timeout_seconds": 80
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/work/alpha/olean/LcnExec/Translated/GeneralEngine.olean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean/LcnExec/Translated/GeneralEngine.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean",
+      "elapsed_seconds": 2.475,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/alpha/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:50.256890+00:00",
+      "name": "alpha-lean-translation",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:47.781342+00:00",
+      "status": "ok",
+      "stderr": "logs/alpha-lean-translation.stderr",
+      "stdout": "logs/alpha-lean-translation.stdout",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean/LcnExec/GeneralEngine/Softmax.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean",
+      "elapsed_seconds": 3.878,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/alpha/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:54.139675+00:00",
+      "name": "alpha-proof-Softmax",
+      "returncode": 1,
+      "started_utc": "2026-11-23T03:08:50.260630+00:00",
+      "status": "exit",
+      "stderr": "logs/alpha-proof-Softmax.stderr",
+      "stdout": "logs/alpha-proof-Softmax.stdout",
+      "timeout_seconds": 140
+    },
+    {
+      "argv": [
+        "/home/user/e4/charon/charon/target/debug/charon",
+        "cargo",
+        "--preset=aeneas",
+        "--dest-file",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/general_engine.llbc",
+        "--abort-on-error",
+        "--error-on-warnings",
+        "--",
+        "--lib"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/work/tie/rust/general_engine",
+      "elapsed_seconds": 0.766,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "CARGO_TARGET_DIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/tie/rust/target",
+        "CHARON_TOOLCHAIN_IS_IN_PATH": "1",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LD_LIBRARY_PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/lib",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:08:54.912439+00:00",
+      "name": "tie-charon",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:54.145182+00:00",
+      "status": "ok",
+      "stderr": "logs/tie-charon.stderr",
+      "stdout": "logs/tie-charon.stdout",
+      "timeout_seconds": 240
+    },
+    {
+      "argv": [
+        "/home/user/e4/aeneas",
+        "-backend",
+        "lean",
+        "-abort-on-error",
+        "-warnings-as-errors",
+        "-dest",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/general_engine.llbc"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie",
+      "elapsed_seconds": 7.501,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:09:02.416417+00:00",
+      "name": "tie-aeneas",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:08:54.914640+00:00",
+      "status": "ok",
+      "stderr": "logs/tie-aeneas.stderr",
+      "stdout": "logs/tie-aeneas.stdout",
+      "timeout_seconds": 80
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean",
+        "-o",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/work/tie/olean/LcnExec/Translated/GeneralEngine.olean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean/LcnExec/Translated/GeneralEngine.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean",
+      "elapsed_seconds": 2.683,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/tie/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:09:05.111672+00:00",
+      "name": "tie-lean-translation",
+      "returncode": 0,
+      "started_utc": "2026-11-23T03:09:02.427549+00:00",
+      "status": "ok",
+      "stderr": "logs/tie-lean-translation.stderr",
+      "stdout": "logs/tie-lean-translation.stdout",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean",
+        "-j",
+        "2",
+        "--json",
+        "--root=/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean",
+        "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean/LcnExec/GeneralEngine/Argmax.lean"
+      ],
+      "cwd": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean",
+      "elapsed_seconds": 2.173,
+      "environment": {
+        "CARGO_BUILD_JOBS": "2",
+        "CARGO_HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/cargo",
+        "CARGO_NET_OFFLINE": "true",
+        "HOME": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home",
+        "LANG": "C",
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/user/e4/qa-semantic-controls-m0xheupb/work/tie/olean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+        "PATH": "/usr/bin:/bin",
+        "RAYON_NUM_THREADS": "2",
+        "TMPDIR": "/home/user/e4/qa-semantic-controls-m0xheupb/work/home/tmp"
+      },
+      "finished_utc": "2026-11-23T03:09:07.290113+00:00",
+      "name": "tie-proof-Argmax",
+      "returncode": 1,
+      "started_utc": "2026-11-23T03:09:05.115910+00:00",
+      "status": "exit",
+      "stderr": "logs/tie-proof-Argmax.stderr",
+      "stdout": "logs/tie-proof-Argmax.stdout",
+      "timeout_seconds": 140
+    }
+  ],
+  "cpu_affinity": [
+    0,
+    1
+  ],
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "extraction": {
+    "baseline_proofs": {
+      "alpha": "ok",
+      "shift": "ok",
+      "tie": "ok"
+    },
+    "cases": {
+      "alpha": {
+        "diagnostics": [
+          {
+            "caption": "",
+            "data": "Tactic `rfl` failed: The left-hand side\n  1#i64 <<< 23#i32\nis not definitionally equal to the right-hand side\n  ok 16777216#i64\n\np : Usize\nhp : \u2191p < 32\ne : Std.Array I64 32#usize\nden : I64\nhd : 0 < \u2191den\nhenn : \u2200 v \u2208 \u2191e, 0 \u2264 \u2191v \u2227 \u2191v \u2264 1073741824\n\u22a2 1#i64 <<< 23#i32 = ok 16777216#i64",
+            "endPos": {
+              "column": 40,
+              "line": 401
+            },
+            "fileName": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/alpha/lean/LcnExec/GeneralEngine/Softmax.lean",
+            "isSilent": false,
+            "keepFullRange": false,
+            "kind": "[anonymous]",
+            "pos": {
+              "column": 37,
+              "line": 401
+            },
+            "severity": "error"
+          }
+        ],
+        "expected_error_site": {
+          "line": [
+            401
+          ],
+          "patterns": [
+            "rfl|definitionally equal",
+            "\\b(?:23|8388608)\\b",
+            "16777216"
+          ],
+          "stage": "Softmax"
+        },
+        "expected_translated_change": {
+          "declaration": "ALPHA_ONE",
+          "matched": true
+        },
+        "lean_sha256": "8b8b41f1772d45269545bd3cb1a498f556f0d480afe59ba99e718742a82fa3e6",
+        "llbc_sha256": "e599140df791b82c7582556b035b7f67674989e9d2b018ab5cbda9e40d1ffa36",
+        "status": "semantic_rejection",
+        "translation_object_sha256": "69bbf53a81d65f1504b7331387f0957338e0892ae20cd7590fbb4b0349c5874f"
+      },
+      "pristine": {
+        "lean_sha256": "9e803f5abf12b83dfcb079ca8bfe4a2b9f439fd572e3632e239e8c3fd16e2f4d",
+        "llbc_sha256": "133f674184e12a11ef1aaad847da347834f8ada7610d60f9fa8c45e99b92abaa",
+        "status": "translated",
+        "translation_object_sha256": "24a61b615dbac647843303fb90d2a030e706f8fba68abda7846a48c75e44c5cb"
+      },
+      "shift": {
+        "diagnostics": [
+          {
+            "caption": "",
+            "data": "Type mismatch\n  hs\nhas type\n  \u2191s = \u2191iv >>> 15\nbut is expected to have type\n  \u2191s = (\u2191iv).shiftRight 16",
+            "endPos": {
+              "column": 57,
+              "line": 59
+            },
+            "fileName": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/shift/lean/LcnExec/GeneralEngine/RescaleInner.lean",
+            "isSilent": false,
+            "keepFullRange": false,
+            "kind": "[anonymous]",
+            "pos": {
+              "column": 55,
+              "line": 59
+            },
+            "severity": "error"
+          }
+        ],
+        "expected_error_site": {
+          "line": [
+            59
+          ],
+          "patterns": [
+            "Type mismatch",
+            "(>>>|shiftRight)\\s+15",
+            "\\b16\\b"
+          ],
+          "stage": "RescaleInner"
+        },
+        "expected_translated_change": {
+          "declaration": "rescale_clamp_loop0_loop0.body",
+          "matched": true
+        },
+        "lean_sha256": "505b7730eb8408ec2db15f44cec7d84f2f8fcc408fdc403c1f0dcdd1d0890366",
+        "llbc_sha256": "edb66dbe6077daed8b710cd0a536545e17f4b6d2a4ca2ea8d05a81826d86fec1",
+        "status": "semantic_rejection",
+        "translation_object_sha256": "3ce74cfa25998645f8c3ccb1a02bab9bd013e1441970dcb9810888d33b572897"
+      },
+      "tie": {
+        "diagnostics": [
+          {
+            "caption": "",
+            "data": "scalar_tac failed to prove the goal below.\n\nNote that scalar_tac is almost equivalent to:\n  scalar_tac_preprocess; omega\n\nGoal: \nl : Std.Array I64 256#usize\nvocab_size : Usize\nhvpos : 0 < \u2191vocab_size\nhvmax : \u2191vocab_size \u2264 256\nxs : List \u2124 := List.take (\u2191vocab_size) (ints l)\nhlen : (ints l).length = 256\nhxs : xs.length = \u2191vocab_size\nfirst : I64\nhfirst : first = (\u2191l)[0]\nhfirstval : GeneralModel.nth 0 (ints l) 0 = \u2191first\nhmodel : GeneralModel.argmaxN (ints l) \u2191vocab_size = GeneralModel.argmaxFrom (List.drop 1 xs) 1 0 \u2191first\nbest : Usize\nbv : I64\nc : Usize\nhbest : \u2191best < \u2191c\nhc : \u2191c \u2264 \u2191vocab_size\nh\u271d : c < vocab_size\nhcv : \u2191c < \u2191vocab_size\nhc256 : \u2191c < 256\nhcx : \u2191c < xs.length\nv : I64\nheq :\n  (if \u2191v > \u2191bv then GeneralModel.argmaxFrom (List.drop (\u2191c + 1) xs) (\u2191c + 1) \u2191c \u2191v\n    else GeneralModel.argmaxFrom (List.drop (\u2191c + 1) xs) (\u2191c + 1) \u2191best \u2191bv) =\n    GeneralModel.argmaxN (ints l) \u2191vocab_size\nhv : v = (\u2191l)[\u2191c]\nhvi : xs[\u2191c] = \u2191v\nhgt : v \u2265 bv\n\u22a2 \u2191v > \u2191bv",
+            "endPos": {
+              "column": 51,
+              "line": 62
+            },
+            "fileName": "/home/user/e4/qa-semantic-controls-m0xheupb/extraction/tie/lean/LcnExec/GeneralEngine/Argmax.lean",
+            "isSilent": false,
+            "keepFullRange": false,
+            "kind": "[anonymous]",
+            "pos": {
+              "column": 41,
+              "line": 62
+            },
+            "severity": "error"
+          }
+        ],
+        "expected_error_site": {
+          "line": [
+            62
+          ],
+          "patterns": [
+            "omega|grind|could not prove|unsolved goals|scalar_tac"
+          ],
+          "stage": "Argmax"
+        },
+        "expected_translated_change": {
+          "declaration": "argmax_loop.body",
+          "matched": true
+        },
+        "lean_sha256": "eecab42591f7c7e40d828b97222789dd4660e5f1f85dbde69351fbe585145bb1",
+        "llbc_sha256": "71efe0ed81b064b6ea2e646426781a20a67a2a35688ec8bb7907cf879b87a549",
+        "status": "semantic_rejection",
+        "translation_object_sha256": "84be5a1a31a0b9da945f07a4e8cf94810db466aeb6803449c0c108efd1fc212b"
+      }
+    },
+    "pin_probes": {
+      "aeneas-version": true,
+      "charon-toolchain": true,
+      "charon-version": true,
+      "extraction-cargo": true,
+      "extraction-rustc": true,
+      "lean-version": true
+    },
+    "pristine_byte_identical": true,
+    "status": "pass"
+  },
+  "finished_utc": "2026-11-23T03:09:07.870352+00:00",
+  "inputs_after": {
+    "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean": {
+      "bytes": 9024,
+      "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+    },
+    "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": {
+      "bytes": 648536,
+      "sha256": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853"
+    },
+    "/home/user/.rustup/toolchains/nightly-2025-03-01-x86_64-unknown-linux-gnu/bin/rustc": null,
+    "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin/cargo": {
+      "bytes": 36133448,
+      "sha256": "c40998bac7c904d169dfd493ea0c06ddfde73b79ee9d0f311485eca733f5dc9e"
+    },
+    "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin/rustc": {
+      "bytes": 647312,
+      "sha256": "f6636ed825b134896bdbff0b433a0d064df766971b8b6610db5e18165d166aee"
+    },
+    "/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc": null,
+    "/home/user/e4/aeneas": {
+      "bytes": 35704096,
+      "sha256": "41b6f7dd8366c05d0efac13ae9ed7fa3783dab45a9349ff220bd9762b96645be"
+    },
+    "/home/user/e4/charon/charon/target/debug/charon": {
+      "bytes": 357778408,
+      "sha256": "2d3eac2190128242acbd106c53a727f8e439889ce9790f41d71690c7663b27b1"
+    },
+    "/home/user/e4/charon/charon/target/debug/charon-driver": {
+      "bytes": 736033560,
+      "sha256": "e07b8dcc1f6b1498e862981281bb5a4befaaa3651d43d6d8d27943f3d1dd8811"
+    },
+    "/home/user/e4/extraction/general_engine.llbc": {
+      "bytes": 1192632,
+      "sha256": "943eb1116ea569a75cb348eb66cee7e51f5c5e3fff3e0e7817af64b9e98e5546"
+    },
+    "/home/user/e4/qa-semantic-driver-NnKvSeZR/RunSemanticControlsSol.py.txt": {
+      "bytes": 30482,
+      "sha256": "fcf32c779f96b7040cd1f4ffdd16db1e31c400ecdaf9605df886ef2b01cef142"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean": {
+      "bytes": 576560,
+      "sha256": "630e4dec2f57fce9d6e851b50447a262f0067657a733384a78b2eb8e6bfa520b"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.hash": {
+      "bytes": 16,
+      "sha256": "1ccac569a111203605886ffafbb71bf8cb10d438a0330305265ce9a1fee0909c"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.private": {
+      "bytes": 838136,
+      "sha256": "2065065467e7403fc80fff0cef330a8d1ec94cadd5170f26fd12b71bc47f431b"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.private.hash": {
+      "bytes": 16,
+      "sha256": "4f49b27b84ab6e9605e6d5dfa2c0ecdcce8150b7111947ff4f66a73b4706b77a"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.server": {
+      "bytes": 54176,
+      "sha256": "5fd32ae462e08fa3294d28adf91bf3acbd036405eeb2c10570ad929b0134c64d"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.server.hash": {
+      "bytes": 16,
+      "sha256": "840d637ef14ac27cdac461737f4e723bd617cb679137f827343b917dc72f06b4"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Argmax.lean": {
+      "bytes": 3436,
+      "sha256": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Attention.lean": {
+      "bytes": 8896,
+      "sha256": "9f9aef2f1ed597e85aef29e0e545553d8d2787cb4c11b4ad0a284cc936aff762"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/AttentionAdd.lean": {
+      "bytes": 5353,
+      "sha256": "7ce00277168a34a7e8d41773b11b2bed762f6dca2064e7e0bde33b336ea1e651"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/AttentionAt.lean": {
+      "bytes": 6751,
+      "sha256": "0ea79d3db5035400c806fee51784155a377a8f506fd02be8ce391bc9180015ed"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/AttentionPrefix.lean": {
+      "bytes": 2607,
+      "sha256": "940d14f74782f66af865ff4f8d3055055709c17c10bf3c3e726b71731b37e765"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Correct.lean": {
+      "bytes": 9230,
+      "sha256": "5e806de0d456ff9ae53a8550c031308b9531700e107ce2c6c50640249be6d7d6"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/FinalStream.lean": {
+      "bytes": 9149,
+      "sha256": "f54a0679a7a1f9baa44b92bafbdd35a45e27bf348a25bf3e1a6acf8791c637b2"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ForwardInputs.lean": {
+      "bytes": 9464,
+      "sha256": "ffeaae7d43e89192e280b1ba6e3fe83f54daa4aa9459a663e053a2b6199c68d0"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ForwardStack.lean": {
+      "bytes": 4437,
+      "sha256": "b08ad788bcdd377562b04c080fd60117257f74b062165ff15339e2b278f2d219"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/HeadOut.lean": {
+      "bytes": 4560,
+      "sha256": "610a2cf41d1368b956e03eb599a40aec00f1c09a8877425d565fcae80f167c46"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/LayerForward.lean": {
+      "bytes": 6559,
+      "sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Load.lean": {
+      "bytes": 26851,
+      "sha256": "da145a17d255e3734d45a3533c9d6c2c667d445c7a5b10bdab6c242e6add550b"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MixBound.lean": {
+      "bytes": 5150,
+      "sha256": "71f1259ddf0e17478d7309805a195aa4505548285ed8e5a01077be12932092ce"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MixScan.lean": {
+      "bytes": 3990,
+      "sha256": "589c7ff3fe213eab3e2066c8055dd53c1d88ce0272890796e58806247e5018f7"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpHidden.lean": {
+      "bytes": 16054,
+      "sha256": "8f753b004fb2cc13525f97f2743561db5b614257c996cdba5dd5f22175aa2c42"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpHiddenInner.lean": {
+      "bytes": 9725,
+      "sha256": "0b49111851c3fa9181be1cbd4cec9ea7e27c5de59a445de16259fd1d32b7cf11"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpOutput.lean": {
+      "bytes": 9967,
+      "sha256": "aa1decc35c3fcb436c9736d87519499c03f497e3551bc3b2818642bc6a289580"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpOutputInner.lean": {
+      "bytes": 9355,
+      "sha256": "bcc3180c39a9f69f79ff4fdb8e531260ec254b90284ed4bd0946938460118fab"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Model.lean": {
+      "bytes": 12344,
+      "sha256": "dc60d9689822b61dec046620ba2f4a3c1919f0e6b8aa518747ecfc4acb60497b"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Primitives.lean": {
+      "bytes": 26700,
+      "sha256": "b73e58228ec31f0a4b291c6def900632164e59ddb15cd5e04d8899c483e96287"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ProjectionInner.lean": {
+      "bytes": 7485,
+      "sha256": "c0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ProjectionScan.lean": {
+      "bytes": 5844,
+      "sha256": "4933ea12dcc2004f32ff1590e59223a5d287c8f50f838fcdf6b50e694a5706be"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/RescaleClamp.lean": {
+      "bytes": 4406,
+      "sha256": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/RescaleInner.lean": {
+      "bytes": 8096,
+      "sha256": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Residual.lean": {
+      "bytes": 7931,
+      "sha256": "5f878f63bb63d4f3dad0c1e4b2165cce15fdbc9e3fe46d154728de63286c4760"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Softmax.lean": {
+      "bytes": 25799,
+      "sha256": "36a22c87c72df58df47fb43a67469078cccd5a0191943f147d320a834ee0ac9d"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Unembed.lean": {
+      "bytes": 5870,
+      "sha256": "6e5a124ea2849e46935b87ca2abc1efed728d9a692e74751d3b7d9ec4ea65da3"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/UnembedInner.lean": {
+      "bytes": 5965,
+      "sha256": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ValueRow.lean": {
+      "bytes": 3267,
+      "sha256": "50b6e797e34bdff945ce804d93bdb63ae62d161159f64e9570914f4b0d95198f"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ValueScan.lean": {
+      "bytes": 6579,
+      "sha256": "0e41060e466ca9616eca77babe8d1488f7434834ab4ff4c4c32a9856ed8dd322"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/View.lean": {
+      "bytes": 4695,
+      "sha256": "41e302cb033a0a7400b1e224f592246cb40f0b284e1195dc8b5b2f2a4ef4c742"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/WeightedMix.lean": {
+      "bytes": 9626,
+      "sha256": "5c0083b4199bc0a85bb3808728c098155f0f7c9bebf3d3f066111635bf2d72be"
+    },
+    "/home/user/e4/repo/lean/LcnExec/Translated/GeneralEngine.lean": {
+      "bytes": 62538,
+      "sha256": "9e803f5abf12b83dfcb079ca8bfe4a2b9f439fd572e3632e239e8c3fd16e2f4d"
+    },
+    "/home/user/e4/repo/lean/lake-manifest.json": {
+      "bytes": 3349,
+      "sha256": "9d8a110e8a8301b21a806c07e067045bbd6281c79cd5db9c7829762efcee40a6"
+    },
+    "/home/user/e4/repo/lean/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "/home/user/e4/repo/rust/general_engine/Cargo.lock": {
+      "bytes": 245,
+      "sha256": "31ef5e30d1a1c8be92736728d84cda5ff923f9b1a205848258f7f8d80d78193f"
+    },
+    "/home/user/e4/repo/rust/general_engine/Cargo.toml": {
+      "bytes": 253,
+      "sha256": "a7fd1434bf7fe39cc0771290e27264fff10f37cf28edcc886f77231853bb61a7"
+    },
+    "/home/user/e4/repo/rust/general_engine/src/lib.rs": {
+      "bytes": 17417,
+      "sha256": "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4"
+    },
+    "/home/user/e4/repo/rust/rust-toolchain.toml": {
+      "bytes": 148,
+      "sha256": "f2ae6f783e147aae3d374eb2f582a90ae73c304082177f989a01ecc5d305388c"
+    },
+    "/home/user/e4/repo/rust/transformer/Cargo.toml": {
+      "bytes": 361,
+      "sha256": "554a408077e200a9ac7e99cf77ec89df875065bde3ff16ce0247d9ba75065979"
+    },
+    "/home/user/e4/repo/rust/transformer/examples/dump_logits.rs": {
+      "bytes": 683,
+      "sha256": "dd4b218e14bce3c65e792bbd16cb8a95c43253f6ca9a5e2575dea5407514a21d"
+    },
+    "/home/user/e4/repo/rust/transformer/src/lib.rs": {
+      "bytes": 10282,
+      "sha256": "c40db98f55fdd44d653c24b66bb8e1b31555e2ba595a99dec2dae5d61b6d23fd"
+    },
+    "/home/user/e4/repo/rust/transformer/src/weights.rs": {
+      "bytes": 1091369,
+      "sha256": "3fe1e1f1572019722f3734689033c7673c44786b08cbbfef608ee1ae88f549d1"
+    },
+    "/home/user/e4/repo/rust/transformer/tests/all_pairs.rs": {
+      "bytes": 4761,
+      "sha256": "7a9ce0a3679afc2c16eda4c233c966ccdfdccbabcb68ab7e80c274d61022579b"
+    },
+    "/home/user/e4/repo/toolchain/PINS.md": {
+      "bytes": 4338,
+      "sha256": "0c4d43f7491b762ddca7b2ca8de7982523ad449008f66b0d3fd0604544d7b70b"
+    }
+  },
+  "inputs_before": {
+    "/home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean": {
+      "bytes": 9024,
+      "sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38"
+    },
+    "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc": {
+      "bytes": 648536,
+      "sha256": "b53b780f77f952062f8ca8a3b70aef2390b1e45ad91939be94afdc9543026853"
+    },
+    "/home/user/.rustup/toolchains/nightly-2025-03-01-x86_64-unknown-linux-gnu/bin/rustc": null,
+    "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin/cargo": {
+      "bytes": 36133448,
+      "sha256": "c40998bac7c904d169dfd493ea0c06ddfde73b79ee9d0f311485eca733f5dc9e"
+    },
+    "/home/user/.rustup/toolchains/nightly-2026-09-17-x86_64-unknown-linux-gnu/bin/rustc": {
+      "bytes": 647312,
+      "sha256": "f6636ed825b134896bdbff0b433a0d064df766971b8b6610db5e18165d166aee"
+    },
+    "/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc": null,
+    "/home/user/e4/aeneas": {
+      "bytes": 35704096,
+      "sha256": "41b6f7dd8366c05d0efac13ae9ed7fa3783dab45a9349ff220bd9762b96645be"
+    },
+    "/home/user/e4/charon/charon/target/debug/charon": {
+      "bytes": 357778408,
+      "sha256": "2d3eac2190128242acbd106c53a727f8e439889ce9790f41d71690c7663b27b1"
+    },
+    "/home/user/e4/charon/charon/target/debug/charon-driver": {
+      "bytes": 736033560,
+      "sha256": "e07b8dcc1f6b1498e862981281bb5a4befaaa3651d43d6d8d27943f3d1dd8811"
+    },
+    "/home/user/e4/extraction/general_engine.llbc": {
+      "bytes": 1192632,
+      "sha256": "943eb1116ea569a75cb348eb66cee7e51f5c5e3fff3e0e7817af64b9e98e5546"
+    },
+    "/home/user/e4/qa-semantic-driver-NnKvSeZR/RunSemanticControlsSol.py.txt": {
+      "bytes": 30482,
+      "sha256": "fcf32c779f96b7040cd1f4ffdd16db1e31c400ecdaf9605df886ef2b01cef142"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean": {
+      "bytes": 576560,
+      "sha256": "630e4dec2f57fce9d6e851b50447a262f0067657a733384a78b2eb8e6bfa520b"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.hash": {
+      "bytes": 16,
+      "sha256": "1ccac569a111203605886ffafbb71bf8cb10d438a0330305265ce9a1fee0909c"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.private": {
+      "bytes": 838136,
+      "sha256": "2065065467e7403fc80fff0cef330a8d1ec94cadd5170f26fd12b71bc47f431b"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.private.hash": {
+      "bytes": 16,
+      "sha256": "4f49b27b84ab6e9605e6d5dfa2c0ecdcce8150b7111947ff4f66a73b4706b77a"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.server": {
+      "bytes": 54176,
+      "sha256": "5fd32ae462e08fa3294d28adf91bf3acbd036405eeb2c10570ad929b0134c64d"
+    },
+    "/home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/Translated/GeneralEngine.olean.server.hash": {
+      "bytes": 16,
+      "sha256": "840d637ef14ac27cdac461737f4e723bd617cb679137f827343b917dc72f06b4"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Argmax.lean": {
+      "bytes": 3436,
+      "sha256": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Attention.lean": {
+      "bytes": 8896,
+      "sha256": "9f9aef2f1ed597e85aef29e0e545553d8d2787cb4c11b4ad0a284cc936aff762"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/AttentionAdd.lean": {
+      "bytes": 5353,
+      "sha256": "7ce00277168a34a7e8d41773b11b2bed762f6dca2064e7e0bde33b336ea1e651"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/AttentionAt.lean": {
+      "bytes": 6751,
+      "sha256": "0ea79d3db5035400c806fee51784155a377a8f506fd02be8ce391bc9180015ed"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/AttentionPrefix.lean": {
+      "bytes": 2607,
+      "sha256": "940d14f74782f66af865ff4f8d3055055709c17c10bf3c3e726b71731b37e765"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Correct.lean": {
+      "bytes": 9230,
+      "sha256": "5e806de0d456ff9ae53a8550c031308b9531700e107ce2c6c50640249be6d7d6"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/FinalStream.lean": {
+      "bytes": 9149,
+      "sha256": "f54a0679a7a1f9baa44b92bafbdd35a45e27bf348a25bf3e1a6acf8791c637b2"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ForwardInputs.lean": {
+      "bytes": 9464,
+      "sha256": "ffeaae7d43e89192e280b1ba6e3fe83f54daa4aa9459a663e053a2b6199c68d0"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ForwardStack.lean": {
+      "bytes": 4437,
+      "sha256": "b08ad788bcdd377562b04c080fd60117257f74b062165ff15339e2b278f2d219"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/HeadOut.lean": {
+      "bytes": 4560,
+      "sha256": "610a2cf41d1368b956e03eb599a40aec00f1c09a8877425d565fcae80f167c46"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/LayerForward.lean": {
+      "bytes": 6559,
+      "sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Load.lean": {
+      "bytes": 26851,
+      "sha256": "da145a17d255e3734d45a3533c9d6c2c667d445c7a5b10bdab6c242e6add550b"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MixBound.lean": {
+      "bytes": 5150,
+      "sha256": "71f1259ddf0e17478d7309805a195aa4505548285ed8e5a01077be12932092ce"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MixScan.lean": {
+      "bytes": 3990,
+      "sha256": "589c7ff3fe213eab3e2066c8055dd53c1d88ce0272890796e58806247e5018f7"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpHidden.lean": {
+      "bytes": 16054,
+      "sha256": "8f753b004fb2cc13525f97f2743561db5b614257c996cdba5dd5f22175aa2c42"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpHiddenInner.lean": {
+      "bytes": 9725,
+      "sha256": "0b49111851c3fa9181be1cbd4cec9ea7e27c5de59a445de16259fd1d32b7cf11"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpOutput.lean": {
+      "bytes": 9967,
+      "sha256": "aa1decc35c3fcb436c9736d87519499c03f497e3551bc3b2818642bc6a289580"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/MlpOutputInner.lean": {
+      "bytes": 9355,
+      "sha256": "bcc3180c39a9f69f79ff4fdb8e531260ec254b90284ed4bd0946938460118fab"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Model.lean": {
+      "bytes": 12344,
+      "sha256": "dc60d9689822b61dec046620ba2f4a3c1919f0e6b8aa518747ecfc4acb60497b"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Primitives.lean": {
+      "bytes": 26700,
+      "sha256": "b73e58228ec31f0a4b291c6def900632164e59ddb15cd5e04d8899c483e96287"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ProjectionInner.lean": {
+      "bytes": 7485,
+      "sha256": "c0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ProjectionScan.lean": {
+      "bytes": 5844,
+      "sha256": "4933ea12dcc2004f32ff1590e59223a5d287c8f50f838fcdf6b50e694a5706be"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/RescaleClamp.lean": {
+      "bytes": 4406,
+      "sha256": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/RescaleInner.lean": {
+      "bytes": 8096,
+      "sha256": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Residual.lean": {
+      "bytes": 7931,
+      "sha256": "5f878f63bb63d4f3dad0c1e4b2165cce15fdbc9e3fe46d154728de63286c4760"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Softmax.lean": {
+      "bytes": 25799,
+      "sha256": "36a22c87c72df58df47fb43a67469078cccd5a0191943f147d320a834ee0ac9d"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/Unembed.lean": {
+      "bytes": 5870,
+      "sha256": "6e5a124ea2849e46935b87ca2abc1efed728d9a692e74751d3b7d9ec4ea65da3"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/UnembedInner.lean": {
+      "bytes": 5965,
+      "sha256": "5b2eaec2a0d7ad75be2d2159f7c97dc6edb683c64f46e89ab7e2ba3f0503b0bc"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ValueRow.lean": {
+      "bytes": 3267,
+      "sha256": "50b6e797e34bdff945ce804d93bdb63ae62d161159f64e9570914f4b0d95198f"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/ValueScan.lean": {
+      "bytes": 6579,
+      "sha256": "0e41060e466ca9616eca77babe8d1488f7434834ab4ff4c4c32a9856ed8dd322"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/View.lean": {
+      "bytes": 4695,
+      "sha256": "41e302cb033a0a7400b1e224f592246cb40f0b284e1195dc8b5b2f2a4ef4c742"
+    },
+    "/home/user/e4/repo/lean/LcnExec/GeneralEngine/WeightedMix.lean": {
+      "bytes": 9626,
+      "sha256": "5c0083b4199bc0a85bb3808728c098155f0f7c9bebf3d3f066111635bf2d72be"
+    },
+    "/home/user/e4/repo/lean/LcnExec/Translated/GeneralEngine.lean": {
+      "bytes": 62538,
+      "sha256": "9e803f5abf12b83dfcb079ca8bfe4a2b9f439fd572e3632e239e8c3fd16e2f4d"
+    },
+    "/home/user/e4/repo/lean/lake-manifest.json": {
+      "bytes": 3349,
+      "sha256": "9d8a110e8a8301b21a806c07e067045bbd6281c79cd5db9c7829762efcee40a6"
+    },
+    "/home/user/e4/repo/lean/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    "/home/user/e4/repo/rust/general_engine/Cargo.lock": {
+      "bytes": 245,
+      "sha256": "31ef5e30d1a1c8be92736728d84cda5ff923f9b1a205848258f7f8d80d78193f"
+    },
+    "/home/user/e4/repo/rust/general_engine/Cargo.toml": {
+      "bytes": 253,
+      "sha256": "a7fd1434bf7fe39cc0771290e27264fff10f37cf28edcc886f77231853bb61a7"
+    },
+    "/home/user/e4/repo/rust/general_engine/src/lib.rs": {
+      "bytes": 17417,
+      "sha256": "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4"
+    },
+    "/home/user/e4/repo/rust/rust-toolchain.toml": {
+      "bytes": 148,
+      "sha256": "f2ae6f783e147aae3d374eb2f582a90ae73c304082177f989a01ecc5d305388c"
+    },
+    "/home/user/e4/repo/rust/transformer/Cargo.toml": {
+      "bytes": 361,
+      "sha256": "554a408077e200a9ac7e99cf77ec89df875065bde3ff16ce0247d9ba75065979"
+    },
+    "/home/user/e4/repo/rust/transformer/examples/dump_logits.rs": {
+      "bytes": 683,
+      "sha256": "dd4b218e14bce3c65e792bbd16cb8a95c43253f6ca9a5e2575dea5407514a21d"
+    },
+    "/home/user/e4/repo/rust/transformer/src/lib.rs": {
+      "bytes": 10282,
+      "sha256": "c40db98f55fdd44d653c24b66bb8e1b31555e2ba595a99dec2dae5d61b6d23fd"
+    },
+    "/home/user/e4/repo/rust/transformer/src/weights.rs": {
+      "bytes": 1091369,
+      "sha256": "3fe1e1f1572019722f3734689033c7673c44786b08cbbfef608ee1ae88f549d1"
+    },
+    "/home/user/e4/repo/rust/transformer/tests/all_pairs.rs": {
+      "bytes": 4761,
+      "sha256": "7a9ce0a3679afc2c16eda4c233c966ccdfdccbabcb68ab7e80c274d61022579b"
+    },
+    "/home/user/e4/repo/toolchain/PINS.md": {
+      "bytes": 4338,
+      "sha256": "0c4d43f7491b762ddca7b2ca8de7982523ad449008f66b0d3fd0604544d7b70b"
+    }
+  },
+  "inputs_unchanged": true,
+  "inventory": "SHA256SUMS",
+  "native": {
+    "cases": {
+      "alpha": {
+        "expected": {
+          "alpha": [
+            4194304,
+            4194304,
+            8388608,
+            0
+          ],
+          "shift": [
+            1,
+            1,
+            -2,
+            127,
+            -127,
+            0
+          ],
+          "tie": 1
+        },
+        "observed": {
+          "alpha": [
+            4194304,
+            4194304,
+            8388608,
+            0
+          ],
+          "shift": [
+            1,
+            1,
+            -2,
+            127,
+            -127,
+            0
+          ],
+          "tie": 1
+        },
+        "status": "pass"
+      },
+      "pristine": {
+        "expected": {
+          "alpha": [
+            8388608,
+            8388608,
+            16777216,
+            0
+          ],
+          "shift": [
+            1,
+            1,
+            -2,
+            127,
+            -127,
+            0
+          ],
+          "tie": 1
+        },
+        "observed": {
+          "alpha": [
+            8388608,
+            8388608,
+            16777216,
+            0
+          ],
+          "shift": [
+            1,
+            1,
+            -2,
+            127,
+            -127,
+            0
+          ],
+          "tie": 1
+        },
+        "status": "pass"
+      },
+      "shift": {
+        "expected": {
+          "alpha": [
+            8388608,
+            8388608,
+            16777216,
+            0
+          ],
+          "shift": [
+            2,
+            3,
+            -3,
+            127,
+            -127,
+            0
+          ],
+          "tie": 1
+        },
+        "observed": {
+          "alpha": [
+            8388608,
+            8388608,
+            16777216,
+            0
+          ],
+          "shift": [
+            2,
+            3,
+            -3,
+            127,
+            -127,
+            0
+          ],
+          "tie": 1
+        },
+        "status": "pass"
+      },
+      "tie": {
+        "expected": {
+          "alpha": [
+            8388608,
+            8388608,
+            16777216,
+            0
+          ],
+          "shift": [
+            1,
+            1,
+            -2,
+            127,
+            -127,
+            0
+          ],
+          "tie": 2
+        },
+        "observed": {
+          "alpha": [
+            8388608,
+            8388608,
+            16777216,
+            0
+          ],
+          "shift": [
+            1,
+            1,
+            -2,
+            127,
+            -127,
+            0
+          ],
+          "tie": 2
+        },
+        "status": "pass"
+      }
+    },
+    "compiler": "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+    "compiler_probes": {
+      "1.99.1": {
+        "path": "/home/user/.rustup/toolchains/1.99.1-x86_64-unknown-linux-gnu/bin/rustc",
+        "status": "ok",
+        "version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n"
+      },
+      "nightly-2025-03-01": {
+        "path": "/home/user/.rustup/toolchains/nightly-2025-03-01-x86_64-unknown-linux-gnu/bin/rustc",
+        "status": "launch_error",
+        "version": ""
+      },
+      "stable": {
+        "path": "/home/user/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc",
+        "status": "launch_error",
+        "version": ""
+      }
+    },
+    "pinned": true,
+    "required_pin": "rustc 1.99.1 (58cf8f9c3\u2026",
+    "semantic_observations_pass": true,
+    "status": "pass"
+  },
+  "schema": 1,
+  "started_utc": "2026-11-23T03:07:46.117712+00:00"
+}

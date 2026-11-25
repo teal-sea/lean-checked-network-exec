@@ -1,0 +1,51 @@
+{
+  "base": "2f04aaef75c5303cb38e0ae30e79308b4f3a6207",
+  "worker_checkpoint": "7716898abdd19b9edf84122cf75749b6f066f1c9",
+  "module_path": "lean/LcnExec/GeneralEngine/Argmax.lean",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "exits": {
+    "ArgmaxBuild": 0,
+    "ArgmaxTypedAudit": 0,
+    "ForwardInputs": 1
+  },
+  "argmax_sha256": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6",
+  "forward_inputs_sha256": "45e32d1a2ba025b8e40ece4f68b45bd7abb01ac97fcad8e2d9c885fefff4d240",
+  "axioms": [
+    "'LcnExec.GeneralEngine.argmax_spec' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "input_errors": [
+    [
+      "20",
+      "4",
+      "Type mismatch: After simplification, term"
+    ],
+    [
+      "26",
+      "58",
+      "omega could not prove the goal:"
+    ]
+  ],
+  "command_id": "cmd_e68hroerzdbi",
+  "scope": "Exact argmax module and runtime vocabulary statement checked. Input loops draft rejected at two literal coercion sites; no full engine theorem yet.",
+  "files_sha256": {
+    "Argmax.lean.txt": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6",
+    "Typed.lean.txt": "f24a82db0ca05d2bea886ab004a5c218fec966cd9e76ec0b8b5b56f3558effab",
+    "Build.log": "0a70b9c7efd9bc928699172e0b459f3fe8c2bba7e27366d81f07c270f14659ec",
+    "Audit.log": "80e8fb69eb7bca55488a9310185e73b5ab417e88b92a6bb34777c03aeeb78210",
+    "exit.txt": "0ccdb5a77ba5bf7687f2565a8ed97dfb9c1af45503c496fb646312239fab5101",
+    "FirstReplay-Argmax.lean.txt": "7ac0190a380cf52df17c9794fe93bc2c5868f3192781c341d1dd58ed929330a6",
+    "FirstReplay-Argmax.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "FirstReplay-ArgmaxAudit.log": "80e8fb69eb7bca55488a9310185e73b5ab417e88b92a6bb34777c03aeeb78210",
+    "FirstReplay-ForwardInputs.lean.txt": "45e32d1a2ba025b8e40ece4f68b45bd7abb01ac97fcad8e2d9c885fefff4d240",
+    "FirstReplay-ForwardInputs.log": "ec5ff1934e43d4017328b902c2d590a34961d90d9bbd7398daf19cafcd72ff6d",
+    "FirstReplay-boat-command.json": "0b972bc5dafa55e23bd949fec9b33833cad624f8070af06c32ee0d229aa235ee",
+    "FirstReplay-exit.txt": "d1e6414acf1391a892310ae174cea15edab168123dc4fc0a261a62132fd0bb33",
+    "FirstReplay-proofs.tar.gz": "a37965479a37bd7aec458e199f817763b7a8b7b33ea96a320afd4295ddd2f667",
+    "FirstReplay.json": "9fa86485013ee6992b77adf792fbe0483bc43d48883739c9640a2f8acc4a35c2",
+    "ArgmaxPackage.tar.gz": "ff096bea1695c684eb8b07f676a9fa10eeb2de0d4ba020f2c71472f3ae17e1bc",
+    "boat-command.json": "c2a82c7d4b09f8f6f00aaf98965ee8bd616784cc8ce484b785a6cede1218fa65",
+    "ARGMAX-AND-FORWARD-INPUTS.md": "7d6bf2168a48d542f870e8760bdac7870f2ea582326741efda2b633f963c62be",
+    "argmax-take-probe.json": "ff7b59a3bbe99f784d8a8da9bafee4a889adf805cfae80f7a94437312c72a8b1"
+  }
+}

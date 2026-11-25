@@ -1,0 +1,6 @@
+'LcnExec.GeneralEngine.residual_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.residual_mul_bounds_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.residual_getElem_plain_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.residual_zero_bounds_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.residual_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.residual_getElem' depends on axioms: [propext, Classical.choice, Quot.sound]

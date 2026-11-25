@@ -1,0 +1,192 @@
+import LcnExec.GeneralEngine.LayerForward
+
+set_option maxHeartbeats 800000
+
+/-!
+# The inter-layer rescale `general_engine.rescale_clamp`
+
+Per entry `s = f[p][k] >>> 16` clamped to [-127, 127]. Exact
+`GeneralModel.rescaleClamp` (= `List.map (List.map clampEntry)`).
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem clamp_entry_spec (x : Int) :
+    (if Int.shiftRight x 16 < -127 then -127
+     else if Int.shiftRight x 16 > 127 then 127
+     else Int.shiftRight x 16) = GeneralModel.clampEntry x := by
+  simp only [GeneralModel.clampEntry]
+
+theorem model_row_clamp (xs : List Int) :
+    GeneralModel.clampEntry = fun x => GeneralModel.clampEntry x := rfl
+
+theorem rescale_clamp_inner_spec (f : Array (Array I64 128#usize) 32#usize)
+    (hfb : ∀ row ∈ f.val, Bounded Envelope.final_stream row)
+    (p : Usize) (hp : p.val < 32) :
+    general_engine.rescale_clamp_loop0_loop0 f p
+        (Array.repeat 128#usize 0#i64) 0#usize ⦃ r =>
+      ints r = ((ints2 f)[p.val]!).map GeneralModel.clampEntry ∧
+      Bounded Envelope.embedding r ⦄ := by
+  have hrowf : f.val[p.val]'(by simp; omega) ∈ f.val :=
+    List.getElem_mem (by simp; omega)
+  have hfbrow : Bounded Envelope.final_stream (f.val[p.val]'(by simp; omega)) :=
+    hfb _ hrowf
+  unfold general_engine.rescale_clamp_loop0_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array I64 128#usize × Usize) => 128 - st.2.val)
+    (inv := fun (st : Array I64 128#usize × Usize) =>
+      st.2.val ≤ 128 ∧
+      (∀ (q : Nat) (hq : q < 128) (hiq : q < st.2.val),
+        (ints st.1)[q]'(by rw [ints_length128]; omega) =
+          GeneralModel.clampEntry ((ints2 f)[p.val]![q]!)) ∧
+      (∀ (q : Nat) (hq : q < 128) (hiq : st.2.val ≤ q),
+        st.1.val[q]'(by simp; omega) = 0#i64))
+  · rintro ⟨row1, k⟩ ⟨hk1, heq, hsuf⟩
+    unfold general_engine.rescale_clamp_loop0_loop0.body
+    dsimp only at hk1 heq hsuf ⊢
+    simp only [general_engine.D_MODEL]
+    split
+    · have hk128 : k.val < 128 := by scalar_tac
+      step as ⟨a, ha⟩
+      step as ⟨iv, hiv⟩
+      step as ⟨s, hs⟩
+      have hsval : s.val = Int.shiftRight iv.val 16 := hs
+      have hivb : -124539743797248 ≤ iv.val ∧ iv.val ≤ 124539743797248 := by
+        have hmem : iv.val ∈ (ints (f.val[p.val]'(by simp; omega))) := by
+          change iv.val ∈ (f.val[p.val]'(by simp; omega)).val.map (fun v => v.val)
+          refine List.mem_map.mpr ⟨(f.val[p.val]'(by simp; omega)).val[k.val]!, ?_, ?_⟩
+          · rw [getElem!_pos _ k.val (by simp; omega)]
+            exact List.getElem_mem (by simp; omega)
+          · rw [getElem!_pos _ k.val (by simp; omega), hiv]
+        have hb := hfbrow iv (by
+          rw [getElem!_pos _ k.val (by simp; omega)]
+          exact List.getElem_mem (by simp; omega))
+        exact hb
+      have hsb : -1900335 ≤ s.val ∧ s.val ≤ 1900335 := by
+        rw [hsval]
+        have h1 := hivb.1
+        have h2 := hivb.2
+        have hdiv : ∀ x : Int, Int.shiftRight x 16 = x / 65536 :=
+          fun x => Int.shiftRight_eq_div_pow x 16
+        rw [hdiv _]
+        constructor
+        · omega
+        · omega
+      split
+      · rename_i hn
+        step with Array.update_spec row1 k (-127)#i64 (by simp; omega) as ⟨row2, hrow2⟩
+        step as ⟨k1, hk1'⟩
+        have hk1v : k1.val = k.val + 1 := by scalar_tac
+        simp only [hk1v]
+        refine ⟨by omega, ?_, ?_⟩
+        · intro q hq hiq
+          by_cases hqq : q = k.val
+          · subst q
+            have hset : (ints row2)[k.val]'(by rw [ints_length128]; omega) = (-127#i64).val := by
+              rw [hrow2]
+              simp only [ints, Array.set_val_eq, List.getElem_map]
+              rw [List.getElem_set_self (by simp; omega)]
+            have hmodel : GeneralModel.clampEntry ((ints2 f)[p.val]![k.val]!) = -127 := by
+              rw [GeneralModel.clampEntry]
+              have hlt : Int.shiftRight iv.val 16 < -127 := by
+                have := hn
+                rw [← hsval] at this
+                exact this
+              rw [if_pos hlt]
+            rw [hset, hmodel]
+          · have hval : (ints row2)[q]'(by rw [ints_length128]; omega) =
+                (ints row1)[q]'(by rw [ints_length128]; omega) := by
+              rw [hrow2]
+              simp only [ints, Array.set_val_eq, List.getElem_map]
+              rw [List.getElem_set_ne (by omega)]
+            rw [hval]
+            exact heq q hq (by omega)
+        · intro q hq hiq
+          have hval : row2.val[q]'(by simp; omega) = row1.val[q]'(by simp; omega) := by
+            rw [hrow2, Array.set_val_eq]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact hsuf q hq (by omega)
+      · split
+        · rename_i hn2
+          step with Array.update_spec row1 k 127#i64 (by simp; omega) as ⟨row2, hrow2⟩
+          step as ⟨k1, hk1'⟩
+          have hk1v : k1.val = k.val + 1 := by scalar_tac
+          simp only [hk1v]
+          refine ⟨by omega, ?_, ?_⟩
+          · intro q hq hiq
+            by_cases hqq : q = k.val
+            · subst q
+              have hset : (ints row2)[k.val]'(by rw [ints_length128]; omega) = (127#i64).val := by
+                rw [hrow2]
+                simp only [ints, Array.set_val_eq, List.getElem_map]
+                rw [List.getElem_set_self (by simp; omega)]
+              have hmodel : GeneralModel.clampEntry ((ints2 f)[p.val]![k.val]!) = 127 := by
+                rw [GeneralModel.clampEntry]
+                rw [hsval]
+                have hgt : 127 < Int.shiftRight iv.val 16 := by
+                  have := hn2
+                  rw [← hsval] at this
+                  exact this
+                rw [if_neg (by omega : ¬ Int.shiftRight iv.val 16 < -127)]
+                rw [if_pos hgt]
+              rw [hset, hmodel]
+            · have hval : (ints row2)[q]'(by rw [ints_length128]; omega) =
+                  (ints row1)[q]'(by rw [ints_length128]; omega) := by
+              rw [hrow2]
+              simp only [ints, Array.set_val_eq, List.getElem_map]
+              rw [List.getElem_set_ne (by omega)]
+            rw [hval]
+            exact heq q hq (by omega)
+          · intro q hq hiq
+            have hval : row2.val[q]'(by simp; omega) = row1.val[q]'(by simp; omega) := by
+              rw [hrow2, Array.set_val_eq]
+              rw [List.getElem_set_ne (by omega)]
+            rw [hval]
+            exact hsuf q hq (by omega)
+        · rename_i hn2
+          step with Array.update_spec row1 k s (by simp; omega) as ⟨row2, hrow2⟩
+          step as ⟨k1, hk1'⟩
+          have hk1v : k1.val = k.val + 1 := by scalar_tac
+          simp only [hk1v]
+          refine ⟨by omega, ?_, ?_⟩
+          · intro q hq hiq
+            by_cases hqq : q = k.val
+            · subst q
+              have hset : (ints row2)[k.val]'(by rw [ints_length128]; omega) = s.val := by
+                rw [hrow2]
+                simp only [ints, Array.set_val_eq, List.getElem_map]
+                rw [List.getElem_set_self (by simp; omega)]
+              rw [hset, hsval]
+              have hmodel : GeneralModel.clampEntry ((ints2 f)[p.val]![k.val]!) =
+                  Int.shiftRight iv.val 16 := by
+                rw [GeneralModel.clampEntry, hsval]
+                rw [if_neg (by omega : ¬ Int.shiftRight iv.val 16 < -127)]
+                rw [if_neg (by omega : ¬ 127 < Int.shiftRight iv.val 16)]
+              rw [hmodel]
+            · have hval : (ints row2)[q]'(by rw [ints_length128]; omega) =
+                  (ints row1)[q]'(by rw [ints_length128]; omega) := by
+              rw [hrow2]
+              simp only [ints, Array.set_val_eq, List.getElem_map]
+              rw [List.getElem_set_ne (by omega)]
+            rw [hval]
+            exact heq q hq (by omega)
+          · intro q hq hiq
+            have hval : row2.val[q]'(by simp; omega) = row1.val[q]'(by simp; omega) := by
+              rw [hrow2, Array.set_val_eq]
+              rw [List.getElem_set_ne (by omega)]
+            rw [hval]
+            exact hsuf q hq (by omega)
+    · have hk128 : k.val = 128 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, ?_⟩
+      · have hlen : ((ints2 f)[p.val]!).map GeneralModel.clampEntry |>.length = 128 := by
+        simp [ints2]
+        sorry?? TBD3
+        sorry?? TBD4
+      sorry?? TBD5
+  · sorry?? TBD6
+
+end LcnExec.GeneralEngine

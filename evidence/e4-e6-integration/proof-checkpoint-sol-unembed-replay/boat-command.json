@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_mjjj0e8y4qku",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T01:57:57.944Z",
+  "launcherFailed": false,
+  "noticedMs": 4,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 5,
+  "startedAt": "2026-11-23T01:57:49.347Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-sol-unembed-4qzvibxa\n4638e88084206b38c1c1e7420aec0bd6d180165e044802a41eaefabf38f5d4ea  /home/user/e4/qa-sol-unembed-4qzvibxa.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

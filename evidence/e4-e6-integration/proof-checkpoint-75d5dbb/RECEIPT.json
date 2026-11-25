@@ -1,0 +1,123 @@
+{
+  "scope": "MixBound and the generated 32-coordinate mix scan are verified. The scan is exact including signed rounding, total, and bounded under the specified active inputs. This is not full head output, attention, or engine correctness.",
+  "worker_commit": "75d5dbbebd143fd78a037ee7f8d508a7e096e41c",
+  "worker_admission": 2235,
+  "worker_proc": "proc_ece76ddc3c0f",
+  "route": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "remote_command": "cmd_6a2b3qyoecba",
+  "finished_at": "2026-11-22T00:15:46.897Z",
+  "build_exits": {
+    "BoundAxioms": 0,
+    "BoundBuild": 0,
+    "BoundDirect": 0,
+    "RawScan": 1,
+    "ScanProbe": 1
+  },
+  "errors": {
+    "BoundAxioms": [],
+    "BoundBuild": [],
+    "BoundDirect": [],
+    "RawScan": [
+      "36:71",
+      "68:57",
+      "72:22",
+      "72:42",
+      "67:6"
+    ],
+    "ScanProbe": [
+      "40:24",
+      "53:8"
+    ]
+  },
+  "mix_bound_verified": true,
+  "scratch_mix_scan_checked": true,
+  "axioms": {
+    "BoundAxioms": [
+      [
+        "LcnExec.GeneralEngine.mix_fold_bound",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "ScanProbe": [
+      [
+        "LcnExec.GeneralEngine.mix_scan_spec",
+        "propext, sorryAx, Classical.choice, Quot.sound"
+      ]
+    ]
+  },
+  "archive": {
+    "name": "mixscan-progress.tar.gz",
+    "sha256": "6dc82ce4be149f3bbcbf5cab15148358c7a0c427b46bc6433756fd57426220cd",
+    "member_sha256": {
+      "BoundAxioms.log": "820ab90ae640c85c095e5ccb8d81951b3c79a61e9c1d4e28163173f631ecea1f",
+      "BoundBuild.log": "cd81b0753d878968cb9c1dddb754367a80f4b402852a5c8db63c702f757e58f6",
+      "BoundDirect.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "RawScan.log": "2dfb520375a91802f246248daeac3d8f9bee7ded5190d6880d0160e8db042316",
+      "ScanProbe.log": "7d369912cd1e5c8e33864735929b89c3f825f8e354a77e36db70723304f1ef87",
+      "BoundAxioms.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "BoundBuild.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "BoundDirect.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "RawScan.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "ScanProbe.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "BoundAxioms.lean.txt": "ae3089f91e0b6d6f7b11874a70f8459fee1f58c49367b43657fbfa23321dd77b",
+      "MixBound.lean.txt": "71f1259ddf0e17478d7309805a195aa4505548285ed8e5a01077be12932092ce",
+      "RawScan.lean.txt": "919a066ea9935d637b3e74f8ed38f5d097873ea3ea03ea5da2c05a20cb160422",
+      "ScanProbe.lean.txt": "abd22dd75cb52f1f69876f51ca7e834ec61ab389805ebd5539664e8ea04551fa",
+      "MixBound.olean": "6037d8a946261173eb139d239ddb4d9a048e42b963b70dfb1593f9eba6d2933b"
+    }
+  },
+  "normalized_probe": {
+    "remote_command": "cmd_xtnqth1lunnb",
+    "exit": 0,
+    "axioms": [
+      [
+        "LcnExec.GeneralEngine.mix_scan_spec",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "archive": {
+      "name": "mixscan-normalized.tar.gz",
+      "sha256": "bc77889a902c486549ece3baa367befa41062c69f09eafcc215dd4033d40f8a7",
+      "member_sha256": {
+        "ScanNormalized.lean.txt": "d308bfd32c35b601b893b327b4f095cb5b6cf2316063b998e919c0cbfa2ffe88",
+        "ScanNormalized.log": "24a217f3cb05dc4df2beaddfe61644ef5683cfa5190f6e6d17b5efd260e10320",
+        "ScanNormalized.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      }
+    }
+  },
+  "library_acceptance": {
+    "command": "cmd_hgxkoxqcglk0",
+    "build_exits": {
+      "LibraryAudit": 0,
+      "LibraryBuild": 0,
+      "LibraryDirect": 0
+    },
+    "axioms": {
+      "LcnExec.GeneralEngine.mix_scan_spec": "propext, Classical.choice, Quot.sound",
+      "LcnExec.GeneralEngine.mix_fold_bound": "propext, Classical.choice, Quot.sound"
+    },
+    "accepted": true,
+    "warnings": {
+      "LibraryAudit.log": 0,
+      "LibraryBuild.log": 18,
+      "LibraryDirect.log": 0
+    },
+    "archive": {
+      "name": "mixscan-library.tar.gz",
+      "sha256": "763aa8f9031ada99249209cf1a420961bdb31a6978335d92f1f4d15c5ba9d557",
+      "member_sha256": {
+        "LibraryAudit.log": "72bb84f01c4c07cdc36410be7fd66ad41c7c10eed70903b74fcd591ba315c1b4",
+        "LibraryBuild.log": "f46bc397449f49e007100cf552c92f4d3b50062b599479e39f7ccacf9634383d",
+        "LibraryDirect.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "LibraryAudit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "LibraryBuild.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "LibraryDirect.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "LibraryAudit.lean.txt": "604299194e580cd10ad1bbd2268166f24ed535e9ca7c34bd754b6a9ed912b54e",
+        "MixScan.lean.txt": "589c7ff3fe213eab3e2066c8055dd53c1d88ce0272890796e58806247e5018f7",
+        "MixScan.olean": "dc5633b7c9d16c2e2081bdc8750c9fed3cc3785d2c5da4f26082d8a6ba13184f"
+      }
+    },
+    "local_commit": "da019db1a9c9222d431e97a94f792ef086f6f794"
+  }
+}

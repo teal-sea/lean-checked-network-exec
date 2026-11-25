@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_gvd0bd3c0ayw",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T01:59:53.055Z",
+  "launcherFailed": false,
+  "noticedMs": 3,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 4,
+  "startedAt": "2026-11-23T01:59:48.138Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-sol-unembed-x21RBToo\n2e8f98c21e50fe3086c6e484a09a437101079b4addcc1914400e9824ce70b2a1  /home/user/e4/qa-sol-unembed-x21RBToo.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

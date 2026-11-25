@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_vo7fffoqsqmm",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T19:43:51.851Z",
+  "launcherFailed": false,
+  "noticedMs": 3,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 4,
+  "startedAt": "2026-11-22T19:43:45.234Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ\n61b97c06f0db6157264584d90f60a8f0cc31cb153774156411fca8a0b234eafc  /home/user/e4/qa-hidden-5162c2b-QQgjJzMQ.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

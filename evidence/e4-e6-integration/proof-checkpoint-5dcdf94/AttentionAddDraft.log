@@ -1,0 +1,161 @@
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:63:53: error: unexpected token '?'; expected ':=' or '|'
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:43:50: error: scalar_tac failed to prove the goal below.
+
+Note that scalar_tac is almost equivalent to:
+  scalar_tac_preprocess; omega
+
+Goal: 
+att ho : Std.Array I64 128#usize
+b : ℤ
+hatt : Bounded b att
+hho : Bounded Envelope.head_output ho
+hb : b ≤ 3 * Envelope.head_output
+hhead : 0 ≤ Envelope.head_output
+att1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded (b + Envelope.head_output) att1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints att1)[k_1] = (ints att)[k_1] + (ints ho)[k_1]
+h✝ : k < 128#usize
+hk128 : ↑k < 128
+i : I64
+hiv : i = (↑ho)[↑k]
+i1 : I64
+hi1v : i1 = (↑att1)[↑k]
+⊢ I64.min ≤ ↑i1 + ↑i
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:44:50: error: scalar_tac failed to prove the goal below.
+
+Note that scalar_tac is almost equivalent to:
+  scalar_tac_preprocess; omega
+
+Goal: 
+att ho : Std.Array I64 128#usize
+b : ℤ
+hatt : Bounded b att
+hho : Bounded Envelope.head_output ho
+hb : b ≤ 3 * Envelope.head_output
+hhead : 0 ≤ Envelope.head_output
+att1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded (b + Envelope.head_output) att1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints att1)[k_1] = (ints att)[k_1] + (ints ho)[k_1]
+h✝ : k < 128#usize
+hk128 : ↑k < 128
+i : I64
+hiv : i = (↑ho)[↑k]
+i1 : I64
+hi1v : i1 = (↑att1)[↑k]
+hminb : I64.min ≤ ↑i1 + ↑i
+⊢ ↑i1 + ↑i ≤ I64.max
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:52:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  a
+in the target expression
+  v ∈ (↑att1).set (↑k) i2
+
+att ho : Std.Array I64 128#usize
+b : ℤ
+hatt : Bounded b att
+hho : Bounded Envelope.head_output ho
+hb : b ≤ 3 * Envelope.head_output
+hhead : 0 ≤ Envelope.head_output
+att1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded (b + Envelope.head_output) att1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints att1)[k_1] = (ints att)[k_1] + (ints ho)[k_1]
+h✝ : k < 128#usize
+hk128 : ↑k < 128
+i : I64
+hiv : i = (↑ho)[↑k]
+i1 : I64
+hi1v : i1 = (↑att1)[↑k]
+hminb : I64.min ≤ ↑i1 + ↑i
+hmaxb : ↑i1 + ↑i ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1 + ↑i
+a : Std.Array I64 128#usize
+ha : a = att1.set k i2
+k1 : Usize
+hk1' : ↑k1 = ↑k + 1
+v : I64
+hv : v ∈ ↑a
+⊢ v ∈ (↑att1).set (↑k) i2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (128 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:53:35: error: Type mismatch: After simplification, term
+  hvset
+ has type
+  v ∈ (↑att1).set (↑k) i2
+but is expected to have type
+  ∃ a ∈ ?m.410, ?m.409 a = ?m.408
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:40:4: error: unsolved goals
+case a.refine_2
+att ho : Std.Array I64 128#usize
+b : ℤ
+hatt : Bounded b att
+hho : Bounded Envelope.head_output ho
+hb : b ≤ 3 * Envelope.head_output
+hhead : 0 ≤ Envelope.head_output
+att1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded (b + Envelope.head_output) att1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints att1)[k_1] = (ints att)[k_1] + (ints ho)[k_1]
+h✝ : k < 128#usize
+hk128 : ↑k < 128
+i : I64
+hiv : i = (↑ho)[↑k]
+i1 : I64
+hi1v : i1 = (↑att1)[↑k]
+hminb : I64.min ≤ ↑i1 + ↑i
+hmaxb : ↑i1 + ↑i ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1 + ↑i
+a : Std.Array I64 128#usize
+ha : a = att1.set k i2
+k1 : Usize
+hk1' : ↑k1 = ↑k + 1
+⊢ ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k + 1 → (ints a)[k_1] = (ints att)[k_1] + (ints ho)[k_1]
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:35:2: error: unsolved goals
+case hBody.isFalse
+att ho : Std.Array I64 128#usize
+b : ℤ
+hatt : Bounded b att
+hho : Bounded Envelope.head_output ho
+hb : b ≤ 3 * Envelope.head_output
+hhead : 0 ≤ Envelope.head_output
+att1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+hbd : Bounded (b + Envelope.head_output) att1
+heq : ∀ (k_1 : ℕ) (hk : k_1 < 128), k_1 < ↑k → (ints att1)[k_1] = (ints att)[k_1] + (ints ho)[k_1]
+h✝ : ¬k < 128#usize
+⊢ ok (done att1) ⦃ r =>
+    match r with
+    | done y => ints y = GeneralModel.addV (ints att) (ints ho) ∧ Bounded (b + Envelope.head_output) y
+    | cont x' =>
+      (↑x'.2 ≤ 128 ∧
+          Bounded (b + Envelope.head_output) x'.1 ∧
+            ∀ (k : ℕ) (hk : k < 128), k < ↑x'.2 → (ints x'.1)[k] = (ints att)[k] + (ints ho)[k]) ∧
+        128 - ↑x'.2 < 128 - ↑k ⦄
+/home/user/e4/qa-headout-5dcdf94-t6vlipca/AttentionAddDraft.lean:22:48: error: unsolved goals
+case hInv
+att ho : Std.Array I64 128#usize
+b : ℤ
+hatt : Bounded b att
+hho : Bounded Envelope.head_output ho
+hb : b ≤ 3 * Envelope.head_output
+hhead : 0 ≤ Envelope.head_output
+⊢ ↑(att, 0#usize).2 ≤ 128 ∧
+    Bounded (b + Envelope.head_output) (att, 0#usize).1 ∧
+      ∀ (k : ℕ) (hk : k < 128), k < ↑(att, 0#usize).2 → (ints (att, 0#usize).1)[k] = (ints att)[k] + (ints ho)[k]

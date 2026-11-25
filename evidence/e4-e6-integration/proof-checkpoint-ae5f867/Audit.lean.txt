@@ -1,0 +1,11 @@
+import LcnExec.GeneralEngine.FinalStream
+open Aeneas Aeneas.Std Result
+open LcnExec.GeneralEngine
+example (r o : Array I64 128#usize)
+    (hr : Bounded Envelope.residual r) (ho : Bounded Envelope.mlp_output o) :
+    general_engine.final_stream r o ⦃ fin =>
+      ints fin = GeneralModel.finalStream (ints r) (ints o) ∧
+      Bounded Envelope.final_stream fin ⦄ :=
+  final_stream_spec r o hr ho
+#print axioms LcnExec.GeneralEngine.final_stream_spec
+#print axioms LcnExec.GeneralEngine.final_stream_getElem

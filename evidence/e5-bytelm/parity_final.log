@@ -1,0 +1,9 @@
+prompts: 200 (length 1..33)
+tiny_bytelm_v1.bin: 51200 logits compared (200 prompts x 256), 0 mismatches (python side 97s)
+mod113_v1.bin: 22600 logits compared (200 prompts x 113), 0 mismatches
+mod113 rust: wrong 0, accuracy 12769/12769, fnv 6cb24f7670e8562e
+mod113 python sweep: wrong 0, fnv 6cb24f7670e8562e
+mod113 pinned rust/transformer fixture fnv: 6cb24f7670e8562e
+rust bench: 768 tokens in 136.603s = 5.6 tokens/sec
+wrote evidence/e5-bytelm/parity.json
+exit=0

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_jnw2loz26p1g",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T22:36:15.677Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T22:36:07.928Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-rescale-2264-54211yxS\nb42a796fb0d39ac8873e24121b4db92e067c5ba7bf13feea367d14761fd210e6  /home/user/e4/qa-rescale-2264-54211yxS.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

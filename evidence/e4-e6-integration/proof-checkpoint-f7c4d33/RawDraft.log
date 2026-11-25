@@ -1,0 +1,21 @@
+/home/user/e4/qa-mixbound-f7c4d33/RawDraft.lean:95:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  d - e ≤ 0
+  d + e ≥ 0
+  c ≤ 16777216
+  0 ≤ b ≤ 31
+  0 ≤ a ≤ 31
+  a - g ≤ -1
+where
+ a := ↑↑p
+ b := ↑↑i
+ c := (List.take (↑p + 1) (ints alpha)).sum
+ d := List.foldl
+  (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+  (List.range (↑p + 1))
+ e := Envelope.value * (List.take (↑p + 1) (ints alpha)).sum
+ f := ↑(List.take (↑p + 1) (ints alpha)).length
+ g := ↑j0

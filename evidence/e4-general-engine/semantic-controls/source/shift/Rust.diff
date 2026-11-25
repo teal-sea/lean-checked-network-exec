@@ -1,0 +1,11 @@
+--- pristine/src/lib.rs
++++ shift/src/lib.rs
+@@ -448,7 +448,7 @@
+         let mut row = [0i64; D_MODEL];
+         let mut k = 0;
+         while k < D_MODEL {
+-            let s = f[p][k] >> 16;
++            let s = f[p][k] >> 15;
+             if s < -127 {
+                 row[k] = -127;
+             } else if s > 127 {

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_8s5jigj5evie",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T00:07:27.292Z",
+  "launcherFailed": false,
+  "noticedMs": 4,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 4,
+  "startedAt": "2026-11-23T00:07:12.249Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-sol1-zvt7gC17\nd761955fde8c87808714180c954d7beda1c4e130b3bdb4746f397a00b8a91d75  /home/user/e4/qa-sol1-zvt7gC17.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

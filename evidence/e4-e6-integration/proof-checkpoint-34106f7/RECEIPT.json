@@ -1,0 +1,77 @@
+{
+  "worker": {
+    "commit": "34106f7accd7d1c5a83ed725937cfcc42b548a5f",
+    "base": "17fd8ee41e5cf27f39dab16abebaa149077203d3",
+    "admission": 2249,
+    "generation": 22,
+    "process": "proc_3cda1189d6f9",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "scope": "Actual translated 128-term hidden dot returns unchanged weights and the exact bounded win-column dot. The 512-output caller and full engine remain unproved.",
+  "numeric": {
+    "pure_dot_bound": 55138182408175616,
+    "hidden_pre_bound": 55138457286082560,
+    "slack": 274877906944
+  },
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-23T00:13:53.772Z",
+    "command_id": "cmd_zxgflo2gwyxn",
+    "finished_at": "2026-11-22T19:27:07.562Z",
+    "exits": {
+      "Build": 0,
+      "Direct": 0,
+      "Audit": 1,
+      "AuditExact": 0
+    },
+    "warnings": {
+      "Build": 18,
+      "Direct": 0,
+      "Audit": 0,
+      "AuditExact": 0
+    },
+    "first_audit_failure": "An independent extra numeric equality was false: the published envelope includes slack above the pure dot bound. Source and objects were not changed. The corrected harness checks the exact inequality and slack as well as the original typed proof and axiom audit.",
+    "matched_inputs": 23,
+    "guest_dir": "/home/user/e4/qa-mlp-inner-34106f7-yeZy8ZHb",
+    "archive": "mlp-hidden-inner-replay.tar.gz",
+    "archive_sha256": "33a5f30878cf531f3f1663d7173e01effe0a34c7cad3a40d76a042876e69d938",
+    "source_sha256": "0b49111851c3fa9181be1cbd4cec9ea7e27c5de59a445de16259fd1d32b7cf11",
+    "direct_object_sha256": "434ab94ead34733b98145387659451794a5ef86c31d2172f181ae115b27c1fd3",
+    "library_object_sha256": "a35a6de53cb6f55c1d34a86b66a6f04d5e1a51b5391b9a27627804dfb6a607fd",
+    "files_sha256": {
+      "MlpHiddenInner.lean.txt": "0b49111851c3fa9181be1cbd4cec9ea7e27c5de59a445de16259fd1d32b7cf11",
+      "Audit.lean.txt": "8e6c0525d559e44a12a4a8e065211b40f050a7c1e45f0e9cb12e63a8111d3fc2",
+      "inputs.sha256": "14b8718e1599adbce75d0cfc5c8d75cc25c8cdbeda44432ac9395154d3e9510a",
+      "before.log": "502bb51f770aad6d542de6dc1d32b62974c26969e31de293d7826dee3f9513e9",
+      "after.log": "502bb51f770aad6d542de6dc1d32b62974c26969e31de293d7826dee3f9513e9",
+      "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+      "Build.log": "1d402b65b1f8b243f15584debd94a9ce198bb23468bccacaaef776a16a9dc473",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.log": "f6d58af128ef67bb3df7838f2fa26da99ad05d0cedf6526694aacbc679b14862",
+      "Audit.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "direct-object.sha256": "b0be7b624372043dde4280274cd2337f7ee823631a1e46250393ccc17231bcb3",
+      "lake-object.sha256": "d7ea5c3add39aaf20f1ea98b4937fe5a71018c2d2d4971300b5dc023217bdfd9"
+    }
+  },
+  "fresh_audit": {
+    "command_id": "cmd_4zmgqixm8xzq",
+    "finished_at": "2026-11-22T19:29:02.188Z",
+    "exit": 0,
+    "axioms": {
+      "mlp_hidden_inner_spec": "propext, Classical.choice, Quot.sound",
+      "winColumn": "propext, Classical.choice, Quot.sound",
+      "winColumn_length": "propext, Classical.choice, Quot.sound",
+      "win_column_entry_probe": "propext, Classical.choice, Quot.sound",
+      "mlp_tail_linear_probe": "propext",
+      "mlp_init_upper_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "files_sha256": {
+      "AuditExact.lean.txt": "4d808c0840d84c6fc9eb8de468616ece6bc105744edc7b3fd6016d5f7ace05c0",
+      "AuditExact.log": "18f036660559e5475ce05b6b969f5ea849a4ceea3f93710b00e6fafedefb845b",
+      "AuditExact.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "boat-audit-exact.json": "3ec838168c75d3e92b8ba5267705d0b850d03247d9042b10c49006ba0b471bb7"
+    }
+  }
+}

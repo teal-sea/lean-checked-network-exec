@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_eq3b3t1xa6bc",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:15:29.417Z",
+  "launcherFailed": false,
+  "noticedMs": 5,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 5,
+  "startedAt": "2026-11-23T02:14:59.396Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-argmax-inputs-lB46Llmv\na37965479a37bd7aec458e199f817763b7a8b7b33ea96a320afd4295ddd2f667  /home/user/e4/qa-argmax-inputs-lB46Llmv.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

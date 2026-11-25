@@ -1,0 +1,28 @@
+import LcnExec.GeneralEngine.AttentionAt
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (w : general_engine.Weights) (l p : Usize)
+    (xs : Array (Array I64 128#usize) 32#usize)
+    (valid : LoadBounds w) (layer : l.val < 2) (position : p.val < 32)
+    (bounded : streams xs) :
+    general_engine.attention_at w l xs p ⦃ out =>
+      ints out = GeneralModel.attentionAt (toGeneralModel w) l.val p.val (ints2 xs) ∧
+      Bounded Envelope.attention out ⦄ :=
+  attention_at_spec w valid l layer xs p position bounded
+example (w : general_engine.Weights) (l p : Usize)
+    (xs : Array (Array I64 128#usize) 32#usize) (acc : Array I64 128#usize)
+    (valid : LoadBounds w) (layer : l.val < 2) (position : p.val < 32)
+    (bounded : streams xs) (zero : Bounded 0 acc) :
+    general_engine.attention_at_loop0 w l xs p acc 0#usize ⦃ out =>
+      ints out = (List.range 4).foldl (fun v k => GeneralModel.addV v
+        (GeneralModel.headTermAt (toGeneralModel w) l.val k p.val (ints2 xs))) (ints acc) ∧
+      Bounded ((4 : Int) * Envelope.head_output) out ⦄ :=
+  attention_loop0_spec w valid l layer xs p position bounded acc zero
+example : Envelope.attention = 5251126001664 := by
+  simp [Envelope.attention]
+#print axioms attention_at_spec
+#print axioms attention_loop0_spec
+#print axioms att_fold_succ_probe
+#print axioms att_alpha_nonneg_probe
+#print axioms ints_repeat128
+end LcnExec.GeneralEngine

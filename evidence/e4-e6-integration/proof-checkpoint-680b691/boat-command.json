@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_epcomjosjflj",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T02:52:00.096Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T02:51:37.292Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "Build=0\nDirectValue=0\nDirectProjection=0\nAudit=0\ndirectory=/home/user/e4/qa-projection-680b691-eh7rmwwl\n83c68010d3c9088008c137a239141fdd314aef7331dd7f89e27d08029edf5059  /home/user/e4/qa-projection-680b691-eh7rmwwl.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_pgmiplvuz2ca",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T00:09:43.564Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-23T00:09:38.208Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "0\nL2hvbWUvdXNlci9lNC9xYS1zb2wyLWtnUVlNZEZaL1Jlc2NhbGVJbm5lcjQubGVhbjoxMjg6Njc6IHdhcm5pbmc6IFVudXNlZCB0YWN0aWMgbGludGVyOiBgPDs+YCBzaG91bGQgYmUgcmVwbGFjZWQgd2l0aCBgO2Agb3IgYmUgcmVtb3ZlZC4KCk5vdGU6IFRoaXMgbGludGVyIGNhbiBiZSBkaXNhYmxlZCB3aXRoIGBzZXRfb3B0aW9uIGxpbnRlci51bnVzZWRUYWN0aWMgZmFsc2VgCi9ob21lL3VzZXIvZTQvcWEtc29sMi1rZ1FZTWRGWi9SZXNjYWxlSW5uZXI0LmxlYW46MTQyOjg2OiB3YXJuaW5nOiBVbnVzZWQgdGFjdGljIGxpbnRlcjogYDw7PmAgc2hvdWxkIGJlIHJlcGxhY2VkIHdpdGggYDtgIG9yIGJlIHJlbW92ZWQuCgpOb3RlOiBUaGlzIGxpbnRlciBjYW4gYmUgZGlzYWJsZWQgd2l0aCBgc2V0X29wdGlvbiBsaW50ZXIudW51c2VkVGFjdGljIGZhbHNlYAovaG9tZS91c2VyL2U0L3FhLXNvbDIta2dRWU1kRlovUmVzY2FsZUlubmVyNC5sZWFuOjEyODo2Nzogd2FybmluZzogVXNlZCBgdGFjMSA8Oz4gdGFjMmAgd2hlcmUgYCh0YWMxOyB0YWMyKWAgd291bGQgc3VmZmljZQoKTm90ZTogVGhpcyBsaW50ZXIgY2FuIGJlIGRpc2FibGVkIHdpdGggYHNldF9vcHRpb24gbGludGVyLnVubmVjZXNzYXJ5U2VxRm9jdXMgZmFsc2VgCi9ob21lL3VzZXIvZTQvcWEtc29sMi1rZ1FZTWRGWi9SZXNjYWxlSW5uZXI0LmxlYW46MTQyOjg2OiB3YXJuaW5nOiBVc2VkIGB0YWMxIDw7PiB0YWMyYCB3aGVyZSBgKHRhYzE7IHRhYzIpYCB3b3VsZCBzdWZmaWNlCgpOb3RlOiBUaGlzIGxpbnRlciBjYW4gYmUgZGlzYWJsZWQgd2l0aCBgc2V0X29wdGlvbiBsaW50ZXIudW5uZWNlc3NhcnlTZXFGb2N1cyBmYWxzZWAKJ0xjbkV4ZWMuR2VuZXJhbEVuZ2luZS5yZXNjYWxlX2NsYW1wX2lubmVyX3NwZWMnIGRlcGVuZHMgb24gYXhpb21zOiBbcHJvcGV4dCwgQ2xhc3NpY2FsLmNob2ljZSwgUXVvdC5zb3VuZF0K\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

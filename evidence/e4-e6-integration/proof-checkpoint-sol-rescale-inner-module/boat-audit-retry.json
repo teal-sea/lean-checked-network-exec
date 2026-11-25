@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_ocsvhr3uaf4p",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T00:12:49.649Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-23T00:12:46.876Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "0\nJ0xjbkV4ZWMuR2VuZXJhbEVuZ2luZS5yZXNjYWxlX2NsYW1wX2lubmVyX3NwZWMnIGRlcGVuZHMgb24gYXhpb21zOiBbcHJvcGV4dCwgQ2xhc3NpY2FsLmNob2ljZSwgUXVvdC5zb3VuZF0K\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

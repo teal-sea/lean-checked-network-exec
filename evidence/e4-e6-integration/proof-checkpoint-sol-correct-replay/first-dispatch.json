@@ -1,0 +1,16 @@
+{
+  "thread": "01a205b6-ced0-7a10-b998-71d84b4cc9e3",
+  "model": "gpt-6.2-sol",
+  "base": "e75e6f83afc34be45d7b718b2af5fdab42045c28",
+  "brief_sha256": "1a8d197d58b5230a71b38c7a9fb37759e2b412a773f9c29d95b220704418e93e",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "subscription": {
+    "plan": "prolite",
+    "allowed": true,
+    "limit_reached": false,
+    "primary_used_percent": 5,
+    "checked_at": "2026-11-23T02:30:16.122329+00:00"
+  },
+  "started_at": "2026-11-23T02:30:16.123053+00:00"
+}

@@ -1,0 +1,2 @@
+'LcnExec.GeneralEngine.head_out_row_copy_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.value_scan_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

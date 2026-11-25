@@ -1,0 +1,179 @@
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:128:51: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:129:8: error: Tactic `apply` failed: could not unify the conclusion of `hfinish (-127)#i64 row2 hrow2 hm`
+  128 - (↑k + 1) < 128 - ↑k ∧
+    ↑k + 1 ≤ 128 ∧
+      (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+        (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+with the goal
+  ↑k + 1 ≤ 128 ∧
+    (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+      (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧
+        Bounded Envelope.embedding row2 ∧ 128 - (↑k + 1) < 128 - ↑k
+
+Note: The full type of `hfinish (-127)#i64 row2 hrow2 hm` is
+  -127 ≤ ↑(-127)#i64 ∧ ↑(-127)#i64 ≤ 127 →
+    128 - (↑k + 1) < 128 - ↑k ∧
+      ↑k + 1 ≤ 128 ∧
+        (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+          (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+
+case a
+f : Std.Array (Std.Array I64 128#usize) 32#usize
+hfb : ∀ row ∈ ↑f, Bounded Envelope.final_stream row
+p : Usize
+hp : ↑p < 32
+hrowf : (↑f)[↑p] ∈ ↑f
+hfbrow : Bounded Envelope.final_stream (↑f)[↑p]
+mrow : List ℤ := (ints2 f)[↑p]!
+hmid : mrow = ints (↑f)[↑p]
+hmrow_len : mrow.length = 128
+row1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+heq : ∀ (q : ℕ) (hq : q < 128), q < ↑k → (ints row1)[q] = GeneralModel.clampEntry mrow[q]!
+hsuf : ∀ (q : ℕ) (hq : q < 128), ↑k ≤ q → (↑row1)[q] = 0#i64
+hbd : Bounded Envelope.embedding row1
+h✝ : k < 128#usize
+hk128 : ↑k < 128
+a : Std.Array I64 128#usize
+ha : a = (↑f)[↑p]
+iv : I64
+hiv : iv = (↑a)[↑k]
+s : I64
+hs : ↑s = ↑iv >>> 16
+_✝ : s.bv = iv.bv.sshiftRight 16
+hsval : ↑s = (↑iv).shiftRight 16
+hentry : mrow[↑k]! = ↑iv
+hwrite :
+  ∀ (v : I64) (row2 : Std.Array I64 128#usize),
+    row2 = row1.set k v →
+      GeneralModel.clampEntry mrow[↑k]! = ↑v →
+        -127 ≤ ↑v ∧ ↑v ≤ 127 →
+          (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+            (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+hfinish :
+  ∀ (v : I64) (row2 : Std.Array I64 128#usize),
+    row2 = row1.set k v →
+      GeneralModel.clampEntry mrow[↑k]! = ↑v →
+        -127 ≤ ↑v ∧ ↑v ≤ 127 →
+          128 - (↑k + 1) < 128 - ↑k ∧
+            ↑k + 1 ≤ 128 ∧
+              (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+                (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+hn : s < (-127)#i64
+row2 : Std.Array I64 128#usize
+hrow2 : row2 = row1.set k (-127)#i64
+k1 : Usize
+hk1' hk1v : ↑k1 = ↑k + 1
+hl : ↑s < -127
+hm : GeneralModel.clampEntry mrow[↑k]! = ↑(-127)#i64
+⊢ ↑k + 1 ≤ 128 ∧
+    (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+      (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧
+        Bounded Envelope.embedding row2 ∧ 128 - (↑k + 1) < 128 - ↑k
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:142:53: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:142:64: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:143:10: error: Tactic `apply` failed: could not unify the conclusion of `hfinish 127#i64 row2 hrow2 hm`
+  128 - (↑k + 1) < 128 - ↑k ∧
+    ↑k + 1 ≤ 128 ∧
+      (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+        (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+with the goal
+  ↑k + 1 ≤ 128 ∧
+    (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+      (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧
+        Bounded Envelope.embedding row2 ∧ 128 - (↑k + 1) < 128 - ↑k
+
+Note: The full type of `hfinish 127#i64 row2 hrow2 hm` is
+  -127 ≤ ↑127#i64 ∧ ↑127#i64 ≤ 127 →
+    128 - (↑k + 1) < 128 - ↑k ∧
+      ↑k + 1 ≤ 128 ∧
+        (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+          (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+
+case a
+f : Std.Array (Std.Array I64 128#usize) 32#usize
+hfb : ∀ row ∈ ↑f, Bounded Envelope.final_stream row
+p : Usize
+hp : ↑p < 32
+hrowf : (↑f)[↑p] ∈ ↑f
+hfbrow : Bounded Envelope.final_stream (↑f)[↑p]
+mrow : List ℤ := (ints2 f)[↑p]!
+hmid : mrow = ints (↑f)[↑p]
+hmrow_len : mrow.length = 128
+row1 : Std.Array I64 128#usize
+k : Usize
+hk1 : ↑k ≤ 128
+heq : ∀ (q : ℕ) (hq : q < 128), q < ↑k → (ints row1)[q] = GeneralModel.clampEntry mrow[q]!
+hsuf : ∀ (q : ℕ) (hq : q < 128), ↑k ≤ q → (↑row1)[q] = 0#i64
+hbd : Bounded Envelope.embedding row1
+h✝ : k < 128#usize
+hk128 : ↑k < 128
+a : Std.Array I64 128#usize
+ha : a = (↑f)[↑p]
+iv : I64
+hiv : iv = (↑a)[↑k]
+s : I64
+hs : ↑s = ↑iv >>> 16
+_✝ : s.bv = iv.bv.sshiftRight 16
+hsval : ↑s = (↑iv).shiftRight 16
+hentry : mrow[↑k]! = ↑iv
+hwrite :
+  ∀ (v : I64) (row2 : Std.Array I64 128#usize),
+    row2 = row1.set k v →
+      GeneralModel.clampEntry mrow[↑k]! = ↑v →
+        -127 ≤ ↑v ∧ ↑v ≤ 127 →
+          (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+            (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+hfinish :
+  ∀ (v : I64) (row2 : Std.Array I64 128#usize),
+    row2 = row1.set k v →
+      GeneralModel.clampEntry mrow[↑k]! = ↑v →
+        -127 ≤ ↑v ∧ ↑v ≤ 127 →
+          128 - (↑k + 1) < 128 - ↑k ∧
+            ↑k + 1 ≤ 128 ∧
+              (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+                (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+hn1 : ¬s < (-127)#i64
+hl : ¬↑s < -127
+hn2 : s > 127#i64
+row2 : Std.Array I64 128#usize
+hrow2 : row2 = row1.set k 127#i64
+k1 : Usize
+hk1' hk1v : ↑k1 = ↑k + 1
+hu : 127 < ↑s
+hm : GeneralModel.clampEntry mrow[↑k]! = ↑127#i64
+⊢ ↑k + 1 ≤ 128 ∧
+    (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+      (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧
+        Bounded Envelope.embedding row2 ∧ 128 - (↑k + 1) < 128 - ↑k
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:153:53: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:153:64: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/home/user/e4/qa-sol1-zvt7gC17/RescaleInner3.lean:154:10: error: Type mismatch
+  hfinish s row2 hrow2 hm
+    (Decidable.byContradiction fun a => rescale_clamp_inner_spec._proof_1_39 f p k iv s hs hsval hl k1 hu hm a)
+has type
+  128 - (↑k + 1) < 128 - ↑k ∧
+    ↑k + 1 ≤ 128 ∧
+      (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+        (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧ Bounded Envelope.embedding row2
+but is expected to have type
+  ↑k + 1 ≤ 128 ∧
+    (∀ (q : ℕ) (hq : q < 128), q < ↑k + 1 → (ints row2)[q] = GeneralModel.clampEntry mrow[q]!) ∧
+      (∀ (q : ℕ) (hq : q < 128), ↑k + 1 ≤ q → (↑row2)[q] = 0#i64) ∧
+        Bounded Envelope.embedding row2 ∧ 128 - (↑k + 1) < 128 - ↑k

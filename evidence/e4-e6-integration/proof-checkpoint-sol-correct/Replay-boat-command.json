@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_j2e6t62e55tp",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T02:44:18.058Z",
+  "launcherFailed": false,
+  "noticedMs": 4,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 5,
+  "startedAt": "2026-11-23T02:44:14.359Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-sol-correct2-2go3cfxE\nf210a6c50ad93d4bab4bcaec1f2344e0f62db222f3c29015292978bfaa40ac96  /home/user/e4/qa-sol-correct2-2go3cfxE.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

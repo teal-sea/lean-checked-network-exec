@@ -1,0 +1,27 @@
+src = open('/tmp/e4layer/RescaleInner.lean', encoding='utf-8').read()
+src = src.replace('''      have hsval : s.val = Int.shiftRight iv.val 16 := by
+        rw [hs]
+        change s.val = Int.shiftRight iv.val 16?? TBD''',
+'''      have hsval : s.val = Int.shiftRight iv.val 16 := hs''')
+src = src.replace('''        rw [hdiv _]
+        constructor <;> omega?? DIV''',
+'''        rw [hdiv _]
+        constructor
+        · omega
+        · omega''')
+src = src.replace('''              have hs' := hsval
+              rw [hs']
+              have hlt : Int.shiftRight iv.val 16 < -127 := by?? TBD
+              rw [if_pos hlt]''',
+'''              have hlt : Int.shiftRight iv.val 16 < -127 := by
+                have := hn
+                rw [← hsval] at this
+                exact this
+              rw [if_pos hlt]''')
+src = src.replace('''                have hgt : 127 < Int.shiftRight iv.val 16 := by?? TBD2''',
+'''                have hgt : 127 < Int.shiftRight iv.val 16 := by
+                  have := hn2
+                  rw [← hsval] at this
+                  exact this''')
+open('/tmp/e4layer/RescaleInner.lean', 'w', encoding='utf-8').write(src)
+print('TBD pass 1')

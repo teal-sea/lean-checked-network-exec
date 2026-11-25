@@ -1,0 +1,11 @@
+--- pristine/GeneralEngine.lean
++++ shift/GeneralEngine.lean
+@@ -1620,7 +1620,7 @@
+   then
+     let a ← Array.index_usize f p
+     let i ← Array.index_usize a k
+-    let s ← i >>> 16#i32
++    let s ← i >>> 15#i32
+     let row1 ←
+       if s < (-127)#i64
+       then Array.update row k (-127)#i64

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_ozuqygy7cntn",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-23T03:09:11.798Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-23T03:09:11.118Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-semantic-controls-m0xheupb\n9a348ca0bb8aed702566013d4aa4b51d84e5813d61dd261d0d6dec77a0290ba6  /home/user/e4/qa-semantic-archive-dlZVs4Ai/Evidence.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

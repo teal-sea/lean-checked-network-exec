@@ -1,0 +1,120 @@
+/home/user/e4/qa-output-fd86707-dWS6565W/OuterRed.lean:141:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (↑(↑W.layers)[↑l].bout)[↑k1]
+in the target expression
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bout)[↑k1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bout ↑k1 = ↑b ∧ -137438953472 ≤ ↑b ∧ ↑b ≤ 137438953472
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+m : Std.Array I64 512#usize
+hm : Bounded Envelope.hidden m
+hL : LayerBounds (↑W.layers)[↑l]
+w1 : general_engine.Weights
+o1 : Std.Array I64 128#usize
+k1 : Usize
+hi1 : ↑k1 ≤ 128
+hw : w1 = W
+hbd : Bounded Envelope.mlp_output o1
+heq :
+  ∀ (k : ℕ) (hk : k < 128),
+    k < ↑k1 →
+      (ints o1)[k] =
+        GeneralModel.dot (ints m) (woutColumn W (↑l) k) +
+          GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bout k
+hsuf : ∀ (k : ℕ) (hk : k < 128), ¬k < ↑k1 → (↑o1)[k] = 0#i64
+h✝ : k1 < 128#usize
+hk128 : ↑k1 < 128
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints m) (woutColumn w1 ↑l ↑k1)
+hlo : -8160491678340218880 ≤ ↑acc
+hhi : ↑acc ≤ 8160491678340218880
+iv : I64
+hiv : iv = (↑(↑W.layers)[↑l].bout)[↑k1]
+hread : iv = (↑(↑W.layers)[↑l].bout)[↑k1]
+hmodel :
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bout)[↑k1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bout ↑k1 = ↑b ∧ -137438953472 ≤ ↑b ∧ ↑b ≤ 137438953472
+⊢ ↑iv = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bout ↑k1 ∧
+    -137438953472 ≤ ↑iv ∧ ↑iv ≤ 137438953472
+/home/user/e4/qa-output-fd86707-dWS6565W/OuterRed.lean:160:25: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  1 ≤ f ≤ 128
+  e + g ≤ -1
+  d - e ≥ 0
+  c - e ≤ 0
+  -8160491678340218880 ≤ b ≤ 8160491678340218880
+  -137438953472 ≤ b - e ≤ 137438953472
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := GeneralModel.dot (ints m) (woutColumn W ↑l ↑k1)
+ c := I64.min
+ d := I64.max
+ e := ↑i1
+ f := ↑↑k2
+ g := Envelope.mlp_output
+/home/user/e4/qa-output-fd86707-dWS6565W/OuterRed.lean:160:40: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑i1
+in the target expression
+  I64
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+m : Std.Array I64 512#usize
+hm : Bounded Envelope.hidden m
+hL : LayerBounds (↑W.layers)[↑l]
+w1 : general_engine.Weights
+o1 : Std.Array I64 128#usize
+k1 : Usize
+hi1 : ↑k1 ≤ 128
+hw : w1 = W
+hbd : Bounded Envelope.mlp_output o1
+heq :
+  ∀ (k : ℕ) (hk : k < 128),
+    k < ↑k1 →
+      (ints o1)[k] =
+        GeneralModel.dot (ints m) (woutColumn W (↑l) k) +
+          GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bout k
+hsuf : ∀ (k : ℕ) (hk : k < 128), ¬k < ↑k1 → (↑o1)[k] = 0#i64
+h✝ : k1 < 128#usize
+hk128 : ↑k1 < 128
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints m) (woutColumn w1 ↑l ↑k1)
+hlo : -8160491678340218880 ≤ ↑acc
+hhi : ↑acc ≤ 8160491678340218880
+iv : I64
+hiv : iv = (↑(↑W.layers)[↑l].bout)[↑k1]
+hread : iv = (↑(↑W.layers)[↑l].bout)[↑k1]
+hbout :
+  ↑iv = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bout ↑k1 ∧
+    -137438953472 ≤ ↑iv ∧ ↑iv ≤ 137438953472
+hdotW : ↑acc = GeneralModel.dot (ints m) (woutColumn W ↑l ↑k1)
+hmina : I64.min ≤ ↑acc + ↑iv
+hmaxa : ↑acc + ↑iv ≤ I64.max
+i1 : I64
+hi1v : ↑i1 = ↑acc + ↑iv
+o2 : Std.Array I64 128#usize
+ho2 : o2 = o1.set k1 i1
+k2 : Usize
+hk2 hk2v : ↑k2 = ↑k1 + 1
+⊢ I64
+/home/user/e4/qa-output-fd86707-dWS6565W/OuterRed.lean:195:27: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1392 = ?m.1392
+but is expected to have type
+  True
+in the application
+  And.intro rfl

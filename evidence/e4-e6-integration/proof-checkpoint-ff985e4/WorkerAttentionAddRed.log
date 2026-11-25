@@ -1,0 +1,14 @@
+=== att-add-draft.lean (RED, 2026-11-22 ~16:25 UTC) ===
+target: att_add_spec for general_engine.attention_at_loop0_loop0 (inner pointwise checked add)
+status: LEAN=1, 4 errors remain: 64:8/67:8 (decide on 2^(I64.numBits-1): I64.numBits is @[irreducible], simp[norm_num]/decide/rfl all fail to evaluate), 122:77 (project_addV_length h-arg unsolved), 125:18 (rw pattern (addV (ints att) (ints ho)).length not found; goal already k' < (ints att).length).
+
+=== aa7.log errors ===
+
+=== verified interface facts (probe ip.lean / nb.lean) ===
+@Array.index_usize_spec : (v : Std.Array α n) (i : Usize) (hbound : ↑i < v.length) → v.index_usize i ⦃ x => x = (↑v)[↑i] ⦄
+@I64.add_spec : {x y : I64} → I64.min ≤ ↑x + ↑y → ↑x + ↑y ≤ I64.max → x + y ⦃ z => ↑z = ↑x + ↑y ⦄
+@List.getElem_set_ne : i ≠ j → (hj : j < (l.set i a).length) → (l.set i a)[j] = l[j]
+@List.getElem_set_self : (h : i < (l.set i a).length) → (l.set i a)[i] = a
+Bounded {n} (b : Int) (x : Array I64 n) : Prop := ∀ v ∈ x.val, -b ≤ v.val ∧ v.val ≤ b
+@[irreducible] def Aeneas.Std.I64.numBits : ℕ := wrapped✝.1
+I64.min simp-unfolds to -(2 ^ (I64.numBits - 1)); the power equation is NOT evaluable by norm_num/decide (numBits irreducible).

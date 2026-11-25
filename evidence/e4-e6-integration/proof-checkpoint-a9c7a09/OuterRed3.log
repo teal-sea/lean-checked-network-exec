@@ -1,0 +1,37 @@
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/OuterRed3.lean:150:29: error(lean.invalidField): Invalid field `val`: The environment does not contain `Int.val`, so it is not possible to project the field `val` from an expression
+  v
+of type `ℤ`
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/OuterRed3.lean:150:8: error: Type mismatch
+  congrArg (fun v => ?m.591) (Eq.symm hbin.left)
+has type
+  ?m.592 ↑(↑(↑W.layers)[↑l].bin)[↑i1] = ?m.592 (GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1)
+but is expected to have type
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/OuterRed3.lean:208:35: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 512
+  c - d ≤ -1
+  b ≥ 0
+  b - c ≥ 1
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑(ints m1).length
+ c := ↑k
+ d := ↑(GeneralModel.mlpHidden (toGeneralModel W) (↑l) (ints r)).length
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/OuterRed3.lean:213:6: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/OuterRed3.lean:219:6: error: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (512 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)

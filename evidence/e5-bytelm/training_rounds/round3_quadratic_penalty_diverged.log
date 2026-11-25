@@ -1,0 +1,27 @@
+corpus: train 142094 B (142062 windows), val 14728 B (3674 windows)
+model: 2 layers, 464128 parameters
+step     1  loss 5.5660  ema 5.5660  bpb 8.030  satur 2.36e-05  3s
+step    50  loss 2.9958  ema 4.6471  bpb 6.704  satur 0.00182  10s
+step   100  loss 2.4464  ema 3.3431  bpb 4.823  satur 0.0272  17s
+step   150  loss 2.2135  ema 2.6818  bpb 3.869  satur 0.0701  24s
+step   200  loss 2.1196  ema 2.3604  bpb 3.405  satur 0.158  30s
+step   250  loss 2.0950  ema 2.2040  bpb 3.180  satur 1.01  38s
+step   300  loss 2.0881  ema 2.1239  bpb 3.064  satur 3.49  45s
+step   350  loss 2.4788  ema 2.1669  bpb 3.126  satur 13.9  52s
+step   400  loss 2.6251  ema 2.4113  bpb 3.479  satur 38.8  58s
+step   450  loss 2.8570  ema 3.1155  bpb 4.495  satur 109  66s
+step   500  loss 4.2685  ema 3.2833  bpb 4.737  satur 129  73s
+step   550  loss 3.0938  ema 3.4188  bpb 4.932  satur 147  81s
+step   600  loss 3.6319  ema 3.9143  bpb 5.647  satur 201  88s
+step   650  loss 5.7751  ema 3.9667  bpb 5.723  satur 211  96s
+step   700  loss 4.0788  ema 4.0727  bpb 5.876  satur 226  103s
+step   750  loss 4.0153  ema 4.5003  bpb 6.493  satur 272  110s
+step   800  loss 4.5347  ema 5.1616  bpb 7.447  satur 340  117s
+step   850  loss 8.3849  ema 5.7350  bpb 8.274  satur 400  125s
+step   900  loss 5.6835  ema 5.4268  bpb 7.829  satur 373  132s
+step   950  loss 5.8386  ema 5.8955  bpb 8.505  satur 423  139s
+step  1000  loss 5.7274  ema 6.3747  bpb 9.197  satur 475  146s
+step  1050  loss 6.6615  ema 7.0213  bpb 10.130  satur 541  153s
+step  1100  loss 8.2106  ema 7.4645  bpb 10.769  satur 588  160s
+step  1150  loss 9.4133  ema 7.4036  bpb 10.681  satur 585  167s
+exit=143

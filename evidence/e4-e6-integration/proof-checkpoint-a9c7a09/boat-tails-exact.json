@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_cwnj8cuzmxtf",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T19:53:43.447Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 3,
+  "startedAt": "2026-11-22T19:53:41.349Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=1\n/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/TailsExact.lean:98:2: error: 'change' tactic failed, pattern\n  (List.replicate (\u2191n) 0#i64)[k] = 0#i64\nis not definitionally equal to target\n  (\u2191(Array.repeat n 0#i64))[k] = 0#i64\n'LcnExec.GeneralEngine.hidden_init_index_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.hidden_runtime_bias_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.hidden_mapped_entry_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

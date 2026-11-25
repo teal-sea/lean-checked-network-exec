@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_pnld77u2nzub",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T22:11:23.437Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T22:11:21.791Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=1\n/home/user/e4/qa-layer-init-generic-xL3yGCoW/LayerInitGeneric.lean:8:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u2191(Array.repeat ?n ?v)\nin the target expression\n  row \u2208 \u2191(Array.repeat n (Array.repeat m z))\n\nn m : Usize\nz : I64\nb : \u2124\nhz : -b \u2264 \u2191z \u2227 \u2191z \u2264 b\nrow : Std.Array I64 m\nhrow : row \u2208 \u2191(Array.repeat n (Array.repeat m z))\n\u22a2 Bounded b row\n/home/user/e4/qa-layer-init-generic-xL3yGCoW/LayerInitGeneric.lean:19:49: error: No goals to be solved\n'LcnExec.GeneralEngine.repeated_rows_bound_probe' depends on axioms: [propext, sorryAx]\n'LcnExec.GeneralEngine.layer_zero_rows_bound_exact_probe' depends on axioms: [propext,\n sorryAx,\n Classical.choice,\n Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

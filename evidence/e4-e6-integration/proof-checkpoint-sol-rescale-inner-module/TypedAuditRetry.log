@@ -1,0 +1,1 @@
+'LcnExec.GeneralEngine.rescale_clamp_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

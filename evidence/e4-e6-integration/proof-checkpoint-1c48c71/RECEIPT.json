@@ -1,0 +1,55 @@
+{
+  "checkpoint": "1c48c71b69d708df19e086743ea4b4d63600ec24",
+  "box": "bx_9m9mrg3q",
+  "execution_command_id": "cmd_51ch5hlxixg0",
+  "retrieval_command_id": "cmd_b66ms6vxliog",
+  "elapsed_window_utc": [
+    "2026-11-20T05:10:12.441Z",
+    "2026-11-20T05:10:28.986Z"
+  ],
+  "toolchain": "Lean 4.35.0 (eb6cafb7290e8bd5f2937522d8d804f58f02bafc), Lake 5.0.0",
+  "threads": 2,
+  "retained_logs_sha256": {
+    "Load": "baf372fa842c1af1a2c8b483ffad5c9f28ed87d1eb7e525a15a9b008dae0b235",
+    "Softmax": "ac26bec24fa0c11e33be3076cfb5073a6f89f933600e1f9d640f6c3bffec30a4"
+  },
+  "source_sha256": {
+    "Load.lean": "da145a17d255e3734d45a3533c9d6c2c667d445c7a5b10bdab6c242e6add550b",
+    "Softmax.lean": "dfba95e8fd767c9d351f49be2a7f65b30732b529f215d44c0fcbbfc308df780f"
+  },
+  "remote_objects_sha256": {
+    "Model.olean": "22c7ba52121ff9eb4b56230f76605628e3a370e3e7566e9e33199966ca7d27c1",
+    "View.olean": "50d2c0bbc3a7db363643e41bf6d12e40628c69e070a354904f500d8965d392be",
+    "Primitives.olean": "b4835d88ce1c029ef553702d3cf2a8df32b1e42e60e1fc10699d8adad4e8eb1e",
+    "Load.olean": "b95fbdc8a60c731781ef01523fda4912b3742bef7921c1f04b4d9edfb87e8603"
+  },
+  "check": [
+    {
+      "module": "LcnExec.GeneralEngine.Load",
+      "exit_code": 0,
+      "scope": "Lake reports up to date and complete on the existing objects, not a clean rebuild or second kernel."
+    },
+    {
+      "module": "LcnExec.GeneralEngine.Softmax",
+      "exit_code": 1,
+      "diagnostics": [
+        "error: LcnExec/GeneralEngine/Softmax.lean:338:68: unsolved goals",
+        "error: LcnExec/GeneralEngine/Softmax.lean:347:8: No goals to be solved",
+        "error: LcnExec/GeneralEngine/Softmax.lean:359:12: No goals to be solved",
+        "error: LcnExec/GeneralEngine/Softmax.lean:377:21: Application type mismatch: The argument",
+        "error: LcnExec/GeneralEngine/Softmax.lean:381:8: omega could not prove the goal:",
+        "error: LcnExec/GeneralEngine/Softmax.lean:382:15: omega could not prove the goal:",
+        "error: LcnExec/GeneralEngine/Softmax.lean:384:6: omega could not prove the goal:",
+        "error: LcnExec/GeneralEngine/Softmax.lean:430:6: And is not a supported spec statement",
+        "error: LcnExec/GeneralEngine/Softmax.lean:468:34: Application type mismatch: The argument",
+        "error: LcnExec/GeneralEngine/Softmax.lean:469:15: omega could not prove the goal:",
+        "error: LcnExec/GeneralEngine/Softmax.lean:471:6: omega could not prove the goal:",
+        "error: LcnExec/GeneralEngine/Softmax.lean:487:2: Exists is not a supported spec statement"
+      ]
+    }
+  ],
+  "worker_attempt": "proc_e010232636da",
+  "worker_final_message_id": 237860,
+  "auto_stop_utc": "2026-11-20T09:12:42.642Z",
+  "status": "partial. No full theorem, axiom audit, fresh replay, nanoda, or semantic negative controls."
+}

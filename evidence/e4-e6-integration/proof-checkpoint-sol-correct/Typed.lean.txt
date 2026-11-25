@@ -1,0 +1,24 @@
+import LcnExec.GeneralEngine.Correct
+open Aeneas Aeneas.Std Result
+open LcnExec.GeneralEngine
+
+example (W : general_engine.Weights)
+    (h : general_engine.load_check W = Result.ok true)
+    (tokens : Array Usize 32#usize) (n : Usize) :
+    ∃ o : Option Usize, general_engine.predict_next W tokens n = Result.ok o ∧
+      o.map (fun t => t.val) =
+        GeneralModel.predictNext (toGeneralModel W) (tokens.val.map (fun t => t.val)) n.val :=
+  general_engine_correct W h tokens n
+
+example (W : general_engine.Weights)
+    (h : general_engine.load_check W = Result.ok true)
+    (tokens : Array Usize 32#usize) (n : Usize) :
+    general_engine.forward_logits W tokens n ⦃ o =>
+      o.map ints =
+        if n.val = 0 ∨ n.val > 32 then none
+        else if ((tokens.val.map (fun t => t.val)).take n.val).any (fun t => t ≥ 256) then none
+        else some (GeneralModel.forwardLogits (toGeneralModel W) (tokens.val.map (fun t => t.val)) n.val) ⦄ :=
+  forward_logits_spec W h tokens n
+
+#print axioms LcnExec.GeneralEngine.forward_logits_spec
+#print axioms LcnExec.GeneralEngine.general_engine_correct

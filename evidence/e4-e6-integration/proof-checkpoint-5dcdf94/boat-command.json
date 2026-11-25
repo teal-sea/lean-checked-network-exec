@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_5g4cviwpxthu",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T15:38:00.648Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T15:37:21.703Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "Build=0\nProjectionInner=0\nProjectionScan=0\nHeadOut=0\nAudit=0\nAttentionAddDraft=1\ndirectory=/home/user/e4/qa-headout-5dcdf94-t6vlipca\n85053b8e0203065052a863dc8ba88b9a01647460cf33051c34accd7d01b29adf  /home/user/e4/qa-headout-5dcdf94-t6vlipca.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

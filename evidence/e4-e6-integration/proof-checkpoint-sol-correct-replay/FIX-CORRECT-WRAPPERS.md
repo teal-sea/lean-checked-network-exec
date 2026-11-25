@@ -1,0 +1,10 @@
+# Repair three Lean diagnostics in the end-to-end engine theorem
+
+Resume from the frozen candidate `evidence/e4-general-engine/drafts/CorrectSol.lean.txt` at SHA-256 recorded in `~/.hermes/cache/scratch/lcn-sol-20261123/correct-replay/RECEIPT.json`. Write **only** `evidence/e4-general-engine/drafts/CorrectSol2.lean.txt`, leaving the old exact candidate and all proof statements unchanged. Read the exact `correct-replay/Correct.log`. This is a narrow repair, not a new proof design.
+
+- Line 57: `step` and `split` already discharged the return implication. The goal is `scalar = ok true` with `hscalarTrue` in context. Remove `intro _`, use `exact hscalarTrue` directly.
+- Line 84: `simp only` leaves `List.replicate 128 0 = List.replicate 128 (Int.ofNat 0)`. Close the resulting equality with `rfl` if definitional, else an explicit closed `Int` equality. Avoid a redundant tactic if including the explicit equality in the simplifying rewrite closes the goal.
+- Lines 175–176, valid token branch: `hmodelVocabVal` rewrites the projection before `hmodelVocab` matches it. Has goal `¬ W.vocab_size.val = 0 ∧ W.vocab_size.val ≤ 256`. One route is to simplify with `Nat.ne_of_gt hvpos` and `hv` instead of `hmodelVocab` in this branch. Another is to prove/rewrite the guard before rewriting the projection.
+- Remove only the two unused `WP.spec_ok` entries at lines 143 and 187, not the used line 34 entry. Remove duplicate source `#print axioms` commands if desired; independent replay appends those prints. No warning suppression. No restricted/specialized correctness claim, no extra assumptions, no placeholders, no Rust/spec/load proof changes.
+
+Same Sol thread and worktree, one writer. No git writes. Preserve the old draft. Optional bounded checking only on already-running `bx_9m9mrg3q`, pinned Lean 4.35.0, two Lean threads and guest build lock as before. No Lean on Citadel, box lifecycle actions, fallback, outside delegation, or further scope. Save the repaired draft promptly and return; the coordinator will independently replay it.

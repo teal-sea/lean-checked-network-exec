@@ -1,0 +1,41 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T02:41:38.308Z",
+  "exits": {
+    "Build": 0,
+    "Direct": 0,
+    "TypedAudit": 0
+  },
+  "warnings": {
+    "Build": 18,
+    "Direct": 0,
+    "TypedAudit": 0
+  },
+  "axioms": [
+    "'LcnExec.GeneralEngine.rescale_clamp_loop0_spec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LcnExec.GeneralEngine.rescale_clamp_spec' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "source_sha256": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+  "inner_sha256": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+  "command_id": "cmd_qdscph72ndxq",
+  "finished_at": "2026-11-23T00:45:49.260Z",
+  "files_sha256": {
+    "Build.log": "b4682aeedf1404bb7956ce49d5c262b87209b742c4ed44021ae45575101fd086",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "RescaleClamp.lean.txt": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+    "RescaleInner.lean.txt": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+    "TypedAudit.lean.txt": "d813fda84d13cecf6c5c91536ebe8ac38f7dd5f939323e2ca8a12058a38f4ec9",
+    "TypedAudit.log": "2e3c3bfeebc1edf06d70900ae2ed0d11d70010759727210274da8dfbb537de55",
+    "boat-command.json": "e528a2eab0e8e01f008299283a2f1a1945d2a3a69281c609b0709c1dd9b00dc6",
+    "exit.txt": "a17138988e1387532b5cb0bd7a23f18a11d537123873e67154dada3c6359e53e",
+    "package-replay.tar.gz": "28caf821001afa0cb0521074ca623f03e22971db43fffb003dba386e0b75eed8",
+    "BOX-WINDOW.json": "4fa67fc0169c80da1b10ca5899a3f3c11d9c19aef73cb8714c1eed5864c3e73a",
+    "StandaloneReplay.json": "144a1ef5264e787e7276d8dd80e8acee7966b06a25e5f1e23c78f2bf17f7e63b",
+    "StandaloneReplay.tar.gz": "c62abbc49c01970ff71ebbe67047a614146640433c844c58b34739fea7ea1014",
+    "StandaloneAxioms.log": "2e3c3bfeebc1edf06d70900ae2ed0d11d70010759727210274da8dfbb537de55"
+  },
+  "worker_checkpoint": "6eef3f9b83ec14aca04185e06f0e9c33d41f018a",
+  "module_path": "lean/LcnExec/GeneralEngine/RescaleClamp.lean",
+  "source_draft_commit": "b68b9313aaf80fb73830bde2d8b2b1235ede9ab5",
+  "scope": "Lean proved the exact translated 32-row rescale and clamp, including safe successful execution and row bounds. Full proof module build and exact imported theorem type checked. No output projection or full engine theorem accepted by this receipt."
+}

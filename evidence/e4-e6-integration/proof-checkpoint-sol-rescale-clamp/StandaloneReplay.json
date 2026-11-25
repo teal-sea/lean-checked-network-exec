@@ -1,0 +1,33 @@
+{
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T02:41:38.308Z",
+  "source_sha256": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+  "inner_sha256": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+  "layer_forward_sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+  "exits": {
+    "Inner": 0,
+    "Outer": 0,
+    "Axioms": 0
+  },
+  "errors": [],
+  "warnings": {
+    "Inner": 0,
+    "Outer": 0,
+    "Axioms": 0
+  },
+  "command_id": "cmd_sthc3weijfja",
+  "finished_at": "2026-11-23T00:43:44.840Z",
+  "files_sha256": {
+    "Axioms.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Axioms.log": "2e3c3bfeebc1edf06d70900ae2ed0d11d70010759727210274da8dfbb537de55",
+    "Inner.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Inner.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Outer.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Outer.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "RescaleInner.lean.txt": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+    "RescaleOuter.lean.txt": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+    "boat-command.json": "3dc4419d323502104c405103f7fad60101fe44413467d8c4761d37a72e313b1e",
+    "outer-replay.tar.gz": "c62abbc49c01970ff71ebbe67047a614146640433c844c58b34739fea7ea1014",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a"
+  }
+}

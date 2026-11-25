@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_zixe4ikdgjf9",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T20:34:31.831Z",
+  "launcherFailed": false,
+  "noticedMs": 9,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 9,
+  "startedAt": "2026-11-22T20:34:08.719Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-output-fd86707-dWS6565W\ne8a059b0f265fbe05364546d83df9fdfdc875c8707a1252bcf228887959fe604  /home/user/e4/qa-output-fd86707-dWS6565W.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

@@ -1,0 +1,14 @@
+{
+  "box": "bx_9m9mrg3q",
+  "state": "idle",
+  "archive_after": "2026-11-23T03:56:20.284Z",
+  "local_stop": "9:56 PM CST",
+  "ttl_seconds": 7200,
+  "included_before": 471.81,
+  "maximum_included_hours": 4,
+  "requested_at": "2026-11-23T01:56:16.492508+00:00",
+  "verified_at": "2026-11-23T01:56:27.622938+00:00",
+  "base": "da4aa9c312a2cb47951b21657d105f1b55b738c9",
+  "scope": "Verify output projection and continue the exact engine proof, same Sol thread and existing box only. No extension, push, merge or publication.",
+  "resume_stdout_sha256": "252ccd0d82a7bed863b3656efd36a55b865e3554fbb798366083c45be650f83b"
+}

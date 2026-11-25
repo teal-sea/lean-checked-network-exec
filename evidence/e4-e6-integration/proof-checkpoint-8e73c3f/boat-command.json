@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_m7oz1xmtrphv",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T18:46:52.749Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 3,
+  "startedAt": "2026-11-22T18:46:48.739Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-residual-8e73c3f-zVRuRuiF\n1842bf7dd5adf54fb70e9014d8780cbae6c1dbfb08f1ef958343fedd21e5dc7e  /home/user/e4/qa-residual-8e73c3f-zVRuRuiF.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

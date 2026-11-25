@@ -1,0 +1,151 @@
+import LcnExec.GeneralEngine.Residual
+
+set_option maxHeartbeats 800000
+
+/-!
+# The MLP hidden inner dot loop `general_engine.mlp_hidden_loop0_loop0`
+
+`acc = sum_k r[k] * win[k][i]` over `k < 128` (the `win` column at `i < 512`),
+with the input weights returned unchanged. Exact `GeneralModel.dot` against the
+`win` column and the `±Envelope.hidden_pre` bound (128 * residual * 82).
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- The `win` column for hidden index `i`: entries `win[k][i]`. -/
+def winColumn (w : general_engine.Weights) (l i : Nat) : List Int :=
+  ((w.layers.val[l]!).win.val).map (fun row => (row.val[i]!).val)
+
+theorem winColumn_length (w : general_engine.Weights) (l i : Nat) :
+    (winColumn w l i).length = 128 := by
+  simp [winColumn]
+
+theorem mlp_hidden_inner_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2)
+    (r : Array I64 128#usize) (hr : Bounded Envelope.residual r)
+    (i : Usize) (hi : i.val < 512) :
+    general_engine.mlp_hidden_loop0_loop0 W l r i 0#i64 0#usize ⦃ r' =>
+      r'.1 = W ∧
+      r'.2.val = GeneralModel.dot (ints r) (winColumn W l.val i.val) ∧
+      -Envelope.hidden_pre ≤ r'.2.val ∧ r'.2.val ≤ Envelope.hidden_pre ⦄ := by
+  have hL := layerBounds hW l hl
+  have hrc : ∀ x ∈ (ints r), -Envelope.residual ≤ x ∧ x ≤ Envelope.residual := by
+    intro x hx
+    rcases (by simpa [ints] using hx : ∃ v ∈ r.val, v.val = x) with ⟨v, hv, rfl⟩
+    exact hr v hv
+  have hcc : ∀ x ∈ winColumn W l.val i.val, -(82 : Int) ≤ x ∧ x ≤ 82 := by
+    intro x hx
+    rcases List.mem_map.mp hx with ⟨row, hrow, rfl⟩
+    have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+      getElem!_pos _ l.val (by simp; omega)
+    have hmemW : row ∈ (W.layers.val[l.val]'(by simpa using hl)).win.val := by
+      rw [← hlay]
+      exact List.getElem_mem (by simp; omega)
+    have hwm := hL.win row hrow
+    have hmem2 : (row.val[i.val]!) ∈ row.val := by
+      rw [getElem!_pos _ i.val (by simp; omega)]
+      exact List.getElem_mem (by simp; omega)
+    exact hwm _ hmem2
+  have hbd : -Envelope.hidden_pre ≤ GeneralModel.dot (ints r)
+      (winColumn W l.val i.val) ∧
+      GeneralModel.dot (ints r) (winColumn W l.val i.val) ≤
+        Envelope.hidden_pre := by
+    have hd := project_dot_bound (ints r) (winColumn W l.val i.val)
+      Envelope.residual 82 (by simp only [Envelope.residual]; norm_num)
+      (by simp only [winColumn_length]) hrc hcc
+    have hnum : 128 * Envelope.residual * 82 ≤ Envelope.hidden_pre := by
+      simp only [Envelope.residual, Envelope.hidden_pre]
+      norm_num
+    have hlen : (winColumn W l.val i.val).length ≤ 128 := by
+      rw [winColumn_length]
+    omega
+  unfold general_engine.mlp_hidden_loop0_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : I64 × Usize) => 128 - st.2.val)
+    (inv := fun (st : I64 × Usize) =>
+      st.2.val ≤ 128 ∧
+      st.1.val + GeneralModel.dot ((ints r).drop st.2.val)
+          ((winColumn W l.val i.val).drop st.2.val) =
+        GeneralModel.dot (ints r) (winColumn W l.val i.val) ∧
+      -(5253256708096 * 82) * (st.2.val : Int) ≤ st.1.val ∧
+      st.1.val ≤ (5253256708096 * 82) * (st.2.val : Int))
+  · rintro ⟨acc, t⟩ ⟨ht1, hacc, hlo, hhi⟩
+    unfold general_engine.mlp_hidden_loop0_loop0.body
+    dsimp only at ht1 hacc hlo hhi ⊢
+    simp only [general_engine.D_MODEL]
+    split
+    · have ht128 : t.val < 128 := by scalar_tac
+      rw [dot_drop _ _ _ (by rw [ints_length128]; omega)
+        (by rw [winColumn_length]; omega)] at hacc
+      step as ⟨i1v, hi1⟩
+      step as ⟨lw, hlw⟩
+      subst hlw
+      step as ⟨a, ha⟩
+      step as ⟨i2v, hi2⟩
+      step as ⟨i3v, hi3⟩
+      have hrb : -5253256708096 ≤ i1v.val ∧ i1v.val ≤ 5253256708096 :=
+        hrc _ (by simp [hi1])
+      have hxi : (ints r)[t.val]'(by rw [ints_length128]; omega) = i1v.val := by
+        simp [ints, hi1]
+      have hcol : (winColumn W l.val i.val)[t.val]'(by rw [winColumn_length]; omega)
+          = i3v.val := by
+        have hlay : (W.layers.val[l.val]!) = W.layers.val[l.val]'(by simpa using hl) :=
+          getElem!_pos _ l.val (by simp; omega)
+        have hwin : ((W.layers.val[l.val]!).win.val[t.val]!) = a := by
+          rw [hlay]
+          rw [getElem!_pos _ t.val (by simp; omega)]
+          exact ha.symm
+        simp only [winColumn, List.getElem_map, hwin]
+        rw [getElem!_pos _ i.val (by simp; omega)]
+        rw [← hi2, hi3]
+      have hcb : -(82 : Int) ≤ i3v.val ∧ i3v.val ≤ 82 := by
+        have hct := hcc _ (List.getElem_mem (by rw [winColumn_length]; omega))
+        rw [hcol] at hct
+        exact hct
+      have hprod : -(5253256708096 * 82) ≤ i1v.val * i3v.val ∧
+          i1v.val * i3v.val ≤ 5253256708096 * 82 := by
+        constructor <;> nlinarith [mul_nonneg (by omega : 0 ≤ i1v.val + 5253256708096)
+          (by omega : 0 ≤ i3v.val + 82),
+          mul_nonneg (by omega : 0 ≤ i1v.val + 5253256708096) (by omega : 0 ≤ 82 - i3v.val),
+          mul_nonneg (by omega : 0 ≤ 5253256708096 - i1v.val) (by omega : 0 ≤ i3v.val + 82),
+          mul_nonneg (by omega : 0 ≤ 5253256708096 - i1v.val) (by omega : 0 ≤ 82 - i3v.val)]
+      have hminb : I64.min ≤ i1v.val * i3v.val := by
+        have hpp := hprod
+        scalar_tac
+      have hmaxb : i1v.val * i3v.val ≤ I64.max := by scalar_tac
+      step with I64.mul_spec hminb hmaxb as ⟨i4, hi4⟩
+      have hmina : I64.min ≤ acc.val + i4.val := by scalar_tac
+      have hmaxa : acc.val + i4.val ≤ I64.max := by scalar_tac
+      step with I64.add_spec hmina hmaxa as ⟨acc1, hacc1⟩
+      step as ⟨t1, ht1'⟩
+      have ht1v : t1.val = t.val + 1 := by scalar_tac
+      rw [hxi, hcol] at hacc
+      rw [ht1v]
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · rw [dot_drop _ _ _ (by rw [ints_length128]; omega)
+          (by rw [winColumn_length]; omega)]
+        rw [← hacc, hacc1, hi4]
+        omega
+      · have hpp : -(5253256708096 * 82) ≤ i1v.val * i3v.val ∧
+            i1v.val * i3v.val ≤ 5253256708096 * 82 := hprod
+        omega
+      · have hpp : -(5253256708096 * 82) ≤ i1v.val * i3v.val ∧
+            i1v.val * i3v.val ≤ 5253256708096 * 82 := hprod
+        omega
+    · have ht128 : t.val = 128 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨rfl, ?_, hlo, hhi⟩
+      have hdrop : (ints r).drop 128 = [] := by
+        rw [List.drop_all (by rw [ints_length128])]
+      have hdropc : (winColumn W l.val i.val).drop 128 = [] := by
+        rw [List.drop_all (by rw [winColumn_length])]
+      rw [hdrop, hdropc] at hacc
+      simpa using hacc.symm
+  · simp only
+    refine ⟨by scalar_tac, ?_, by norm_num, by norm_num⟩
+    simp only [List.drop_zero]
+    omega
+
+end LcnExec.GeneralEngine

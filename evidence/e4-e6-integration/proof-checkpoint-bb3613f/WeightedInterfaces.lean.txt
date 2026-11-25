@@ -1,0 +1,18 @@
+import LcnExec.GeneralEngine.ValueScan
+open Aeneas Aeneas.Std Result ControlFlow
+open LcnExec.GeneralEngine
+#check List.take_add_one
+#check List.getElem?_eq_getElem
+#check List.range_succ
+#check List.foldl_append
+#check list_sum_nonneg
+#check Int.shiftRight_eq_div_pow
+example (l : List Int) (n : Nat) (hn : n < l.length) :
+    (l.take (n + 1)).sum = (l.take n).sum + l[n] := by
+  rw [List.take_add_one, List.getElem?_eq_getElem hn, Option.toList_some]
+  simp only [List.sum_append, List.sum_cons, List.sum_nil, Int.add_zero]
+example (vs : Array (Array I64 32#usize) 32#usize) (j : Usize) (hj : j.val < 32)
+    (a : Array I64 32#usize) (ha : a = vs.val[j.val]'(by simpa using hj)) :
+    (vals2 vs)[j.val]'(by rw [vals2_length]; exact hj) = ints a := by
+  simp only [vals2, List.getElem_map, ha]
+#print axioms LcnExec.GeneralEngine.value_scan_spec

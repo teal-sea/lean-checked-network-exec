@@ -1,0 +1,101 @@
+{
+  "mode": "after",
+  "environment": "Node DOM fixture with real Wasm",
+  "approved_sha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+  "rejected_sha256": "1fa57ccaa37196a842ffc7113c1253f6cfd6dc26b64d164e9f296945229b207a",
+  "events": [
+    {
+      "label": "trained startup weights",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "Trained byte model · GLMW v1 · 479,504 bytes",
+      "name": "tiny_bytelm_v1.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "",
+      "generated": "",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    },
+    {
+      "label": "valid custom upload and generation",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "approved-custom.bin: approved custom GLMW v1 weights",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "4 tokens · 410.9 ms/token · greedy",
+      "generated": " sav",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    },
+    {
+      "label": "actual file-input handler rejected out-of-range payload",
+      "badge": "load_check: FAIL",
+      "note": "qa-invalid.bin rejected: the GLMW parser or engine bounds check failed. Restore valid weights to resume generation.",
+      "name": "approved-custom.bin",
+      "generateDisabled": true,
+      "restoreVisible": true,
+      "stats": "generation paused: rejected weights",
+      "generated": "",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": -1,
+      "wasmLogitsAccepted": false
+    },
+    {
+      "label": "generation attempted after rejection",
+      "badge": "load_check: FAIL",
+      "note": "qa-invalid.bin rejected: the GLMW parser or engine bounds check failed. Restore valid weights to resume generation.",
+      "name": "approved-custom.bin",
+      "generateDisabled": true,
+      "restoreVisible": true,
+      "stats": "generation paused: rejected weights",
+      "generated": "",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": -1,
+      "wasmLogitsAccepted": false
+    },
+    {
+      "label": "explicit restore without reload",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "approved-custom.bin restored from the last approved file",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "valid weights restored · ready to generate",
+      "generated": "",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    },
+    {
+      "label": "generation after restore",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "approved-custom.bin restored from the last approved file",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "4 tokens · 378.0 ms/token · greedy",
+      "generated": " sav",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    },
+    {
+      "label": "return to approved byte weights after mod-113",
+      "badge": "load_check: PASS: all 464928 int8/i64 bounds verified",
+      "note": "approved-custom.bin restored from the last approved file",
+      "name": "approved-custom.bin",
+      "generateDisabled": false,
+      "restoreVisible": false,
+      "stats": "4 tokens · 378.0 ms/token · greedy",
+      "generated": " sav",
+      "retainedSha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+      "wasmPredict": 32,
+      "wasmLogitsAccepted": true
+    }
+  ],
+  "mod113Ui": "tokens [a, b, =] = [21, 56, 113]\npredict_next -> 77\n(a + b) mod 113 = 77\nexact",
+  "pass": true
+}

@@ -1,0 +1,37 @@
+corpus: train 142094 B (142062 windows), val 14728 B (3674 windows)
+model: 2 layers, 464128 parameters
+step     1  loss 5.5660  ema 5.5660  bpb 8.030  satur 0.000259  3s
+step    50  loss 2.9962  ema 4.6474  bpb 6.705  satur 0.0082  10s
+step   100  loss 2.4495  ema 3.3443  bpb 4.825  satur 0.0482  17s
+step   150  loss 2.2052  ema 2.6798  bpb 3.866  satur 0.0845  24s
+step   200  loss 2.1258  ema 2.3549  bpb 3.397  satur 0.127  31s
+step   250  loss 2.0686  ema 2.1846  bpb 3.152  satur 0.268  38s
+step   300  loss 1.9915  ema 2.0807  bpb 3.002  satur 0.5  45s
+step   350  loss 2.3176  ema 2.1284  bpb 3.071  satur 1.54  51s
+step   400  loss 2.6385  ema 2.3603  bpb 3.405  satur 4.82  59s
+step   450  loss 3.8101  ema 2.9147  bpb 4.205  satur 14.9  66s
+step   500  loss 7.1273  ema 4.7602  bpb 6.868  satur 51  73s
+step   550  loss 14.2264  ema 8.6416  bpb 12.467  satur 129  80s
+step   600  loss 26.2495  ema 15.8984  bpb 22.936  satur 274  87s
+step   650  loss 45.5752  ema 29.2418  bpb 42.187  satur 541  93s
+step   700  loss 63.8776  ema 46.1342  bpb 66.558  satur 880  100s
+step   750  loss 96.3644  ema 68.6619  bpb 99.058  satur 1.33e+03  106s
+step   800  loss 133.0354  ema 99.3560  bpb 143.340  satur 1.94e+03  113s
+step   850  loss 162.1697  ema 132.2750  bpb 190.833  satur 2.6e+03  121s
+step   900  loss 186.7744  ema 166.9049  bpb 240.793  satur 3.3e+03  128s
+step   950  loss 249.7239  ema 207.1237  bpb 298.816  satur 4.1e+03  135s
+step  1000  loss 321.7168  ema 255.9984  bpb 369.328  satur 5.08e+03  142s
+step  1050  loss 350.5981  ema 309.7108  bpb 446.818  satur 6.15e+03  149s
+step  1100  loss 390.4376  ema 358.6185  bpb 517.377  satur 7.13e+03  156s
+step  1150  loss 480.3826  ema 413.8623  bpb 597.077  satur 8.24e+03  163s
+step  1200  loss 529.3868  ema 463.9002  bpb 669.267  satur 9.24e+03  170s
+step  1250  loss 561.6486  ema 523.5640  bpb 755.343  satur 1.04e+04  177s
+step  1300  loss 647.9415  ema 578.9684  bpb 835.275  satur 1.15e+04  185s
+step  1350  loss 662.5385  ema 636.3712  bpb 918.090  satur 1.27e+04  192s
+step  1400  loss 734.9005  ema 687.3692  bpb 991.664  satur 1.37e+04  199s
+step  1450  loss 785.1972  ema 745.7837  bpb 1075.939  satur 1.49e+04  206s
+step  1500  loss 859.5638  ema 782.5792  bpb 1129.023  satur 1.56e+04  213s
+step  1550  loss 828.2514  ema 825.5344  bpb 1190.994  satur 1.65e+04  220s
+step  1600  loss 929.3751  ema 868.1202  bpb 1252.433  satur 1.73e+04  227s
+step  1650  loss 956.9188  ema 914.7480  bpb 1319.702  satur 1.83e+04  234s
+exit=143

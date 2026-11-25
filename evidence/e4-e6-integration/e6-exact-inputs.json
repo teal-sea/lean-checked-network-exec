@@ -1,0 +1,31 @@
+{
+  "status": "staged_for_build_not_accepted",
+  "integration_e4_checkpoint": "34b425d9edb0e504e57537440ef7d3aa86f21a0e",
+  "prototype_scaffold_revision": "f6aa052a5f035ae7392d39d80cfb26c088464c7e",
+  "accepted_engine_revision": "e54c7ffab83521246e1f5372a92b57c1168fb756",
+  "accepted_checkpoint_revision": "b4a0bc8a2c0262cb31d853480769e99419659000",
+  "frozen_inputs_sha256": {
+    "E4_lib_rs": "3fafdba15648738c43e1aa6893eccfcd73e4a1474352ba356a4e02ff31dff6e4",
+    "trained_checkpoint": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+    "mod113_checkpoint": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc"
+  },
+  "scaffold_sha256": {
+    "rust/general_engine_wasm/.cargo/config.toml": "6f4f58087f630f463709bba6857b38c61c895f24a8325070f3362bd3cf725966",
+    "rust/general_engine_wasm/Cargo.lock": "9bca5b0191a2c7dc752b2ad4ec23f39b14e0bda200abc6b73e2fe5217adeadda",
+    "rust/general_engine_wasm/Cargo.toml": "f3178bd6302fdb012c14c66392fab1e4fee1f3e1ade3ab4e8eeda0d8ec74407e",
+    "rust/general_engine_wasm/examples/e6_native.rs": "9f9789518e9e78b371c1e46ac11b5581c12f0939f55efd7bbe36a0f025cf2391",
+    "rust/general_engine_wasm/src/lib.rs": "d227eb53ba43021b18579ee37c386d917e5bbbda12f3a435e75dad91fe8997cf",
+    "rust/general_engine_wasm/tests/parse.rs": "4bf29394d0e6085ec609c0c52105f9162d87126c1ceb3a9b5e9d3307d44f62e6",
+    "scripts/e6_wasm_receipt.js": "420fec53d1e3d85fe7737c08b50c9a19677449585387699ba963580f76900c71",
+    "web/app.js": "1454df862d9b3c1bcdfd737434e9f475c51257e67dbe5d5b854790ffb748d302",
+    "web/build.sh": "02cdd024a55005c21adf1e2a5da4a82f6e6d739e60754f840cf0d85c03022120",
+    "web/index.html": "065fe0cb1fd4c4690884c1ec872ad0936e4df6d42abd6ae600f5a0afbfa01ca5",
+    "web/style.css": "c691658275aaf077e853fa6ec649ab02d9f8f6af3a14a18b4d2281df7c7b9a69"
+  },
+  "omitted_from_prototype": [
+    "web/general_engine_wasm.wasm",
+    "weights/tiny_bytelm_v1.bin",
+    "historical pass receipts and report",
+    "prototype Rust engine"
+  ]
+}

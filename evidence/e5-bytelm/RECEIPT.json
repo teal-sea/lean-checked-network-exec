@@ -1,0 +1,265 @@
+{
+  "gate": "E5 (lean-checked-network-exec): exact Python reference, trained 2-layer byte-level LM, cross-language bit-exactness",
+  "worktree": "/home/thomas/worktrees/lcn-exec-e5-bytelm-20261120",
+  "branch": "vizier/e5-tiny-bytelm-20261120",
+  "contract": {
+    "spec": "docs/SPEC-E4-E6.md",
+    "format": "GLMW v1, exactly 479,504 bytes",
+    "architecture": "n_layers=2, vocab_size=256, max_seq=32, d_model=128, n_heads=4, d_head=32, d_mlp=512, 464,128 parameters"
+  },
+  "artifacts_sha256": {
+    "weights/tiny_bytelm_v1.bin": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+    "weights/mod113_v1.bin": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc",
+    "python/bytelm/ref_engine.py": "913a4cb3361604eae18c94b1999bf21bae9c8f6a540ad6d5958e92c4887767aa",
+    "python/bytelm/make_mod113_weights.py": "64ebf96e30086356d091b67be88f23bac347f155371b9e04f39af85335124e79",
+    "python/bytelm/verify_mod113.py": "c0d1c82451046f2b6b7da694539b2fdaf5abca53c68ae0c48d0bb7bd4617d991",
+    "python/bytelm/make_corpus.py": "ada30d35bb3b0b57080b7aec3a386460050276ce6fd934e236f69307a0f96276",
+    "python/bytelm/corpus.txt": "445b7f7fb5041cca5da236be101f532b483efa8440e1cf7dc1a74a104edc1f71",
+    "python/bytelm/train_qat.py": "ddcb915feeca2e0ffad8d959b37015fc76257a7397caec2ed1a0958d8488a540",
+    "python/bytelm/eval_exact.py": "18549a33792e2e5c358ba6f0466d8fdcc82d56ef3a4e62b9f38e6567ab2b1dca",
+    "python/bytelm/parity_check.py": "4f707ea88491413f7f80526177a30f510bae9696bd69657d815a592574f2db91",
+    "python/bytelm/rust_parity_check/src/main.rs": "e85064baa7b544e925501b14c0bceac2d5c69020afdf0eac1f40c8f141613e0f",
+    "python/bytelm/rust_parity_check/Cargo.toml": "886f4322cced89fdaed357feb583efb907699e784353ada8822ea43917c6531b",
+    "evidence/e5-bytelm/mod113_sweep.txt": "64154a26700c97fe9382ef8d8f2f1b8abba7e03cce2e5952019306a66f20a652",
+    "evidence/e5-bytelm/train_result.json": "4a72b8427affbfe892c587432295b2a08962f3f4373ee91f1c6f31def12ed5db",
+    "evidence/e5-bytelm/eval_exact.json": "d9dcb8038c193b41d0c6658a4f41393fcd49d5932ea26ef942d4acabb7a54e7b",
+    "evidence/e5-bytelm/eval_exact_round2_superseded.json": "555eddc8dc66fb3439d9e0f4d57915230b9e84bbbf4b093119052202e60598dd",
+    "evidence/e5-bytelm/parity.json": "29ccaee16f612e8d3e346e618ad7fefdedd5a59efcf458c881e1347372f35beb"
+  },
+  "deliverable_1_mod113": {
+    "weights": "weights/mod113_v1.bin",
+    "bytes": 479504,
+    "load_check": true,
+    "source": "trained mod-113 integers parsed from rust/transformer/src/weights.rs (checkpoint sha256 7cea95ed..., pinned by scripts/gen_transformer_weights.py)",
+    "python_sweep": {
+      "command": "python3 python/bytelm/verify_mod113.py",
+      "exit_status": 0,
+      "pairs": 12769,
+      "wrong": 0,
+      "accuracy": "12769/12769",
+      "min_margin": 62944808481,
+      "logits_fnv1a64": "6cb24f7670e8562e",
+      "matches_pinned_rust_transformer_fixture": true,
+      "seconds": 297
+    },
+    "rust_sweep": {
+      "command": "python/bytelm/rust_parity_check/target/release/rust_parity_check mod113 weights/mod113_v1.bin",
+      "exit_status": 0,
+      "accuracy": "12769/12769",
+      "logits_fnv1a64": "6cb24f7670e8562e",
+      "note": "the Python and Rust sweeps are two independent engines computing the same check; both reproduce the pinned fixture hash 6cb24f7670e8562e, which is the single canonical 12,769-pair verdict, not a count taken twice"
+    }
+  },
+  "deliverable_2_bytelm": {
+    "weights": "weights/tiny_bytelm_v1.bin",
+    "bytes": 479504,
+    "sha256": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87",
+    "load_check": true,
+    "training": {
+      "command": "/home/thomas/venvs/bytelm-e5/bin/python python/bytelm/train_qat.py --budget-seconds 400 --max-steps 2900 --lr 2e-3",
+      "exit_status": 0,
+      "final_run": {
+        "steps": 2900,
+        "wall_seconds": 386.0,
+        "val_bits_per_byte_float_qat": 1.108,
+        "corpus_train_bytes": 142094,
+        "corpus_val_bytes": 14728,
+        "threads": 2,
+        "runtime": "PyTorch 2.15.0+cpu, float32, CPU-only"
+      },
+      "round_history": [
+        {
+          "round": 1,
+          "corpus_bytes": 246806,
+          "outcome": "completed",
+          "val_bpb_float": 3.0671,
+          "note": "no weight decay; layer-0 boxes saturate; log lost with /tmp overwrite, verdict from session record"
+        },
+        {
+          "round": 2,
+          "corpus_bytes": 242425,
+          "outcome": "completed",
+          "val_bpb_float": 3.404,
+          "note": "attention 3x lr drove full box saturation, degenerate samples",
+          "log": "evidence/e5-bytelm/training_rounds/round2_rebalanced_corpus.log"
+        },
+        {
+          "round": 3,
+          "corpus_bytes": 156822,
+          "outcome": "killed at step ~900 (diverged)",
+          "note": "quadratic saturation penalty diverged (bpb 7.8)",
+          "log": "evidence/e5-bytelm/training_rounds/round3_quadratic_penalty_diverged.log"
+        },
+        {
+          "round": 4,
+          "corpus_bytes": 156822,
+          "outcome": "killed at step ~1200 (diverged)",
+          "note": "linear saturation penalty also diverged (bpb 669)",
+          "log": "evidence/e5-bytelm/training_rounds/round4_linear_penalty_diverged.log"
+        },
+        {
+          "round": 5,
+          "corpus_bytes": 156822,
+          "outcome": "final",
+          "val_bpb_float": 1.108,
+          "note": "gentle layer 0 (0.25x init, 0.15x lr), AdamW weight decay 0.02, no-decay embeddings/biases, no penalty",
+          "log": "evidence/e5-bytelm/training_rounds/round5_final.log"
+        }
+      ],
+      "note": "the five rounds together used roughly 25 minutes of single-run-bounded training wall time on citadel; the exported checkpoint comes from round 5 alone (386 s, under the 8-minute per-run cap). No round exceeded 2 CPU threads or the 2.5 GiB budget."
+    },
+    "evaluation": {
+      "command": "/home/thomas/venvs/bytelm-e5/bin/python python/bytelm/eval_exact.py",
+      "exit_status": 0,
+      "val_windows_all": 3674,
+      "head_to_head_windows": 460,
+      "float_qat": {
+        "bits_per_byte_all": 1.438,
+        "argmax_acc_all": 0.6938,
+        "bits_per_byte_subset": 1.3866,
+        "argmax_acc_subset": 0.7043
+      },
+      "integer_engine": {
+        "bits_per_byte": 1.3866,
+        "argmax_acc": 0.7043,
+        "numpy_seconds": 12.3
+      },
+      "numpy_int_vs_ref_engine_mismatches": 0,
+      "logit_correlation": 1.0,
+      "logit_max_abs_diff": 0.000580572112927058,
+      "static_bounds_max_bits": 61,
+      "all_static_bounds_fit_i64": true,
+      "sample_grains": "float bits/byte 1.4380 is over all 3,674 validation windows; the exact-integer engine bits/byte 1.3866 and the equal float figure are over the same 460-window subset; correlation compares those same windows",
+      "samples": [
+        {
+          "prompt": "The capital of France is",
+          "completion": " Panama ",
+          "full": "The capital of France is Panama "
+        },
+        {
+          "prompt": "Rome is the capital of",
+          "completion": " Senegal i",
+          "full": "Rome is the capital of Senegal i"
+        },
+        {
+          "prompt": "A stitch in time",
+          "completion": " saves nine.\nThe",
+          "full": "A stitch in time saves nine.\nThe"
+        },
+        {
+          "prompt": "Actions speak louder",
+          "completion": " than the ro",
+          "full": "Actions speak louder than the ro"
+        },
+        {
+          "prompt": "The engine checks",
+          "completion": " every decoding",
+          "full": "The engine checks every decoding"
+        },
+        {
+          "prompt": "What is a proof? A proof is",
+          "completion": " a ch",
+          "full": "What is a proof? A proof is a ch"
+        },
+        {
+          "prompt": "two plus three is",
+          "completion": " fifteen.\nThe c",
+          "full": "two plus three is fifteen.\nThe c"
+        },
+        {
+          "prompt": "The small cat sat on",
+          "completion": "e.\nThe capit",
+          "full": "The small cat sat one.\nThe capit"
+        },
+        {
+          "prompt": "Hello. How are you? I am",
+          "completion": " finetin",
+          "full": "Hello. How are you? I am finetin"
+        },
+        {
+          "prompt": "Paris is spelled",
+          "completion": " the broth.\nThe ",
+          "full": "Paris is spelled the broth.\nThe "
+        },
+        {
+          "prompt": "Knowledge is",
+          "completion": " the broth.\nThe capi",
+          "full": "Knowledge is the broth.\nThe capi"
+        },
+        {
+          "prompt": "Better late than",
+          "completion": " never.\nThe capi",
+          "full": "Better late than never.\nThe capi"
+        },
+        {
+          "prompt": "Two heads are",
+          "completion": " better than neveni",
+          "full": "Two heads are better than neveni"
+        },
+        {
+          "prompt": "The early bird",
+          "completion": " catches the lette",
+          "full": "The early bird catches the lette"
+        },
+        {
+          "prompt": "Where is the old book? It is",
+          "completion": " bet",
+          "full": "Where is the old book? It is bet"
+        },
+        {
+          "prompt": "Monday is a day",
+          "completion": ".\nThe capital of ",
+          "full": "Monday is a day.\nThe capital of "
+        },
+        {
+          "prompt": "In January the days",
+          "completion": " grow on tree",
+          "full": "In January the days grow on tree"
+        },
+        {
+          "prompt": "The proof checks each",
+          "completion": " layer to t",
+          "full": "The proof checks each layer to t"
+        },
+        {
+          "prompt": "Greedy decoding always",
+          "completion": " takes the",
+          "full": "Greedy decoding always takes the"
+        },
+        {
+          "prompt": "Time heals",
+          "completion": " all wounds.\nThe capit",
+          "full": "Time heals all wounds.\nThe capit"
+        }
+      ],
+      "superseded": "evidence/e5-bytelm/eval_exact_round2_superseded.json holds the round-2 evaluation (3.5857 bpb) for history only; it is not a current verdict"
+    }
+  },
+  "deliverable_3_parity": {
+    "rust_binary": "python/bytelm/rust_parity_check/target/release/rust_parity_check (release, overflow-checks = true)",
+    "command": "/home/thomas/venvs/bytelm-e5/bin/python python/bytelm/parity_check.py",
+    "exit_status": 0,
+    "prompts": 200,
+    "prompt_len_range": [
+      1,
+      33
+    ],
+    "tiny_bytelm_logits_compared": 51200,
+    "tiny_bytelm_mismatches": 0,
+    "mod113_logits_compared": 22600,
+    "mod113_mismatches": 0,
+    "mod113_accuracy": "12769/12769",
+    "logit_hash_agreement": "python sweep, rust sweep and the pinned rust/transformer fixture all give 6cb24f7670e8562e",
+    "rust_tokens_per_second": 5.6,
+    "rust_bench_note": "48 prompts x 16 greedy tokens = 768 forwards; the harness Rust allocates fresh nested vectors per forward, so this is a lower bound on the engine arithmetic, not a tuned runtime"
+  },
+  "scope": {
+    "this_gate": "exact Python integer reference + GLMW v1 serializer, trained 2-layer byte-level LM checkpoint, and cross-language bit-exactness between ref_engine.py and a standalone Rust harness binary",
+    "not_this_gate": "the final E4 general_engine crate (rust/general_engine, no_std, Charon-ready) and the E6 WebAssembly browser integration are separate deliverables; the Rust code here is a parity harness, not that engine"
+  },
+  "environment": {
+    "host": "citadel (16 vCPU, 31 GiB), light CPU only, 2 threads, resident usage far below 2.5 GiB",
+    "python": "3.12 venv at /home/thomas/venvs/bytelm-e5 (torch 2.15.0+cpu, numpy 2.5.4); ref_engine.py itself is standard library only",
+    "rust": "rustc from the default toolchain, CARGO_BUILD_JOBS=2, release profile with overflow-checks"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "base": "f0ee4378c1d9a5080c4bcb035c49c2134460d2c4",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2264,
+  "generation": 34,
+  "process": "proc_2d185c57367a",
+  "termination": "repetition detector",
+  "source_sha256": "04060c4ad848964c3b5521f660863af69a58283a11494e6efb1b553855348e54",
+  "patch_script_sha256": "f8fddebe882d5e74de7b49409ef5664ea83eecc27f7296c5c02582e72d536783",
+  "dependency_sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+  "exit": 1,
+  "errors": [
+    [
+      "43",
+      "51",
+      "unexpected token '!['; expected ')', ',' or ':'"
+    ],
+    [
+      "43",
+      "34",
+      "Application type mismatch: The argument"
+    ]
+  ],
+  "archive": "rescale-inner-replay.tar.gz",
+  "archive_sha256": "b42a796fb0d39ac8873e24121b4db92e067c5ba7bf13feea367d14761fd210e6",
+  "command_id": "cmd_jnw2loz26p1g",
+  "finished_at": "2026-11-22T22:36:15.677Z",
+  "files_sha256": {
+    "RescaleInner.lean.txt": "04060c4ad848964c3b5521f660863af69a58283a11494e6efb1b553855348e54",
+    "RescaleInner.log": "222f8dbb418ee441588e548facb1abc581d9b122e2ddbdf2278b737fb4e49258",
+    "RescaleInner.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "rcfix1.py.txt": "f8fddebe882d5e74de7b49409ef5664ea83eecc27f7296c5c02582e72d536783",
+    "boat-command.json": "e56bbd926b7fb9ee35e1180210cdb29ce4a595966cc5f61ec7fa1de0bfea3b7c"
+  },
+  "scope": "Exact interrupted inner clamp draft and script preserved. No clamp loop accepted."
+}

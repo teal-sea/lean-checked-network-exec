@@ -1,0 +1,148 @@
+import LcnExec.GeneralEngine.FinalStream
+
+set_option maxHeartbeats 800000
+
+/-!
+# The whole per-position layer pipeline `general_engine.layer_forward`
+
+`attention_at -> row_at -> residual -> mlp_hidden -> mlp_output -> final_stream`,
+writing each position's row. Exact `GeneralModel.layerForward` and the
+`Bounded Envelope.final_stream` row bound for the next stage.
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem ints2_length (x : Array (Array I64 128#usize) 32#usize) :
+    (ints2 x).length = 32 := by
+  simp [ints2]
+
+theorem stream_row_bounded (x : Array (Array I64 128#usize) 32#usize)
+    (hxb : streams x) (p : Usize) (hp : p.val < 32) :
+    Bounded Envelope.embedding (x.val[p.val]'(by simpa using hp)) :=
+  hxb _ (List.getElem_mem (by simpa using hp))
+
+theorem layer_forward_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2) (x : Array (Array I64 128#usize) 32#usize)
+    (hxb : streams x) (seq_len : Usize) (hs : seq_len.val ≤ 32) :
+    general_engine.layer_forward W l x seq_len ⦃ out =>
+      ints2 out = GeneralModel.layerForward (toGeneralModel W) l.val (ints2 x)
+        seq_len.val ∧
+      ∀ row ∈ out.val, Bounded Envelope.final_stream row ⦄ := by
+  unfold general_engine.layer_forward general_engine.layer_forward_loop
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array (Array I64 128#usize) 32#usize × Usize) =>
+      32 - st.2.val)
+    (inv := fun (st : Array (Array I64 128#usize) 32#usize × Usize) =>
+      st.2.val ≤ seq_len.val ∧
+      (∀ (q : Nat) (hk : q < 32) (hik : q < st.2.val),
+        (ints2 st.1)[q]'(by rw [ints2_length]; omega) =
+        GeneralModel.blockOut (toGeneralModel W) l.val q (ints2 x)) ∧
+      (∀ (q : Nat) (hk : q < 32) (hik : st.2.val ≤ q),
+        st.1.val[q]'(by simp; omega) = Array.repeat 128#usize 0#i64) ∧
+      (∀ row ∈ st.1.val, Bounded Envelope.final_stream row))
+  · rintro ⟨o1, p⟩ ⟨hp1, heq, hsuf, hbd⟩
+    unfold general_engine.layer_forward_loop.body
+    dsimp only at hp1 heq hsuf hbd ⊢
+    split
+    · have hp : p.val < 32 := by scalar_tac
+      step with attention_at_spec W hW l hl x p hp hxb as ⟨att, hateq, hatbound⟩
+      step with row_at_spec x p hp Envelope.embedding
+        (by simp only [Envelope.embedding]; norm_num)
+        (stream_row_bounded x hxb p hp) as ⟨xp, hxeq, hxbound⟩
+      step with residual_spec xp att hxbound hatbound as ⟨r, hreq, hrbound⟩
+      step with mlp_hidden_spec W hW l hl r hrbound as ⟨m, hmeq, hmbound⟩
+      step with mlp_output_spec W hW l hl m hmbound as ⟨o, hoeq, hobound⟩
+      step with final_stream_spec r o hrbound hobound as ⟨f, hfeq, hfibound⟩
+      step with Array.update_spec o1 p f (by simp; omega) as ⟨a, ha⟩
+      step as ⟨p1, hp1'⟩
+      have hp1v : p1.val = p.val + 1 := by scalar_tac
+      simp only [hp1v]
+      refine ⟨by scalar_tac, ?_, ?_, ?_, by omega⟩
+      · intro q hk hik
+        by_cases hqq : q = p.val
+        · subst q
+          have hset : (ints2 a)[p.val]'(by rw [ints2_length]; omega) = ints f := by
+            rw [ha]
+            simp only [ints2, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_self (by simp; omega)]
+          rw [hset, hfeq]
+          simp only [GeneralModel.blockOut]
+          rw [← hateq, ← hxeq, ← hreq, ← hmeq, ← hoeq, ← hfeq]
+        · have hval : (ints2 a)[q]'(by rw [ints2_length]; omega) =
+              (ints2 o1)[q]'(by rw [ints2_length]; omega) := by
+            rw [ha]
+            simp only [ints2, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact heq q hk (by omega)
+      · intro q hk hik
+        have hval : a.val[q]'(by simp; omega) = o1.val[q]'(by simp; omega) := by
+          subst ha
+          simp only [Array.set_val_eq]
+          rw [List.getElem_set_ne (by omega)]
+        rw [hval]
+        exact hsuf q hk (by omega)
+      · intro row hrow
+        rw [ha, Array.set_val_eq o1 p f] at hrow
+        rcases List.mem_or_eq_of_mem_set hrow with h | h
+        · exact hbd row h
+        · rw [h]
+          exact hfibound
+    · have hpe : p.val = seq_len.val := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · simp [ints2_length, GeneralModel.layerForward, GeneralModel.MAX_SEQ]
+      · intro q hq1 hq2
+        have hq : q < 32 := by
+          rw [ints2_length] at hq1
+          omega
+        have hmodel : (GeneralModel.layerForward (toGeneralModel W) l.val
+            (ints2 x) seq_len.val)[q]'(by
+              simp [GeneralModel.layerForward, GeneralModel.MAX_SEQ]; omega) =
+            if q < seq_len.val then
+              GeneralModel.blockOut (toGeneralModel W) l.val q (ints2 x)
+            else GeneralModel.zeroRow := by
+          simp only [GeneralModel.layerForward, List.getElem_map,
+            List.getElem_range, GeneralModel.MAX_SEQ]
+        by_cases hqsl : q < seq_len.val
+        · rw [hmodel, ite_eq_left hqsl]
+          rw [← hpe] at hqsl
+          exact heq q (by omega) hqsl
+        · rw [hmodel, ite_eq_right hqsl]
+          have hrow : (ints2 o1)[q]'(by rw [ints2_length]; omega) =
+              GeneralModel.zeroRow := by
+            have hint : o1.val[q]'(by simp; omega) = Array.repeat 128#usize 0#i64 :=
+              hsuf q hq (by omega)
+            show (o1.val.map ints)[q]'(by simp; omega) =
+              GeneralModel.zeroRow
+            simp only [List.getElem_map]
+            rw [hint]
+            simp [ints, GeneralModel.zeroRow]
+          rw [hrow]
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_, ?_⟩
+    · intro q hq hik
+      exact absurd hik (Nat.not_lt.mpr (Nat.zero_le q))
+    · intro q hq32 hcounter
+      have hrep : (Array.repeat 32#usize
+          (Array.repeat 128#usize 0#i64)).val[q]'(by simp; omega) =
+          Array.repeat 128#usize 0#i64 := by
+        show (List.replicate 32 (Array.repeat 128#usize 0#i64))[q]'(by simp; omega) =
+          Array.repeat 128#usize 0#i64
+        exact List.getElem_replicate hq32
+      exact hrep
+    · intro row hrow
+      have hm : List.Mem row (List.replicate 32
+          (Array.repeat 128#usize 0#i64)) := hrow
+      have hrw : row = Array.repeat 128#usize 0#i64 :=
+        (List.mem_replicate.mp hm).2
+      rw [hrw]
+      intro v hv
+      rw [repeat_val_probe] at hv
+      have hev : v = 0#i64 := (List.mem_replicate.mp hv).2
+      rw [hev]
+      constructor <;> simp only [Envelope.final_stream] <;> norm_num
+end LcnExec.GeneralEngine

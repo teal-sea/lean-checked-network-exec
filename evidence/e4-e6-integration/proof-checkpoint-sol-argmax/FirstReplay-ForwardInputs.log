@@ -1,0 +1,17 @@
+/home/user/e4/qa-argmax-inputs-lB46Llmv/ForwardInputs.lean:20:4: error: Type mismatch: After simplification, term
+  Nat.min_eq_left hn
+ has type
+  @Eq ℕ (min n 32) n
+but is expected to have type
+  @Eq ℕ (min n ↑32#usize) n
+/home/user/e4/qa-argmax-inputs-lB46Llmv/ForwardInputs.lean:26:58: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 0
+  0 ≤ a ≤ 32
+  a - b ≥ 1
+where
+ a := ↑(List.take n xs).length
+ b := ↑p
+ c := ↑↑32#usize

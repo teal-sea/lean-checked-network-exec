@@ -1,0 +1,122 @@
+import LcnExec.GeneralEngine.HeadOut
+
+/-!
+# The four-head attention accumulator: inner pointwise checked add
+
+`attention_at_loop0_loop0 att ho 0` computes `att[k] := att[k] + ho[k]` for all
+`k < 128`, i.e. exactly `GeneralModel.addV (ints att) (ints ho)`, bounded by
+`b + Envelope.head_output` when the accumulator has bound `b <= 3 * head_output`.
+-/
+
+open Aeneas Aeneas Std Result ControlFlow
+
+set_option maxHeartbeats 800000
+
+namespace LcnExec.GeneralEngine
+
+theorem att_add_spec (att ho : Array I64 128#usize) (b : Int)
+    (hatt : Bounded b att) (hho : Bounded Envelope.head_output ho)
+    (hb : b ≤ 3 * Envelope.head_output) :
+    general_engine.attention_at_loop0_loop0 att ho 0#usize ⦃ r =>
+      ints r = GeneralModel.addV (ints att) (ints ho) ∧
+      Bounded (b + Envelope.head_output) r ⦄ := by
+  have hhead : (0 : Int) ≤ Envelope.head_output := by
+    simp only [Envelope.head_output]; norm_num
+  unfold general_engine.attention_at_loop0_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array I64 128#usize × Usize) => 128 - st.2.val)
+    (inv := fun (st : Array I64 128#usize × Usize) =>
+      st.2.val ≤ 128 ∧
+      Bounded (b + Envelope.head_output) st.1 ∧
+      (∀ (k : Nat) (hk : k < 128) (hik : k < st.2.val),
+        (ints st.1)[k]'(by rw [ints_length128]; omega) =
+          (ints att)[k]'(by rw [ints_length128]; omega) +
+            (ints ho)[k]'(by rw [ints_length128]; omega)) ∧
+      (∀ (k : Nat) (hk : k < 128) (hik : ¬ k < st.2.val),
+        st.1.val[k]'(by simp; omega) = att.val[k]'(by simp; omega)))
+  · rintro ⟨att1, k⟩ ⟨hk1, hbd, heq, hsuf⟩
+    unfold general_engine.attention_at_loop0_loop0.body
+    dsimp only at hk1 hbd heq hsuf ⊢
+    simp only [general_engine.D_MODEL]
+    split
+    · have hk128 : k.val < 128 := by scalar_tac
+      step with Array.index_usize_spec ho k (by simp; omega) as ⟨i, hiv⟩
+      step with Array.index_usize_spec att1 k (by simp; omega) as ⟨i1, hi1v⟩
+      -- the not-yet-written entry still equals the original accumulator's
+      have hsufk : att1.val[k.val]'(by simp; omega) = att.val[k.val]'(by simp; omega) :=
+        hsuf k.val (by omega) (by omega)
+      have hi : i ∈ ho.val := by
+        rw [hiv]
+        exact List.getElem_mem _
+      have hi1 : i1 ∈ att.val := by
+        rw [hi1v, hsufk]
+        exact List.getElem_mem _
+      obtain ⟨haLo, haHi⟩ := hatt i1 hi1
+      obtain ⟨hhLo, hhHi⟩ := hho i hi
+      have hLo : -(b + Envelope.head_output) ≤ i1.val + i.val := by omega
+      have hHi : i1.val + i.val ≤ b + Envelope.head_output := by omega
+      have hcap : b + Envelope.head_output ≤ 5251126001664 := by
+        simp only [Envelope.head_output] at hb ⊢
+        omega
+      have hminb : I64.min ≤ i1.val + i.val := by scalar_tac
+      have hmaxb : i1.val + i.val ≤ I64.max := by scalar_tac
+      step with I64.add_spec hminb hmaxb as ⟨i2, hi2⟩
+      step with Array.update_spec att1 k i2 (by simp; omega) as ⟨a, ha⟩
+      step as ⟨k1, hk1'⟩
+      simp only [hk1']
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · rw [ha]
+        exact project_bounded_set _ _ _ _ hbd
+          ⟨by rw [hi2]; omega, by rw [hi2]; omega⟩
+      · intro k' hk' hik
+        by_cases hkk : k' = k.val
+        · subst k'
+          have hset : (ints a)[k.val]'(by rw [ints_length128]; omega) = i2.val := by
+            rw [ha]
+            simp only [ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_self (by simp; omega)]
+          have hsrc : i1.val = (ints att)[k.val]'(by rw [ints_length128]; omega) := by
+            rw [hi1v, hsufk]
+            simp [ints, List.getElem_map]
+          have hhop : i.val = (ints ho)[k.val]'(by rw [ints_length128]; omega) := by
+            rw [hiv]
+            simp [ints, List.getElem_map]
+          rw [hset, hi2, hsrc, hhop]
+        · have hval : (ints a)[k']'(by rw [ints_length128]; omega) =
+              (ints att1)[k']'(by rw [ints_length128]; omega) := by
+            rw [ha]
+            simp only [ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact heq k' hk' (by omega)
+      · intro k' hk' hik
+        have hval : a.val[k']'(by simp; omega) = att1.val[k']'(by simp; omega) := by
+          rw [ha]
+          simp only [Array.set_val_eq]
+          rw [List.getElem_set_ne (by omega)]
+        rw [hval]
+        exact hsuf k' hk' (by omega)
+    · have hk128 : k.val = 128 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · simp [ints_length128, project_addV_length]
+      · intro k' hk' hk''
+        have hk'128 : k' < 128 := by simp only [ints_length128] at hk'; omega
+        have hlen : (GeneralModel.addV (ints att) (ints ho)).length = 128 :=
+          (project_addV_length (ints att) (ints ho) (by simp [ints_length128])).trans
+            (ints_length128 att)
+        rw [project_addV_get _ _ (by simp [ints_length128]) k'
+          (by rw [ints_length128]; omega)]
+        exact heq k' hk'128 (by omega)
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_, ?_⟩
+    · intro v hv
+      have hbb := hatt v hv
+      constructor <;> omega
+    · intro k' hk' hik
+      exact absurd hik (by show ¬(k' < 0); omega)
+    · intro k' hk' hik
+      trivial
+
+end LcnExec.GeneralEngine

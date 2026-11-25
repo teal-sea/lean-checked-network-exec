@@ -1,0 +1,54 @@
+{
+  "scope": "Weighted sum remains unproved at this worker checkpoint. Replays and separately checked repairs do not certify the production theorem.",
+  "worker_commit": "fa8e1aa5b65fd74ca2d42fa63312b604a25254b6",
+  "worker_admission": 2232,
+  "worker_proc": "proc_1b71e45c3e84",
+  "route": "alibaba-token-plan/glm-5.3",
+  "box": "bx_9m9mrg3q",
+  "remote_commands": {
+    "draft_replay": "cmd_wcoy7sd9d9oj",
+    "archive_and_other_replays": "cmd_xnkaumgga6vn"
+  },
+  "first_wrapper_timed_out": true,
+  "finished_at": "2026-11-21T23:38:57.276Z",
+  "build_exits": {
+    "CheckedRepairs": 0,
+    "GuestWeightedMix": 124,
+    "ValueScanAfterQuarantine": 0,
+    "WeightedDraft": 1
+  },
+  "error_positions": {
+    "CheckedRepairs": [],
+    "GuestWeightedMix": [],
+    "ValueScanAfterQuarantine": [],
+    "WeightedDraft": [
+      "141:12",
+      "157:29",
+      "160:29",
+      "163:8",
+      "166:29",
+      "169:29",
+      "172:8"
+    ]
+  },
+  "guest_draft_quarantined": true,
+  "archive": {
+    "name": "weighted-checkpoint.tar.gz",
+    "sha256": "6efae2c48f9e6a589e58d70e4a8866e6b9fa1f380987066ceeac8fee8a41a9fc",
+    "member_sha256": {
+      "CheckedRepairs.lean.txt": "d24d11c206777ab01d791c261039b8b30ac96608aaee636e03138eb0ecd1af00",
+      "GuestOriginal.uncompiled.lean.txt": "0b6609e42cb33bfa85af79b2b7bad31f0165fc0115c624e0161af30753c9e770",
+      "GuestWeightedMix.lean.txt": "0b6609e42cb33bfa85af79b2b7bad31f0165fc0115c624e0161af30753c9e770",
+      "WeightedDraft.lean.txt": "70fb70fc2eea65bcca7ad3b372927d493d0be95d30307fe55481582581671aac",
+      "CheckedRepairs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "GuestWeightedMix.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "GuestWeightedMix.wrapper-timeout.log": "e33807a3e6c5745b98f8ccd2befafeec02f34a85c3d298c7f3ef6dd3bd619e50",
+      "ValueScanAfterQuarantine.log": "a0a4ed6055545f0ce660663cced97c3f3ee9895f982ff29f8fe90af49ebd3bc0",
+      "WeightedDraft.log": "b055ae0692ec2cfa645c0076464fd9117156747775cb30a361b5ab832785d0d6",
+      "CheckedRepairs.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "GuestWeightedMix.exit": "ca2ebdf97d7469496b1f4b78958f9dc8447efdcb623953fee7b6996b762f6fff",
+      "ValueScanAfterQuarantine.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "WeightedDraft.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    }
+  }
+}

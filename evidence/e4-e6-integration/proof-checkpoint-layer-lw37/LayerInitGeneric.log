@@ -1,0 +1,18 @@
+/home/user/e4/qa-layer-init-generic-xL3yGCoW/LayerInitGeneric.lean:8:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(Array.repeat ?n ?v)
+in the target expression
+  row ∈ ↑(Array.repeat n (Array.repeat m z))
+
+n m : Usize
+z : I64
+b : ℤ
+hz : -b ≤ ↑z ∧ ↑z ≤ b
+row : Std.Array I64 m
+hrow : row ∈ ↑(Array.repeat n (Array.repeat m z))
+⊢ Bounded b row
+/home/user/e4/qa-layer-init-generic-xL3yGCoW/LayerInitGeneric.lean:19:49: error: No goals to be solved
+'LcnExec.GeneralEngine.repeated_rows_bound_probe' depends on axioms: [propext, sorryAx]
+'LcnExec.GeneralEngine.layer_zero_rows_bound_exact_probe' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

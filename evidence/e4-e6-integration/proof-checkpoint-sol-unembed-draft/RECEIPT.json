@@ -1,0 +1,35 @@
+{
+  "worker_checkpoint": "da4aa9c312a2cb47951b21657d105f1b55b738c9",
+  "base": "6eef3f9b83ec14aca04185e06f0e9c33d41f018a",
+  "clamp_receipt": "285d07c3a200782089d6af18d6f8b240c66988d9",
+  "draft_candidates": {
+    "UnembedInnerSol.lean.txt": "19d3a1346e79e011243107068b013a28db801b1065210cfdb09b36f161dd305e",
+    "UnembedOuterSol.lean.txt": "d74f8aac233af3bc05f6064fb6fcca21de9938611b81266e5b969340a63fe2e8"
+  },
+  "draft_theorems": [
+    "unembed_inner_spec",
+    "unembed_loop0_spec",
+    "unembed_spec"
+  ],
+  "arithmetic_check": {
+    "terms": 128,
+    "input_cap": 124539743797248,
+    "weight_cap": 37,
+    "product_cap": 4607970520498176,
+    "dot_cap": 589820226623766528,
+    "i64_max": 9223372036854775807
+  },
+  "lean_status": "not run",
+  "box": "bx_9m9mrg3q",
+  "box_state": "stopped",
+  "included_hours_readback": 471.81,
+  "model": "gpt-6.2-sol",
+  "thread": "01a205b6-ced0-7a10-b998-71d84b4cc9e3",
+  "next_check": "After explicit window approval, replay the exact inner then outer candidate on the same Boat box. Use pinned Lean 4.35.0 and one LcnExec scratch library root, with an exact source hash check for the inner dependency. Check the real theorem types, load bounds, arithmetic and axioms before installing. No Lean on Citadel. The full engine and browser acceptance remain open.",
+  "files_sha256": {
+    "UnembedInnerSol.lean.txt": "19d3a1346e79e011243107068b013a28db801b1065210cfdb09b36f161dd305e",
+    "UnembedOuterSol.lean.txt": "d74f8aac233af3bc05f6064fb6fcca21de9938611b81266e5b969340a63fe2e8",
+    "unembed-dispatch.json": "947f76c5427dc825ee6e237bdad2a9992f49781ca9fd5e9cf3774464f31e109a",
+    "unembed-exit.json": "3deb98ecc6eb6267a4431ccc2098720ef5cbea29bb9462532ece2b3f3acadd8a"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "commit": "b99c5056dcb2795d1fe04253689d7e0445300ba0",
+  "base": "37d6043d3850f27cf1ce12359a962ffaa833ea29",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2254,
+  "worker_process": "proc_7c6d329e3372",
+  "command_id": "cmd_86r2vk18qxbm",
+  "guest_dir": "/home/user/e4/qa-hidden-b99c505-f08rYaGa",
+  "exits": {
+    "OuterRed5": 1,
+    "Activation": 0
+  },
+  "archive": "hidden-activation-replay.tar.gz",
+  "archive_sha256": "f5eaa7cacf095e7af048f5c6854ce63e0892dad5a1a6b51516581f223be3d6e0",
+  "files_sha256": {
+    "OuterRed5.lean.txt": "716d7893f442b18ae2e1135e3998c536ad37ff3f0527e9e65dbf47f06f42a8a8",
+    "OuterRed5.log": "d973e79402faa13dbb23a8cacbbdf1576aefd8d6fc61e5795c75173b851bc917",
+    "OuterRed5.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "Activation.lean.txt": "7d4f2509f979b5acdf35cca43c15720666a9f9b6aa6038a099ca571c317283e7",
+    "Activation.log": "4308ac95818e007f808a10826c9ef890040bee0c8ce54e8f421612a07dba266e",
+    "Activation.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "boat-command.json": "a1bd4782f4dad5aab8d0516fd93672e8c2bb7c18dd4307b065a1c1145fe028fe"
+  },
+  "scope": "The complete branch bodies are draft only and the outer scan is rejected; the separate signed comparison and update-bound probes are not a scan proof."
+}

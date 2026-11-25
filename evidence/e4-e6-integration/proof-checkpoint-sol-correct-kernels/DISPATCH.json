@@ -1,0 +1,29 @@
+{
+  "runner_sha256": "f2b7bf2beb895e619d1ccb91a2504e53797f912c3241a1eb2bf8e6f32f158504",
+  "worker_checkpoint": "e54c7ffab83521246e1f5372a92b57c1168fb756",
+  "source_sha256": "5e806de0d456ff9ae53a8550c031308b9531700e107ce2c6c50640249be6d7d6",
+  "object_sha256": "c45eb777e32186c82577567461d2ee41984680828d7b802c4264e22a0542676c",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T03:56:20.284Z",
+  "remote": "/home/user/e4/qa-final-kernels-Zcsiifbe",
+  "unit": "lcn-kernels-Zcsiifbe.scope",
+  "staging_command_id": "cmd_jgbuyvx5fmy0",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=lcn-kernels-Zcsiifbe",
+    "-p",
+    "MemoryMax=11G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "--",
+    "bash",
+    "/home/user/e4/qa-final-kernels-Zcsiifbe/Runner.sh",
+    "/home/user/e4/qa-final-kernels-Zcsiifbe",
+    "1795406180"
+  ],
+  "started_at": "2026-11-23T02:49:44.462417+00:00"
+}

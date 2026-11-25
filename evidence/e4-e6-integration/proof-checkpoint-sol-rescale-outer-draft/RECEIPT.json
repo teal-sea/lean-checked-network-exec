@@ -1,0 +1,22 @@
+{
+  "worker_checkpoint": "b68b9313aaf80fb73830bde2d8b2b1235ede9ab5",
+  "base": "fe2e16691fc9e72d406d0fdf69a86c2831ecf0e4",
+  "inner_evidence": "518dd9854554cb25f4bf6d435a0f0195001bf640",
+  "inner_module_sha256": "2603c13d64dd42b8f5be823f3846925b9d9ae00455798c4388ab914cdd012932",
+  "source_sha256": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+  "draft_theorems": [
+    "rescale_clamp_loop0_spec",
+    "rescale_clamp_spec"
+  ],
+  "lean_status": "not run",
+  "box": "bx_9m9mrg3q",
+  "box_state": "stopped",
+  "model": "gpt-6.2-sol",
+  "thread": "01a205b6-ced0-7a10-b998-71d84b4cc9e3",
+  "next_check": "The inner 128-column proof compiled and passed its exact typed import at fe2e166; that verdict does not cover this outer draft. No Lean executable was run for the outer source. Resume only the existing stopped bx_9m9mrg3q after window approval. On pinned Lean 4.35.0, carry the exact RescaleInner.lean and scratch build dependencies under one LcnExec object root (see typed import retry in 518dd98). Compile the exact RescaleOuterSol.lean.txt as a scratch .lean, capture actual diagnostics, then verify both theorem types and axiom dependencies. Assess each proof obligation before installing. No Lean builds or kernel checks on Citadel.",
+  "files_sha256": {
+    "RescaleOuterSol.lean.txt": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+    "outer-dispatch.json": "0872be577ea2f45a5d5c51f7637a678b6746dad0a37347c52e0a3072c714e03b",
+    "outer-exit.json": "cf4e96730cf6f7a69f30d5d24ea5120f303c4a0c89551564eea74009e0df6f9a"
+  }
+}

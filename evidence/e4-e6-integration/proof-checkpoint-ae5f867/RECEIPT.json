@@ -1,0 +1,117 @@
+{
+  "commit": "ae5f86704097bf9f0e6f9430ac52fa27baf2ac68",
+  "parent": "33c47b3390c66d5c945f56a9659d0257ab30b06a",
+  "source_sha256": "f54a0679a7a1f9baa44b92bafbdd35a45e27bf348a25bf3e1a6acf8791c637b2",
+  "layer_draft_sha256": "8dd7795b7d6c5baa34547eb39cf953b32cc9c954d7c665fe5d67c1d1e24d493f",
+  "object_sha256": "a9e28cb84102ded30171f9d5ddb2c0f4772d0731b7b385d6b51054fdc1ea286d",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2261,
+  "generation": 31,
+  "worker_process": "proc_186403a0b87c",
+  "replay_command_id": "cmd_vy2dtjugng7p",
+  "replay_finished_at": "2026-11-22T21:37:54.229Z",
+  "exits": {
+    "Build": 0,
+    "Direct": 0,
+    "Audit": 0,
+    "LayerRed": 1
+  },
+  "warnings": {
+    "Build": 18,
+    "Direct": 0,
+    "Audit": 0,
+    "LayerRed": 2
+  },
+  "axioms": {
+    "final_stream_spec": "propext, Classical.choice, Quot.sound",
+    "final_stream_getElem": "propext, Classical.choice, Quot.sound"
+  },
+  "layer_draft_errors": [
+    [
+      "88",
+      "20",
+      "failed to synthesize instance of type class"
+    ],
+    [
+      "89",
+      "20",
+      "Type mismatch"
+    ],
+    [
+      "89",
+      "38",
+      "failed to synthesize instance of type class"
+    ],
+    [
+      "88",
+      "33",
+      "`simp` made no progress"
+    ],
+    [
+      "89",
+      "52",
+      "`simp` made no progress"
+    ],
+    [
+      "92",
+      "10",
+      "No goals to be solved"
+    ],
+    [
+      "97",
+      "27",
+      "Type mismatch"
+    ],
+    [
+      "106",
+      "8",
+      "unsolved goals"
+    ],
+    [
+      "108",
+      "8",
+      "unsolved goals"
+    ],
+    [
+      "109",
+      "12",
+      "No goals to be solved"
+    ],
+    [
+      "102",
+      "4",
+      "unsolved goals"
+    ],
+    [
+      "32",
+      "62",
+      "unsolved goals"
+    ],
+    [
+      "121",
+      "21",
+      "unexpected token 'at'; expected command"
+    ]
+  ],
+  "archive": "final-stream-and-layer-replay.tar.gz",
+  "archive_sha256": "ee5fc8a2ceddca1073470109b0a87d0062022f711d5d56a85fe9dc110f399f53",
+  "files_sha256": {
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.lean.txt": "e389becd053e56b39152bcd9d153cc7e705d950e29c01d5cfd61680f67b9a68f",
+    "Audit.log": "351445fc29bec21c497502bc1eff5863420033a39603bdfbc8953ab37cde84ac",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Build.log": "bcd70b7df32086c2c79702ffe21bd826702abd25e4192707f332ec24de277ffe",
+    "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "FinalStream.lean.txt": "f54a0679a7a1f9baa44b92bafbdd35a45e27bf348a25bf3e1a6acf8791c637b2",
+    "LayerRed.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "LayerRed.lean.txt": "8dd7795b7d6c5baa34547eb39cf953b32cc9c954d7c665fe5d67c1d1e24d493f",
+    "LayerRed.log": "296a7452e768878d437ca7d3fe29264537fcb9196b0c3fb61b8605ac9f27595b",
+    "object.sha256": "f42dd336738d4de5044e6f3f15ee1f743f8e90da80e8799278be58184b27021e",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "worker-lv16.log": "03fa34a96aa379a8801391a7228de02e294717f0766b23f42d4c45a514aff274",
+    "boat-command.json": "ec078c7d0dd35a2d1de317fc8907fb393182a020b2d6b5f62f34a99540ab8ddf"
+  },
+  "accepted": "final_stream_spec: exact final addition and signed rescaling for all 128 coordinates under residual and MLP-output bounds. The full layer draft is saved but rejected."
+}

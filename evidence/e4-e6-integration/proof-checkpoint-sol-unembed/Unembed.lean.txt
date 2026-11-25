@@ -1,0 +1,135 @@
+import LcnExec.GeneralEngine.UnembedInner
+
+set_option maxHeartbeats 800000
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+private theorem unembed_ints_length (out : Array I64 256#usize) :
+    (ints out).length = 256 := by
+  simp [ints]
+
+private theorem unembed_rows_width (W : general_engine.Weights) :
+    ∀ row ∈ (toGeneralModel W).u, row.length = 256 := by
+  intro row hrow
+  change row ∈ W.u.val.map (fun r => r.val.map (·.val)) at hrow
+  rcases List.mem_map.mp hrow with ⟨r, _, rfl⟩
+  simp
+
+private theorem unembed_column_model (W : general_engine.Weights) (v : Nat) (hv : v < 256) :
+    unembedColumn W v = (toGeneralModel W).u.map (fun row => GeneralModel.nth 0 row v) := by
+  unfold unembedColumn
+  change W.u.val.map (fun row => (row.val[v]!).val) =
+    (W.u.val.map (fun row => row.val.map (·.val))).map (fun row => GeneralModel.nth 0 row v)
+  rw [List.map_map]
+  apply List.map_congr_left
+  intro row _
+  rw [Function.comp_apply, project_nth_eq 0 (row.val.map (·.val)) v
+    (by rw [List.length_map, Array.length_eq]; exact hv)]
+  simp only [List.getElem_map]
+  rw [getElem!_pos row.val v (by rw [Array.length_eq]; exact hv)]
+
+private theorem unembed_model_length (W : general_engine.Weights) (fin : List Int) :
+    (GeneralModel.unembed (toGeneralModel W) fin).length = 256 := by
+  exact project_lincomb_length 256 fin (toGeneralModel W).u (unembed_rows_width W)
+
+private theorem unembed_model_entry (W : general_engine.Weights) (fin : List Int)
+    (v : Nat) (hv : v < 256) :
+    (GeneralModel.unembed (toGeneralModel W) fin)[v]'(by rw [unembed_model_length]; exact hv) =
+      GeneralModel.dot fin (unembedColumn W v) := by
+  unfold GeneralModel.unembed
+  rw [project_lincomb_get 256 fin (toGeneralModel W).u (unembed_rows_width W) v hv,
+    ← unembed_column_model W v hv]
+
+theorem unembed_loop0_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (fin : Array I64 128#usize) (hfin : Bounded Envelope.final_stream fin) :
+    general_engine.unembed_loop0 W fin (Array.repeat 256#usize 0#i64) 0#usize ⦃ out =>
+      ints out = GeneralModel.unembed (toGeneralModel W) (ints fin) ∧
+      Bounded Envelope.logit out ⦄ := by
+  unfold general_engine.unembed_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : general_engine.Weights × Array I64 256#usize × Usize) =>
+      256 - st.2.2.val)
+    (inv := fun (st : general_engine.Weights × Array I64 256#usize × Usize) =>
+      st.2.2.val ≤ 256 ∧
+      st.1 = W ∧
+      Bounded Envelope.logit st.2.1 ∧
+      (∀ (q : Nat) (hq : q < 256) (hiq : q < st.2.2.val),
+        (ints st.2.1)[q]'(by rw [unembed_ints_length]; exact hq) =
+          GeneralModel.dot (ints fin) (unembedColumn W q)) ∧
+      (∀ (q : Nat) (hq : q < 256) (hiq : st.2.2.val ≤ q),
+        st.2.1.val[q]'(by rw [Array.length_eq]; exact hq) = 0#i64))
+  · rintro ⟨w, out, v⟩ ⟨hv1, hw, hbd, heq, hsuf⟩
+    dsimp only at hw
+    subst w
+    unfold general_engine.unembed_loop0.body
+    dsimp only at hv1 hbd heq hsuf ⊢
+    simp only [general_engine.VOCAB]
+    split
+    · have hv : v.val < 256 := by scalar_tac
+      step with unembed_inner_spec W hW fin hfin v hv as ⟨w1, acc, hw1, hdot, hlo, hhi⟩
+      subst w1
+      step with Array.update_spec out v acc (by simpa using hv) as ⟨a, ha⟩
+      step as ⟨v1, hv1'⟩
+      have hv1v : v1.val = v.val + 1 := by scalar_tac
+      simp only [hv1v]
+      refine ⟨by omega, ?_, ?_, ?_, by omega⟩
+      · rw [ha]
+        exact project_bounded_set _ _ _ _ hbd ⟨hlo, hhi⟩
+      · intro q hq hiq
+        by_cases hqv : q = v.val
+        · subst q
+          have hset : (ints a)[v.val]'(by rw [unembed_ints_length]; exact hv) = acc.val := by
+            rw [ha]
+            simp only [ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_self (by simp; omega)]
+          rw [hset, hdot]
+        · have hval : (ints a)[q]'(by rw [unembed_ints_length]; exact hq) =
+              (ints out)[q]'(by rw [unembed_ints_length]; exact hq) := by
+            rw [ha]
+            simp only [ints, Array.set_val_eq, List.getElem_map]
+            rw [List.getElem_set_ne (by omega)]
+          rw [hval]
+          exact heq q hq (by omega)
+      · intro q hq hiq
+        have hval : a.val[q]'(by rw [Array.length_eq]; exact hq) =
+            out.val[q]'(by rw [Array.length_eq]; exact hq) := by
+          subst ha
+          simp only [Array.set_val_eq]
+          rw [List.getElem_set_ne (by omega)]
+        rw [hval]
+        exact hsuf q hq (by omega)
+    · have hv256 : v.val = 256 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨?_, hbd⟩
+      apply List.ext_getElem
+      · rw [unembed_ints_length, unembed_model_length]
+      · intro q hq1 hq2
+        have hq : q < 256 := by simpa only [unembed_ints_length] using hq1
+        rw [unembed_model_entry W (ints fin) q hq]
+        exact heq q hq (by omega)
+  · simp only
+    refine ⟨by scalar_tac, trivial, ?_, ?_, ?_⟩
+    · intro z hz
+      rw [repeat_val_probe] at hz
+      rcases List.mem_replicate.mp hz with ⟨_, rfl⟩
+      constructor <;> simp only [Envelope.logit] <;> norm_num
+    · intro q hq hiq
+      exact absurd hiq (Nat.not_lt.mpr (Nat.zero_le q))
+    · intro q hq hiq
+      have hz : ∀ z ∈ (Array.repeat 256#usize 0#i64).val, z = 0#i64 := by
+        intro z hmem
+        rw [repeat_val_probe] at hmem
+        exact (List.mem_replicate.mp hmem).2
+      exact hz _ (List.getElem_mem _)
+
+theorem unembed_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (fin : Array I64 128#usize) (hfin : Bounded Envelope.final_stream fin) :
+    general_engine.unembed W fin ⦃ out =>
+      ints out = GeneralModel.unembed (toGeneralModel W) (ints fin) ∧
+      Bounded Envelope.logit out ⦄ := by
+  unfold general_engine.unembed
+  exact unembed_loop0_spec W hW fin hfin
+
+end LcnExec.GeneralEngine

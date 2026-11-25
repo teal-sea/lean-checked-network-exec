@@ -1,0 +1,56 @@
+{
+  "worker": {
+    "commit": "9a58efbd3196fd9fc42555fd55ef76172c166bcd",
+    "base": "950f84c706be08acf2b3074fd60a79bfb26b2d82",
+    "admission": 2243,
+    "generation": 18,
+    "process": "proc_0f128e848b43",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "scope": "Exact four-head translated loop and attention_at entrypoint, including the arithmetic bound. Not the full engine or the browser demo.",
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-22T19:01:44.842Z",
+    "command_id": "cmd_lcdg5spxttrx",
+    "finished_at": "2026-11-22T17:31:25.613Z",
+    "exits": {
+      "Build": 0,
+      "Direct": 0,
+      "Audit": 0
+    },
+    "warnings": {
+      "Build": 18,
+      "Direct": 0,
+      "Audit": 0
+    },
+    "axioms": {
+      "attention_at_spec": "propext, Classical.choice, Quot.sound",
+      "attention_loop0_spec": "propext, Classical.choice, Quot.sound",
+      "att_fold_succ_probe": "propext, Quot.sound",
+      "att_alpha_nonneg_probe": "propext, Classical.choice, Quot.sound",
+      "ints_repeat128": "propext, Classical.choice, Quot.sound"
+    },
+    "matched_inputs": 21,
+    "archive": "attention-at-replay.tar.gz",
+    "archive_sha256": "674760b26aaf1ab3749a327c2ef98d304cbf3ece5eb4d4c42735d89ba78470e7",
+    "source_sha256": "0ea79d3db5035400c806fee51784155a377a8f506fd02be8ce391bc9180015ed",
+    "direct_object_sha256": "9864d881e12294e703516279a1ff73e97fc7f1ae3782a62c37a30cd4597aae67",
+    "library_object_sha256": "51046223063c3ff1437065141caea7ff57ca44faf224f311900b7fa2eadcfa79",
+    "files_sha256": {
+      "AttentionAt.lean.txt": "0ea79d3db5035400c806fee51784155a377a8f506fd02be8ce391bc9180015ed",
+      "Audit.lean.txt": "2e373955ff7d7d583988fbdbbe35f106f20fec4d53bfd792cad3941779ddf456",
+      "inputs.sha256": "6357024305556369e4efe22874e97d29b92131d4c337cb2d49d181badbd8a1cf",
+      "before.log": "436ac5bf2e2c4122ef190b7f093d332b4fdacc19891fb08fcdf69ea2e44be2a0",
+      "after.log": "436ac5bf2e2c4122ef190b7f093d332b4fdacc19891fb08fcdf69ea2e44be2a0",
+      "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+      "Build.log": "b1e6be42446dba4a09485b4c1795c7809ffe0993b64a5bb4dcf98f3b01e1ca61",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.log": "0aa99e8a28f5faf357e71aa35e1910d58153d4c04c55c020a6d6b69da70da72a",
+      "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "direct-object.sha256": "4b2d49bb6e5690c4a12d9fe4c330302ee15ad82bf6da8463340eed5b8570d6aa",
+      "lake-object.sha256": "b6e685db42cd5ab78ae5c96386f97b7ee4035a132caa51296c37182ec5643e74"
+    }
+  }
+}

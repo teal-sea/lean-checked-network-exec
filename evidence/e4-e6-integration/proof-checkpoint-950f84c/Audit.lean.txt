@@ -1,0 +1,19 @@
+import LcnExec.GeneralEngine.AttentionPrefix
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (xs ys : List Int) (p j : Nat) (hlen : p + 1 ≤ xs.length)
+    (htake : xs.take (p + 1) = ys) (hj : j ≤ p) :
+    GeneralModel.nth 0 xs j = GeneralModel.nth 0 ys j :=
+  nth_prefix_probe xs ys p hlen htake j hj
+example (W : GeneralModel.Weights) (p : Nat) (s t : List Int)
+    (h : ∀ j, j ≤ p → GeneralModel.nth 0 s j = GeneralModel.nth 0 t j) :
+    GeneralModel.softmaxAt W s p = GeneralModel.softmaxAt W t p :=
+  softmax_prefix_probe W s t p h
+example (W : GeneralModel.Weights) (l hd p : Nat) (rows : List (List Int))
+    (a a' : List Int) (h : ∀ j, j ≤ p → GeneralModel.nth 0 a j = GeneralModel.nth 0 a' j) :
+    GeneralModel.headOutAt W l hd p rows a = GeneralModel.headOutAt W l hd p rows a' :=
+  head_alpha_prefix_probe W l hd p rows a a' h
+#print axioms nth_prefix_probe
+#print axioms softmax_prefix_probe
+#print axioms head_alpha_prefix_probe
+end LcnExec.GeneralEngine

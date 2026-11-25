@@ -1,0 +1,98 @@
+import LcnExec.GeneralEngine.WeightedMix
+
+/-!
+# The 32-coordinate outer mix scan `general_engine.head_out_at_loop1`
+
+Each coordinate `i < 32` is the signed `>>> 16` of the inner weighted sum starting from
+zero. Exact `GeneralModel.mixAt` equality plus `Bounded Envelope.mixed_value`.
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- The reference fold of `mixAt` at coordinate `i` stays within the numerator envelope. -/
+theorem mix_fold_bound (p : Usize) (hp : p.val < 32)
+    (alpha : Array I64 32#usize) (vs : Array (Array I64 32#usize) 32#usize)
+    (i : Usize) (hi : i.val < 32)
+    (halpha : ∀ j (_ : j ≤ p.val), 0 ≤ (ints alpha)[j]'(by rw [ints_length32]; omega))
+    (hsum : ((ints alpha).take (p.val + 1)).sum ≤ 16777216)
+    (hvs : ∀ row ∈ vs.val, Bounded Envelope.value row) :
+    -28909424869376 ≤ (List.range (p.val + 1)).foldl
+        (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+          GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0 ∧
+    (List.range (p.val + 1)).foldl
+        (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+          GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0
+      ≤ 28909424869376 := by
+  have hvv : Envelope.value = 1723136 := by simp only [Envelope.value]
+  have key : ∀ k (_ : k ≤ p.val + 1),
+      -(Envelope.value * ((ints alpha).take k).sum) ≤ (List.range k).foldl
+          (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+            GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0 ∧
+      (List.range k).foldl
+          (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+            GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0
+        ≤ Envelope.value * ((ints alpha).take k).sum := by
+    intro k hk
+    induction k with
+    | zero =>
+      constructor <;> simp
+    | succ k ih =>
+      have hk' : k ≤ p.val := by omega
+      have ihsucc := ih (by omega)
+      have hfs : (List.range (k + 1)).foldl
+          (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+            GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0
+          = (List.range k).foldl
+              (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+                GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0
+            + (GeneralModel.nth 0 (ints alpha) k *
+              GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) k) i.val) := by
+        rw [List.range_succ, List.foldl_append]
+        simp
+      have hal : 0 ≤ (ints alpha)[k]'(by rw [ints_length32]; omega) := halpha k (by omega)
+      have hrow : (vals2 vs)[k]'(by rw [vals2_length]; omega) = ints (vs.val[k]'(by simp; omega)) := by
+        simp [vals2]
+      have hve : -Envelope.value ≤ GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) k) i.val ∧
+          GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) k) i.val ≤ Envelope.value := by
+        have hvrow : Bounded Envelope.value (vs.val[k]'(by simp; omega)) :=
+          hvs _ (List.getElem_mem (by simp; omega))
+        have hnth := project_nth_eq [] (vals2 vs) k (by rw [vals2_length]; omega)
+        have hrownth := project_nth_eq 0 ((vals2 vs)[k]'(by rw [vals2_length]; omega)) i.val
+          (show i.val < ((vals2 vs)[k]'(by rw [vals2_length]; omega)).length from by
+            simp [vals2, List.getElem_map, ints_length32]; omega)
+        have hchain : GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) k) i.val
+            = (ints (vs.val[k]'(by simp; omega)))[i.val]'(by rw [ints_length32]; omega) :=
+          (congrArg (fun row => GeneralModel.nth 0 row i.val) (hnth.trans hrow)).trans
+            (project_nth_eq 0 (ints (vs.val[k]'(by simp; omega))) i.val
+              (by rw [ints_length32]; omega))
+        rw [hchain]
+        simp only [ints, List.getElem_map]
+        exact hvrow _ (List.getElem_mem (by simp; omega))
+      have hnum : GeneralModel.nth 0 (ints alpha) k =
+          (ints alpha)[k]'(by rw [ints_length32]; omega) :=
+        project_nth_eq 0 (ints alpha) k (by rw [ints_length32]; omega)
+      have hb := acc_update_bound (B := Envelope.value)
+        (s := ((ints alpha).take k).sum) (a := (ints alpha)[k]'(by rw [ints_length32]; omega))
+        (v := GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) k) i.val)
+        (acc := (List.range k).foldl
+          (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j *
+            GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val) 0)
+        hal hve.1 hve.2 ihsucc.1 ihsucc.2
+      rw [hfs, hnum]
+      constructor
+      · rw [take_sum_succ (by rw [ints_length32]; omega)]
+        exact hb.1
+      · rw [take_sum_succ (by rw [ints_length32]; omega)]
+        exact hb.2
+  have hfin := key (p.val + 1) (by omega)
+  have hpp : Envelope.value * ((ints alpha).take (p.val + 1)).sum ≤ 28909424869376 := by
+    rw [hvv]
+    have h1 : ((ints alpha).take (p.val + 1)).sum * 1723136 ≤ 16777216 * 1723136 :=
+      mul_le_mul_of_nonneg_right hsum (by norm_num : (0 : Int) ≤ 1723136)
+    have h2 : 16777216 * 1723136 = 28909424869376 := by norm_num
+    nlinarith
+  constructor <;> omega
+
+end LcnExec.GeneralEngine

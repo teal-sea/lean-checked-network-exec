@@ -1,0 +1,41 @@
+/home/user/e4/qa-sol-unembed-x21RBToo/LcnExec/GeneralEngine/Unembed.lean:73:52: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (↑?a).length
+in the target expression
+  ↑v < out.length
+
+W : general_engine.Weights
+hW : LoadBounds W
+fin : Std.Array I64 128#usize
+hfin : Bounded Envelope.final_stream fin
+out : Std.Array I64 256#usize
+v : Usize
+hv1 : ↑v ≤ 256
+hbd : Bounded Envelope.logit out
+heq : ∀ (q : ℕ) (hq : q < 256), q < ↑v → (ints out)[q] = GeneralModel.dot (ints fin) (unembedColumn W q)
+hsuf : ∀ (q : ℕ) (hq : q < 256), ↑v ≤ q → (↑out)[q] = 0#i64
+h✝ : v < 256#usize
+hv : ↑v < 256
+acc : I64
+hdot : ↑acc = GeneralModel.dot (ints fin) (unembedColumn W ↑v)
+hlo : -Envelope.logit ≤ ↑acc
+hhi : ↑acc ≤ Envelope.logit
+⊢ ↑v < out.length
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (256 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-sol-unembed-x21RBToo/LcnExec/GeneralEngine/Unembed.lean:113:27: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.367 = ?m.367
+but is expected to have type
+  True
+in the application
+  And.intro rfl

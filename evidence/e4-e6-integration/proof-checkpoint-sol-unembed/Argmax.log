@@ -1,0 +1,43 @@
+/home/user/e4/qa-unembed-package-bRpGOPpO/GeneralArgmax.lean:56:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ints l)[↑c]
+in the target expression
+  (List.take (↑vocab_size) (ints l))[↑c] = ↑v
+
+l : Std.Array I64 256#usize
+vocab_size : Usize
+hvpos : 0 < ↑vocab_size
+hvmax : ↑vocab_size ≤ 256
+xs : List ℤ := List.take (↑vocab_size) (ints l)
+hlen : (ints l).length = 256
+hxs : xs.length = ↑vocab_size
+first : I64
+hfirst : first = (↑l)[0]
+hfirstval : GeneralModel.nth 0 (ints l) 0 = ↑first
+hmodel : GeneralModel.argmaxN (ints l) ↑vocab_size = GeneralModel.argmaxFrom (List.drop 1 xs) 1 0 ↑first
+best : Usize
+bv : I64
+c : Usize
+hbest : ↑best < ↑c
+hc : ↑c ≤ ↑vocab_size
+h✝ : c < vocab_size
+hcv : ↑c < ↑vocab_size
+hc256 : ↑c < 256
+hcx : ↑c < xs.length
+heq :
+  (if xs[↑c] > ↑bv then GeneralModel.argmaxFrom (List.drop (↑c + 1) xs) (↑c + 1) (↑c) xs[↑c]
+    else GeneralModel.argmaxFrom (List.drop (↑c + 1) xs) (↑c + 1) ↑best ↑bv) =
+    GeneralModel.argmaxN (ints l) ↑vocab_size
+v : I64
+hv : v = (↑l)[↑c]
+⊢ (List.take (↑vocab_size) (ints l))[↑c] = ↑v
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (256 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)

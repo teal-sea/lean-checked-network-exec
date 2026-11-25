@@ -1,0 +1,13 @@
+[package]
+name = "rust_parity_check"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Overflow is an error in every profile: the evaluator is fixed-width, and a
+# wrapped sum would be a wrong answer with no signal.
+[profile.dev]
+overflow-checks = true
+
+[profile.release]
+overflow-checks = true

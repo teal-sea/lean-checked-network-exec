@@ -1,0 +1,113 @@
+[Info ] Imported: /home/thomas/worktrees/lcn-exec-engine-20261118/.work/translate/engine.llbc
+Applied prepasses:  [--------------------------------------------------]  0/57 ⠋
+
+Applied prepasses:  [--------------------------------------------------]  1/57 ⠙
+
+Applied prepasses:  [#################---------------------------------] 20/57 ⠹
+
+Applied prepasses:  [##################--------------------------------] 21/57 ⠹
+
+Applied prepasses:  [#####################-----------------------------] 24/57 ⠹
+
+Applied prepasses:  [#######################---------------------------] 27/57 ⠹
+
+Applied prepasses:  [##########################------------------------] 30/57 ⠸
+
+Applied prepasses:  [#############################################-----] 52/57 ⠸
+Applied prepasses:  [##################################################] 57/57 ✔️
+Translated globals:  [-------------------------------------------------]  0/12 ⠋
+Translated globals:  [#################################################] 12/12 ✔️
+Translated opaque functions:  [----------------------------------------]  0/12 ⠋
+
+Translated opaque functions:  [###-------------------------------------]  1/12 ⠋
+Translated opaque functions:  [########################################] 12/12 ✔️
+Translated transparent functions:  [-----------------------------------]  0/33 ⠋
+
+Translated transparent functions:  [#----------------------------------]  1/33 ⠙
+
+Translated transparent functions:  [#############----------------------] 13/33 ⠹
+
+Translated transparent functions:  [##############---------------------] 14/33 ⠹
+
+Translated transparent functions:  [###############--------------------] 15/33 ⠸
+
+Translated transparent functions:  [##################-----------------] 17/33 ⠼
+
+Translated transparent functions:  [####################---------------] 19/33 ⠼
+
+Translated transparent functions:  [######################-------------] 21/33 ⠼
+
+Translated transparent functions:  [#######################------------] 22/33 ⠴
+
+Translated transparent functions:  [########################-----------] 23/33 ⠦
+
+Translated transparent functions:  [#########################----------] 24/33 ⠧
+
+Translated transparent functions:  [##########################---------] 25/33 ⠇
+
+Translated transparent functions:  [###########################--------] 26/33 ⠇
+
+Translated transparent functions:  [############################-------] 27/33 ⠏
+
+Translated transparent functions:  [#############################------] 28/33 ⠏
+
+Translated transparent functions:  [##############################-----] 29/33 ⠋
+
+Translated transparent functions:  [###############################----] 30/33 ⠙
+
+Translated transparent functions:  [################################---] 31/33 ⠹
+
+Translated transparent functions:  [#################################--] 32/33 ⠸
+
+Translated transparent functions:  [###################################] 33/33 ⠼
+Translated transparent functions:  [###################################] 33/33 ✔️
+Translated trait declarations:  [----------------------------------------] 0/5 ⠋
+Translated trait declarations:  [################################--------] 4/5 ✔️
+Translated trait impls:  [---------------------------------------------]  0/10 ⠋
+Translated trait impls:  [##################---------------------------]  4/10 ✔️
+Post-processed translated opaque functions:  [-------------------------]  0/12 ⠋
+
+Post-processed translated opaque functions:  [##-----------------------]  1/12 ⠙
+Post-processed translated opaque functions:  [#########################] 12/12 ✔️
+Post-processed translated transparent functions:  [--------------------]  0/33 ⠋
+
+Post-processed translated transparent functions:  [--------------------]  1/33 ⠙
+
+Post-processed translated transparent functions:  [#-------------------]  2/33 ⠙
+
+Post-processed translated transparent functions:  [#####---------------]  9/33 ⠙
+
+Post-processed translated transparent functions:  [#######-------------] 12/33 ⠙
+
+Post-processed translated transparent functions:  [#######-------------] 13/33 ⠹
+
+Post-processed translated transparent functions:  [########------------] 14/33 ⠹
+
+Post-processed translated transparent functions:  [#########-----------] 15/33 ⠹
+
+Post-processed translated transparent functions:  [#########-----------] 16/33 ⠸
+
+Post-processed translated transparent functions:  [##########----------] 17/33 ⠸
+
+Post-processed translated transparent functions:  [############--------] 20/33 ⠼
+
+Post-processed translated transparent functions:  [#############-------] 22/33 ⠼
+
+Post-processed translated transparent functions:  [#############-------] 23/33 ⠴
+
+Post-processed translated transparent functions:  [##############------] 24/33 ⠴
+
+Post-processed translated transparent functions:  [################----] 27/33 ⠦
+
+Post-processed translated transparent functions:  [################----] 28/33 ⠦
+
+Post-processed translated transparent functions:  [##################--] 30/33 ⠧
+
+Post-processed translated transparent functions:  [##################--] 31/33 ⠇
+
+Post-processed translated transparent functions:  [###################-] 32/33 ⠇
+
+Post-processed translated transparent functions:  [####################] 33/33 ⠏
+Post-processed translated transparent functions:  [####################] 33/33 ✔️
+[Info ] Generated: /home/thomas/worktrees/lcn-exec-engine-20261118/lean/LcnExec/Translated/Engine.lean
+[Info ] Total execution time: 24.251210 seconds

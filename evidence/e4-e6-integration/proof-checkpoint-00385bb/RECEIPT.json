@@ -1,0 +1,65 @@
+{
+  "worker": {
+    "commit": "00385bba427e63f6b5efa552ebcd3b88b61c10b3",
+    "residual_commit": "394dda07156aa1ea7f072c647302bf07dbd8c369",
+    "base": "8e73c3f3e23e30072bf00e609e02acc58c32d222",
+    "admission": 2247,
+    "generation": 20,
+    "process": "proc_ac95ea243469",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "scope": "Actual residual spec verified. Exact hidden-MLP inner dot draft still rejected and not installed.",
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-23T00:13:53.772Z",
+    "command_id": "cmd_pebrfoxgmqro",
+    "finished_at": "2026-11-22T19:02:31.455Z",
+    "exits": {
+      "Build": 0,
+      "Direct": 0,
+      "Audit": 0,
+      "MlpRed": 1
+    },
+    "warnings": {
+      "Build": 18,
+      "Direct": 0,
+      "Audit": 0,
+      "MlpRed": 1
+    },
+    "axioms": {
+      "residual_spec": "propext, Classical.choice, Quot.sound",
+      "residual_mul_bounds_probe": "propext, Classical.choice, Quot.sound",
+      "residual_getElem_plain_probe": "propext, Classical.choice, Quot.sound",
+      "residual_zero_bounds_probe": "propext, Classical.choice, Quot.sound",
+      "residual_length": "propext, Classical.choice, Quot.sound",
+      "residual_getElem": "propext, Classical.choice, Quot.sound"
+    },
+    "matched_inputs": 22,
+    "guest_dir": "/home/user/e4/qa-residual-00385bb-Px0FZrjX",
+    "archive": "residual-and-mlp-draft-replay.tar.gz",
+    "archive_sha256": "52b45a4bdefb1f5566864e08830cc08f501def4126bbf4b44d6e96003d525c71",
+    "source_sha256": "5f878f63bb63d4f3dad0c1e4b2165cce15fdbc9e3fe46d154728de63286c4760",
+    "red_draft_sha256": "1a87ff06c9629090acca202e14ace4688e528fbc4025fd448cfe7847c88024e4",
+    "direct_object_sha256": "9cc4115b5ef2583008412d53ae3ad98ce489aef817479754dad6629640469b85",
+    "library_object_sha256": "4c4b8e4dcf6266bd96d6b69fdc591cbfb6317c746b927f18a111208dba56358e",
+    "files_sha256": {
+      "Residual.lean.txt": "5f878f63bb63d4f3dad0c1e4b2165cce15fdbc9e3fe46d154728de63286c4760",
+      "Audit.lean.txt": "31c8e62d76be1940b14e7f84ad0c1a0b0a585fdd04889eddae5a8ab7a36ef321",
+      "MlpRed.lean.txt": "1a87ff06c9629090acca202e14ace4688e528fbc4025fd448cfe7847c88024e4",
+      "inputs.sha256": "2e6fd62cdd7681954023ab52f1b264a8f9e7a32fca13aa2dfdc478bc13150892",
+      "before.log": "980f387f02e7ea3bd4dad2720d0c4d3f846bad0cc381dfddd42874fd1acf2bde",
+      "after.log": "980f387f02e7ea3bd4dad2720d0c4d3f846bad0cc381dfddd42874fd1acf2bde",
+      "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+      "Build.log": "262979c457e35856f5dcc0fe89f274bc5420361b34406750859184dea327976d",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.log": "a98bdb473d522f496b517e24846f31126c6255695785aeee98206e700167bf06",
+      "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "MlpRed.log": "444d81ba48549bfa94da0f95200123474b8f9d8735116d304134d049b819c56e",
+      "MlpRed.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "direct-object.sha256": "ec28b7902d85205a65ea0bff21a0fc91cf4917b814bbfbd565bbfe4d8c2b5446",
+      "lake-object.sha256": "83e51ae539e9b349e42a2c6cfb68b4c230b5686d3daac2d8695860698c442fdc"
+    }
+  }
+}

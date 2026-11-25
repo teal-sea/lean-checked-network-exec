@@ -1,0 +1,396 @@
+⚠ [1801/1802] Replayed LcnExec.GeneralEngine.Softmax
+warning: LcnExec/GeneralEngine/Softmax.lean:78:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:83:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:86:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:87:27: This simp argument is unused:
+  GeneralModel.nth
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [softMaxScan]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Softmax.lean:98:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:104:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:233:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:240:40: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: LcnExec/GeneralEngine/Softmax.lean:363:70: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LcnExec/GeneralEngine/Softmax.lean:447:72: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [halph, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [1802/1802] Building LcnExec.GeneralEngine.Attention (2.3s)
+trace: .> LEAN_PATH=/home/user/e4/repo/lean/.lake/packages/Cli/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/batteries/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/Qq/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/aesop/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/plausible/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/user/e4/repo/toolchain/aeneas/backends/lean/.lake/build/lib/lean:/home/user/e4/repo/lean/.lake/build/lib/lean /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean /home/user/e4/repo/lean/LcnExec/GeneralEngine/Attention.lean -o /home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/GeneralEngine/Attention.olean -i /home/user/e4/repo/lean/.lake/build/lib/lean/LcnExec/GeneralEngine/Attention.ilean -c /home/user/e4/repo/lean/.lake/build/ir/LcnExec/GeneralEngine/Attention.c --setup /home/user/e4/repo/lean/.lake/build/ir/LcnExec/GeneralEngine/Attention.setup.json --json
+error: LcnExec/GeneralEngine/Attention.lean:62:33: `simp` made no progress
+error: LcnExec/GeneralEngine/Attention.lean:93:37: `simp` made no progress
+error: LcnExec/GeneralEngine/Attention.lean:113:8: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (32 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+error: LcnExec/GeneralEngine/Attention.lean:119:8: `simp` made no progress
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (32 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+error: LcnExec/GeneralEngine/Attention.lean:157:14: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ints s1)[j']
+in the target expression
+  ∀ (hj32 : j' < 32),
+    (ints s1)[j'] =
+      GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+        (GeneralModel.rowAt (ints2 x) j')
+
+case pos
+W : general_engine.Weights
+hW : LoadBounds W
+l h : Usize
+hl : ↑l < 2
+hh : ↑h < 4
+x : Std.Array (Std.Array I64 128#usize) 32#usize
+p : Usize
+hp : ↑p < 32
+hxb : streams x
+hbe : 0 ≤ Envelope.embedding
+hqenv : 128 * Envelope.embedding * 5 ≤ 1000000
+hkenv : 128 * Envelope.embedding * 22 ≤ 1000000
+hscenv : 32 * (128 * Envelope.embedding * 5 * (128 * Envelope.embedding * 22)) ≤ Envelope.score
+hqenv2 : 128 * Envelope.embedding * 5 ≤ Envelope.value
+hkenv2 : 128 * Envelope.embedding * 22 ≤ Envelope.value
+hrowp : Bounded Envelope.embedding (↑x)[↑p]
+hL : LayerBounds (↑W.layers)[↑l]
+rowp : Std.Array I64 128#usize
+hrowpe : ints rowp = GeneralModel.rowAt (ints2 x) ↑p
+hrowpb : Bounded Envelope.embedding rowp
+lw : general_engine.LayerWeights
+hlw : lw = (↑W.layers)[↑l]
+wqh : Std.Array (Std.Array I8 32#usize) 128#usize
+hwqh : wqh = (↑lw.wq)[↑h]
+hwqmat : MatrixBound 5 wqh
+q : Std.Array I64 32#usize
+hqe : ints q = GeneralModel.project (ints rowp) (List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wqh)
+hqb : Bounded (128 * Envelope.embedding * 5) q
+hqsmall : Small q
+s : Std.Array I64 32#usize
+j : Usize
+hj1 : ↑j ≤ ↑p + 1
+hsc : Bounded Envelope.score s
+heq :
+  ∀ j_1 < ↑j,
+    ∀ (hj32 : j_1 < 32),
+      (ints s)[j_1] =
+        GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+          (GeneralModel.rowAt (ints2 x) j_1)
+h✝ : j ≤ p
+hjp : ↑j ≤ ↑p
+hj32 : ↑j < 32
+hrowj : Bounded Envelope.embedding (↑x)[↑j]
+rowj : Std.Array I64 128#usize
+hrowje : ints rowj = GeneralModel.rowAt (ints2 x) ↑j
+hrowjb : Bounded Envelope.embedding rowj
+lw2 : general_engine.LayerWeights
+hlw2 : lw2 = (↑W.layers)[↑l]
+wkh : Std.Array (Std.Array I8 32#usize) 128#usize
+hwkh : wkh = (↑lw2.wk)[↑h]
+hwkmat : MatrixBound 22 wkh
+key : Std.Array I64 32#usize
+hkeye : ints key = GeneralModel.project (ints rowj) (List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wkh)
+hkeyb : Bounded (128 * Envelope.embedding * 22) key
+hkeysmall : Small key
+d : I64
+hdv : ↑d = GeneralModel.dot (ints q) (ints key)
+s1 : Std.Array I64 32#usize
+hs1 : s1 = s.set j d
+j1 : Usize
+hj1' : ↑j1 = ↑j + 1
+hwqlen : ↑h < (↑(↑W.layers)[↑l].wq).length
+hwklen : ↑h < (↑(↑W.layers)[↑l].wk).length
+hwqmodel :
+  GeneralModel.nth [] (GeneralModel.layer (toGeneralModel W) ↑l).wq ↑h =
+    List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wqh
+hwkmodel :
+  GeneralModel.nth [] (GeneralModel.layer (toGeneralModel W) ↑l).wk ↑h =
+    List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wkh
+hscore :
+  ↑d =
+    GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+      (GeneralModel.rowAt (ints2 x) ↑j)
+hqmem : ∀ xv ∈ ints q, ∃ v ∈ ↑q, ↑v = xv
+hkmem : ∀ yv ∈ ints key, ∃ v ∈ ↑key, ↑v = yv
+hdbound : -Envelope.score ≤ ↑d ∧ ↑d ≤ Envelope.score
+j' : ℕ
+hj' : j' < ↑j + 1
+hjj : j' < ↑j
+hval : (ints s1)[j'] = (ints s)[j']
+⊢ ∀ (hj32 : j' < 32),
+    (ints s1)[j'] =
+      GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+        (GeneralModel.rowAt (ints2 x) j')
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (32 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+error: LcnExec/GeneralEngine/Attention.lean:163:14: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ints s1)[↑j]
+in the target expression
+  ∀ (hj32 : ↑j < 32),
+    (ints s1)[↑j] =
+      GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+        (GeneralModel.rowAt (ints2 x) ↑j)
+
+case neg
+W : general_engine.Weights
+hW : LoadBounds W
+l h : Usize
+hl : ↑l < 2
+hh : ↑h < 4
+x : Std.Array (Std.Array I64 128#usize) 32#usize
+p : Usize
+hp : ↑p < 32
+hxb : streams x
+hbe : 0 ≤ Envelope.embedding
+hqenv : 128 * Envelope.embedding * 5 ≤ 1000000
+hkenv : 128 * Envelope.embedding * 22 ≤ 1000000
+hscenv : 32 * (128 * Envelope.embedding * 5 * (128 * Envelope.embedding * 22)) ≤ Envelope.score
+hqenv2 : 128 * Envelope.embedding * 5 ≤ Envelope.value
+hkenv2 : 128 * Envelope.embedding * 22 ≤ Envelope.value
+hrowp : Bounded Envelope.embedding (↑x)[↑p]
+hL : LayerBounds (↑W.layers)[↑l]
+rowp : Std.Array I64 128#usize
+hrowpe : ints rowp = GeneralModel.rowAt (ints2 x) ↑p
+hrowpb : Bounded Envelope.embedding rowp
+lw : general_engine.LayerWeights
+hlw : lw = (↑W.layers)[↑l]
+wqh : Std.Array (Std.Array I8 32#usize) 128#usize
+hwqh : wqh = (↑lw.wq)[↑h]
+hwqmat : MatrixBound 5 wqh
+q : Std.Array I64 32#usize
+hqe : ints q = GeneralModel.project (ints rowp) (List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wqh)
+hqb : Bounded (128 * Envelope.embedding * 5) q
+hqsmall : Small q
+s : Std.Array I64 32#usize
+j : Usize
+hj1 : ↑j ≤ ↑p + 1
+hsc : Bounded Envelope.score s
+heq :
+  ∀ j_1 < ↑j,
+    ∀ (hj32 : j_1 < 32),
+      (ints s)[j_1] =
+        GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+          (GeneralModel.rowAt (ints2 x) j_1)
+h✝ : j ≤ p
+hjp : ↑j ≤ ↑p
+hj32 : ↑j < 32
+hrowj : Bounded Envelope.embedding (↑x)[↑j]
+rowj : Std.Array I64 128#usize
+hrowje : ints rowj = GeneralModel.rowAt (ints2 x) ↑j
+hrowjb : Bounded Envelope.embedding rowj
+lw2 : general_engine.LayerWeights
+hlw2 : lw2 = (↑W.layers)[↑l]
+wkh : Std.Array (Std.Array I8 32#usize) 128#usize
+hwkh : wkh = (↑lw2.wk)[↑h]
+hwkmat : MatrixBound 22 wkh
+key : Std.Array I64 32#usize
+hkeye : ints key = GeneralModel.project (ints rowj) (List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wkh)
+hkeyb : Bounded (128 * Envelope.embedding * 22) key
+hkeysmall : Small key
+d : I64
+hdv : ↑d = GeneralModel.dot (ints q) (ints key)
+s1 : Std.Array I64 32#usize
+hs1 : s1 = s.set j d
+j1 : Usize
+hj1' : ↑j1 = ↑j + 1
+hwqlen : ↑h < (↑(↑W.layers)[↑l].wq).length
+hwklen : ↑h < (↑(↑W.layers)[↑l].wk).length
+hwqmodel :
+  GeneralModel.nth [] (GeneralModel.layer (toGeneralModel W) ↑l).wq ↑h =
+    List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wqh
+hwkmodel :
+  GeneralModel.nth [] (GeneralModel.layer (toGeneralModel W) ↑l).wk ↑h =
+    List.map (fun row => List.map (fun x => ↑x) ↑row) ↑wkh
+hscore :
+  ↑d =
+    GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+      (GeneralModel.rowAt (ints2 x) ↑j)
+hqmem : ∀ xv ∈ ints q, ∃ v ∈ ↑q, ↑v = xv
+hkmem : ∀ yv ∈ ints key, ∃ v ∈ ↑key, ↑v = yv
+hdbound : -Envelope.score ≤ ↑d ∧ ↑d ≤ Envelope.score
+hj' : ↑j < ↑j + 1
+hjj : ¬↑j < ↑j
+hval : (ints s1)[↑j] = ↑d
+⊢ ∀ (hj32 : ↑j < 32),
+    (ints s1)[↑j] =
+      GeneralModel.keyScore (toGeneralModel W) (↑l) (↑h) (GeneralModel.rowAt (ints2 x) ↑p)
+        (GeneralModel.rowAt (ints2 x) ↑j)
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (32 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+error: LcnExec/GeneralEngine/Attention.lean:169:8: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  1 ≤ i ≤ 32
+  i - k ≤ 0
+  g ≥ 0
+  g - i ≥ 1
+  d - 32*e ≥ 0
+  0 ≤ c ≤ 355
+  640*c - f ≤ 0
+  2816*c - f ≤ 0
+  0 ≤ b ≤ 3
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑↑h
+ c := Envelope.embedding
+ d := Envelope.score
+ e := 128 * Envelope.embedding * 5 * (128 * Envelope.embedding * 22)
+ f := Envelope.value
+ g := ↑(List.range (↑p + 1)).length
+ i := if ↑(↑p + 1) ≤ ↑(ints s).length then ↑(↑p + 1) else ↑(ints s).length
+ k := ↑(ints s).length
+error: LcnExec/GeneralEngine/Attention.lean:172:49: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  m ≥ 0
+  k ≥ 32
+  k - m ≤ -1
+  i ≥ 0
+  i - k ≥ 1
+  1 ≤ g ≤ 32
+  d - 32*e ≥ 0
+  0 ≤ c ≤ 355
+  640*c - f ≤ 0
+  2816*c - f ≤ 0
+  0 ≤ b ≤ 3
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑↑h
+ c := Envelope.embedding
+ d := Envelope.score
+ e := 128 * Envelope.embedding * 5 * (128 * Envelope.embedding * 22)
+ f := Envelope.value
+ g := ↑↑j
+ i := ↑(List.take (↑p + 1) (ints s)).length
+ k := ↑j'
+ m := ↑(GeneralModel.headScoresAt (toGeneralModel W) (↑l) (↑h) (↑p) (ints2 x)).length
+error: LcnExec/GeneralEngine/Attention.lean:173:54: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  m ≥ 0
+  k ≥ 32
+  k - m ≤ -1
+  i ≥ 0
+  i - k ≥ 1
+  1 ≤ g ≤ 32
+  d - 32*e ≥ 0
+  0 ≤ c ≤ 355
+  640*c - f ≤ 0
+  2816*c - f ≤ 0
+  0 ≤ b ≤ 3
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑↑h
+ c := Envelope.embedding
+ d := Envelope.score
+ e := 128 * Envelope.embedding * 5 * (128 * Envelope.embedding * 22)
+ f := Envelope.value
+ g := ↑↑j
+ i := ↑(List.take (↑p + 1) (ints s)).length
+ k := ↑j'
+ m := ↑(GeneralModel.headScoresAt (toGeneralModel W) (↑l) (↑h) (↑p) (ints2 x)).length
+error: LcnExec/GeneralEngine/Attention.lean:173:65: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  m ≥ 0
+  k ≥ 0
+  k - m ≤ -1
+  i ≥ 0
+  i - k ≥ 1
+  1 ≤ g ≤ 32
+  g - k ≤ 0
+  d - 32*e ≥ 0
+  0 ≤ c ≤ 355
+  640*c - f ≤ 0
+  2816*c - f ≤ 0
+  0 ≤ b ≤ 3
+  0 ≤ a ≤ 1
+where
+ a := ↑↑l
+ b := ↑↑h
+ c := Envelope.embedding
+ d := Envelope.score
+ e := 128 * Envelope.embedding * 5 * (128 * Envelope.embedding * 22)
+ f := Envelope.value
+ g := ↑↑j
+ i := ↑(List.take (↑p + 1) (ints s)).length
+ k := ↑j'
+ m := ↑(GeneralModel.headScoresAt (toGeneralModel W) (↑l) (↑h) (↑p) (ints2 x)).length
+error: LcnExec/GeneralEngine/Attention.lean:183:23: `simp` made no progress
+error: LcnExec/GeneralEngine/Attention.lean:183:23: `simp` made no progress
+warning: LcnExec/GeneralEngine/Attention.lean:162:70: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hs1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Some required targets logged failures:
+- LcnExec.GeneralEngine.Attention
+error: build failed

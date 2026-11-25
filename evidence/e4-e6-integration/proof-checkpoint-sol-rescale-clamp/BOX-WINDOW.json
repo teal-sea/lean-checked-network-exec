@@ -1,0 +1,16 @@
+{
+  "id": "bx_9m9mrg3q",
+  "state": "idle",
+  "size": "large",
+  "ttl": 7200,
+  "billing_multiplier": 2,
+  "included_before": 472,
+  "max_included_used": 4.0,
+  "requested_at": "2026-11-23T00:41:34.703121+00:00",
+  "readback_at": "2026-11-23T00:41:45.226584+00:00",
+  "archive_after": "2026-11-23T02:41:38.308Z",
+  "local_stop": "8:41 PM CST",
+  "draft": "b68b9313aaf80fb73830bde2d8b2b1235ede9ab5",
+  "source_sha256": "898c6ee5e69fdc3a00fffbaf991c6be6d7031fc30655b84ee6e242e614102e10",
+  "lease_stdout_sha256": "885a0459629b695c16511c6cdcff3df4fed53a34938c797d4eb600e45bd835fb"
+}

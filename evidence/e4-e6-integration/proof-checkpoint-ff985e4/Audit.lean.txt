@@ -1,0 +1,12 @@
+import LcnExec.GeneralEngine.AttentionAdd
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+example (att ho : Array I64 128#usize) (b : Int)
+    (ha : Bounded b att) (hh : Bounded Envelope.head_output ho)
+    (hb : b <= 3 * Envelope.head_output) :
+    general_engine.attention_at_loop0_loop0 att ho 0#usize ⦃ r =>
+      ints r = GeneralModel.addV (ints att) (ints ho) ∧
+      Bounded (b + Envelope.head_output) r ⦄ :=
+  att_add_spec att ho b ha hh hb
+#print axioms att_add_spec
+end LcnExec.GeneralEngine

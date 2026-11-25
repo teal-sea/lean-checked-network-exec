@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_fxtkdrz9ycrt",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T18:47:52.768Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T18:47:50.807Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "LEAN=0\n'LcnExec.GeneralEngine.residual_zero_bounds_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.residual_mul_bounds_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LcnExec.GeneralEngine.residual_getElem_plain_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

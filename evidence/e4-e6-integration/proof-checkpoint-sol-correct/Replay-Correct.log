@@ -1,0 +1,2 @@
+'LcnExec.GeneralEngine.forward_logits_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.general_engine_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

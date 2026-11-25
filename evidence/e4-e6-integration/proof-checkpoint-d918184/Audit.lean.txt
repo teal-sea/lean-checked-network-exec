@@ -1,0 +1,11 @@
+import LcnExec.GeneralEngine.LayerForward
+open Aeneas Aeneas.Std Result
+open LcnExec.GeneralEngine
+example (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2) (x : Array (Array I64 128#usize) 32#usize)
+    (hxb : streams x) (seq_len : Usize) (hs : seq_len.val ≤ 32) :
+    general_engine.layer_forward W l x seq_len ⦃ out =>
+      ints2 out = GeneralModel.layerForward (toGeneralModel W) l.val (ints2 x) seq_len.val ∧
+      ∀ row ∈ out.val, Bounded Envelope.final_stream row ⦄ :=
+  layer_forward_spec W hW l hl x hxb seq_len hs
+#print axioms LcnExec.GeneralEngine.layer_forward_spec

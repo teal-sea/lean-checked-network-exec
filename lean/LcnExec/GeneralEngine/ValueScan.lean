@@ -1,0 +1,148 @@
+import LcnExec.GeneralEngine.ValueRow
+
+/-!
+# Total correctness of the value-vector scan `general_engine.head_out_at_loop0`
+
+The first loop of `head_out_at` builds `vs[j] = value W l h (rowAt x j)` for `j <= p`.
+It composes the accepted `head_out_row_copy_spec` (inner row fill) with the row, layer,
+`wv` and `project` stages already proved in Attention.
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+/-- 32-wide list view of the value buffer. -/
+def vals2 (vs : Array (Array I64 32#usize) 32#usize) : List (List Int) :=
+  vs.val.map ints
+
+theorem vals2_length (vs : Array (Array I64 32#usize) 32#usize) : (vals2 vs).length = 32 := by
+  simp [vals2]
+
+theorem value_scan_weights_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l h : Usize) (hl : l.val < 2) (hh : h.val < 4)
+    (x : Array (Array I64 128#usize) 32#usize) (p : Usize) (hp : p.val < 32)
+    (hxb : streams x) :
+    general_engine.head_out_at_loop0 W l h x p
+      (Array.repeat 32#usize (Array.repeat 32#usize 0#i64)) 0#usize ⦃ r =>
+      r.1 = W ∧
+      (vals2 r.2).take (p.val + 1) =
+        (List.range (p.val + 1)).map
+          (fun j => GeneralModel.value (toGeneralModel W) l.val h.val
+            (GeneralModel.rowAt (ints2 x) j)) ∧
+      (∀ row ∈ r.2.val, Bounded Envelope.value row) ⦄ := by
+  have hbe : 0 ≤ Envelope.embedding := by simp only [Envelope.embedding]; norm_num
+  have hvenv : 128 * Envelope.embedding * 106 ≤ Envelope.value := by
+    simp only [Envelope.embedding, Envelope.value]; norm_num
+  have hL := layerBounds hW l hl
+  unfold general_engine.head_out_at_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : Array (Array I64 32#usize) 32#usize × Usize) =>
+      p.val + 1 - st.2.val)
+    (inv := fun (st : Array (Array I64 32#usize) 32#usize × Usize) =>
+      st.2.val ≤ p.val + 1 ∧
+      (∀ row ∈ st.1.val, Bounded Envelope.value row) ∧
+      ∀ (j : Nat) (hj : j < st.2.val) (hj32 : j < 32),
+        (vals2 st.1)[j]'(by rw [vals2_length]; omega) =
+          GeneralModel.value (toGeneralModel W) l.val h.val
+            (GeneralModel.rowAt (ints2 x) j))
+  · rintro ⟨vs', j⟩ ⟨hj1, hrows, heq⟩
+    unfold general_engine.head_out_at_loop0.body
+    dsimp only at hj1 hrows heq ⊢
+    split
+    · have hjp : j.val ≤ p.val := by scalar_tac
+      have hj32 : j.val < 32 := by omega
+      have hrowj : Bounded Envelope.embedding (x.val[j.val]'(by simpa using hj32)) :=
+        hxb _ (List.getElem_mem _)
+      step with row_at_spec x j hj32 Envelope.embedding hbe hrowj as
+        ⟨rowj, hrowje, hrowjb⟩
+      step as ⟨lw, hlw⟩
+      subst hlw
+      step as ⟨wvh, hwvh⟩
+      have hwvmat : MatrixBound 106 wvh := by
+        have hmem : wvh ∈ (W.layers.val[l.val]'(by simp; omega)).wv.val := by
+          rw [hwvh]
+          exact List.getElem_mem (by simp; omega)
+        exact hL.wv _ hmem
+      step with project_spec rowj wvh Envelope.embedding 106 hbe (by norm_num) hrowjb hwvmat
+        hvenv as ⟨v, hve, hvb⟩
+      have hwvlen : h.val < (W.layers.val[l.val]'(by simp; omega)).wv.val.length := by
+        simp; omega
+      have hwvmodel : GeneralModel.nth []
+          (GeneralModel.layer (toGeneralModel W) l.val).wv h.val =
+          wvh.val.map (fun row => row.val.map (·.val)) := by
+        rw [model_layer_eq W l hl]
+        simp only [toLayerModel]
+        rw [model_nth_map _ h hwvlen, hwvh]
+      have hvmodel : ints v = GeneralModel.value (toGeneralModel W) l.val h.val
+          (GeneralModel.rowAt (ints2 x) j.val) := by
+        simp only [GeneralModel.value]
+        rw [hwvmodel]
+        simp only [hve, hrowje]
+      step with head_out_row_copy_spec vs' j hj32 v as ⟨vs1, hvs1⟩
+      step as ⟨j1, hj1'⟩
+      have hj1v : j1.val = j.val + 1 := by scalar_tac
+      simp only [hj1']
+      refine ⟨by omega, ?_, ?_, by omega⟩
+      · intro row hrow
+        simp only [hvs1, Array.set_val_eq] at hrow
+        rcases List.mem_or_eq_of_mem_set hrow with hrow' | rfl
+        · exact hrows row hrow'
+        · exact hvb
+      · intro j' hj' hj32'
+        by_cases hjj : j' = j.val
+        · subst j'
+          simp only [hvs1, vals2, Array.set_val_eq, List.getElem_map,
+            List.getElem_set_self]
+          exact hvmodel
+        · simp only [hvs1, vals2, Array.set_val_eq, List.getElem_map]
+          simp [List.getElem_set_ne (show j.val ≠ j' by omega)]
+          have h1 := heq j' (by omega) hj32'
+          simp only [vals2, List.getElem_map] at h1
+          exact h1
+    · have hjp : j.val = p.val + 1 := by scalar_tac
+      simp only [WP.spec_ok]
+      refine ⟨trivial, ?_, hrows⟩
+      apply List.ext_getElem
+      · simp only [List.length_take, List.length_map, List.length_range, vals2_length]
+        omega
+      · intro j' hj' hj''
+        have htklen : ((vals2 vs').take (p.val + 1)).length = p.val + 1 := by
+          rw [List.length_take, vals2_length]
+          omega
+        have hj'lt : j' < min (p.val + 1) 32 := by
+          simpa [List.length_take, vals2] using hj'
+        have htake : ((vals2 vs').take (p.val + 1))[j']'(by omega) =
+            (vals2 vs')[j']'(by rw [vals2_length]; omega) :=
+          (List.getElem_take' (by rw [vals2_length]; omega) (by omega)).symm
+        rw [htake]
+        simp only [List.getElem_map, List.getElem_range]
+        exact heq j' (by omega) (by omega)
+  · simp only
+    refine ⟨by scalar_tac, ?_, ?_⟩
+    · intro row hrow
+      have hrz : row = Array.repeat 32#usize 0#i64 := by simpa using hrow
+      subst hrz
+      intro v' hv'
+      have hvz : v' = 0#i64 := by simpa using hv'
+      subst hvz
+      constructor <;> (simp only [Envelope.value]; norm_num)
+    · intro j' hj' hj32
+      exact absurd hj' (by show ¬(j' < 0); omega)
+
+/-- Checked corollary: the original contract, weakened from the weight-preserving
+specification by `WP.spec_mono`. -/
+theorem value_scan_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l h : Usize) (hl : l.val < 2) (hh : h.val < 4)
+    (x : Array (Array I64 128#usize) 32#usize) (p : Usize) (hp : p.val < 32)
+    (hxb : streams x) :
+    general_engine.head_out_at_loop0 W l h x p
+      (Array.repeat 32#usize (Array.repeat 32#usize 0#i64)) 0#usize ⦃ r =>
+      (vals2 r.2).take (p.val + 1) =
+        (List.range (p.val + 1)).map
+          (fun j => GeneralModel.value (toGeneralModel W) l.val h.val
+            (GeneralModel.rowAt (ints2 x) j)) ∧
+      (∀ row ∈ r.2.val, Bounded Envelope.value row) ⦄ :=
+  WP.spec_mono (value_scan_weights_spec W hW l h hl hh x p hp hxb) (fun _ hr => hr.2)
+
+end LcnExec.GeneralEngine

@@ -1,0 +1,19 @@
+import LcnExec.GeneralEngine.WeightedMix
+open Aeneas Aeneas.Std Result ControlFlow LcnExec.GeneralEngine
+example (p : Usize) (hp : p.val < 32) (alpha : Array I64 32#usize)
+    (vs : Array (Array I64 32#usize) 32#usize) (i : Usize) (hi : i.val < 32)
+    (ha : ∀ j (_ : j ≤ p.val), 0 ≤ (ints alpha)[j]'(by rw [ints_length32]; omega))
+    (hs : ((ints alpha).take (p.val + 1)).sum ≤ 16777216)
+    (hv : ∀ row ∈ vs.val, Bounded Envelope.value row) :
+    general_engine.head_out_at_loop1_loop0 p alpha vs i 0#i64 0#usize ⦃ r =>
+      r.val = (List.range (p.val + 1)).foldl (fun acc j => Int.add acc (Int.mul
+        (GeneralModel.nth 0 (ints alpha) j) (GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) i.val))) 0 ⦄ :=
+  head_out_mix_inner_spec p hp alpha vs i hi ha hs hv
+#print axioms LcnExec.GeneralEngine.head_out_mix_inner_spec
+#print axioms LcnExec.GeneralEngine.acc_update_bound
+#print axioms LcnExec.GeneralEngine.take_sum_succ
+example (x : Int) (hl : -28909424869376 ≤ x) (hu : x ≤ 28909424869376) :
+    -441122816 ≤ Int.shiftRight x 16 ∧ Int.shiftRight x 16 ≤ 441122816 := by
+  rw [Int.shiftRight_eq_div_pow]
+  norm_num
+  omega

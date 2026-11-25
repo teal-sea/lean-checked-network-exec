@@ -1,0 +1,16 @@
+[package]
+name = "general_engine"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dev-dependencies]
+transformer = { path = "../transformer" }
+
+[profile.dev]
+overflow-checks = true
+[profile.release]
+overflow-checks = true

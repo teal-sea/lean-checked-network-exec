@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_vy2dtjugng7p",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T21:37:54.229Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T21:37:37.519Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-layer-ae5f867-FdaBnMh8\nee5fc8a2ceddca1073470109b0a87d0062022f711d5d56a85fe9dc110f399f53  /home/user/e4/qa-layer-ae5f867-FdaBnMh8.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

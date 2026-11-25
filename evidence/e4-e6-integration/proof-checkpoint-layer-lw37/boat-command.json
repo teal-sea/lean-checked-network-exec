@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_xzj78hpxz4p8",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T22:10:04.810Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T22:10:02.580Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-layer-lw37-ITTgBU3O\ne1cf7a815d0d1efb3488c7bfa519f4aaeb798453fd815fe4aa928d795610ca11  /home/user/e4/qa-layer-lw37-ITTgBU3O.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

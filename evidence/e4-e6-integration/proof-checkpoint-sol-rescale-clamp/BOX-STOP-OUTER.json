@@ -1,0 +1,10 @@
+{
+  "box": "bx_9m9mrg3q",
+  "state": "stopped",
+  "verified_at": "2026-11-23T00:47:41.852575+00:00",
+  "prior_deadline": "2026-11-23T02:41:38.308Z",
+  "included_before": 472,
+  "included_after": 471.81,
+  "lease_stop_stdout_sha256": "d9c2e2821b8fa1fa04894341fb5ab1a3c2b771790f626fd49611d07373566b55",
+  "verified_proof": "6eef3f9b83ec14aca04185e06f0e9c33d41f018a"
+}

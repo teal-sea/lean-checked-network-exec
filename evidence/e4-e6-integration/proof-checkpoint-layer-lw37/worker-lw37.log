@@ -1,0 +1,20 @@
+/tmp/lf2.lean:19:15: warning: This simp argument is unused:
+  Array.length_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ints2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/lf2.lean:111:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/lf2.lean:114:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/lf2.lean:138:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Membership ?m.1159 (List (Std.Array (IScalar IScalarTy.I64) 128#usize))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/lf2.lean:142:24: error: No goals to be solved

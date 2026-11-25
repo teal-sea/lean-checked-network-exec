@@ -1,0 +1,28 @@
+import LcnExec.GeneralEngine.FinalStream
+open Aeneas Aeneas.Std Result
+namespace LcnExec.GeneralEngine
+
+theorem repeated_rows_bound_probe (n m : Usize) (z : I64) (b : Int)
+    (hz : -b ≤ z.val ∧ z.val ≤ b) (row : Array I64 m)
+    (hrow : row ∈ (Array.repeat n (Array.repeat m z)).val) : Bounded b row := by
+  rw [repeat_val_probe] at hrow
+  have hr := (List.mem_replicate.mp hrow).2
+  rw [hr]
+  intro v hv
+  rw [repeat_val_probe] at hv
+  have hvz := (List.mem_replicate.mp hv).2
+  rw [hvz]
+  exact hz
+
+theorem layer_zero_rows_bound_exact_probe :
+    ∀ (row : Array I64 128#usize),
+      row ∈ (Array.repeat 32#usize (Array.repeat 128#usize 0#i64)).val →
+      Bounded Envelope.final_stream row := by
+  intro row hrow
+  exact repeated_rows_bound_probe _ _ _ _ (by
+    change -124539743797248 ≤ (0 : Int) ∧ (0 : Int) ≤ 124539743797248
+    omega) row hrow
+
+#print axioms repeated_rows_bound_probe
+#print axioms layer_zero_rows_bound_exact_probe
+end LcnExec.GeneralEngine

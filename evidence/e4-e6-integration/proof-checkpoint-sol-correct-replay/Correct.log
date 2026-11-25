@@ -1,0 +1,86 @@
+/home/user/e4/qa-sol-correct-oGJaculJ/Correct.lean:57:18: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+case a
+W : general_engine.Weights
+hload : general_engine.load_check W = ok true
+scalar : Result Bool :=
+  if W.n_layers ≥ 1#usize then
+    if W.n_layers ≤ general_engine.MAX_LAYERS then
+      if W.vocab_size ≥ 1#usize then ok (decide (W.vocab_size ≤ general_engine.VOCAB)) else ok false
+    else ok false
+  else ok false
+hscalar : scalar ⦃ b => scalar = ok b ⦄
+valid : Bool
+hvalid : scalar = ok valid
+valid1 : Bool
+hvalid1 : valid1 = true → valid = true ∧ MatrixBound 68 W.tok
+valid2 : Bool
+hvalid2 : valid2 = true → valid1 = true ∧ MatrixBound 59 W.pos
+valid3 : Bool
+hvalid3 : valid3 = true → valid2 = true ∧ ∀ L ∈ ↑W.layers, LayerBounds L
+valid4 : Bool
+hvalid4 : valid4 = true → valid3 = true ∧ MatrixBound 37 W.u
+hchecked : valid4 = true
+h3 : valid3 = true
+h2 : valid2 = true
+h1 : valid1 = true
+h0 : valid = true
+hscalarTrue : scalar = ok true
+bn : Bool
+hbn : bn = true → ∀ v ∈ ↑W.exp_n, 0 ≤ ↑v ∧ ↑v ≤ 1073741824
+h✝² : bn = true
+b2 : Bool
+hb2 : b2 = true → ∀ v ∈ ↑W.exp_2, 0 ≤ ↑v ∧ ↑v ≤ 1073741824
+h✝¹ : b2 = true
+b1 : Bool
+hb1 : b1 = true → ∀ v ∈ ↑W.exp_1, 0 ≤ ↑v ∧ ↑v ≤ 1073741824
+h✝ : b1 = true
+b0 : Bool
+hb0 : b0 = true → ∀ v ∈ ↑W.exp_0, 0 ≤ ↑v ∧ ↑v ≤ 1073741824
+_✝ : b0 = true
+⊢ scalar = ok true
+/home/user/e4/qa-sol-correct-oGJaculJ/Correct.lean:81:66: error: unsolved goals
+h128 : ↑128#usize = 128
+h0 : ↑0#i64 = 0
+⊢ List.replicate 128 0 = List.replicate 128 (Int.ofNat 0)
+/home/user/e4/qa-sol-correct-oGJaculJ/Correct.lean:143:19: warning: This simp argument is unused:
+  WP.spec_ok
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Option.map_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-sol-correct-oGJaculJ/Correct.lean:175:6: error: unsolved goals
+case neg
+W : general_engine.Weights
+hload : general_engine.load_check W = ok true
+tokens : Std.Array Usize 32#usize
+seq_len : Usize
+hnpos : 0 < ↑W.n_layers
+hn : ↑W.n_layers ≤ 2
+hvpos : 0 < ↑W.vocab_size
+hv : ↑W.vocab_size ≤ 256
+hmodelLayers : ¬((toGeneralModel W).nLayers = 0 ∨ (toGeneralModel W).nLayers > 2)
+hmodelVocab : ¬((toGeneralModel W).vocabSize = 0 ∨ (toGeneralModel W).vocabSize > 256)
+hmodelVocabVal : (toGeneralModel W).vocabSize = ↑W.vocab_size
+hseq : ¬(↑seq_len = 0 ∨ ↑seq_len > 32)
+ht : ¬((List.take (↑seq_len) (List.map (fun x => ↑x) ↑tokens)).any fun t => decide (t ≥ 256)) = true
+⊢ ¬↑W.vocab_size = 0 ∧ ↑W.vocab_size ≤ 256
+/home/user/e4/qa-sol-correct-oGJaculJ/Correct.lean:175:75: warning: This simp argument is unused:
+  hmodelVocab
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GeneralModel.predictNext, forwardResult, hseq, hmodelLayers, ht, hmodelVocabVal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-sol-correct-oGJaculJ/Correct.lean:187:15: warning: This simp argument is unused:
+  WP.spec_ok
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Option.map_some, hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'LcnExec.GeneralEngine.forward_logits_spec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.general_engine_correct' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.forward_logits_spec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.general_engine_correct' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

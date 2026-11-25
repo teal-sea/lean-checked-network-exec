@@ -1,0 +1,8 @@
+List.take_add_one.{u_1} {α : Type u_1} {l : List α} {i : ℕ} : List.take (i + 1) l = List.take i l ++ l[i]?.toList
+List.getElem?_eq_getElem.{u_1} {α : Type u_1} {l : List α} {i : ℕ} (h : i < l.length) : l[i]? = some l[i]
+List.range_succ {n : ℕ} : List.range n.succ = List.range n ++ [n]
+List.foldl_append.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : β → α → β} {b : β} {l l' : List α} :
+  List.foldl f b (l ++ l') = List.foldl f (List.foldl f b l) l'
+LcnExec.GeneralEngine.list_sum_nonneg (l : List ℤ) : (∀ x ∈ l, 0 ≤ x) → 0 ≤ l.sum
+Int.shiftRight_eq_div_pow (m : ℤ) (n : ℕ) : m >>> n = m / ↑(2 ^ n)
+'LcnExec.GeneralEngine.value_scan_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

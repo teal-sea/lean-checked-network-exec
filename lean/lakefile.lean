@@ -12,6 +12,10 @@ scripts/translate.sh), proofs about them, and the evaluator executables' entry p
 lean_lib LcnExec where
   globs := #[.andSubmodules `LcnExec]
 
+/-- The gate 4 model, shared with the standalone pilot without copying its source. -/
+lean_lib TransformerInt where
+  globs := #[.andSubmodules `TransformerInt]
+
 /-- The recurrent adder from lean-checked-network, vendored byte for byte by scripts/vendor.sh
 (diff in evidence/vendored-diff.txt). -/
 @[default_target]

@@ -1,0 +1,26 @@
+/home/user/e4/qa-weighted-fa8e1aa/GuestWeightedMix.lean:135:30: error: `simp` made no progress
+/home/user/e4/qa-weighted-fa8e1aa/GuestWeightedMix.lean:136:42: error: `simp` made no progress
+case hInv.refine_2
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+⊢ -(Envelope.value * (List.take (↑0#usize) (ints alpha)).sum) ≤ ↑0#i64
+case hInv.refine_3
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+i : Usize
+hi : ↑i < 32
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+hvval : 0 ≤ Envelope.value
+⊢ ↑0#i64 ≤ Envelope.value * (List.take (↑0#usize) (ints alpha)).sum

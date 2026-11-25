@@ -1,0 +1,36 @@
+{
+  "zip_sha256": "91920bc05f5028b7fe5a0e4ffd6291be74850062a685f491086918b112eb352b",
+  "prior_zip_sha256": "baffa3fddc1b60c39103181590b192b8b80e6fde4ee1fbecbe6053eda62e3a7e",
+  "zip_member_changes": [
+    "evidence/e6-wasm/README.md"
+  ],
+  "static_asset_sha256": {
+    "evidence/e6-wasm/README.md": "71fca8ebbc072965246a7ab8c1f6e0ded8c60b8a901c5fb2ad8277fb2bb77d9a",
+    "evidence/e6-wasm/build-manifest.json": "5cd67ed0d12bd9873c56449f5642dbcff1af47e5bec814ed6269ce484d9386ab",
+    "evidence/e6-wasm/native-general.json": "b5fe4889aa8330a04dfc97ce5add593e0c05306f8e9afb02617fe939387bbb6f",
+    "scripts/e6_browser_replay.js": "1ae85da53dbaf3a28c3d149f25b11cb57cfdf18e4e8c6e160a3ec288c5ebf8e9",
+    "web/app.js": "3cdd9c05a00044df8d2b3d18ec4a4bdc359a431f0fee98c93c8491bceca7bec6",
+    "web/general_engine_wasm.wasm": "be9803f94a30189ebe23ef2c2dae841dcbef4d8716e03017e85eb0e00f2eb48d",
+    "web/index.html": "48cf2d80e3f3b332de5572f1dd63ceb4e19acad603ac395bd1e907782aff2068",
+    "web/style.css": "c691658275aaf077e853fa6ec649ab02d9f8f6af3a14a18b4d2281df7c7b9a69",
+    "weights/mod113_v1.bin": "ec144a43c93fb16ca7e40f4792b5296adda78e8cb9dbf036fbf8a7890ecb6dfc",
+    "weights/tiny_bytelm_v1.bin": "c3575e46dce2bc1027955f34d29e87c23540ea28c3ead3e80c329c5cc1abac87"
+  },
+  "wasm_sha256": "be9803f94a30189ebe23ef2c2dae841dcbef4d8716e03017e85eb0e00f2eb48d",
+  "argv": [
+    "/home/thomas/.local/bin/node",
+    "scripts/e6_browser_replay.js"
+  ],
+  "chromium_exit": 1,
+  "launcher_sha256": "fcd5e98ede9039f412093c5954a0ffd56055be13f385995055afec0c9b8d3cc9",
+  "browser_pass": false,
+  "browser_receipt_sha256": "60901113df7f604d7a3db68d0718f7112f7aca495b000b3007b37b5db302d13b",
+  "browser_receipt_path": "/home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-final-package-replay/package/evidence/e6-wasm/browser-run-0W2EaS/browser-ui-check.json",
+  "screenshots_sha256": {},
+  "loopback_server_closed": true,
+  "error": {
+    "message": "write EPIPE",
+    "code": "EPIPE",
+    "stack": "Error: write EPIPE\n    at afterWriteDispatched (node:internal/stream_base_commons:138:10)\n    at writeGeneric (node:internal/stream_base_commons:126:10)\n    at Socket._writeGeneric (node:net:1324:11)\n    at Socket._write (node:net:1336:8)\n    at writeOrBuffer (node:internal/streams/writable:574:12)\n    at _write (node:internal/streams/writable:503:10)\n    at Writable.write (node:internal/streams/writable:512:10)\n    at /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-final-package-replay/package/scripts/e6_browser_replay.js:103:22\n    at new Promise (<anonymous>)\n    at /home/thomas/.hermes/cache/scratch/lcn-sol-20261123/e6-final-package-replay/package/scripts/e6_browser_replay.js:96:46"
+  }
+}

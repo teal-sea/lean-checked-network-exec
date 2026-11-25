@@ -1,0 +1,29 @@
+{
+  "base": "285e247ed5d8d1ffd76dcfa1d4cb846693187455",
+  "worker": "gpt-6.2-sol",
+  "thread": "01a205b6-ced0-7a10-b998-71d84b4cc9e3",
+  "native_exit": 0,
+  "lean_exit": 0,
+  "source_sha256": "7cd2d32678525d601aa344fec7e685f176513875273bdf48c8012ca5f86de82d",
+  "dependency_sha256": "3a05141b20f784d35e7c04bf5afe158c6844617631c009c9b56231e805a38222",
+  "log_sha256": "0c65e9a707a055df621e13c76aa46c7fdb74c058030e19ced3f0657aecd9c4a2",
+  "errors": [],
+  "warnings": [
+    "/home/user/e4/qa-sol2-kgQYMdFZ/RescaleInner4.lean:128:67: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+    "/home/user/e4/qa-sol2-kgQYMdFZ/RescaleInner4.lean:142:86: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.",
+    "/home/user/e4/qa-sol2-kgQYMdFZ/RescaleInner4.lean:128:67: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+    "/home/user/e4/qa-sol2-kgQYMdFZ/RescaleInner4.lean:142:86: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice"
+  ],
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "command_id": "cmd_pgmiplvuz2ca",
+  "finished_at": "2026-11-23T00:09:43.564Z",
+  "scope": "Standalone checker and axiom report; not a module build or outer loop.",
+  "worker_checkpoint": "37f291443920d5d2bd7020642ca52c5edab202f5",
+  "files_sha256": {
+    "RescaleInner4.lean.txt": "7cd2d32678525d601aa344fec7e685f176513875273bdf48c8012ca5f86de82d",
+    "RescaleInner4.log": "0c65e9a707a055df621e13c76aa46c7fdb74c058030e19ced3f0657aecd9c4a2",
+    "boat-finish.json": "26a51d1985692677980d521f5b8354916e55743461ecc54ce001ba02c6b9be28",
+    "FINISH-INNER.md": "e7ab3f9066425abd974633efde05b45bd4b817e29414073198279d6dfc2cece4"
+  }
+}

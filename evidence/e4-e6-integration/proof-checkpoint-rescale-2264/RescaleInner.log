@@ -1,0 +1,15 @@
+/home/user/e4/qa-rescale-2264-54211yxS/RescaleInner.lean:22:25: warning: Variable name `xs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _xs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/home/user/e4/qa-rescale-2264-54211yxS/RescaleInner.lean:43:51: error: unexpected token '!['; expected ')', ',' or ':'
+/home/user/e4/qa-rescale-2264-54211yxS/RescaleInner.lean:43:34: error: Application type mismatch: The argument
+  (ints2 f)[↑p]
+has type
+  List ℤ
+but is expected to have type
+  ℤ
+in the application
+  GeneralModel.clampEntry (ints2 f)[↑p]

@@ -1,0 +1,65 @@
+corpus: train 219082 B (219050 windows), val 23343 B (5828 windows)
+model: 2 layers, 464128 parameters
+step     1  loss 5.5577  ema 5.5577  bpb 8.018  3s
+step    50  loss 2.9569  ema 4.5552  bpb 6.572  9s
+step   100  loss 2.3329  ema 3.2551  bpb 4.696  16s
+step   150  loss 2.1116  ema 2.6078  bpb 3.762  23s
+step   200  loss 2.1068  ema 2.2896  bpb 3.303  29s
+step   250  loss 2.0481  ema 2.1271  bpb 3.069  36s
+step   300  loss 2.2445  ema 2.1429  bpb 3.092  43s
+step   350  loss 2.3646  ema 2.2577  bpb 3.257  50s
+step   400  loss 2.3866  ema 2.3693  bpb 3.418  57s
+step   450  loss 2.4981  ema 2.4417  bpb 3.523  64s
+step   500  loss 2.5622  ema 2.5155  bpb 3.629  70s
+step   550  loss 2.5291  ema 2.5587  bpb 3.691  76s
+step   600  loss 2.5657  ema 2.5729  bpb 3.712  83s
+step   650  loss 2.5815  ema 2.5645  bpb 3.700  89s
+step   700  loss 2.4939  ema 2.5159  bpb 3.630  95s
+step   750  loss 2.4380  ema 2.4672  bpb 3.559  102s
+step   800  loss 2.4229  ema 2.4291  bpb 3.504  109s
+step   850  loss 2.3967  ema 2.3936  bpb 3.453  116s
+step   900  loss 2.3552  ema 2.3592  bpb 3.404  122s
+step   950  loss 2.3284  ema 2.3466  bpb 3.385  129s
+step  1000  loss 2.3500  ema 2.3175  bpb 3.343  135s
+step  1050  loss 2.2499  ema 2.2928  bpb 3.308  141s
+step  1100  loss 2.2707  ema 2.2750  bpb 3.282  147s
+step  1150  loss 2.2775  ema 2.2596  bpb 3.260  153s
+step  1200  loss 2.2885  ema 2.2595  bpb 3.260  159s
+step  1250  loss 2.2236  ema 2.2444  bpb 3.238  166s
+step  1300  loss 2.2223  ema 2.2363  bpb 3.226  173s
+step  1350  loss 2.1573  ema 2.2343  bpb 3.223  179s
+step  1400  loss 2.2421  ema 2.2313  bpb 3.219  186s
+step  1450  loss 2.2806  ema 2.2376  bpb 3.228  192s
+step  1500  loss 2.2173  ema 2.2345  bpb 3.224  198s
+step  1550  loss 2.2431  ema 2.2338  bpb 3.223  204s
+step  1600  loss 2.2054  ema 2.2282  bpb 3.215  210s
+step  1650  loss 2.2612  ema 2.2287  bpb 3.215  217s
+step  1700  loss 2.2106  ema 2.2289  bpb 3.216  223s
+step  1750  loss 2.3092  ema 2.2474  bpb 3.242  230s
+step  1800  loss 2.2494  ema 2.2550  bpb 3.253  236s
+step  1850  loss 2.2196  ema 2.2601  bpb 3.261  242s
+step  1900  loss 2.2589  ema 2.2603  bpb 3.261  249s
+step  1950  loss 2.3104  ema 2.2668  bpb 3.270  255s
+step  2000  loss 2.2342  ema 2.2703  bpb 3.275  261s
+step  2050  loss 2.2638  ema 2.2823  bpb 3.293  266s
+step  2100  loss 2.2558  ema 2.2851  bpb 3.297  273s
+step  2150  loss 2.2795  ema 2.2936  bpb 3.309  279s
+step  2200  loss 2.2622  ema 2.3052  bpb 3.326  286s
+step  2250  loss 2.3422  ema 2.3029  bpb 3.322  293s
+step  2300  loss 2.3142  ema 2.3097  bpb 3.332  299s
+step  2350  loss 2.2963  ema 2.3129  bpb 3.337  306s
+step  2400  loss 2.2644  ema 2.3067  bpb 3.328  312s
+step  2450  loss 2.2923  ema 2.3060  bpb 3.327  318s
+step  2500  loss 2.3369  ema 2.3070  bpb 3.328  324s
+step  2550  loss 2.2246  ema 2.3073  bpb 3.329  330s
+step  2600  loss 2.3651  ema 2.3192  bpb 3.346  336s
+step  2650  loss 2.3133  ema 2.3256  bpb 3.355  344s
+step  2700  loss 2.3783  ema 2.3272  bpb 3.357  352s
+step  2750  loss 2.2809  ema 2.3398  bpb 3.376  359s
+step  2800  loss 2.3619  ema 2.3462  bpb 3.385  366s
+step  2850  loss 2.3656  ema 2.3537  bpb 3.396  373s
+step  2900  loss 2.3981  ema 2.3604  bpb 3.405  379s
+val bits/byte (float QAT): 3.4040
+exported /home/thomas/worktrees/lcn-exec-e5-bytelm-20261120/weights/tiny_bytelm_v1.bin (479504 bytes), round-trip load_check True
+wrote evidence/e5-bytelm/train_result.json
+exit=0

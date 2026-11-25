@@ -1,0 +1,143 @@
+/home/user/e4/qa-mixscan-75d5dbb/ScanProbe.lean:40:24: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Int.shiftRight ?m.475 16
+in the target expression
+  -441122816 ≤
+      List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+          0 (List.range (↑p + 1)) >>>
+        16 ∧
+    List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+          0 (List.range (↑p + 1)) >>>
+        16 ≤
+      441122816
+
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+z : Std.Array I64 32#usize
+i : Usize
+hi1 : ↑i ≤ 32
+hbd : Bounded Envelope.mixed_value z
+heq :
+  ∀ (k : ℕ) (hk : k < 32),
+    k < ↑i →
+      (ints z)[k] =
+        (List.foldl
+              (fun acc j =>
+                acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k)
+              0 (List.range (↑p + 1))).shiftRight
+          16
+h✝ : i < 32#usize
+hi32 : ↑i < 32
+acc : I64
+hacc :
+  ↑acc =
+    List.foldl
+      (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+      (List.range (↑p + 1))
+i1 : I64
+hi1v : ↑i1 = ↑acc >>> 16
+_✝ : i1.bv = acc.bv.sshiftRight 16
+a : Std.Array I64 32#usize
+ha : a = z.set i i1
+i2 : Usize
+hi2 hi2v : ↑i2 = ↑i + 1
+hs : ∀ (x : ℤ), x.shiftRight 16 = x / 65536
+hf :
+  -28909424869376 ≤
+      List.foldl
+        (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+        0 (List.range (↑p + 1)) ∧
+    List.foldl
+        (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+        0 (List.range (↑p + 1)) ≤
+      28909424869376
+⊢ -441122816 ≤
+      List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+          0 (List.range (↑p + 1)) >>>
+        16 ∧
+    List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+          0 (List.range (↑p + 1)) >>>
+        16 ≤
+      441122816
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (32 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-mixscan-75d5dbb/ScanProbe.lean:53:8: error: unsolved goals
+case pos
+p : Usize
+hp : ↑p < 32
+alpha : Std.Array I64 32#usize
+vs : Std.Array (Std.Array I64 32#usize) 32#usize
+halpha : ∀ (j : ℕ) (x : j ≤ ↑p), 0 ≤ (ints alpha)[j]
+hsum : (List.take (↑p + 1) (ints alpha)).sum ≤ 16777216
+hvs : ∀ row ∈ ↑vs, Bounded Envelope.value row
+z : Std.Array I64 32#usize
+i : Usize
+hi1 : ↑i ≤ 32
+hbd : Bounded Envelope.mixed_value z
+heq :
+  ∀ (k : ℕ) (hk : k < 32),
+    k < ↑i →
+      (ints z)[k] =
+        (List.foldl
+              (fun acc j =>
+                acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) k)
+              0 (List.range (↑p + 1))).shiftRight
+          16
+h✝ : i < 32#usize
+hi32 : ↑i < 32
+acc : I64
+hacc :
+  ↑acc =
+    List.foldl
+      (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i) 0
+      (List.range (↑p + 1))
+i1 : I64
+hi1v : ↑i1 = ↑acc >>> 16
+_✝ : i1.bv = acc.bv.sshiftRight 16
+a : Std.Array I64 32#usize
+ha : a = z.set i i1
+i2 : Usize
+hi2 hi2v : ↑i2 = ↑i + 1
+hs : ∀ (x : ℤ), x.shiftRight 16 = x / 65536
+hbnd : -441122816 ≤ ↑i1 ∧ ↑i1 ≤ 441122816
+hk : ↑i < 32
+hik : ↑i < ↑i + 1
+hval : (ints a)[↑i] = ↑i1
+⊢ List.foldl
+        (fun acc j => acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+        0 (List.range (↑p + 1)) >>>
+      16 =
+    (List.foldl
+          (fun acc j =>
+            acc + GeneralModel.nth 0 (ints alpha) j * GeneralModel.nth 0 (GeneralModel.rowAt (vals2 vs) j) ↑i)
+          0 (List.range (↑p + 1))).shiftRight
+      16
+/home/user/e4/qa-mixscan-75d5dbb/ScanProbe.lean:55:69: warning: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'LcnExec.GeneralEngine.mix_scan_spec' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

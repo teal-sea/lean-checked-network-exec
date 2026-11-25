@@ -1,0 +1,139 @@
+{
+  "worker_process": "proc_6e705d3a6c65",
+  "worker_admission": 2238,
+  "worker_generation": 14,
+  "worker_commit": "5dcdf94a19a7b927735ba8370ef03d74abda8eac",
+  "base": "680b691d21c55cd58d93705c81f4629357724981",
+  "worker_route": "alibaba-token-plan/glm-5.3",
+  "fallback_active": false,
+  "scope": "Exact and bounded 128-coordinate projection and complete single-head output are verified; four-head summation scratch not accepted.",
+  "boat": {
+    "id": "bx_9m9mrg3q",
+    "authorized_stop": "2026-11-22T16:50:41.949Z",
+    "drifted_stop": "2026-11-22T17:25:21.281Z",
+    "restored_stop": "2026-11-22T16:50:24.254Z",
+    "reason_for_drift": "Worker ran bare boat-run resume in response to a transient updating error; it reset the prior TTL. Coordinator shortened the timer and verified it ends no later than the original approved stop."
+  },
+  "replay": {
+    "command_id": "cmd_5g4cviwpxthu",
+    "finished_at": "2026-11-22T15:38:00.648Z",
+    "toolchain": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\nbf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lean\n8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1  /home/user/.elan/toolchains/leanprover--lean4---v4.35.0/bin/lake\n",
+    "exits": {
+      "Build": 0,
+      "ProjectionInner": 0,
+      "ProjectionScan": 0,
+      "HeadOut": 0,
+      "Audit": 0,
+      "AttentionAddDraft": 1
+    },
+    "warnings": {
+      "Build": 18,
+      "ProjectionInner": 0,
+      "ProjectionScan": 0,
+      "HeadOut": 0,
+      "Audit": 0,
+      "AttentionAddDraft": 0
+    },
+    "axioms": {
+      "woColumn": "propext, Classical.choice, Quot.sound",
+      "woColumn_length": "propext, Classical.choice, Quot.sound",
+      "head_out_proj_inner_spec": "propext, Classical.choice, Quot.sound",
+      "ints_length128": "propext, Classical.choice, Quot.sound",
+      "woRows": "propext, Classical.choice, Quot.sound",
+      "woRows_length": "propext, Classical.choice, Quot.sound",
+      "rows_map_bridge": "propext, Classical.choice, Quot.sound",
+      "woRows_row_length": "propext, Classical.choice, Quot.sound",
+      "woRows_eq": "propext, Classical.choice, Quot.sound",
+      "woColumn_eq": "propext, Classical.choice, Quot.sound",
+      "proj_scan_spec": "propext, Classical.choice, Quot.sound",
+      "mixAt_congr": "propext, Classical.choice, Quot.sound",
+      "head_out_at_spec": "propext, Classical.choice, Quot.sound"
+    },
+    "archive": "head-out-replay.tar.gz",
+    "archive_sha256": "85053b8e0203065052a863dc8ba88b9a01647460cf33051c34accd7d01b29adf",
+    "archive_member_sha256": {
+      "ProjectionScan.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "HeadOut.lean.txt": "610a2cf41d1368b956e03eb599a40aec00f1c09a8877425d565fcae80f167c46",
+      "HeadOut.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "AttentionAddDraft.log": "5019320b35167541206182d4bb1e2a4cd17f20194135eb23eeaca9aa772f4d38",
+      "MEMBERS.sha256": "79c28bde17ba66333b6c4679a9a2efb701f66842656ec7128ef688f5fa9bebc6",
+      "ProjectionInner.lean.txt": "c0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd",
+      "Build.log": "65e5eb67496f0da5d6d6705cf741e1d0163406479ee4fd08ce40ffbf12f9206d",
+      "HeadOut.olean": "4d19e02c43e07af2de4290b43192415315e81c036cc6c4eba12997895b8b9494",
+      "AttentionAddDraft.lean.txt": "52fe3b38faee1e2bfddb833698d397542e6122c8a0d3d67f39624a78ac7e2fb5",
+      "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+      "ProjectionInner.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ProjectionScan.olean": "26a7faab5e3a2ece73ca557d3f672f7b34dd2c93e814f621b3ac189b33211eb7",
+      "ProjectionInner.olean": "f513ccf1063e9eaa90498db4008b4e8ed12e9a29f3dbd7ef6c49e4edea802098",
+      "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "AttentionAddDraft.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "ProjectionScan.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "Audit.lean.txt": "28175e3f82ab24868be25b17ed03b663461c1c410ac46a00b9cc808e6f8274dd",
+      "Audit.log": "6ab3f9c2685657621d413fb49b52733c61e28f6be9e0832eab55a499e40e4670",
+      "ProjectionInner.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "HeadOut.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ProjectionScan.lean.txt": "4933ea12dcc2004f32ff1590e59223a5d287c8f50f838fcdf6b50e694a5706be",
+      "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "draft": {
+    "installed": false,
+    "source_sha256": "52fe3b38faee1e2bfddb833698d397542e6122c8a0d3d67f39624a78ac7e2fb5",
+    "status": "Lean rejected exact worker scratch draft. Never installed.",
+    "diagnostics": [
+      "63:53",
+      "43:50",
+      "44:50",
+      "52:14",
+      "53:35",
+      "40:4",
+      "35:2",
+      "22:48"
+    ],
+    "placeholder_count": 2,
+    "sorry_count": 2
+  },
+  "interface_probe": {
+    "command_id": "cmd_lxy3wignpuoy",
+    "finished_at": "2026-11-22T15:39:04.809Z",
+    "direct_exit": 0,
+    "warnings": 0,
+    "source_sha256": "e33017767079a8b731ed4a47615e9798c2a5f9bbb1ddbd109e3c293220103b63",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "installed": false,
+    "scope": "checked-add preconditions and a bounded set step, not the full attention accumulator"
+  },
+  "worker_exit": {
+    "launcher_code": 1,
+    "reason": "CLI tool-iteration cap, not box cutoff",
+    "new_main_lane_calls": 100
+  },
+  "file_sha256": {
+    "ProjectionScan.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "HeadOut.lean.txt": "610a2cf41d1368b956e03eb599a40aec00f1c09a8877425d565fcae80f167c46",
+    "HeadOut.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "AttentionAddDraft.log": "5019320b35167541206182d4bb1e2a4cd17f20194135eb23eeaca9aa772f4d38",
+    "MEMBERS.sha256": "79c28bde17ba66333b6c4679a9a2efb701f66842656ec7128ef688f5fa9bebc6",
+    "ProjectionInner.lean.txt": "c0cef0597f411cce9a845e8907886f278df2a69e48e89723483950bc1cf6a0cd",
+    "Build.log": "65e5eb67496f0da5d6d6705cf741e1d0163406479ee4fd08ce40ffbf12f9206d",
+    "AttentionAddDraft.lean.txt": "52fe3b38faee1e2bfddb833698d397542e6122c8a0d3d67f39624a78ac7e2fb5",
+    "toolchain.txt": "0630f419dbe7e8c05e9e246e96639b15168e8152a09895e07a60b69f3d817cc8",
+    "ProjectionInner.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "AttentionAddDraft.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "ProjectionScan.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.lean.txt": "28175e3f82ab24868be25b17ed03b663461c1c410ac46a00b9cc808e6f8274dd",
+    "Audit.log": "6ab3f9c2685657621d413fb49b52733c61e28f6be9e0832eab55a499e40e4670",
+    "ProjectionInner.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "HeadOut.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ProjectionScan.lean.txt": "4933ea12dcc2004f32ff1590e59223a5d287c8f50f838fcdf6b50e694a5706be",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "boat-command.json": "96389c40949236c5e9580a4a767d6aabbd65279ea42510dcde01d2dcb6740b7c",
+    "AttentionAddInterfaces.lean.txt": "e33017767079a8b731ed4a47615e9798c2a5f9bbb1ddbd109e3c293220103b63",
+    "attention-interfaces-command.json": "276750bb9bf3e0e25c8f920051368797df541527e5246c2ac9130477acf82396"
+  }
+}

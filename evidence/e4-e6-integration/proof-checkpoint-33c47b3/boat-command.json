@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_gamft521sqpn",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T21:04:54.534Z",
+  "launcherFailed": false,
+  "noticedMs": 1,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 1,
+  "startedAt": "2026-11-22T21:04:43.829Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-output-33c47b3-b1F4mmMD\n4a1e415e440c874373f0ac1af21b43bddfc147d025c51f61ffaee16895998c88  /home/user/e4/qa-output-33c47b3-b1F4mmMD.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

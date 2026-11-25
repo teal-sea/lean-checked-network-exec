@@ -1,0 +1,18 @@
+/home/user/e4/qa-sol-unembed-4qzvibxa/LcnExec/GeneralEngine/UnembedInner.lean:63:8: error: Type mismatch: After simplification, term
+  project_mul_bound (↑x) (↑wide) Envelope.final_stream 37
+    (of_eq_true (Eq.trans (Nat.ofNat_nonneg._simp_1 124539743797248) (eq_true True.intro)))
+    (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℤ (Eq.refl 0))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℤ (Eq.refl 37)) (Eq.refl true))
+    hxb hwb
+ has type
+  And (-(124539743797248 * 37) ≤ ↑x * ↑wide) (↑x * ↑wide ≤ 124539743797248 * 37)
+but is expected to have type
+  And (-4607970520498176 ≤ ↑x * ↑wide) (↑x * ↑wide ≤ 4607970520498176)
+/home/user/e4/qa-sol-unembed-4qzvibxa/LcnExec/GeneralEngine/UnembedInner.lean:119:14: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.2761 = ?m.2761
+but is expected to have type
+  True
+in the application
+  And.intro rfl

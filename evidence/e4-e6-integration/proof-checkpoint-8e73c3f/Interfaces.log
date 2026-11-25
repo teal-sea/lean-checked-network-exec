@@ -1,0 +1,27 @@
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/Interfaces.lean:37:40: warning: This simp argument is unused:
+  List.getElem_cons_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GeneralModel.residual]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/Interfaces.lean:54:14: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  GetElem? ℕ ℕ ?m.46 LT.lt
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/Interfaces.lean:54:35: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  GetElem? ℕ ℕ ?m.46 LT.lt
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/Interfaces.lean:54:56: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  GetElem? ℕ ℕ ?m.46 LT.lt
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/home/user/e4/qa-residual-8e73c3f-zVRuRuiF/Interfaces.lean:54:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (GeneralModel.residual xs bs)[i]! = xs[i]! * GeneralModel.ALPHA_ONE + bs[i]!
+but is expected to have type
+  (GeneralModel.residual xs bs)[i] = xs[i] * GeneralModel.ALPHA_ONE + bs[i]
+'LcnExec.GeneralEngine.residual_mul_bounds_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.residual_getElem_plain_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

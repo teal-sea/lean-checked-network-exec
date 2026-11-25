@@ -1,0 +1,70 @@
+{
+  "worker": {
+    "commit": "a9c7a09c90ab8c2c365d58ad6eec9c4a34335eea",
+    "base": "5162c2bbdb7bb335664685eed434e5bc1d424e77",
+    "admission": 2252,
+    "generation": 25,
+    "process": "proc_ace72173a19c",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "scope": "Exact third outer hidden draft rejected and not installed. Standalone interface probes do not prove the real 512-output loop.",
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-23T00:13:53.772Z",
+    "command_id": "cmd_nnucyq0hwa5x",
+    "finished_at": "2026-11-22T19:53:05.649Z",
+    "exits": {
+      "OuterRed3": 1,
+      "Tails": 1
+    },
+    "interface_axioms": {
+      "hidden_init_index_probe": "propext, sorryAx, Classical.choice, Quot.sound",
+      "hidden_runtime_bias_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_mapped_entry_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "guest_dir": "/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0",
+    "archive": "hidden-outer-red3-replay.tar.gz",
+    "archive_sha256": "574b260c1c19ccb2e2de4c333be0df8056d76c86b80b997f97d1b9952b38a514",
+    "files_sha256": {
+      "OuterRed3.lean.txt": "ba8eba1a8ba9eee24f9959ee31daf3315678c1574354392b56bf629435068d8b",
+      "OuterRed3.log": "4bc64fa5633ef484e9f708decde1de4b0e8514d4d06d071069f95665d9f389ac",
+      "OuterRed3.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "Tails.lean.txt": "dc0f92fd174bbe0716b71d5006b3d6e2c857a01a8f0c7d78769127fa2687cc22",
+      "Tails.log": "b92c7d14a1b3f471ebee904268f5df7e94c43ed616935a4e700749021d59383c",
+      "Tails.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a"
+    }
+  },
+  "exact_interfaces": {
+    "command_id": "cmd_cwnj8cuzmxtf",
+    "finished_at": "2026-11-22T19:53:43.447Z",
+    "exit": 1,
+    "axioms": {
+      "hidden_init_index_probe": "propext, sorryAx, Classical.choice, Quot.sound",
+      "hidden_runtime_bias_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_mapped_entry_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "files_sha256": {
+      "TailsExact.lean.txt": "f051709c44f937e9f16e9582264581a837db31f1debc91752b154867857e6de6",
+      "TailsExact.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "TailsExact.log": "1d9cf7264cd865fc27b8c3bcb70aad3fbbf187825c9a8bb67c040b86b9eb29d1",
+      "boat-tails-exact.json": "85df9542c80c86a6214814c4a2280f79d9e26fbeb32a7c3be237096e2ff8e24f"
+    }
+  },
+  "final_interfaces": {
+    "command_id": "cmd_cpui2jugnlwg",
+    "finished_at": "2026-11-22T19:54:52.645Z",
+    "exit": 1,
+    "axioms": {
+      "hidden_init_index_probe": "propext, sorryAx, Classical.choice, Quot.sound",
+      "hidden_runtime_bias_probe": "propext, Classical.choice, Quot.sound",
+      "hidden_mapped_entry_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "files_sha256": {
+      "TailsFinal.lean.txt": "cdacab88ed6850258a09361808307fc666f9d81d1d9cd90eb63a1095be8967c9",
+      "TailsFinal.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "TailsFinal.log": "31c7184af71d088d25fb5478a00ba8b7bed44c3fffbd588dec564d38c53836c7",
+      "boat-tails-final.json": "f804ff9377a8df20e242b887c24d5f61b819751a434b2900d52f5d0ca69ff9b2"
+    }
+  }
+}

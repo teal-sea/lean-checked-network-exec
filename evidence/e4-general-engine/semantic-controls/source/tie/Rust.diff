@@ -1,0 +1,11 @@
+--- pristine/src/lib.rs
++++ tie/src/lib.rs
+@@ -489,7 +489,7 @@
+     let mut best_value = l[0];
+     let mut c = 1;
+     while c < vocab_size {
+-        if l[c] > best_value {
++        if l[c] >= best_value {
+             best_value = l[c];
+             best = c;
+         }

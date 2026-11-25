@@ -1,0 +1,139 @@
+{
+  "bin": "weights/tiny_bytelm_v1.bin",
+  "bin_bytes": 479504,
+  "load_check": true,
+  "numpy_int_vs_ref_mismatches": 0,
+  "val_windows": 5828,
+  "head_to_head_windows": 729,
+  "float_qat": {
+    "bits_per_byte_all": 3.5874,
+    "argmax_acc_all": 0.3101,
+    "bits_per_byte_subset": 3.5857,
+    "argmax_acc_subset": 0.3032
+  },
+  "integer_engine": {
+    "bits_per_byte": 3.5857,
+    "argmax_acc": 0.3032,
+    "numpy_seconds": 20.3
+  },
+  "argmax_agreement": 1.0,
+  "logit_correlation": 1.0,
+  "logit_max_abs_diff": 0.0016759741143275164,
+  "static_bounds": {
+    "project": 1719707,
+    "head_scores": 891502878281,
+    "exp_fix": 1152921504606846976,
+    "softmax_weights": 18014398509481984,
+    "head_output.z": 28851895795712,
+    "head_output.w": 1310169096192,
+    "attention": 5381202482176,
+    "residual": 5383333188608,
+    "mlp_hidden": 53502584535111680,
+    "mlp_output": 6153453201139168371,
+    "final_stream": 6154803283735213171,
+    "unembed": 194532837451452694
+  },
+  "static_bounds_max_bits": 63,
+  "samples": [
+    {
+      "prompt": "The capital of France is",
+      "completion": " is is B",
+      "full": "The capital of France is is is B"
+    },
+    {
+      "prompt": "Rome is the capital of",
+      "completion": " the the i",
+      "full": "Rome is the capital of the the i"
+    },
+    {
+      "prompt": "A stitch in time",
+      "completion": " the the te ther",
+      "full": "A stitch in time the the te ther"
+    },
+    {
+      "prompt": "Actions speak louder",
+      "completion": " the the of ",
+      "full": "Actions speak louder the the of "
+    },
+    {
+      "prompt": "The engine checks",
+      "completion": " is is is Be is",
+      "full": "The engine checks is is is Be is"
+    },
+    {
+      "prompt": "What is a proof? A proof is",
+      "completion": " the ",
+      "full": "What is a proof? A proof is the "
+    },
+    {
+      "prompt": "two plus three is",
+      "completion": " the the the of",
+      "full": "two plus three is the the the of"
+    },
+    {
+      "prompt": "The small cat sat on",
+      "completion": "in thof is i",
+      "full": "The small cat sat onin thof is i"
+    },
+    {
+      "prompt": "Hello. How are you? I am",
+      "completion": "ou t the",
+      "full": "Hello. How are you? I amou t the"
+    },
+    {
+      "prompt": "Paris is spelled",
+      "completion": " the the the of ",
+      "full": "Paris is spelled the the the of "
+    },
+    {
+      "prompt": "Knowledge is",
+      "completion": " is tha the the the ",
+      "full": "Knowledge is is tha the the the "
+    },
+    {
+      "prompt": "Better late than",
+      "completion": " te the the in t",
+      "full": "Better late than te the the in t"
+    },
+    {
+      "prompt": "Two heads are",
+      "completion": " it the of is is Bo",
+      "full": "Two heads are it the of is is Bo"
+    },
+    {
+      "prompt": "The early bird",
+      "completion": " of is is Bhe is B",
+      "full": "The early bird of is is Bhe is B"
+    },
+    {
+      "prompt": "Where is the old book? It is",
+      "completion": " the",
+      "full": "Where is the old book? It is the"
+    },
+    {
+      "prompt": "Monday is a day",
+      "completion": "is thone the the ",
+      "full": "Monday is a dayis thone the the "
+    },
+    {
+      "prompt": "In January the days",
+      "completion": " the the t th",
+      "full": "In January the days the the t th"
+    },
+    {
+      "prompt": "The proof checks each",
+      "completion": "e capita ca",
+      "full": "The proof checks eache capita ca"
+    },
+    {
+      "prompt": "Greedy decoding always",
+      "completion": " the the c",
+      "full": "Greedy decoding always the the c"
+    },
+    {
+      "prompt": "Time heals",
+      "completion": " is is is is Bhe is is",
+      "full": "Time heals is is is is Bhe is is"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "commandId": "cmd_lcdg5spxttrx",
+  "cwd": ".",
+  "exitCode": 0,
+  "finishedAt": "2026-11-22T17:31:25.613Z",
+  "launcherFailed": false,
+  "noticedMs": 2,
+  "oomKilled": false,
+  "signal": null,
+  "startMs": 2,
+  "startedAt": "2026-11-22T17:31:20.318Z",
+  "stderr": "",
+  "stderrTruncated": false,
+  "stdout": "/home/user/e4/qa-attention-at-9a58efb-kjxVGdOI\n674760b26aaf1ab3749a327c2ef98d304cbf3ece5eb4d4c42735d89ba78470e7  /home/user/e4/qa-attention-at-9a58efb-kjxVGdOI.tar.gz\n",
+  "stdoutTruncated": false,
+  "success": true,
+  "timedOut": false
+}

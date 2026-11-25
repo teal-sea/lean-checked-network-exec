@@ -1,0 +1,15 @@
+{
+  "admission": 2242,
+  "generation": 17,
+  "worker_exit_reason": "repetition detector",
+  "source_sha256": "d9cbe4d3b2e937d63c50157699a2e274d8084fc1c79d28565a2660f18011e300",
+  "command_id": "cmd_dayvacx4jrou",
+  "finished_at": "2026-11-22T17:09:19.210Z",
+  "producer_exit": 1,
+  "guest_path": "/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean",
+  "files_sha256": {
+    "first-direct.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "first-direct.log": "167392ae835eff787790f539da3041284e3df4be7c793d2e2596d3ed644e50b5",
+    "AttentionLoop-first.lean.txt": "d9cbe4d3b2e937d63c50157699a2e274d8084fc1c79d28565a2660f18011e300"
+  }
+}

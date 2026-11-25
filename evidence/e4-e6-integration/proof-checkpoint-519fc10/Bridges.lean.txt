@@ -1,0 +1,59 @@
+import LcnExec.GeneralEngine.MlpHiddenInner
+open Aeneas Aeneas.Std Result ControlFlow
+namespace LcnExec.GeneralEngine
+
+theorem hidden_length_probe (xs ys : List Int) (h : xs.length = ys.length) :
+    (GeneralModel.hidden xs ys).length = xs.length := by
+  induction xs generalizing ys with
+  | nil => cases ys <;> rfl
+  | cons x xs ih =>
+      cases ys with
+      | nil => simp at h
+      | cons y ys =>
+          have hs : xs.length = ys.length := by simpa using h
+          simpa [GeneralModel.hidden] using ih ys hs
+
+def winRowsProbe (W : general_engine.Weights) (l : Usize) :=
+  (W.layers.val[l.val]!).win.val.map (fun row => row.val.map (·.val))
+
+theorem winRows_model_probe (W : general_engine.Weights) (l : Usize) (hl : l.val < 2) :
+    (GeneralModel.layer (toGeneralModel W) l.val).win = winRowsProbe W l := by
+  rw [model_layer_eq W l hl]
+  simp only [toLayerModel, winRowsProbe]
+  rw [getElem!_pos W.layers.val l.val (by rw [Array.length_eq]; exact hl)]
+
+theorem winRows_width_probe (W : general_engine.Weights) (l : Usize) (row : List Int)
+    (hm : row ∈ winRowsProbe W l) : row.length = 512 := by
+  rcases List.mem_map.mp hm with ⟨v, _, rfl⟩
+  simp
+
+theorem winColumn_model_probe (W : general_engine.Weights) (l : Usize) (i : Nat) (hi : i < 512) :
+    winColumn W l.val i = (winRowsProbe W l).map (fun row => GeneralModel.nth 0 row i) := by
+  unfold winRowsProbe winColumn
+  rw [List.map_map]
+  apply List.map_congr_left
+  intro row _
+  rw [Function.comp_apply, project_nth_eq 0 (row.val.map (·.val)) i
+      (by rw [List.length_map, Array.length_eq]; exact hi)]
+  simp only [List.getElem_map]
+  rw [getElem!_pos row.val i (by rw [Array.length_eq]; exact hi)]
+
+theorem bin_read_signed_probe (W : general_engine.Weights) (hW : LoadBounds W)
+    (l i : Usize) (hl : l.val < 2) (hi : i.val < 512) :
+    let lw := W.layers.val[l.val]'(by rw [Array.length_eq]; exact hl)
+    let b := lw.bin.val[i.val]'(by rw [Array.length_eq]; exact hi)
+    GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin i.val = b.val ∧
+      -1073741824 ≤ b.val ∧ b.val ≤ 1073741824 := by
+  dsimp only
+  refine ⟨?_, (layerBounds hW l hl).bin _ (List.getElem_mem _)⟩
+  rw [model_layer_eq W l hl]
+  simp only [toLayerModel]
+  rw [project_nth_eq _ _ _ (by rw [List.length_map, Array.length_eq]; exact hi)]
+  simp only [List.getElem_map]
+
+#print axioms hidden_length_probe
+#print axioms winRows_model_probe
+#print axioms winRows_width_probe
+#print axioms winColumn_model_probe
+#print axioms bin_read_signed_probe
+end LcnExec.GeneralEngine

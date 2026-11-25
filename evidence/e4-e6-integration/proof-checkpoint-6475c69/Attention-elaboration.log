@@ -1,0 +1,14 @@
+LcnExec/GeneralEngine/Attention.lean:161:70: warning: This simp argument is unused:
+  List.getElem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hs1, Array.set_val_eq, List.getElem_set_self, ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LcnExec/GeneralEngine/Attention.lean:174:37: warning: This simp argument is unused:
+  List.length_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_take]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

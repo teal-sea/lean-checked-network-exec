@@ -1,0 +1,106 @@
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:38:40: error: overloaded, errors 
+  Unknown constant `Array.getElem_repeat`
+  
+  Unknown constant `Aeneas.Std.Array.getElem_repeat`
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:36:16: warning: This simp argument is unused:
+  Array.length_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:38:16: warning: This simp argument is unused:
+  List.getElem_replicate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ints, Array.getElem_repeat]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:67:34: error: Application type mismatch: The argument
+  s
+has type
+  Std.Array I64 32#usize
+of sort `Type` but is expected to have type
+  LoadBounds W
+of sort `Prop` in the application
+  softmax_at_spec W s
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:112:13: error: Application type mismatch: The argument
+  heq
+has type
+  ints att1 =
+    List.foldl (fun acc j => GeneralModel.addV acc (GeneralModel.headTermAt (toGeneralModel W) (↑l) j (↑p) (ints2 x)))
+      (ints att) (List.range ↑hh)
+but is expected to have type
+  ints att1 =
+    List.foldl (fun acc j => GeneralModel.addV acc (GeneralModel.headTermAt (toGeneralModel W) (↑l) j (↑p) (ints2 x)))
+      (ints att) (List.range ↑h)
+in the application
+  And.intro heq
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:112:18: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:114:15: error: scalar_tac failed to prove the goal below.
+
+Note that scalar_tac is almost equivalent to:
+  scalar_tac_preprocess; omega
+
+Goal: 
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+x : Std.Array (Std.Array I64 128#usize) 32#usize
+p : Usize
+hp : ↑p < 32
+hxb : streams x
+att : Std.Array I64 128#usize
+hatt : Bounded 0 att
+h : Usize
+⊢ ↑h ≤ 4
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:119:8: error: Type mismatch
+  hbb.left
+has type
+  -0 ≤ ↑v
+but is expected to have type
+  -(↑↑h * Envelope.head_output) ≤ ↑v
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:121:8: error: Type mismatch
+  hbb.right
+has type
+  ↑v ≤ 0
+but is expected to have type
+  ↑v ≤ ↑↑h * Envelope.head_output
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:122:6: error: Tactic `rfl` failed: The left-hand side
+  ints att
+is not definitionally equal to the right-hand side
+  List.foldl (fun acc j => GeneralModel.addV acc (GeneralModel.headTermAt (toGeneralModel W) (↑l) j (↑p) (ints2 x)))
+    (ints att) (List.range ↑h)
+
+case hInv.refine_2
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+x : Std.Array (Std.Array I64 128#usize) 32#usize
+p : Usize
+hp : ↑p < 32
+hxb : streams x
+att : Std.Array I64 128#usize
+hatt : Bounded 0 att
+h : Usize
+⊢ ints att =
+    List.foldl (fun acc j => GeneralModel.addV acc (GeneralModel.headTermAt (toGeneralModel W) (↑l) j (↑p) (ints2 x)))
+      (ints att) (List.range ↑h)
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:118:19: warning: This simp argument is unused:
+  Int.mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Int.add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/user/e4/qa-att-loop-2242/AttentionLoop-first.lean:120:19: warning: This simp argument is unused:
+  Int.mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Int.add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

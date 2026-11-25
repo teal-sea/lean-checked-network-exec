@@ -1,0 +1,23 @@
+import LcnExec.GeneralEngine.LayerForward
+
+set_option maxHeartbeats 800000
+
+/-!
+# The inter-layer rescale `general_engine.rescale_clamp`
+
+Per entry `s = f[p][k] >>> 16` clamped to [-127, 127]. Exact
+`GeneralModel.rescaleClamp` (= `List.map (List.map clampEntry)`).
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem clamp_entry_spec (x : Int) :
+    (if Int.shiftRight x 16 < -127 then -127
+     else if Int.shiftRight x 16 > 127 then 127
+     else Int.shiftRight x 16) = GeneralModel.clampEntry x := by
+  simp only [GeneralModel.clampEntry]
+
+#print axioms clamp_entry_spec
+end LcnExec.GeneralEngine

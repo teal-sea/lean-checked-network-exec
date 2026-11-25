@@ -1,0 +1,92 @@
+import LcnExec.GeneralEngine.MlpHiddenInner
+
+set_option maxHeartbeats 800000
+
+/-!
+# The MLP hidden layer `general_engine.mlp_hidden`
+
+Draft: the 512-coordinate outer scan with checked dot, bias multiply/add,
+strict ReLU gate and signed shift. Remaining bridges marked below.
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem ints_length512 (m : Array I64 512#usize) : (ints m).length = 512 := by
+  simp [ints, Array.length_eq]
+
+theorem hidden_length (accs bs : List Int) (h : accs.length = bs.length) :
+    (hidden accs bs).length = accs.length := by
+  induction accs generalizing bs with
+  | nil =>
+      match bs, h with
+      | [], _ => rfl
+      | b :: bs', h => exact absurd h (by simp)
+  | cons a accs' ih =>
+      match bs, h with
+      | [], h => exact absurd h.symm (by simp)
+      | b :: bs', h => simpa [hidden] using ih bs' (by simp at h ⊢; omega)
+
+theorem mlpHidden_length (W : GeneralModel.Weights) (l : Nat) (r : List Int) :
+    (GeneralModel.mlpHidden W l r).length = 512 := by
+  rw [GeneralModel.mlpHidden, hidden_length]
+  · simp [project_lincomb_length]
+  · simp [project_lincomb_length]
+
+/-- REMAINING BRIDGE 1: the model's win rows and their length at width 512. -/
+theorem winRows_m_def (w : general_engine.Weights) (l : Nat) :
+    GeneralModel.nth [] (GeneralModel.layer (toGeneralModel w) l).win = sorry := sorry
+
+/-- REMAINING BRIDGE 2: the model's bin entries and the runtime bounds. -/
+theorem bin_entry_bridge (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2) (i : Usize) (hi : i.val < 512) :
+    (0 : Int) ≤ GeneralModel.nth 0 (GeneralModel.nth []
+        (GeneralModel.layer (toGeneralModel W) l.val).bin) i.val ∧
+    GeneralModel.nth 0 (GeneralModel.nth []
+        (GeneralModel.layer (toGeneralModel W) l.val).bin) i.val ≤ 1073741824 := sorry
+
+theorem mlp_hidden_spec (W : general_engine.Weights) (hW : LoadBounds W)
+    (l : Usize) (hl : l.val < 2)
+    (r : Array I64 128#usize) (hr : Bounded Envelope.residual r) :
+    general_engine.mlp_hidden W l r ⦃ m =>
+      ints m = GeneralModel.mlpHidden (toGeneralModel W) l.val (ints r) ∧
+      Bounded Envelope.hidden m ⦄ := by
+  have hL := layerBounds hW l hl
+  have hdotcap : (0 : Int) ≤ 128 * Envelope.residual * 82 := by
+    simp only [Envelope.residual]; norm_num
+  unfold general_engine.mlp_hidden general_engine.mlp_hidden_loop0
+  apply loop.spec_decr_nat
+    (measure := fun (st : Weights × Array I64 512#usize × Usize) => 512 - st.2.2.val)
+    (inv := fun (st : Weights × Array I64 512#usize × Usize) =>
+      st.2.2.val ≤ 512 ∧
+      st.1 = W ∧
+      Bounded Envelope.hidden st.2.1 ∧
+      (∀ (k : Nat) (hk : k < 512) (hik : k < st.2.2.val),
+        (ints st.2.1)[k]'(by rw [ints_length512]; omega) =
+          (GeneralModel.mlpHidden (toGeneralModel W) l.val (ints r))[k]'
+            (by rw [mlpHidden_length]; omega)) ∧
+      (∀ (k : Nat) (hk : k < 512) (hik : ¬ k < st.2.2.val),
+        st.2.1.val[k]'(by simp; omega) = 0#i64))
+  · rintro ⟨w1, m1, i1⟩ ⟨hi1, hw, hbd, heq, hsuf⟩
+    unfold general_engine.mlp_hidden_loop0.body
+    dsimp only at hi1 hw hbd heq hsuf ⊢
+    simp only [general_engine.D_MLP]
+    split
+    · have hi512 : i1.val < 512 := by scalar_tac
+      sorry
+    · have hi512 : i1.val = 512 := by scalar_tac
+      simp only [WP.spec_ok]
+      exact ⟨heq, hbd⟩
+  · simp only
+    refine ⟨by scalar_tac, rfl, ?_, ?_, ?_⟩
+    · intro v hv
+      rcases List.mem_replicate.mp (show v ∈ List.replicate 512 0#i64 from by
+        simpa [Array.repeat] using hv) with ⟨-, rfl⟩
+      constructor <;> simp only [Envelope.hidden] <;> norm_num
+    · intro k hk hik
+      exact absurd hik (by show ¬(k < 0); omega)
+    · intro k hk hik
+      rfl
+
+end LcnExec.GeneralEngine

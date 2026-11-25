@@ -1,0 +1,139 @@
+{
+  "bin": "weights/tiny_bytelm_v1.bin",
+  "bin_bytes": 479504,
+  "load_check": true,
+  "numpy_int_vs_ref_mismatches": 0,
+  "val_windows": 3674,
+  "head_to_head_windows": 460,
+  "float_qat": {
+    "bits_per_byte_all": 1.438,
+    "argmax_acc_all": 0.6938,
+    "bits_per_byte_subset": 1.3866,
+    "argmax_acc_subset": 0.7043
+  },
+  "integer_engine": {
+    "bits_per_byte": 1.3866,
+    "argmax_acc": 0.7043,
+    "numpy_seconds": 12.3
+  },
+  "argmax_agreement": 1.0,
+  "logit_correlation": 1.0,
+  "logit_max_abs_diff": 0.000580572112927058,
+  "static_bounds": {
+    "project": 531114,
+    "head_scores": 641183153115,
+    "exp_fix": 1152921504606846976,
+    "softmax_weights": 18014398509481984,
+    "head_output.z": 8910614298624,
+    "head_output.w": 180561764352,
+    "attention": 572392974592,
+    "residual": 574523681024,
+    "mlp_hidden": 1646509192621824,
+    "mlp_output": 65287733048975745,
+    "final_stream": 65374815944712577,
+    "unembed": 4053096106001362
+  },
+  "static_bounds_max_bits": 61,
+  "samples": [
+    {
+      "prompt": "The capital of France is",
+      "completion": " Panama ",
+      "full": "The capital of France is Panama "
+    },
+    {
+      "prompt": "Rome is the capital of",
+      "completion": " Senegal i",
+      "full": "Rome is the capital of Senegal i"
+    },
+    {
+      "prompt": "A stitch in time",
+      "completion": " saves nine.\nThe",
+      "full": "A stitch in time saves nine.\nThe"
+    },
+    {
+      "prompt": "Actions speak louder",
+      "completion": " than the ro",
+      "full": "Actions speak louder than the ro"
+    },
+    {
+      "prompt": "The engine checks",
+      "completion": " every decoding",
+      "full": "The engine checks every decoding"
+    },
+    {
+      "prompt": "What is a proof? A proof is",
+      "completion": " a ch",
+      "full": "What is a proof? A proof is a ch"
+    },
+    {
+      "prompt": "two plus three is",
+      "completion": " fifteen.\nThe c",
+      "full": "two plus three is fifteen.\nThe c"
+    },
+    {
+      "prompt": "The small cat sat on",
+      "completion": "e.\nThe capit",
+      "full": "The small cat sat one.\nThe capit"
+    },
+    {
+      "prompt": "Hello. How are you? I am",
+      "completion": " finetin",
+      "full": "Hello. How are you? I am finetin"
+    },
+    {
+      "prompt": "Paris is spelled",
+      "completion": " the broth.\nThe ",
+      "full": "Paris is spelled the broth.\nThe "
+    },
+    {
+      "prompt": "Knowledge is",
+      "completion": " the broth.\nThe capi",
+      "full": "Knowledge is the broth.\nThe capi"
+    },
+    {
+      "prompt": "Better late than",
+      "completion": " never.\nThe capi",
+      "full": "Better late than never.\nThe capi"
+    },
+    {
+      "prompt": "Two heads are",
+      "completion": " better than neveni",
+      "full": "Two heads are better than neveni"
+    },
+    {
+      "prompt": "The early bird",
+      "completion": " catches the lette",
+      "full": "The early bird catches the lette"
+    },
+    {
+      "prompt": "Where is the old book? It is",
+      "completion": " bet",
+      "full": "Where is the old book? It is bet"
+    },
+    {
+      "prompt": "Monday is a day",
+      "completion": ".\nThe capital of ",
+      "full": "Monday is a day.\nThe capital of "
+    },
+    {
+      "prompt": "In January the days",
+      "completion": " grow on tree",
+      "full": "In January the days grow on tree"
+    },
+    {
+      "prompt": "The proof checks each",
+      "completion": " layer to t",
+      "full": "The proof checks each layer to t"
+    },
+    {
+      "prompt": "Greedy decoding always",
+      "completion": " takes the",
+      "full": "Greedy decoding always takes the"
+    },
+    {
+      "prompt": "Time heals",
+      "completion": " all wounds.\nThe capit",
+      "full": "Time heals all wounds.\nThe capit"
+    }
+  ]
+}

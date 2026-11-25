@@ -1,0 +1,7 @@
+/home/user/e4/qa-hidden-a9c7a09-Yi0dDvg0/TailsExact.lean:98:2: error: 'change' tactic failed, pattern
+  (List.replicate (↑n) 0#i64)[k] = 0#i64
+is not definitionally equal to target
+  (↑(Array.repeat n 0#i64))[k] = 0#i64
+'LcnExec.GeneralEngine.hidden_init_index_probe' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_runtime_bias_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_mapped_entry_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

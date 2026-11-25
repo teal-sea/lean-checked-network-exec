@@ -1,0 +1,12 @@
+/home/user/e4/qa-hidden-5162c2b-QQgjJzMQ/Interfaces.lean:90:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m >>> ?n
+in the target expression
+  0 ≤ pre.shiftRight 8 ∧ pre.shiftRight 8 ≤ Envelope.hidden
+
+pre : ℤ
+hp : 0 < pre
+hb : pre ≤ Envelope.hidden_pre
+⊢ 0 ≤ pre.shiftRight 8 ∧ pre.shiftRight 8 ≤ Envelope.hidden
+'LcnExec.GeneralEngine.hidden_mapped_length_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_activation_bang_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.hidden_shift_bound_probe' depends on axioms: [sorryAx]

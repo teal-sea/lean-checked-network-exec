@@ -1,0 +1,7 @@
+import LcnExec.GeneralEngine.WeightedMix
+example (x : Int) (hl : -28909424869376 ≤ x) (hu : x ≤ 28909424869376) :
+    -441122816 ≤ Int.shiftRight x 16 ∧ Int.shiftRight x 16 ≤ 441122816 := by
+  have hx : Int.shiftRight x 16 = x / 65536 := by
+    exact Int.shiftRight_eq_div_pow x 16
+  rw [hx]
+  omega

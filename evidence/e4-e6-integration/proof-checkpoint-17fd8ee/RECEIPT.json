@@ -1,0 +1,38 @@
+{
+  "worker": {
+    "commit": "17fd8ee41e5cf27f39dab16abebaa149077203d3",
+    "base": "00385bba427e63f6b5efa552ebcd3b88b61c10b3",
+    "admission": 2248,
+    "generation": 21,
+    "process": "proc_8e53b7981f10",
+    "route": "alibaba-token-plan/glm-5.3"
+  },
+  "replay": {
+    "box": "bx_9m9mrg3q",
+    "cutoff": "2026-11-23T00:13:53.772Z",
+    "command_id": "cmd_zhsthsjhxz9v",
+    "finished_at": "2026-11-22T19:16:28.266Z",
+    "exits": {
+      "MlpRed2": 1,
+      "Interfaces": 0
+    },
+    "interface_axioms": {
+      "win_column_entry_probe": "propext, Classical.choice, Quot.sound",
+      "mlp_tail_linear_probe": "propext",
+      "mlp_init_upper_probe": "propext, Classical.choice, Quot.sound"
+    },
+    "guest_dir": "/home/user/e4/qa-mlp-17fd8ee-C4c8iupj",
+    "archive": "mlp-red2-replay.tar.gz",
+    "archive_sha256": "d085f91b2203893d1a46ce3fde9ecd413214ec3ff16b97793db603970683c093",
+    "files_sha256": {
+      "MlpRed2.lean.txt": "bf09d78bb896505a93ed0ecb2daf4eec3217c7517deab271522df317f6fbdbaa",
+      "MlpRed2.log": "d1f81d9f80602efd05137052902fb6f2f78b56fe63ec7a6bacfcb472de3be95e",
+      "MlpRed2.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "Interfaces.lean.txt": "ef6eabacad330fa929d72106054d84037b46e4dd6ce166b149e6adb9213d140d",
+      "Interfaces.log": "71b5e69448471faf8d7f107c7c0d22c82a9c1ab0cc88e214d7a4aff2aa1876bf",
+      "Interfaces.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a"
+    }
+  },
+  "scope": "The actual MLP hidden dot draft is rejected and not installed. The scratch bridges are separate."
+}

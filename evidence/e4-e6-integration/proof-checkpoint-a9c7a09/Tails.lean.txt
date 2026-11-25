@@ -1,0 +1,144 @@
+import LcnExec.GeneralEngine.MlpHiddenInner
+
+set_option maxHeartbeats 800000
+
+/-!
+# The MLP hidden layer `general_engine.mlp_hidden`
+-/
+
+open Aeneas Aeneas.Std Result ControlFlow
+
+namespace LcnExec.GeneralEngine
+
+theorem ints_length512 (m : Array I64 512#usize) : (ints m).length = 512 := by
+  simp [ints]
+
+def winRowsProbe (W : general_engine.Weights) (l : Usize) :=
+  (W.layers.val[l.val]!).win.val.map (fun row => row.val.map (·.val))
+
+theorem hidden_length_probe (xs ys : List Int) (h : xs.length = ys.length) :
+    (GeneralModel.hidden xs ys).length = xs.length := by
+  induction xs generalizing ys with
+  | nil => cases ys <;> rfl
+  | cons x xs ih =>
+      cases ys with
+      | nil => simp at h
+      | cons y ys =>
+          have hs : xs.length = ys.length := by simpa using h
+          simpa [GeneralModel.hidden] using ih ys hs
+
+theorem winRows_model_probe (W : general_engine.Weights) (l : Usize) (hl : l.val < 2) :
+    (GeneralModel.layer (toGeneralModel W) l.val).win = winRowsProbe W l := by
+  rw [model_layer_eq W l hl]
+  simp only [toLayerModel, winRowsProbe]
+  rw [getElem!_pos W.layers.val l.val (by rw [Array.length_eq]; exact hl)]
+
+theorem winRows_width_probe (W : general_engine.Weights) (l : Usize) (row : List Int)
+    (hm : row ∈ winRowsProbe W l) : row.length = 512 := by
+  rcases List.mem_map.mp hm with ⟨v, _, rfl⟩
+  simp
+
+theorem winColumn_model_probe (W : general_engine.Weights) (l : Usize) (i : Nat)
+    (hi : i < 512) :
+    winColumn W l.val i = (winRowsProbe W l).map (fun row => GeneralModel.nth 0 row i) := by
+  unfold winRowsProbe winColumn
+  rw [List.map_map]
+  apply List.map_congr_left
+  intro row _
+  rw [Function.comp_apply, project_nth_eq 0 (row.val.map (·.val)) i
+      (by rw [List.length_map, Array.length_eq]; exact hi)]
+  simp only [List.getElem_map]
+  rw [getElem!_pos row.val i (by rw [Array.length_eq]; exact hi)]
+
+theorem bin_read_signed_probe (W : general_engine.Weights) (hW : LoadBounds W)
+    (l i : Usize) (hl : l.val < 2) (hi : i.val < 512) :
+    let lw := W.layers.val[l.val]'(by rw [Array.length_eq]; exact hl)
+    let b := lw.bin.val[i.val]'(by rw [Array.length_eq]; exact hi)
+    GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin i.val = b.val ∧
+      -1073741824 ≤ b.val ∧ b.val ≤ 1073741824 := by
+  dsimp only
+  refine ⟨?_, (layerBounds hW l hl).bin _ (List.getElem_mem _)⟩
+  rw [model_layer_eq W l hl]
+  simp only [toLayerModel]
+  rw [project_nth_eq _ _ _ (by rw [List.length_map, Array.length_eq]; exact hi)]
+  simp only [List.getElem_map]
+
+theorem hidden_mapped_length_probe (W : general_engine.Weights) (l : Usize)
+    (hl : l.val < 2) (r : List Int) :
+    (GeneralModel.mlpHidden (toGeneralModel W) l.val r).length = 512 := by
+  have ht := project_lincomb_length 512 r (winRowsProbe W l) (winRows_width_probe W l)
+  have hb : (GeneralModel.layer (toGeneralModel W) l.val).bin.length = 512 := by
+    rw [model_layer_eq W l hl]
+    simp [toLayerModel]
+  simp only [GeneralModel.mlpHidden, winRows_model_probe W l hl]
+  rw [hidden_length_probe _ _ (ht.trans hb.symm), ht]
+
+theorem hidden_activation_bang_probe : ∀ (xs ys : List Int) (k : Nat),
+    k < xs.length → k < ys.length →
+    (GeneralModel.hidden xs ys)[k]! =
+      (let pre := xs[k]! + ys[k]! * 256
+       if pre > 0 then Int.shiftRight pre 8 else 0)
+  | [], _, _, hx, _ => by simp at hx
+  | _ :: _, [], _, _, hy => by simp at hy
+  | _ :: _, _ :: _, 0, _, _ => by simp [GeneralModel.hidden]
+  | x :: xs, y :: ys, k + 1, hx, hy => by
+      simp only [List.length_cons] at hx hy
+      simpa [GeneralModel.hidden] using hidden_activation_bang_probe xs ys k (by omega) (by omega)
+
+theorem hidden_shift_bound_probe (pre : Int) (hp : 0 < pre) (hb : pre ≤ Envelope.hidden_pre) :
+    0 ≤ Int.shiftRight pre 8 ∧ Int.shiftRight pre 8 ≤ Envelope.hidden := by
+  have hs : Int.shiftRight pre 8 = pre / 256 := Int.shiftRight_eq_div_pow pre 8
+  rw [hs]
+  change 0 ≤ pre / 256 ∧ pre / 256 ≤ 215384598773760
+  change pre ≤ 55138457286082560 at hb
+  omega
+
+theorem hidden_init_index_probe (k : Nat) (hk : k < 512) :
+    (Array.repeat 512#usize 0#i64).val[k]'(by rw [Array.length_eq]; exact hk) = 0#i64 := by
+  change (List.replicate 512 0#i64)[k]'(by rw [List.length_replicate]; exact hk) = 0#i64
+  simp only [List.getElem_replicate]
+
+theorem hidden_runtime_bias_probe (W : general_engine.Weights) (hW : LoadBounds W)
+    (l i : Usize) (hl : l.val < 2) (hi : i.val < 512) (b : I64)
+    (hread : b = (W.layers.val[l.val]'(by rw [Array.length_eq]; exact hl)).bin.val[i.val]'
+      (by rw [Array.length_eq]; exact hi)) :
+    b.val = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin i.val ∧
+      -1073741824 ≤ b.val ∧ b.val ≤ 1073741824 := by
+  have hmodel := bin_read_signed_probe W hW l i hl hi
+  have hb := congrArg (fun v : I64 => v.val) hread
+  rw [hb]
+  exact ⟨hmodel.1.symm, hmodel.2⟩
+
+theorem hidden_mapped_entry_probe (W : general_engine.Weights) (l : Usize)
+    (hl : l.val < 2) (r : List Int) (k : Nat) (hk : k < 512) :
+    (GeneralModel.mlpHidden (toGeneralModel W) l.val r)[k]'
+        (by rw [hidden_mapped_length_probe W l hl]; exact hk) =
+      (let pre := GeneralModel.dot r (winColumn W l.val k) +
+          GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) l.val).bin k * 256
+       if pre > 0 then Int.shiftRight pre 8 else 0) := by
+  let xs := GeneralModel.lincomb 512 r (winRowsProbe W l)
+  let bs := (GeneralModel.layer (toGeneralModel W) l.val).bin
+  have hxs : xs.length = 512 :=
+    project_lincomb_length 512 r (winRowsProbe W l) (winRows_width_probe W l)
+  have hbs : bs.length = 512 := by
+    dsimp only [bs]
+    rw [model_layer_eq W l hl]
+    simp [toLayerModel]
+  have hx : k < xs.length := by rw [hxs]; exact hk
+  have hb : k < bs.length := by rw [hbs]; exact hk
+  have hh : k < (GeneralModel.hidden xs bs).length := by
+    rw [hidden_length_probe xs bs (hxs.trans hbs.symm)]; exact hx
+  have hentry := hidden_activation_bang_probe xs bs k hx hb
+  rw [getElem!_pos (GeneralModel.hidden xs bs) k hh, getElem!_pos xs k hx,
+    getElem!_pos bs k hb] at hentry
+  have hdot : xs[k]'hx = GeneralModel.dot r (winColumn W l.val k) := by
+    change (GeneralModel.lincomb 512 r (winRowsProbe W l))[k]'hx = _
+    rw [project_lincomb_get 512 r (winRowsProbe W l) (winRows_width_probe W l) k hk,
+      winColumn_model_probe W l k hk]
+  rw [← project_nth_eq 0 bs k hb, hdot] at hentry
+  simpa only [GeneralModel.mlpHidden, winRows_model_probe W l hl, xs, bs] using hentry
+
+#print axioms hidden_init_index_probe
+#print axioms hidden_runtime_bias_probe
+#print axioms hidden_mapped_entry_probe
+end LcnExec.GeneralEngine

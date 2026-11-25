@@ -1,0 +1,72 @@
+{
+  "commit": "33c47b3390c66d5c945f56a9659d0257ab30b06a",
+  "parent": "fd86707bc40b22d01035c972681be12c7cf5521d",
+  "source_sha256": "aa1decc35c3fcb436c9736d87519499c03f497e3551bc3b2818642bc6a289580",
+  "final_draft_sha256": "364bd3b7f2ad9a37a1cde62c479b78c556c21ae56a96858309f77c6b03c9036d",
+  "object_sha256": "8fc8e16f65ddcfbbdfc6c99f6aae57710847cd0c4c74ae83e334f3ccd153b5dc",
+  "box": "bx_9m9mrg3q",
+  "cutoff": "2026-11-23T00:13:53.772Z",
+  "admission": 2258,
+  "generation": 30,
+  "worker_process": "proc_9ab9ebfa5cfc",
+  "replay_command_id": "cmd_gamft521sqpn",
+  "replay_finished_at": "2026-11-22T21:04:54.534Z",
+  "exits": {
+    "Build": 0,
+    "Direct": 0,
+    "Audit": 0,
+    "FinalRed": 1
+  },
+  "warnings": {
+    "Build": 18,
+    "Direct": 0,
+    "Audit": 0,
+    "FinalRed": 0
+  },
+  "axioms": {
+    "mlp_output_spec": "propext, Classical.choice, Quot.sound",
+    "mlp_output_entry_probe": "propext, Classical.choice, Quot.sound"
+  },
+  "final_draft_errors": [
+    [
+      "28",
+      "10",
+      "Tactic `rewrite` failed: Did not find an occurrence of the pattern"
+    ],
+    [
+      "179",
+      "50",
+      "unexpected token ')'; expected ']'"
+    ],
+    [
+      "171",
+      "6",
+      "unsolved goals"
+    ],
+    [
+      "44",
+      "45",
+      "unsolved goals"
+    ]
+  ],
+  "archive": "mlp-output-and-final-stream-replay.tar.gz",
+  "archive_sha256": "4a1e415e440c874373f0ac1af21b43bddfc147d025c51f61ffaee16895998c88",
+  "files_sha256": {
+    "Audit.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Audit.lean.txt": "511f19b250ae4193fa6ed9b0342d2bee7bcfca0aea0b2bb311d78ddfab99c458",
+    "Audit.log": "432d6a56788822046d9b0e18cfc9f584c562c7cefe19a9bbef7fff4ca8aec79a",
+    "Build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Build.log": "00115d96c0f95768d430443bf150685ced0f350c7be0de2619ef5b78e0c25a86",
+    "Direct.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "Direct.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "FinalRed.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "FinalRed.lean.txt": "364bd3b7f2ad9a37a1cde62c479b78c556c21ae56a96858309f77c6b03c9036d",
+    "FinalRed.log": "926cebcdf7409af3abd1b8d8d030d58f4e849dfa8165db30cb70583f21a0af86",
+    "MlpOutput.lean.txt": "aa1decc35c3fcb436c9736d87519499c03f497e3551bc3b2818642bc6a289580",
+    "object.sha256": "c3434fb99c37fcc49a79d769cd517931d1f93fd7c17b74f1ba4b0b8ddece00bb",
+    "toolchain.txt": "eb22144228dd41cd51a0c84af4f976cd0cef473102dcf99b60be756b11f2b95a",
+    "worker-fs32.log": "de48d0cfe003268d91d37931d701113542e01e4a42fa99e6a7224cfa1acab6ab",
+    "boat-command.json": "a9533e2ee50bfe2f4ee2bc2728b22ac0d2dcb6e5206fe7b3b496fc24d65f0b0c"
+  },
+  "accepted": "mlp_output_spec: exact all 128 coordinates with unscaled bias and bounded output under LoadBounds, valid layer and bounded hidden input. Final stream draft is saved, not proved."
+}

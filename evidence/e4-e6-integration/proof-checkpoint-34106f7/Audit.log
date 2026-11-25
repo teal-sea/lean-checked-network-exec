@@ -1,0 +1,12 @@
+/home/user/e4/qa-mlp-inner-34106f7-yeZy8ZHb/Audit.lean:13:64: error: Type mismatch
+  rfl
+has type
+  ?m.15 = ?m.15
+but is expected to have type
+  Envelope.hidden_pre = 128 * Envelope.residual * 82
+'LcnExec.GeneralEngine.mlp_hidden_inner_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.winColumn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.winColumn_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.win_column_entry_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LcnExec.GeneralEngine.mlp_tail_linear_probe' depends on axioms: [propext]
+'LcnExec.GeneralEngine.mlp_init_upper_probe' depends on axioms: [propext, Classical.choice, Quot.sound]

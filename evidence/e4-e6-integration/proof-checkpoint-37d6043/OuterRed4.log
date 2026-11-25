@@ -1,0 +1,214 @@
+/home/user/e4/qa-hidden-37d6043-zMP87FKd/OuterRed4.lean:98:2: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/home/user/e4/qa-hidden-37d6043-zMP87FKd/OuterRed4.lean:196:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  w1
+in the target expression
+  i1v = (↑(↑w2.layers)[↑l].bin)[↑i1]
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑w2.layers)[↑l].bin)[↑i1]
+hbin :
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bin)[↑i1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑b ∧ -1073741824 ≤ ↑b ∧ ↑b ≤ 1073741824
+⊢ i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+/home/user/e4/qa-hidden-37d6043-zMP87FKd/OuterRed4.lean:207:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  w2
+in the target expression
+  ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn W ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑w2.layers)[↑l].bin)[↑i1]
+hbin :
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bin)[↑i1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑b ∧ -1073741824 ≤ ↑b ∧ ↑b ≤ 1073741824
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+⊢ -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  Application type mismatch: The argument
+    Eq.refl true
+  has type
+    @Eq Bool true true
+  but is expected to have type
+    @Eq Bool (decide (128 ≤ UScalar.cMax UScalarTy.Usize)) true
+  in the application
+    id (Eq.refl true)
+/home/user/e4/qa-hidden-37d6043-zMP87FKd/OuterRed4.lean:242:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  w2
+in the target expression
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bin)[↑i1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑b ∧ -1073741824 ≤ ↑b ∧ ↑b ≤ 1073741824
+
+case a
+W : general_engine.Weights
+hW : LoadBounds W
+l : Usize
+hl : ↑l < 2
+r : Std.Array I64 128#usize
+hr : Bounded Envelope.residual r
+hL : LayerBounds (↑W.layers)[↑l]
+hrb : ∀ x ∈ ints r, -Envelope.residual ≤ x ∧ x ≤ Envelope.residual
+hcc : ∀ (i : Usize), ↑i < 512 → ∀ x ∈ winColumn W ↑l ↑i, -82 ≤ x ∧ x ≤ 82
+w1 : general_engine.Weights
+m1 : Std.Array I64 512#usize
+i1 : Usize
+hi1 : ↑i1 ≤ 512
+hw : w1 = W
+hbd : Bounded Envelope.hidden m1
+heq :
+  ∀ (k : ℕ) (hk : k < 512),
+    k < ↑i1 →
+      (ints m1)[k] =
+        if
+            GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+              0 then
+          (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+            8
+        else 0
+hsuf : ∀ (k : ℕ) (hk : k < 512), ¬k < ↑i1 → (↑m1)[k] = 0#i64
+h✝ : i1 < 512#usize
+hi512 : ↑i1 < 512
+hwL : LoadBounds w1
+w2 : general_engine.Weights
+acc : I64
+hw2 : w2 = w1
+hdot : ↑acc = GeneralModel.dot (ints r) (winColumn w1 ↑l ↑i1)
+hlo : -Envelope.hidden_pre ≤ ↑acc
+hhi : ↑acc ≤ Envelope.hidden_pre
+i1v : I64
+hi1v : i1v = (↑(↑w2.layers)[↑l].bin)[↑i1]
+hbin :
+  have lw := (↑W.layers)[↑l];
+  have b := (↑lw.bin)[↑i1];
+  GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 = ↑b ∧ -1073741824 ≤ ↑b ∧ ↑b ≤ 1073741824
+hread : i1v = (↑(↑W.layers)[↑l].bin)[↑i1]
+hbinv :
+  ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1 ∧ -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbb : -1073741824 ≤ ↑i1v ∧ ↑i1v ≤ 1073741824
+hbinv' : ↑i1v = GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin ↑i1
+hdotcap : -55138182408175616 ≤ ↑acc ∧ ↑acc ≤ 55138182408175616
+hminm : I64.min ≤ ↑i1v * ↑256#i64
+hmaxm : ↑i1v * ↑256#i64 ≤ I64.max
+i2 : I64
+hi2 : ↑i2 = ↑i1v * 256
+hbi2 : -274877906944 ≤ ↑i2 ∧ ↑i2 ≤ 274877906944
+hmina : I64.min ≤ ↑acc + ↑i2
+hmaxa : ↑acc + ↑i2 ≤ I64.max
+pre : I64
+hpre : ↑pre = ↑acc + ↑i2
+hpreb : -55138457286082560 ≤ ↑pre ∧ ↑pre ≤ 55138457286082560
+⊢ (do
+      let m1 ←
+        if pre > 0#i64 then do
+            let i3 ← pre >>> 8#i32
+            m1.update i1 i3
+          else ok m1
+      let i3 ← i1 + 1#usize
+      ok (cont (w2, m1, i3))) ⦃
+    r =>
+    match r with
+    | done y => ints y = GeneralModel.mlpHidden (toGeneralModel W) (↑l) (ints r) ∧ Bounded Envelope.hidden y
+    | cont x' =>
+      ↑x'.2.2 ≤ 512 ∧
+        x'.1 = W ∧
+          Bounded Envelope.hidden x'.2.1 ∧
+            (∀ (k : ℕ) (hk : k < 512),
+                k < ↑x'.2.2 →
+                  (ints x'.2.1)[k] =
+                    if
+                        GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256 >
+                          0 then
+                      (GeneralModel.dot (ints r) (winColumn W (↑l) k) +
+                            GeneralModel.nth 0 (GeneralModel.layer (toGeneralModel W) ↑l).bin k * 256).shiftRight
+                        8
+                    else 0) ∧
+              (∀ (k : ℕ) (hk : k < 512), ¬k < ↑x'.2.2 → (↑x'.2.1)[k] = 0#i64) ∧ 512 - ↑x'.2.2 < 512 - ↑i1 ⦄
+/home/user/e4/qa-hidden-37d6043-zMP87FKd/OuterRed4.lean:268:6: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information

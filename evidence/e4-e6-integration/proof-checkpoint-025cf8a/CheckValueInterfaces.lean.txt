@@ -1,0 +1,14 @@
+import LcnExec.GeneralEngine.Attention
+open Aeneas Aeneas.Std Result ControlFlow
+open LcnExec.GeneralEngine
+#check @ints2
+#check @ints
+#check @general_engine.head_out_at_loop0
+#check @general_engine.head_out_at_loop0_loop0
+#check @loop.spec_decr_nat
+#check @Array.repeat
+#check @Array.index_mut_usize_spec
+#check @Array.update_spec
+#check @List.getElem_set_self
+#check @List.getElem_set_ne
+#print axioms LcnExec.GeneralEngine.head_scores_at_spec
