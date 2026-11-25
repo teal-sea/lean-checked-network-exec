@@ -13,10 +13,10 @@ universal engine proofs (`LcnExec.GeneralEngine.*`, `LcnExec.Engine.*`), adder a
 @[default_target]
 lean_lib LcnExec where
   globs := #[
-    .andSubmodules `LcnExec.Smoke,
-    .andSubmodules `LcnExec.Adder,
-    .andSubmodules `LcnExec.Translated,
-    .andSubmodules `LcnExec.GeneralEngine,
+    .submodules `LcnExec.Smoke,
+    .submodules `LcnExec.Adder,
+    .submodules `LcnExec.Translated,
+    .submodules `LcnExec.GeneralEngine,
     .one `LcnExec.Engine.View,
     .one `LcnExec.Engine.Contract,
     .one `LcnExec.Engine.Load,
