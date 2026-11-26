@@ -6,12 +6,12 @@
 
 <!-- Left: verified chain container -->
 <rect x="24" y="24" width="464" height="339" fill="#080808" stroke="#2b2b2b" stroke-width="1"/>
-<text x="40" y="50" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#898989" letter-spacing="1.6">KERNEL-CHECKED TRUST CHAIN</text>
+<text x="40" y="50" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#898989" letter-spacing="1.4">KERNEL-CHECKED TRUST CHAIN</text>
 
 <!-- Step 1: Safe Rust -->
 <rect x="40" y="66" width="432" height="56" fill="#121212" stroke="#2b2b2b" stroke-width="1"/>
-<text x="56" y="90" font-family="Manrope, Arial, sans-serif" font-size="16.5" font-weight="600" fill="#f3f3f3">rust/general_engine/src/lib.rs</text>
-<text x="56" y="111" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="500" fill="#898989">578 lines · safe Rust · checked i64 arithmetic · load_check</text>
+<text x="56" y="90" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#f3f3f3">rust/general_engine/src/lib.rs</text>
+<text x="56" y="111" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="500" fill="#898989">578 lines · safe Rust · checked i64 · load_check</text>
 
 <!-- Arrow 1->2 -->
 <line x1="256" y1="122" x2="256" y2="138" stroke="#555555" stroke-width="1.2"/>
@@ -19,8 +19,8 @@
 
 <!-- Step 2: Charon + Aeneas -->
 <rect x="40" y="141" width="432" height="56" fill="#121212" stroke="#2b2b2b" stroke-width="1"/>
-<text x="56" y="165" font-family="Manrope, Arial, sans-serif" font-size="16.5" font-weight="600" fill="#f3f3f3">Charon + Aeneas translation</text>
-<text x="56" y="186" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="500" fill="#898989">2,019 lines · pure functional Lean 4 model of Rust MIR</text>
+<text x="56" y="165" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#f3f3f3">Charon + Aeneas translation</text>
+<text x="56" y="186" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="500" fill="#898989">2,019 lines · pure functional Lean model of Rust MIR</text>
 
 <!-- Arrow 2->3 -->
 <line x1="256" y1="197" x2="256" y2="213" stroke="#555555" stroke-width="1.2"/>
@@ -28,8 +28,8 @@
 
 <!-- Step 3: Lean 4 Proof -->
 <rect x="40" y="216" width="432" height="56" fill="#121212" stroke="#2b2b2b" stroke-width="1"/>
-<text x="56" y="240" font-family="Manrope, Arial, sans-serif" font-size="16.5" font-weight="600" fill="#f3f3f3">Lean 4.35.0 proof · general_engine_correct</text>
-<text x="56" y="261" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="500" fill="#898989">6,472 lines · 32 modules · propext, Classical.choice, Quot.sound</text>
+<text x="56" y="240" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#f3f3f3">Lean 4.35.0 · general_engine_correct</text>
+<text x="56" y="261" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="500" fill="#898989">6,472 lines · 32 modules · standard axioms only</text>
 
 <!-- Arrow 3->4 -->
 <line x1="256" y1="272" x2="256" y2="288" stroke="#555555" stroke-width="1.2"/>
@@ -37,34 +37,34 @@
 
 <!-- Step 4: nanoda_bin -->
 <rect x="40" y="291" width="432" height="56" fill="#181818" stroke="#444444" stroke-width="1"/>
-<text x="56" y="315" font-family="Manrope, Arial, sans-serif" font-size="16.5" font-weight="600" fill="#f3f3f3">nanoda_bin 0.4.19 independent recheck</text>
-<text x="56" y="336" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="500" fill="#ababab">9,261 declarations · 0 errors · 3 planted Rust bugs rejected</text>
+<text x="56" y="315" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#f3f3f3">nanoda_bin 0.4.19 independent recheck</text>
+<text x="56" y="336" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="500" fill="#ababab">9,261 declarations · 0 errors · 3/3 Rust bugs rejected</text>
 
 <!-- Dashed boundary to execution -->
 <line x1="24" y1="381" x2="488" y2="381" stroke="#3a3a3a" stroke-width="1" stroke-dasharray="4 4"/>
-<text x="24" y="400" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="600" fill="#6f6f6f" letter-spacing="1.4">COMPILED UNCHANGED · CHECKED BY COMPILE-AND-DIFF</text>
+<text x="24" y="400" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="600" fill="#6f6f6f" letter-spacing="1.2">COMPILED UNCHANGED · CHECKED BY COMPILE-AND-DIFF</text>
 
 <!-- Step 5: Execution -->
 <rect x="24" y="412" width="464" height="64" fill="#0c0c0c" stroke="#2b2b2b" stroke-width="1"/>
-<text x="40" y="437" font-family="Manrope, Arial, sans-serif" font-size="16.5" font-weight="600" fill="#f3f3f3">rustc 1.99.1 to native &amp; wasm32 (29.8 KB)</text>
-<text x="40" y="459" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="500" fill="#898989">mod113_v1: 12,769/12,769 exact · tiny_bytelm_v1: 0/51,200 mismatches</text>
+<text x="40" y="437" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#f3f3f3">rustc 1.99.1 · native &amp; wasm32 (29.8 KB)</text>
+<text x="40" y="459" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="500" fill="#898989">mod-113: 12,769/12,769 · byte LM: 0/51,200 mismatches</text>
 
 <!-- Right column: Swiss tabular numerals matching all-pairs.svg -->
-<text x="524" y="96" font-family="Manrope, Arial, sans-serif" font-size="76" font-weight="520" fill="#f3f3f3" letter-spacing="-3" style="font-variant-numeric:tabular-nums">578</text>
-<text x="524" y="132" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="500" fill="#ababab">lines of safe Rust</text>
+<text x="524" y="96" font-family="Manrope, Arial, sans-serif" font-size="72" font-weight="520" fill="#f3f3f3" letter-spacing="-3" style="font-variant-numeric:tabular-nums">578</text>
+<text x="524" y="132" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="500" fill="#ababab">lines of safe Rust</text>
 
-<line x1="524" y1="164" x2="816" y2="164" stroke="#2b2b2b"/>
+<line x1="524" y1="164" x2="812" y2="164" stroke="#2b2b2b"/>
 
-<text x="524" y="216" font-family="Manrope, Arial, sans-serif" font-size="44" font-weight="520" fill="#f3f3f3" letter-spacing="-1.5" style="font-variant-numeric:tabular-nums">9,261</text>
-<text x="524" y="246" font-family="Manrope, Arial, sans-serif" font-size="21" font-weight="500" fill="#ababab">declarations rechecked</text>
-<text x="524" y="272" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="500" fill="#898989">by Lean 4 and nanoda_bin</text>
+<text x="524" y="214" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="520" fill="#f3f3f3" letter-spacing="-1.5" style="font-variant-numeric:tabular-nums">9,261</text>
+<text x="524" y="244" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="500" fill="#ababab">declarations rechecked</text>
+<text x="524" y="270" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="500" fill="#898989">by Lean 4 and nanoda_bin</text>
 
-<line x1="524" y1="302" x2="816" y2="302" stroke="#2b2b2b"/>
+<line x1="524" y1="300" x2="812" y2="300" stroke="#2b2b2b"/>
 
-<text x="524" y="344" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="500" fill="#f3f3f3">one theorem for</text>
-<text x="524" y="374" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="500" fill="#f3f3f3">every valid checkpoint</text>
+<text x="524" y="342" font-family="Manrope, Arial, sans-serif" font-size="21" font-weight="500" fill="#f3f3f3">one theorem for</text>
+<text x="524" y="370" font-family="Manrope, Arial, sans-serif" font-size="21" font-weight="500" fill="#f3f3f3">every valid checkpoint</text>
 
-<text x="524" y="420" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="500" fill="#898989">0 sorry · 0 native_decide</text>
-<text x="524" y="446" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="500" fill="#898989">3 / 3 Rust faults rejected</text>
-<text x="524" y="472" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="500" fill="#898989">0 / 51,200 logit mismatches</text>
+<text x="524" y="416" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="500" fill="#898989">0 sorry · 0 native_decide</text>
+<text x="524" y="442" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="500" fill="#898989">3 / 3 Rust faults rejected</text>
+<text x="524" y="468" font-family="Manrope, Arial, sans-serif" font-size="15.5" font-weight="500" fill="#898989">0 / 51,200 logit mismatches</text>
 </svg>
